@@ -294,7 +294,6 @@ margin-bottom: 4%;
 } */
 .complianceCheck{
   display: inline-block;
-  vertical-align: center;
   width: 5%;
   height: 5%;
   position: relative;
@@ -313,8 +312,8 @@ margin-bottom: 4%;
 .complianceTxt{
 	display: inline-block;
 	margin-left: 10%;
+	margin-top: -8%;
  	font-size: 11px;
- 	margin-bottom:2%;
 }
 .complianceInputBox{
 	padding:2%;
@@ -327,12 +326,6 @@ margin-bottom: 4%;
 .photoUploadDiv{
 	padding: 2%;
 	margin-bottom: 5%;
-	display: inline;
-	
-}
-.photoUploadText{
-	font-size: 10px;
-	display: inline-block;
 }
 .hiddenUntilNonCompliant{
 	visibility: hidden;
@@ -347,7 +340,7 @@ margin-bottom: 4%;
 #buttonWrapper{
 	font-size:10px;
 	display:inline-block;
-	width:25%;
+	width:100%;
 	margin-top:5%;
 	vertical-align: middle;
 }
@@ -363,8 +356,4 @@ margin-bottom: 4%;
 .scoreDiv{
 	padding: 2%;
 	margin-bottom: 5%;
-}
-.ui-radio{
-	margin-top:3%;
-	margin-bottom:-3%;
 }
