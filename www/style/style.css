@@ -327,12 +327,16 @@ margin-bottom: 4%;
 .photoUploadDiv{
 	padding: 2%;
 	margin-bottom: 5%;
-	display: inline;
-	
+	display: inline-block;
+	width:100%;
 }
 .photoUploadText{
-	font-size: 10px;
+	margin-left:1%;
+	font-size: 3vw;
 	display: inline-block;
+}
+.fileUploadtxt{
+	font-size: 3vw;
 }
 .hiddenUntilNonCompliant{
 	visibility: hidden;
@@ -341,15 +345,16 @@ margin-bottom: 4%;
 .uploadPhotoButton{
 	border: 1px solid;
 	border-radius: 15px;
+	width:100%;
+	font-size:10px;
 	background-color:#E8E8E8;
 	margin:auto;
 }
 #buttonWrapper{
-	font-size:10px;
+	font-size:large;
+	width: 25%;
 	display:inline-block;
-	width:25%;
-	margin-top:5%;
-	vertical-align: middle;
+	margin-top:3%;
 }
 .notesDiv{
 	padding: 2%;
@@ -367,4 +372,16 @@ margin-bottom: 4%;
 .ui-radio{
 	margin-top:3%;
 	margin-bottom:-3%;
+}
+.footerStyled{
+	background: repeating-linear-gradient(
+	  to right,
+	  #ffffff,
+	  #ffffff 10px,
+	  #E8E8E8 10px,
+	  #E8E8E8 20px
+	);
+	height:20%;
+	width:100%;
+	margin-top:7%;
 }

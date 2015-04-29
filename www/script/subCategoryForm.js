@@ -80,7 +80,7 @@
 	    	}
 	    }
 	  	function goBack() {
-    		window.history.back();
+    		window.location.href="pageOne.html";
 		}
 		function isChecked(id){
 			var input = document.getElementById(id);

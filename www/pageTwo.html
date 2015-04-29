@@ -5,11 +5,11 @@
 	<link href="style/style.css" rel="stylesheet"/>
 	<script>
 function goBack() {
-    window.history.back()
+    window.location.href="pageOne.html";
 }
 </script>
 </head>
-<body onload="alert('test');">
+<body>
 
 <div class="center pageTwo container page">
 			<h1>Choose all Inspects you will be doing now.</h1>
@@ -52,7 +52,7 @@ function goBack() {
 			<input type="button" id="btnSave" value="Submit Form" onclick="storeLocalContent()"/>
 			<!--temporary button to navigate to form page-->
 			<input type="button" id="btnBack" onclick="processFormOrder('pageTwo', '0', 'btnBack')"/>
-			<div class="arrowleft"></div><input type="button" id="btnBack" onclick="goBack()"/></div>
+			<div class="arrowleft"></div><input type="button" id="btnBack" onclick="goBack()"></div>
 			<!-- <input type="button" value="clear" id="btnClear" onclick="clearLocalContent()"/> -->
 	</div>
 
