@@ -5,15 +5,33 @@
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
 	<script type="text/javascript">
+		function homeScreen(){
+			window.location.href="index.html";
+		}
 	</script>
 </head>
 <body>
+	<div class="englishHeader">
+		<div class="statusBarAfter"></div>
+		<btn class="goBackButton" onclick="homeScreen()">
+			<div class="goBack">
+				&lt
+			</div>
+		</btn>
+		English
+		<btn class="printerBtn" onclick="">
+			<div class="printer">
+				<img src="images/printer.png" width="100%" height="100%">
+			</div>
+		</btn>
+	</div>
 		<form>
 			<div data-role="page" class="center container" id="A.1">
+				<br>
 				<h1>A.1 Jobsite (Trailer or Vehicle)</h1>
 				<br/><br/>
 				<div class="complianceInputBox">
-					<h3>On Site Safety Representative</h3><br/>
+					<h3>On Site Safety Representative</h3>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="nonCompliant" id="A1" onclick="openTextArea('A1', 'questionOne', 'firstDiv', 'A.1');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -120,13 +138,21 @@
 				<div class="scoreDiv">
 					<h3>Score</h3><p id="A.1score">0</p>
 				</div>
-				<div class="after-form">
-	                        <input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
-				<input type="button" id="btnBack" onclick="processFormOrder('A.1', '0', 'btnBack')"/>
-				<a onclick="processFormOrder('lastPage', '1', 'arrow')"><div id="arrow" class="arrowleft"></div></a>
 
-				<!-- <input type="button" value="Clear Memory" class="btn" id="btnClear" onclick="clearLocalContent()"/> -->
+				<div class="after-form">
+	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
+	         		<div class="leftAfter-form">
+						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '1', 'btnBack')">
+					</div>
+					<div class="rightAfter-form">
+						<input type="button" id="btnSubmit" value="Submit Form" onclick="storeLocalContent()"/>
+						<div class="position">
+							<div class="arrowNext"></div>
+							<input type="button" id="btnNext" onclick="processFormOrder('A.1', '0', 'btnNext')"/>
+						</div>
 				</div>
+
+			</div>
 				<div class="footerStyled">
 					<br><br><br><br>
 				<div>

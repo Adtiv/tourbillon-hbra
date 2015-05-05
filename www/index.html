@@ -3,7 +3,7 @@
 <head>
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
-	<script>
+	<script type="text/javascript">
 		function chooseLanguage(id){
 			if(id=='English'){
 				window.location.href="pageOne.html";
@@ -25,9 +25,9 @@
 
 	<div class="center" id="homeContainer">
 
-		<div id="homeScreenHeader"><p id="headText1">Home Builders  & Remodelers Association</p><p id="headText2">of Central Connecticut</p></div>
+		<div id="homeScreenHeader"><div class="statusBar">show</div><p id="headText1">Home Builders  & Remodelers Association</p><p id="headText2">of Central Connecticut</p></div>
 
-		<div id="sponsorBox"><br><br><p id="sponsor">Please Support our Safety App Sponsors!</p><div class="ad"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_Bank.svg/1024px-Wells_Fargo_Bank.svg.png" class="adImage"></div><div class="ad"><img src="" class="adImage"></div><div class="ad" id="bottomAdd"><img src="" class="adImage"></div><div class="ad" id="bottomAdd"><img src="" class="adImage"></div><br><br><br></div>
+		<div id="sponsorBox"><br><p id="sponsor">Please Support our Safety App Sponsors!</p><div class="ad"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_Bank.svg/1024px-Wells_Fargo_Bank.svg.png" class="adImage"></div><div class="ad"><img src="" class="adImage"></div><div class="ad" id="bottomAdd"><img src="" class="adImage"></div><div class="ad" id="bottomAdd"><img src="" class="adImage"></div><br><br><br></div>
 
 		<div id="languages"><div id="footer"><btn onclick="chooseLanguage('English')"><div class= "language" id="English"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">English</div></btn><btn onclick="chooseLanguage('Spanish')"><div class= "language" id="Spanish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Spanish</div></btn><btn onclick="chooseLanguage('Portuguese')"><div class= "language" id="Portuguese"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Portuguese</div></btn><btn onclick="chooseLanguage('Polish')"><div class= "language" id="Polish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Polish</div></btn></div></div>
 
@@ -40,83 +40,4 @@
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
 <script src="vendor/dateTimePicker/jquery.datetimepicker.js"></script>
 <script src="script/app.js" type="text/javascript"></script>
-<style>
-	#homeContainer{
-	}
-	#homeScreenHeader{
-		height:12vw;
-		background-color:#E0E0E0;
-		width:100%;
-		color:#333399;
-		position:relative;
-	}
-	#headText1{
-		font-size: 4.7vw;
-	}
-	#headText2{
-		font-size:4vw;
-	}
-	#sponsor{
-		font-size:3vw;
-		margin-bottom:2%;
-	}
-	#sponsorBox{
-		width:100%;
-		text-align: center;
-		margin-top:4%;
-		position:fixed;
-		display: inline-block;
-	}
-	.ad{
-		position:relative;
-		display:inline-block;
-		width:40%;
-		padding:1%;
-		padding-top:5%;
-		padding-bottom:5%;
-		margin:1%;
-	}
-	#bottomAdd{
-		margin-bottom: 10%;
-	}
-	.adImage{
-		width:35vw;
-		height:35vw;
-	}
-	#languages{
-		width:100%;
-		text-align:center;
-        bottom: 0;
-        font-size:2.8vw;
-        position:fixed;
-	}
-	#footer{
-		background-color: black;
-		width:100%;
-		bottom:0;
-		margin-top:100%; 
-		display: inline;
-		padding-bottom:1%;
-		padding-top:2%;
-	}
-	.language{
-		padding-top:2%;
-		display: inline-block;
-		color:white;
-		background-color:#585858;
-		width:23%;
-		margin-right: 1%;
-	}
-	#English{
-		margin-left: 1%;
-	}
-	.btnLine{
-		margin-top: 6%;
-		width: 35%;
-		color:#99CCFF;
-	}
-	#lastLine{
-		margin-bottom: 6%;
-	}
-</style>
 </html>
