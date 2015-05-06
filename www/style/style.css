@@ -40,7 +40,7 @@ form{
 	height: 40px;
 	font-size: 13pt;
 	padding-left: 3px;
-	border: 0px solid black;
+	border: 1px solid gray;
 	font-weight: normal;
 	box-shadow: inset 0px 1px 5px black;
 	border-radius: 5px;
@@ -100,7 +100,7 @@ margin-top: 1%;
 	height:90px;
 	font-size:13pt;
 	padding:3px 0 0 3px;
-	border: 0px solid black;
+	border: 1px solid gray;
 	font-weight: normal;
 	box-shadow: inset 0px 1px 5px black;
 	border-radius: 5px;
@@ -304,9 +304,11 @@ margin-bottom: 4%;
 	position:relative;
 }
 #headText1{
+	font-weight: bold;
 	font-size: 4.7vw;
 }
 #headText2{
+	font-weight: bold;
 	font-size:4.2vw;
 }
 #sponsor{
@@ -406,12 +408,10 @@ margin-bottom: 4%;
 	float: left;
 }
 .complianceCheck{
-  display: inline-block;
-  vertical-align: center;
-  width: 5%;
-  height: 5%;
-  margin: 2% auto;
-  background: #fcfff4;  
+	background-color:#F0F8FF;
+}
+.complianceCheck:checked{
+	background-color: black;
 }
 .compliance-label{
 	padding-left: 5%;
@@ -425,7 +425,7 @@ margin-bottom: 4%;
 .complianceTxt{
 	display: inline-block;
 	margin-left: 10%;
- 	font-size: 11px;
+ 	font-size: 3.5vw;
  	margin-bottom:2%;
 }
 .complianceInputBox{
@@ -443,7 +443,6 @@ margin-bottom: 4%;
 	width:100%;
 }
 .photoUploadText{
-	
 	margin-left:1%;
 	font-size: 3vw;
 	display: inline-block;

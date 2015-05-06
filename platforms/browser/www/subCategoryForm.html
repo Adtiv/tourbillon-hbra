@@ -136,15 +136,23 @@
 					</textarea>
 				</div>
 				<div class="scoreDiv">
-					<h3>Score</h3><p id="A.1score">0</p>
+					<h3>Score:</h3><br><p id="A.1score">0</p><br>
 				</div>
-				<div class="after-form">
-  					<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
-				<input type="button" id="btnNext" onclick="processFormOrder('A.1', '0', 'btnNext')"/>
-				<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '1', 'btnBack')"></div>
 
-				<!-- <input type="button" value="Clear Memory" class="btn" id="btnClear" onclick="clearLocalContent()"/> -->
+				<div class="after-form">
+	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
+	         		<div class="leftAfter-form">
+						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '1', 'btnBack')">
+					</div>
+					<div class="rightAfter-form">
+						<input type="button" id="btnSubmit" value="Submit Form" onclick="storeLocalContent()"/>
+						<div class="position">
+							<div class="arrowNext"></div>
+							<input type="button" id="btnNext" onclick="processFormOrder('A.1', '0', 'btnNext')"/>
+						</div>
 				</div>
+
+			</div>
 				<div class="footerStyled">
 					<br><br><br><br>
 				<div>

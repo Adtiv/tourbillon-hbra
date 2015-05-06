@@ -28,9 +28,9 @@
 		</btn>
 	</div>
 <div class="center pageTwo container page"><br><br>
-			<h1>Choose all Inspects you will be doing now.</h1>
+			<h1>Choose all Inspections you will be doing now.</h1><br>
 		<form>
-			<h3>A. General Inspection:</h3>
+			<p class="inspCategory">A. General Inspection:</p><br>
 			       <div class="form-label"><input type="checkbox" class="check" name="option1" id="jobsite" value="JobsiteInspection" onclick="isChecked('jobsite')"> <div class="label-inset">A.) Jobsite(Trailer or Vehicle)</div></div><br>
 				<div class="form-label"><input type="checkbox" class="check" name="option1" id="facility" value="FacilitySecurity" onclick="isChecked('facility')"> <div class="label-inset">B.) Facility Security &amp; Public Safety</div></div><br>
 				<div class="form-label"><input type="checkbox" class="check" name="option1" id="ppe" value="PPE" onclick="isChecked('ppe')"> <div class="label-inset">C.) Personal Protection Equiptment(PPE)</div></div><br>
@@ -39,26 +39,26 @@
 				<div class="form-label"><input type="checkbox" class="check" name="option1" id="traffic" value="TrafficControl" onclick="isChecked('traffic')"> <div class="label-inset">F.) Traffic Control</div></div><br>
 				<div class="form-label"><input type="checkbox" class="check" name="option1" id="hazardSubs" value="HazardousSubstances" onclick="isChecked('hazardSubs')"> <div class="label-inset">G.) Hazardous Substances</div></div><br>
 			         <div class="form-label"><input type="checkbox" class="check" name="option1" id="licensing" value="licensing" onclick="isChecked('licensing')"> <div class="label-inset">H.) Licensing</div></div><br><br>
-			
-			<h3>B. Fall Prevention</h3>
+			<br>
+			<p class="inspCategory">B. Fall Prevention:</p><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="generalFall" value="GeneralFall" onclick="isChecked('generalFall')"> <div class="label-inset">A.) General Fall Protection</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="scaffold" value="Scaffolding"> <div class="label-inset">B.) Scaffolding</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="ladder" value="LadderStair"> <div class="label-inset">C.) Ladders/Stairways</div></div><br><br>
 
-
-			<h3>C. Power Tools/Electrical</h3>
+			<br>
+			<p class="inspCategory">C. Power Tools/Electrical:</p><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="tool" value="Tools"> <div class="label-inset">A.) Hand &amp; Power Tools</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="electric" value="Electrical"> <div class="label-inset">B.) Electrical</div></div><br><br>
 
-
-			<h3>D. Heavy Equipment</h3>
+			<br>
+			<p class="inspCategory">D. Heavy Equipment:</p><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="crane" value="cranes"> <div class="label-inset">A.) Cranes / Hoists / Elevators</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="heavyEq" value="heavyEquip"> <div class="label-inset">B.) Heavy Equipment</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="trench" value="trenching"> <div class="label-inset">C.) Trenching &amp; Excavations</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="demo" value="demolition"> <div class="label-inset">D.) Demolition &amp; Blasting</div></div><br><br>
 
-
-			<h3>E. Specialty Trades / Operations</h3>
+			<br>
+			<p class="inspCategory">E. Specialty Trades / Operations:</p><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="sErection" value="steelErection"> <div class="label-inset">A.) Steel Erection</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="conc" value="concrete"> <div class="label-inset">B.) Concrete &amp; Masonry</div></div><br>
 			<div class="form-label"><input type="checkbox" class="check" name="option1" id="weld" value="welding"> <div class="label-inset">C.) Welding / Cutting / Hot Work</div></div><br><br><br>
@@ -69,7 +69,7 @@
 					<div class="arrowleft"></div><input type="button" id="btnBack" onclick="goBack()">
 				</div>
 				<div class="rightAfter-form">
-					<input type="button" id="btnLeft" value="Submit Form" onclick="storeLocalContent()"/>
+					<input type="button" id="btnSubmit" value="Submit Form" onclick="storeLocalContent()"/>
 					<div class="position">
 						<div class="arrowNext"></div>
 						<input type="button" id="btnNext" onclick="processFormOrder('pageTwo', '0', 'btnBack')"/>
@@ -79,7 +79,13 @@
 			</div>
 			<!-- <input type="button" value="clear" id="btnClear" onclick="clearLocalContent()"/> -->
 	</div>
-
+	<style>
+		.inspCategory{
+			color:black;
+			font-size: 4.5vw;
+			font-weight: bolder;
+		}
+	</style>
 </body>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/ >
 <script src="vendor/jquery.js"></script>
