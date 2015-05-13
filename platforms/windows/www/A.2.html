@@ -39,17 +39,24 @@
 				</div>
 				<div class="notesDiv">
 					<h3>Notes:</h3>
-					<textarea class="notes">
+					<textarea class="notes" id="A.2notes">
 					</textarea>
 				</div>
 				<div class="scoreDiv">
 					<h3>Score</h3><p id="A.2score">0</p>
 				</div>
+
 				<div class="after-form">
-	                        <input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
-				<input type="button" id="btnBack" onclick="processFormOrder('A.2', '0', 'btnBack')"/>
-				<a onclick="processFormOrder('lastPage', '0', 'arrow')"><div id="arrow" class="arrowleft"></div></a>
-				<!-- <input type="button" value="Clear Memory" class="btn" id="btnClear" onclick="clearLocalContent()"/> -->
+	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms()"/>
+	         		<div class="leftAfter-form">
+						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '0', 'btnBack')">
+					</div>
+					<div class="rightAfter-form">
+						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatForms()"/>
+						<div class="position">
+							<div class="arrowNext"></div>
+							<input type="button" id="btnNext" onclick="processFormOrder('A.2', '0', 'btnNext')"/>
+						</div>
 				</div>
 			</div>
 		</form>

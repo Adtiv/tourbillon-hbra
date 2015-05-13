@@ -273,12 +273,6 @@
 					x++;
 				}				
 			}
-			if(x==(checked.length-2)){
-				hidebutton.style.visibility="hidden";
-			}
-			else{
-				hidebutton.style.visibility="visible";
-			}
 			if(x==0 && page=="lastPage"){
 				if(checked[x]==1){
 					if(bound==1){
@@ -329,4 +323,70 @@
 				var y = localStorage.setItem("y", x);
 			}
 		}
-		
+		function A_1OnLoad(){
+			var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
+			if(!bSupportsLocal){
+				document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
+				return;
+			}
+			if(window.localStorage.length != 0){
+					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
+					document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('A.1compliance1').value = window.localStorage.getItem('A.1compliance1');
+								var showDiv=document.getElementById('firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('A.1compliance2').value = window.localStorage.getItem('A.1compliance2');
+								var showDiv=document.getElementById('secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('A.1compliance3').value = window.localStorage.getItem('A.1compliance3');
+								var showDiv=document.getElementById('thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('A.1compliance4').value = window.localStorage.getItem('A.1compliance4');
+								var showDiv=document.getElementById('fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+			}
+		}
+		function localStorageSubCatForms(){
+				alert('hey');
+				var score1 = document.getElementById('A.1score').innerHTML;
+				alert(score1);
+				var endNotes1 = document.getElementById('A.1notes').value;
+				var A_1firstCompliance = document.getElementById('A.1compliance1').value;
+				var A_1secondCompliance = document.getElementById('A.1compliance2').value;
+				var A_1thirdCompliance = document.getElementById('A.1compliance3').value;
+				var A_1fourthCompliance = document.getElementById('A.1compliance4').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('A.1notes', endNotes1);
+				window.localStorage.setItem('A.1score', score1);
+				window.localStorage.setItem('A.1compliance1', A_1firstCompliance);
+				window.localStorage.setItem('A.1compliance2', A_1secondCompliance);
+				window.localStorage.setItem('A.1compliance3', A_1thirdCompliance);
+				window.localStorage.setItem('A.1compliance4', A_1fourthCompliance);
+		} 
+
+	window.onload=A_1OnLoad();
