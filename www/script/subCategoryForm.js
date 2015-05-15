@@ -56,12 +56,12 @@
 	        	scoreTracker(index, page);
 	        }
 	    }
-	    //adds up the scores for each question and displays the final score
 	    function zeroOutScore(){
 	    	for(i=0; i<scoreTrack.length; i++){
 	    		scoreTrack[i]=0;
 	    	}
 	    }
+	    //adds up the scores for each question and displays the final score
 	    function scoreTracker(index, page){
 	    	scoreTrack[index]= score;
 	    	var finalScore=0;
@@ -82,6 +82,7 @@
 	  	function goBack() {
     		window.location.href="pageOne.html";
 		}
+		//Creates an array with 1 as a checked form 0 unchecked
 		function isChecked(id){
 			var input = document.getElementById(id);
 			var isChecked = input.checked;
@@ -247,7 +248,27 @@
 				}
 			}
 		}
-		function processFormOrder(page, bound, btnID){
+		var s;
+		var globalPageIdentifier="page";
+		//Used for the form buttons, navigation/storing
+		function processFormOrder(page, bound, btnID, storePage){
+			//logic for storing local content on page
+			if(storePage=="A_1"){
+				localStorageSubCatForms('A_1');
+			}
+			else if(storePage=="A_2"){
+				localStorageSubCatForms('A_2');
+			}
+			else if(storePage=="A_3"){
+				localStorageSubCatForms('A_3');
+			}
+			else if(storePage=="A_4"){
+				localStorageSubCatForms('A_4');
+			}
+			else{
+				localStorageSubCatForms('A_5');
+			}
+			//stores the order of forms selected from pageTwo
 			var checked;
 			if(page=="pageTwo"){
 				var y = 0;
@@ -257,6 +278,7 @@
 			var checked= JSON.parse(localStorage["checkedForms"]);
 			var x = localStorage.getItem("y");
 			var hidebutton = document.getElementById(btnID);
+			//Back button 
 			if(page=="lastPage"){
 				if(x!=0){
 					x--;
@@ -265,6 +287,7 @@
 					}
 				}
 			}
+			//Next button
 			else{
 				if(page!="pageTwo"){
 					x++;
@@ -286,16 +309,24 @@
 					window.location.href="pageTwo.html";
 				}
 			}
+			//Navigating to correct page based on Checked array
 			else{
 				if(checked[x]==1){
 					if(x==0){
+						var z = "A_1";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
 						window.location.href="subCategoryForm.html";
 					}
 					else if(x==1){
+						var z = "A_2";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.2.html";
 					}
 					else if(x==2){
+						var z = "A_3";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.3.html";
 					}
@@ -323,13 +354,17 @@
 				var y = localStorage.setItem("y", x);
 			}
 		}
-		function A_1OnLoad(){
+
+		//Initializes the localstorage based on the page
+		function initialize(page){
 			var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 			if(!bSupportsLocal){
 				document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
 				return;
 			}
 			if(window.localStorage.length != 0){
+				alert(page);
+				if(page=="A_1"){
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
 					document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
 					$('input[type=radio]').each(function()
@@ -364,12 +399,49 @@
 							}
 						}
 				    });
+				}
+				else if(page=="A_2"){
+					document.getElementById('A.2notes').value = window.localStorage.getItem('A.2notes');
+					document.getElementById('A.2score').innerHTML = window.localStorage.getItem('A.2score');
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('A.2compliance1').value = window.localStorage.getItem('A.2compliance1');
+								var showDiv=document.getElementById('firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
+				else if(page=="A_3"){
+					document.getElementById('A.3notes').value = window.localStorage.getItem('A.3notes');
+					document.getElementById('A.3score').innerHTML = window.localStorage.getItem('A.3score');
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('A.3compliance1').value = window.localStorage.getItem('A.3compliance1');
+								var showDiv=document.getElementById('firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
 			}
 		}
-		function localStorageSubCatForms(){
-				alert('hey');
+		//save to localStorage based on the page
+		function localStorageSubCatForms(page){
+			if(page=="A_1"){
 				var score1 = document.getElementById('A.1score').innerHTML;
-				alert(score1);
 				var endNotes1 = document.getElementById('A.1notes').value;
 				var A_1firstCompliance = document.getElementById('A.1compliance1').value;
 				var A_1secondCompliance = document.getElementById('A.1compliance2').value;
@@ -387,6 +459,47 @@
 				window.localStorage.setItem('A.1compliance2', A_1secondCompliance);
 				window.localStorage.setItem('A.1compliance3', A_1thirdCompliance);
 				window.localStorage.setItem('A.1compliance4', A_1fourthCompliance);
-		} 
+			}
+			else if(page=="A_2"){
+				var score2 = document.getElementById('A.2score').innerHTML;
+				var endNotes2 = document.getElementById('A.2notes').value;
+				var A_2firstCompliance = document.getElementById('A.2compliance1').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('A.2notes', endNotes2);
+				window.localStorage.setItem('A.2score', score2);
+				window.localStorage.setItem('A.2compliance1', A_2firstCompliance);
+			}
+			else if(page=="A_3"){
+				var score3 = document.getElementById('A.3score').innerHTML;
+				var endNotes3 = document.getElementById('A.3notes').value;
+				var A_3firstCompliance = document.getElementById('A.3compliance1').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('A.3notes', endNotes3);
+				window.localStorage.setItem('A.3score', score3);
+				window.localStorage.setItem('A.3compliance1', A_3firstCompliance);
+			}
+		}
+	//Tracking the page on a global level through local storage. 
+	globalPageIdentifier=localStorage.getItem("s");
+	alert(globalPageIdentifier);
+	if(globalPageIdentifier=="A_1"){
+		window.onload=initialize('A_1');
+	}
+	else if(globalPageIdentifier=="A_2"){
+		window.onload=initialize('A_2');
+	}
+	else{
+		window.onload=initialize('A_3');
+	}
 
-	window.onload=A_1OnLoad();
+	
