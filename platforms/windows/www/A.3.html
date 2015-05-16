@@ -26,7 +26,7 @@
 					<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="N/A" id="D6" onclick="openTextArea('D6', 'questionOne', 'A.3firstDiv', 'A.3');"> <div class="complianceTxt">N/A</div></div><br>
 					<div class="hiddenUntilNonCompliant" id="A.3firstDiv">
 						<h4>Why partially / non compliant?</h4><br>
-						<textarea class="complianceTextArea"></textarea>
+						<textarea class="complianceTextArea" id="A.3compliance1"></textarea>
 					</div><br>
 				</div>
 				<div class="photoUploadDiv">
@@ -41,7 +41,7 @@
 				</div>
 				<div class="notesDiv">
 					<h3>Notes:</h3>
-					<textarea class="notes">
+					<textarea class="notes" id="A.3notes">
 					</textarea>
 				</div>
 				<div class="scoreDiv">
@@ -51,13 +51,13 @@
 				<div class="after-form">
 	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
 	         		<div class="leftAfter-form">
-						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '0', 'btnBack')">
+						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '0', 'btnBack', 'A_3')">
 					</div>
 					<div class="rightAfter-form">
-						<input type="button" id="btnSubmit" value="Submit Form" onclick="storeLocalContent()"/>
+						<input type="button" id="btnSubmit" value="Submit Form" onclick="storeLocalContent('A_3')"/>
 						<div class="position">
 							<div class="arrowNext"></div>
-							<input type="button" id="btnNext" onclick="processFormOrder('A.3', '0', 'btnNext')"/>
+							<input type="button" id="btnNext" onclick="processFormOrder('A.3', '0', 'btnNext', 'A_3')"/>
 						</div>
 				</div>
 			</div>

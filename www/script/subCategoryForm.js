@@ -296,12 +296,18 @@
 					x++;
 				}				
 			}
+			var y;
+			var z;
+			//bound checks whether we want to go back to the checks page. 
 			if(x==0 && page=="lastPage"){
+				y = localStorage.setItem("y", x);
 				if(checked[x]==1){
 					if(bound==1){
 						window.location.href="pageTwo.html";
 					}
 					else{
+						z = "A_1";
+						s=window.localStorage.setItem("s", z);
 						window.location.href="subCategoryForm.html";
 					}
 				}
@@ -313,19 +319,19 @@
 			else{
 				if(checked[x]==1){
 					if(x==0){
-						var z = "A_1";
+						z = "A_1";
 						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="subCategoryForm.html";
 					}
 					else if(x==1){
-						var z = "A_2";
+						z = "A_2";
 						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.2.html";
 					}
 					else if(x==2){
-						var z = "A_3";
+						z = "A_3";
 						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.3.html";
@@ -351,7 +357,8 @@
 						window.location.href="A.8.html";
 					}
 				}
-				var y = localStorage.setItem("y", x);
+				//stores the x value
+				y = localStorage.setItem("y", x);
 			}
 		}
 
@@ -363,7 +370,7 @@
 				return;
 			}
 			if(window.localStorage.length != 0){
-				alert(page);
+				alert("pageInitialized:" + page);
 				if(page=="A_1"){
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
 					document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
@@ -411,7 +418,7 @@
 						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
 							if(this.name=='box1'){
 								document.getElementById('A.2compliance1').value = window.localStorage.getItem('A.2compliance1');
-								var showDiv=document.getElementById('firstDiv');
+								var showDiv=document.getElementById('A.2firstDiv');
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
@@ -429,7 +436,7 @@
 						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
 							if(this.name=='box1'){
 								document.getElementById('A.3compliance1').value = window.localStorage.getItem('A.3compliance1');
-								var showDiv=document.getElementById('firstDiv');
+								var showDiv=document.getElementById('A.3firstDiv');
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
@@ -459,6 +466,7 @@
 				window.localStorage.setItem('A.1compliance2', A_1secondCompliance);
 				window.localStorage.setItem('A.1compliance3', A_1thirdCompliance);
 				window.localStorage.setItem('A.1compliance4', A_1fourthCompliance);
+				alert("stored:" + page);
 			}
 			else if(page=="A_2"){
 				var score2 = document.getElementById('A.2score').innerHTML;
@@ -491,7 +499,6 @@
 		}
 	//Tracking the page on a global level through local storage. 
 	globalPageIdentifier=localStorage.getItem("s");
-	alert(globalPageIdentifier);
 	if(globalPageIdentifier=="A_1"){
 		window.onload=initialize('A_1');
 	}
@@ -501,5 +508,3 @@
 	else{
 		window.onload=initialize('A_3');
 	}
-
-	
