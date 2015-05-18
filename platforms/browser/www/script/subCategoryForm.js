@@ -2,6 +2,7 @@
 		var i;
 		var index=0;
 		var scoreTrack = new Array(5+1).join('0').split('').map(parseFloat);
+		var allScoresArray = new Array(5);
 		var checkedForms= new Array(19+1).join('0').split('').map(parseFloat);
 		/*
 		function initializeCheckedForms(){
@@ -62,20 +63,68 @@
 	    	}
 	    }
 	    //adds up the scores for each question and displays the final score
+	    var l;
+	    var getScore1; //= localStorage.getItem("storeScore");
+	    var storeScore1 = new Array(4);
 	    function scoreTracker(index, page){
-	    	scoreTrack[index]= score;
+	    	getScore1 = localStorage.getItem('l');
+			alert("getScore" + getScore1);
 	    	var finalScore=0;
-	    	for(i=0; i<5; i++){
-	    		finalScore+=scoreTrack[i];
-	    	}
-	    	score = finalScore;
 	    	if(page=="A.1"){
-				document.getElementById("A.1score").innerHTML=score;
+	    		if(getScore1==null){
+	    			alert('first');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[0]=scoreTrack;
+			    	for(i=0; i<5; i++){
+			    		finalScore+=allScoresArray[0][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("A.1score").innerHTML=score;
+				}
+				else{
+					alert('second');
+					allScoresArray[0]=getScore1;
+					for(i=0; i<8; i=i+2){
+						if(allScoresArray[0][i]=="0"){
+							storeScore1[i/2]=0;
+						}
+						else if(allScoresArray[0][i]=="1"){
+							storeScore1[i/2]=1;
+						}
+						else if(allScoresArray[0][i]=="3"){
+							storeScore1[i/2]=3;
+						}
+						else if(allScoresArray[0][i]=="5"){
+							storeScore1[i/2]=5;
+						}
+					}
+		    		storeScore1[index]= score;
+			    	for(i=0; i<4; i++){
+			    		finalScore+=storeScore1[i];
+			    	}
+			    	score = finalScore;
+			    	l =window.localStorage.setItem('l', storeScore1);
+		    		document.getElementById("A.1score").innerHTML=score;
+				}
 	    	}
 	    	else if(page=="A.2"){
+	    		alert('A.2');
+	    		scoreTrack[index]= score;
+		    	allScoresArray[1]=scoreTrack;
+		    	for(i=0; i<5; i++){
+		    		finalScore+=allScoresArray[1][i];
+		    	}
+		    	score = finalScore;
 	    		document.getElementById("A.2score").innerHTML=score;
 	    	}
 	    	else{
+	    		scoreTrack[index]= score;
+		    	allScoresArray[2]=scoreTrack;
+		    	alert("this " + allScoresArray[2][index]);
+		    	for(i=0; i<5; i++){
+		    		finalScore+=allScoresArray[2][i];
+		    	}
+		    	score = finalScore;
 	    		document.getElementById("A.3score").innerHTML=score;
 	    	}
 	    }
@@ -254,6 +303,13 @@
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
 			if(storePage=="A_1"){
+				//if first time store allScoresArray[0] else store test
+				if(getScore1==null){
+					l =window.localStorage.setItem('l', allScoresArray[0]);
+				}
+				else{
+					l =window.localStorage.setItem('l', storeScore1);
+				}
 				localStorageSubCatForms('A_1');
 			}
 			else if(storePage=="A_2"){
@@ -370,7 +426,6 @@
 				return;
 			}
 			if(window.localStorage.length != 0){
-				alert("pageInitialized:" + page);
 				if(page=="A_1"){
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
 					document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
@@ -466,7 +521,6 @@
 				window.localStorage.setItem('A.1compliance2', A_1secondCompliance);
 				window.localStorage.setItem('A.1compliance3', A_1thirdCompliance);
 				window.localStorage.setItem('A.1compliance4', A_1fourthCompliance);
-				alert("stored:" + page);
 			}
 			else if(page=="A_2"){
 				var score2 = document.getElementById('A.2score').innerHTML;
