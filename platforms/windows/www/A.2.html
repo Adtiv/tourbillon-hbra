@@ -8,9 +8,24 @@
 	</script>
 </head>
 <body>
+	<div class="englishHeader">
+		<div class="statusBarAfter"></div>
+		<btn class="goBackButton" onclick="homeScreen()">
+			<div class="goBack">
+				&lt
+			</div>
+		</btn>
+		English
+		<btn class="printerBtn" onclick="">
+			<div class="printer">
+				<img src="images/printer.png" width="100%" height="100%">
+			</div>
+		</btn>
+	</div>
 		<form>
 			<div data-role="page" class="center container" id="A.2">
-				<h1>A.2 Facility Security & Public Safety</h1>
+				<br>
+				<p class="formTitle">A.2 Facility Security & Public Safety</p>
 				<br/><br/>
 				<div class="complianceInputBox">
 					<h3>Site perimeter fence in place and secure</h3><br/>
@@ -23,7 +38,7 @@
 
 					<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="N/A" id="D5" onclick="openTextArea('D5', 'questionOne', 'A.2firstDiv', 'A.2');"> <div class="complianceTxt">N/A</div></div><br>
 					<div class="hiddenUntilNonCompliant" id="A.2firstDiv">
-						<h4>Why partially / non compliant?</h4><br>
+						<h3>Why partially / non compliant?</h3><br>
 						<textarea class="complianceTextArea" id="A.2compliance1"></textarea>
 					</div><br>
 				</div>
@@ -35,7 +50,107 @@
 					<div class="photoUploadText">
 						no file selected
 					</div>
-					<p style="font-size:11px">File uploads may not work on some mobile devices.</p> 
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<div class="complianceInputBox">
+					<h3>Warning signs (hard hats, No Trespassing, etc.)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="nonCompliant" id="A6" onclick="openTextArea('A6', 'questionTwo', 'A.2secondDiv', 'A.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="partiallyCompliant" id="B6" onclick="openTextArea('B6', 'questionTwo', 'A.2secondDiv', 'A.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="fullyCompliant" id="C6" onclick="openTextArea('C6', 'questionTwo', 'A.2secondDiv', 'A.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="N/A" id="D6" onclick="openTextArea('D6', 'questionTwo', 'A.2secondDiv', 'A.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="A.2secondDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="A.2compliance2"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+					<div id="buttonWrapper">
+						<button class="uploadPhotoButton">Choose File</button>
+					</div>
+					<div class="photoUploadText">
+						no file selected
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<div class="complianceInputBox">
+					<h3>Travel/Access Ways(unobstructed and maintained)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="nonCompliant" id="A7" onclick="openTextArea('A7', 'questionThree', 'A.2thirdDiv', 'A.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="partiallyCompliant" id="B7" onclick="openTextArea('B7', 'questionThree', 'A.2thirdDiv', 'A.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="fullyCompliant" id="C7" onclick="openTextArea('C7', 'questionThree', 'A.2thirdDiv', 'A.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="N/A" id="D7" onclick="openTextArea('D7', 'questionThree', 'A.2thirdDiv', 'A.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="A.2thirdDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="A.2compliance3"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+					<div id="buttonWrapper">
+						<button class="uploadPhotoButton">Choose File</button>
+					</div>
+					<div class="photoUploadText">
+						no file selected
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<div class="complianceInputBox">
+					<h3>All holes and openings (floor, roof window and other) adequately protected by barriers/barricades and MARKED</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="nonCompliant" id="A8" onclick="openTextArea('A8', 'questionFour', 'A.2fourthDiv', 'A.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="partiallyCompliant" id="B8" onclick="openTextArea('B8', 'questionFour', 'A.2fourthDiv', 'A.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="fullyCompliant" id="C8" onclick="openTextArea('C8', 'questionFour', 'A.2fourthDiv', 'A.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="N/A" id="D8" onclick="openTextArea('D8', 'questionFour', 'A.2fourthDiv', 'A.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="A.2fourthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="A.2compliance4"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+					<div id="buttonWrapper">
+						<button class="uploadPhotoButton">Choose File</button>
+					</div>
+					<div class="photoUploadText">
+						no file selected
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<div class="complianceInputBox">
+					<h3>Public and Worker Accessibility, Detours Adequate, Canopies, Sidewalks, etc.</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="nonCompliant" id="A9" onclick="openTextArea('A9', 'questionFive', 'A.2fifthDiv', 'A.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="partiallyCompliant" id="B9" onclick="openTextArea('B9', 'questionFive', 'A.2fifthDiv', 'A.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="fullyCompliant" id="C9" onclick="openTextArea('C9', 'questionFive', 'A.2fifthDiv', 'A.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="N/A" id="D9" onclick="openTextArea('D9', 'questionFive', 'A.2fifthDiv', 'A.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="A.2fifthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="A.2compliance5"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+					<div id="buttonWrapper">
+						<button class="uploadPhotoButton">Choose File</button>
+					</div>
+					<div class="photoUploadText">
+						no file selected
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
 				<div class="notesDiv">
 					<h3>Notes:</h3>
@@ -45,9 +160,8 @@
 				<div class="scoreDiv">
 					<h3>Score</h3><p id="A.2score">0</p>
 				</div>
-
 				<div class="after-form">
-	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms()"/>
+	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms('A_2')"/>
 	         		<div class="leftAfter-form">
 						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '0', 'btnBack', 'A_2')">
 					</div>
@@ -60,7 +174,11 @@
 				</div>
 			</div>
 		</form>
-
+		<style>
+			h3{
+				font-size:4.3vw;
+			}
+		</style>
 
 	
    

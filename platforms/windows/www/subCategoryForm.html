@@ -4,13 +4,14 @@
 	
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
+	
 	<script type="text/javascript">
 		function homeScreen(){
 			window.location.href="index.html";
 		}
 	</script>
 </head>
-<body onload="initialize('A_1')">
+<body>
 	<div class="englishHeader">
 		<div class="statusBarAfter"></div>
 		<btn class="goBackButton" onclick="homeScreen()">
@@ -28,10 +29,10 @@
 		<form>
 			<div data-role="page" class="center container" id="A.1">
 				<br>
-				<h1>A.1 Jobsite (Trailer or Vehicle)</h1>
+				<p class="formTitle">A.1 Jobsite (Trailer or Vehicle)</p>
 				<br/><br/>
 				<div class="complianceInputBox">
-					<h3>On Site Safety Representative</h3>
+					<h3>On Site Safety Representative</h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="nonCompliant" id="A1" onclick="openTextArea('A1', 'questionOne', 'firstDiv', 'A.1');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -41,7 +42,7 @@
 
 					<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="N/A" id="D1" onclick="openTextArea('D1', 'questionOne', 'firstDiv', 'A.1');"> <div class="complianceTxt">N/A</div></div><br>
 					<div class="hiddenUntilNonCompliant" id="firstDiv">
-						<h4>Why partially / non compliant?</h4><br>
+						<h3>Why partially / non compliant?</h3><br>
 						<textarea class="complianceTextArea" id="A.1compliance1"></textarea>
 					</div><br>
 				</div>
@@ -116,7 +117,7 @@
 
 					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="N/A" id="D4" onclick="openTextArea('D4', 'questionFour', 'fourthDiv', 'A.1');"> <div class="complianceTxt">N/A</div></div><br>
 					<div class="hiddenUntilNonCompliant" id="fourthDiv">
-						<h4>Why partially / non compliant?</h4><br>
+						<h3>Why partially / non compliant?</h3><br>
 						<textarea class="complianceTextArea" id="A.1compliance4"></textarea>
 					</div><br>
 				</div>
@@ -163,13 +164,6 @@
 				font-size:4.3vw;
 			}
 		</style>
-
-
-	
-   
-
-    
-  
 
 </body>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/ >

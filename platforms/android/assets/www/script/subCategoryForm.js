@@ -64,15 +64,19 @@
 	    }
 	    //adds up the scores for each question and displays the final score
 	    var l;
-	    var getScore1; //= localStorage.getItem("storeScore");
+	    var l2;
+	    var getScore1;
+	    var getScore2;
 	    var storeScore1 = new Array(4);
+	    var storeScore2 = new Array(5);
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
-			alert("getScore" + getScore1);
+	    	getScore2 = localStorage.getItem('l2');
 	    	var finalScore=0;
+	    	alert('getScore1' + getScore1);
+	    	alert('getScore2' + getScore2);
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
-	    			alert('first');
 		    		scoreTrack[index]= score;
 			    	allScoresArray[0]=scoreTrack;
 			    	for(i=0; i<5; i++){
@@ -82,7 +86,6 @@
 		    		document.getElementById("A.1score").innerHTML=score;
 				}
 				else{
-					alert('second');
 					allScoresArray[0]=getScore1;
 					for(i=0; i<8; i=i+2){
 						if(allScoresArray[0][i]=="0"){
@@ -108,19 +111,45 @@
 				}
 	    	}
 	    	else if(page=="A.2"){
-	    		alert('A.2');
-	    		scoreTrack[index]= score;
-		    	allScoresArray[1]=scoreTrack;
-		    	for(i=0; i<5; i++){
-		    		finalScore+=allScoresArray[1][i];
-		    	}
-		    	score = finalScore;
-	    		document.getElementById("A.2score").innerHTML=score;
+	    		if(getScore2==null){
+	    			alert('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[1]=scoreTrack;
+			    	for(i=0; i<5; i++){
+			    		finalScore+=allScoresArray[1][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("A.2score").innerHTML=score;
+				}
+				else{
+					alert('second');
+					allScoresArray[1]=getScore2;
+					for(i=0; i<10; i=i+2){
+						if(allScoresArray[1][i]=="0"){
+							storeScore2[i/2]=0;
+						}
+						else if(allScoresArray[1][i]=="1"){
+							storeScore2[i/2]=1;
+						}
+						else if(allScoresArray[1][i]=="3"){
+							storeScore2[i/2]=3;
+						}
+						else if(allScoresArray[1][i]=="5"){
+							storeScore2[i/2]=5;
+						}
+					}
+		    		storeScore2[index]= score;
+			    	for(i=0; i<5; i++){
+			    		finalScore+=storeScore2[i];
+			    	}
+			    	score = finalScore;
+			    	l2 =window.localStorage.setItem('l2', storeScore2);
+		    		document.getElementById("A.2score").innerHTML=score;
+				}
 	    	}
 	    	else{
 	    		scoreTrack[index]= score;
 		    	allScoresArray[2]=scoreTrack;
-		    	alert("this " + allScoresArray[2][index]);
 		    	for(i=0; i<5; i++){
 		    		finalScore+=allScoresArray[2][i];
 		    	}
@@ -313,6 +342,12 @@
 				localStorageSubCatForms('A_1');
 			}
 			else if(storePage=="A_2"){
+				if(getScore2==null){
+					l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+				}
+				else{
+					l2 =window.localStorage.setItem('l2', storeScore2);
+				}
 				localStorageSubCatForms('A_2');
 			}
 			else if(storePage=="A_3"){
@@ -477,6 +512,30 @@
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
+							else if(this.name=='box2'){
+								document.getElementById('A.2compliance2').value = window.localStorage.getItem('A.2compliance2');
+								var showDiv=document.getElementById('A.2secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('A.2compliance3').value = window.localStorage.getItem('A.2compliance3');
+								var showDiv=document.getElementById('A.2thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('A.2compliance4').value = window.localStorage.getItem('A.2compliance4');
+								var showDiv=document.getElementById('A.2fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('A.2compliance5').value = window.localStorage.getItem('A.2compliance5');
+								var showDiv=document.getElementById('fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
 						}
 				    });
 				}
@@ -526,6 +585,10 @@
 				var score2 = document.getElementById('A.2score').innerHTML;
 				var endNotes2 = document.getElementById('A.2notes').value;
 				var A_2firstCompliance = document.getElementById('A.2compliance1').value;
+				var A_2secondCompliance = document.getElementById('A.2compliance2').value;
+				var A_2thirdCompliance = document.getElementById('A.2compliance3').value;
+				var A_2fourthCompliance = document.getElementById('A.2compliance4').value;
+				var A_2fifthCompliance = document.getElementById('A.2compliance5').value;
 					    $('input[type=radio]').each(function()
 					    {
 					        localStorage.setItem(
@@ -535,6 +598,10 @@
 				window.localStorage.setItem('A.2notes', endNotes2);
 				window.localStorage.setItem('A.2score', score2);
 				window.localStorage.setItem('A.2compliance1', A_2firstCompliance);
+				window.localStorage.setItem('A.2compliance2', A_2secondCompliance);
+				window.localStorage.setItem('A.2compliance3', A_2thirdCompliance);
+				window.localStorage.setItem('A.2compliance4', A_2fourthCompliance);
+				window.localStorage.setItem('A.2compliance5', A_2fifthCompliance);
 			}
 			else if(page=="A_3"){
 				var score3 = document.getElementById('A.3score').innerHTML;

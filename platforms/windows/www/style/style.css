@@ -384,7 +384,8 @@ margin-bottom: 4%;
 	float:top;
 	top:0;
 	height:40%;
-	background-image: url("wood-grain-wallpaper.jpg");
+	background-image: url("ipad-retina-wallpaper-abstract-white-background-85.jpg");
+	background-size: 130vw;
 }
 .englishHeader{
 	top:0;
@@ -392,20 +393,24 @@ margin-bottom: 4%;
 	position:fixed;
 	width:100%;
 	color:white;
-	background-image: url("wood-grain-wallpaper.jpg");
-	font-size: 5.5vw;
+	background-image: url("ipad-retina-wallpaper-abstract-white-background-85.jpg");
+	background-size: 130vw;
+	font-size: 6.5vw;
 	padding-top:7%;
 	padding-bottom: 1%;
 }
 .printer{
-	width:5vw;
-	height: 5vw;
+	width:5.8vw;
+	height: 5.8vw;
 	padding-right:5%;
 	float:right;
 }
 .goBack{
 	padding-left:5%;
 	float: left;
+}
+.formTitle{
+	font-size: 10vw;
 }
 .complianceCheck{
 	background-color:#F0F8FF;
