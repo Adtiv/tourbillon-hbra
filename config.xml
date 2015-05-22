@@ -9,10 +9,26 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    
+    <preference name="Orientation" value="portrait" />
 
     <feature name="Camera">
     	<param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
 	</feature>
+   
+    <feature name="Camera" value="Camera"/>
+
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+
+    <Capabilities>
+        <Capability Name="ID_CAP_ISV_CAMERA" />
+        <Capability Name="ID_HW_FRONTCAMERA" />
+    </Capabilities>
+
+    <feature name="http://tizen.org/api/application" required="true"/>
+    <feature name="http://tizen.org/api/application.launch" required="true"/>
 
 
 <gap:plugin name="com.performanceactive.plugins.camera" version="1.3" />
