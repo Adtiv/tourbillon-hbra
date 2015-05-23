@@ -1,7 +1,7 @@
 ﻿		var score= 0;
 		var i;
 		var index=0;
-		var scoreTrack = new Array(5+1).join('0').split('').map(parseFloat);
+		var scoreTrack = new Array(12+1).join('0').split('').map(parseFloat);
 		var allScoresArray = new Array(5);
 		var checkedForms= new Array(19+1).join('0').split('').map(parseFloat);
 		/*
@@ -27,8 +27,29 @@
 	        else if(questionNumber=="questionFour"){
 	        	index = 3;
 	        }
-	        else{
+	       	else if(questionNumber=="questionFive"){
 	        	index = 4;
+	        }
+	        else if(questionNumber=="questionSix"){
+	        	index = 5;
+	        }
+	        else if(questionNumber=="questionSeven"){
+	        	index = 6;
+	        }
+	        else if(questionNumber=="questionEight"){
+	        	index = 7;
+	        }
+	        else if(questionNumber=="questionNine"){
+	        	index = 8;
+	        }
+	        else if(questionNumber=="questionTen"){
+	        	index = 9;
+	        }
+	        else if(questionNumber=="questionEleven"){
+	        	index = 10;
+	        }
+	        else{
+	        	index = 11;
 	        }
 	        var isChecked = input.checked;
 	        isChecked = (isChecked)? true : false;
@@ -67,7 +88,7 @@
 	    var l2;
 	    var getScore1;
 	    var getScore2;
-	    var storeScore1 = new Array(4);
+	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(5);
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
@@ -79,7 +100,7 @@
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
 			    	allScoresArray[0]=scoreTrack;
-			    	for(i=0; i<5; i++){
+			    	for(i=0; i<12; i++){
 			    		finalScore+=allScoresArray[0][i];
 			    	}
 			    	score = finalScore;
@@ -87,7 +108,7 @@
 				}
 				else{
 					allScoresArray[0]=getScore1;
-					for(i=0; i<8; i=i+2){
+					for(i=0; i<24; i=i+2){
 						if(allScoresArray[0][i]=="0"){
 							storeScore1[i/2]=0;
 						}
@@ -102,7 +123,7 @@
 						}
 					}
 		    		storeScore1[index]= score;
-			    	for(i=0; i<4; i++){
+			    	for(i=0; i<12; i++){
 			    		finalScore+=storeScore1[i];
 			    	}
 			    	score = finalScore;
@@ -488,9 +509,57 @@
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
-							else{
+							else if(this.name=='box4'){
 								document.getElementById('A.1compliance4').value = window.localStorage.getItem('A.1compliance4');
 								var showDiv=document.getElementById('fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('A.1compliance5').value = window.localStorage.getItem('A.1compliance5');
+								var showDiv=document.getElementById('fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('A.1compliance6').value = window.localStorage.getItem('A.1compliance6');
+								var showDiv=document.getElementById('sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('A.1compliance7').value = window.localStorage.getItem('A.1compliance7');
+								var showDiv=document.getElementById('seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('A.1compliance8').value = window.localStorage.getItem('A.1compliance8');
+								var showDiv=document.getElementById('eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('A.1compliance9').value = window.localStorage.getItem('A.1compliance9');
+								var showDiv=document.getElementById('ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('A.1compliance10').value = window.localStorage.getItem('A.1compliance10');
+								var showDiv=document.getElementById('tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box11'){
+								document.getElementById('A.1compliance11').value = window.localStorage.getItem('A.1compliance11');
+								var showDiv=document.getElementById('eleventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('A.1compliance12').value = window.localStorage.getItem('A.1compliance12');
+								var showDiv=document.getElementById('twelthDiv');
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
@@ -568,6 +637,14 @@
 				var A_1secondCompliance = document.getElementById('A.1compliance2').value;
 				var A_1thirdCompliance = document.getElementById('A.1compliance3').value;
 				var A_1fourthCompliance = document.getElementById('A.1compliance4').value;
+				var A_1fifthCompliance = document.getElementById('A.1compliance5').value;
+				var A_1sixthCompliance = document.getElementById('A.1compliance6').value;
+				var A_1seventhCompliance = document.getElementById('A.1compliance7').value;
+				var A_1eigthCompliance = document.getElementById('A.1compliance8').value;
+				var A_1ninthCompliance = document.getElementById('A.1compliance9').value;
+				var A_1tenthCompliance = document.getElementById('A.1compliance10').value;
+				var A_1eleventhCompliance = document.getElementById('A.1compliance11').value;
+				var A_1twelthCompliance = document.getElementById('A.1compliance12').value;
 					    $('input[type=radio]').each(function()
 					    {
 					        localStorage.setItem(
@@ -580,6 +657,14 @@
 				window.localStorage.setItem('A.1compliance2', A_1secondCompliance);
 				window.localStorage.setItem('A.1compliance3', A_1thirdCompliance);
 				window.localStorage.setItem('A.1compliance4', A_1fourthCompliance);
+				window.localStorage.setItem('A.1compliance5', A_1fifthCompliance);
+				window.localStorage.setItem('A.1compliance6', A_1sixthCompliance);
+				window.localStorage.setItem('A.1compliance7', A_1seventhCompliance);
+				window.localStorage.setItem('A.1compliance8', A_1eigthCompliance);
+				window.localStorage.setItem('A.1compliance9', A_1ninthCompliance);
+				window.localStorage.setItem('A.1compliance10', A_1tenthCompliance);
+				window.localStorage.setItem('A.1compliance11', A_1eleventhCompliance);
+				window.localStorage.setItem('A.1compliance12', A_1twelthCompliance);
 			}
 			else if(page=="A_2"){
 				var score2 = document.getElementById('A.2score').innerHTML;
@@ -619,20 +704,85 @@
 			}
 		}
 
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady(){
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        console.log(navigator.camera);
+    }
+
+
 	//camera functions
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-    	destinationType: Camera.DestinationType.DATA_URL
-	});
+   function onPhotoDataSuccess(imageData) {
+      // Uncomment to view the base64-encoded image data
+      // console.log(imageData);
 
-	function onSuccess(imageData) {
-		alert('PIC');
-	    var image = document.getElementById('myImage');
-	    image.src = "data:image/jpeg;base64," + imageData;
-	}
+      // Get image handle
+      //
+      var smallImage = document.getElementById('smallImage');
 
-	function onFail(message) {
-	    alert('Failed because: ' + message);
-	}
+      // Unhide image elements
+      //
+      smallImage.style.display = 'block';
+
+      // Show the captured photo
+      // The in-line CSS rules are used to resize the image
+      //
+      smallImage.src = "data:image/jpeg;base64," + imageData;
+    }
+
+    // Called when a photo is successfully retrieved
+    //
+    function onPhotoURISuccess(imageURI) {
+      // Uncomment to view the image file URI
+      // console.log(imageURI);
+
+      // Get image handle
+      //
+      var largeImage = document.getElementById('largeImage');
+
+      // Unhide image elements
+      //
+      largeImage.style.display = 'block';
+
+      // Show the captured photo
+      // The in-line CSS rules are used to resize the image
+      //
+      largeImage.src = imageURI;
+    }
+
+    // A button will call this function
+    //
+    function capturePhoto() {
+      // Take picture using device camera and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        destinationType: destinationType.DATA_URL });
+    }
+
+    // A button will call this function
+    //
+    function capturePhotoEdit() {
+      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
+    }
+    // A button will call this function
+    //
+    function getPhoto(source) {
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+    }
+
+    // Called if something bad happens.
+    //
+    function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+
 
 	//Tracking the page on a global level through local storage. 
 	globalPageIdentifier=localStorage.getItem("s");
