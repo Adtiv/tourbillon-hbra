@@ -90,6 +90,9 @@
 	    var getScore2;
 	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(5);
+	    //TO FIX: 0 isnt showing when first going to page
+	    //TO FIX: after switching back and forth and changing scores the getScore array gets lost?
+	    //localStorage only stores for a couple page changes? 
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 	    	getScore2 = localStorage.getItem('l2');

@@ -331,12 +331,30 @@ margin-bottom: 4%;
 	padding-bottom:5%;
 	margin:1%;
 }
-#bottomAdd{
+#bottomAd{
 	margin-bottom: 10%;
 }
 .adImage{
 	width:35vw;
 	height:35vw;
+	border: 2px solid black;
+}
+#topAd{
+	position:relative;
+	display:inline-block;
+	width:85%;
+	padding:1%;
+	padding-top:5%;
+	padding-bottom:5%;
+	margin:1%;
+}
+#temp{
+	visibility: hidden;
+}
+#topAdImage{
+	width:80vw;
+	height: 35vw;
+	border: 2px solid black;
 }
 #languages{
 	width:100%;
