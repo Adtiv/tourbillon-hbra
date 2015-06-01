@@ -86,19 +86,24 @@
 	    //adds up the scores for each question and displays the final score
 	    var l;
 	    var l2;
+	    var l3;
 	    var getScore1;
 	    var getScore2;
+	    var getScore3;
 	    var storeScore1 = new Array(12);
-	    var storeScore2 = new Array(5);
+	    var storeScore2 = new Array(10);
+	    var storeScore3 = new Array(10);
 	    //TO FIX: 0 isnt showing when first going to page
 	    //TO FIX: after switching back and forth and changing scores the getScore array gets lost?
 	    //localStorage only stores for a couple page changes? 
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 	    	getScore2 = localStorage.getItem('l2');
+	    	getScore3 = localStorage.getItem('l3');
 	    	var finalScore=0;
 	    	alert('getScore1' + getScore1);
 	    	alert('getScore2' + getScore2);
+	    	alert('getScore3' + getScore3);
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
@@ -139,7 +144,7 @@
 	    			alert('First');
 		    		scoreTrack[index]= score;
 			    	allScoresArray[1]=scoreTrack;
-			    	for(i=0; i<5; i++){
+			    	for(i=0; i<10; i++){
 			    		finalScore+=allScoresArray[1][i];
 			    	}
 			    	score = finalScore;
@@ -148,7 +153,7 @@
 				else{
 					alert('second');
 					allScoresArray[1]=getScore2;
-					for(i=0; i<10; i=i+2){
+					for(i=0; i<20; i=i+2){
 						if(allScoresArray[1][i]=="0"){
 							storeScore2[i/2]=0;
 						}
@@ -163,7 +168,7 @@
 						}
 					}
 		    		storeScore2[index]= score;
-			    	for(i=0; i<5; i++){
+			    	for(i=0; i<10; i++){
 			    		finalScore+=storeScore2[i];
 			    	}
 			    	score = finalScore;
@@ -172,13 +177,41 @@
 				}
 	    	}
 	    	else{
-	    		scoreTrack[index]= score;
-		    	allScoresArray[2]=scoreTrack;
-		    	for(i=0; i<5; i++){
-		    		finalScore+=allScoresArray[2][i];
-		    	}
-		    	score = finalScore;
-	    		document.getElementById("A.3score").innerHTML=score;
+				if(getScore3==null){
+	    			alert('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[2]=scoreTrack;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=allScoresArray[2][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("A.3score").innerHTML=score;
+				}
+				else{
+					alert('second');
+					allScoresArray[2]=getScore3;
+					for(i=0; i<20; i=i+2){
+						if(allScoresArray[2][i]=="0"){
+							storeScore3[i/2]=0;
+						}
+						else if(allScoresArray[2][i]=="1"){
+							storeScore3[i/2]=1;
+						}
+						else if(allScoresArray[2][i]=="3"){
+							storeScore3[i/2]=3;
+						}
+						else if(allScoresArray[2][i]=="5"){
+							storeScore3[i/2]=5;
+						}
+					}
+		    		storeScore3[index]= score;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=storeScore3[i];
+			    	}
+			    	score = finalScore;
+			    	l3 =window.localStorage.setItem('l3', storeScore3);
+		    		document.getElementById("A.3score").innerHTML=score;
+				}
 	    	}
 	    }
 	  	function goBack() {
@@ -350,13 +383,24 @@
 				}
 			}
 		}
+		//to get the amount of checked checked forms
+		function formLength(formArr){
+			var len=0;
+			for(i=0; i<formArr.length; i++){
+				if(formArr[i]==1){
+					len++;
+				}
+			}
+			return len; 
+		}
 		var s;
 		var globalPageIdentifier="page";
 		//Used for the form buttons, navigation/storing
 		function processFormOrder(page, bound, btnID, storePage){
+
 			//logic for storing local content on page
 			if(storePage=="A_1"){
-				//if first time store allScoresArray[0] else store test
+				//if first time store allScoresArray[0] else store the array in localStorage so you can change scores later
 				if(getScore1==null){
 					l =window.localStorage.setItem('l', allScoresArray[0]);
 				}
@@ -375,6 +419,12 @@
 				localStorageSubCatForms('A_2');
 			}
 			else if(storePage=="A_3"){
+				if(getScore3==null){
+					l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+				}
+				else{
+					l3 =window.localStorage.setItem('l3', storeScore3);
+				}
 				localStorageSubCatForms('A_3');
 			}
 			else if(storePage=="A_4"){
@@ -452,22 +502,32 @@
 						window.location.href="A.3.html";
 					}
 					else if(x==3){
+						z = "A_4";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.4.html";
 					}
 					else if(x==4){
+						z = "A_5";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.5.html";
 					}
 					else if(x==5){
+						z = "A_6";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.6.html";
 					}
 					else if(x==6){
+						z = "A_7";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.7.html";
 					}
 					else if(x==7){
+						z = "A_8";
+						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="A.8.html";
 					}
@@ -602,9 +662,39 @@
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
-							else{
+							else if(this.name=='box5'){
 								document.getElementById('A.2compliance5').value = window.localStorage.getItem('A.2compliance5');
-								var showDiv=document.getElementById('fifthDiv');
+								var showDiv=document.getElementById('A.2fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('A.2compliance6').value = window.localStorage.getItem('A.2compliance6');
+								var showDiv=document.getElementById('A.2sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('A.2compliance7').value = window.localStorage.getItem('A.2compliance7');
+								var showDiv=document.getElementById('A.2seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('A.2compliance8').value = window.localStorage.getItem('A.2compliance8');
+								var showDiv=document.getElementById('A.2eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('A.2compliance9').value = window.localStorage.getItem('A.2compliance9');
+								var showDiv=document.getElementById('A.2ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('A.2compliance10').value = window.localStorage.getItem('A.2compliance10');
+								var showDiv=document.getElementById('A.2tenthDiv');
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
@@ -626,8 +716,65 @@
 								showDiv.style.visibility="visible";
 	        					showDiv.style.display="inline";
 							}
+							else if(this.name=='box2'){
+								document.getElementById('A.3compliance2').value = window.localStorage.getItem('A.3compliance2');
+								var showDiv=document.getElementById('A.3secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('A.3compliance3').value = window.localStorage.getItem('A.3compliance3');
+								var showDiv=document.getElementById('A.3thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('A.3compliance4').value = window.localStorage.getItem('A.3compliance4');
+								var showDiv=document.getElementById('A.3fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('A.3compliance5').value = window.localStorage.getItem('A.3compliance5');
+								var showDiv=document.getElementById('A.3fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('A.3compliance6').value = window.localStorage.getItem('A.3compliance6');
+								var showDiv=document.getElementById('A.3sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('A.3compliance7').value = window.localStorage.getItem('A.3compliance7');
+								var showDiv=document.getElementById('A.3seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('A.3compliance8').value = window.localStorage.getItem('A.3compliance8');
+								var showDiv=document.getElementById('A.3eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('A.3compliance9').value = window.localStorage.getItem('A.3compliance9');
+								var showDiv=document.getElementById('A.3ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('A.3compliance10').value = window.localStorage.getItem('A.3compliance10');
+								var showDiv=document.getElementById('A.3tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
 						}
 				    });
+				}
+				else{
+					console.log('..');
 				}
 			}
 		}
@@ -677,6 +824,11 @@
 				var A_2thirdCompliance = document.getElementById('A.2compliance3').value;
 				var A_2fourthCompliance = document.getElementById('A.2compliance4').value;
 				var A_2fifthCompliance = document.getElementById('A.2compliance5').value;
+				var A_2sixthCompliance = document.getElementById('A.2compliance6').value;
+				var A_2seventhCompliance = document.getElementById('A.2compliance7').value;
+				var A_2eigthCompliance = document.getElementById('A.2compliance8').value;
+				var A_2ninthCompliance = document.getElementById('A.2compliance9').value;
+				var A_2tenthCompliance = document.getElementById('A.2compliance10').value;
 					    $('input[type=radio]').each(function()
 					    {
 					        localStorage.setItem(
@@ -690,11 +842,25 @@
 				window.localStorage.setItem('A.2compliance3', A_2thirdCompliance);
 				window.localStorage.setItem('A.2compliance4', A_2fourthCompliance);
 				window.localStorage.setItem('A.2compliance5', A_2fifthCompliance);
+				window.localStorage.setItem('A.2compliance6', A_2sixthCompliance);
+				window.localStorage.setItem('A.2compliance7', A_2seventhCompliance);
+				window.localStorage.setItem('A.2compliance8', A_2eigthCompliance);
+				window.localStorage.setItem('A.2compliance9', A_2ninthCompliance);
+				window.localStorage.setItem('A.2compliance10', A_2tenthCompliance);
 			}
 			else if(page=="A_3"){
 				var score3 = document.getElementById('A.3score').innerHTML;
 				var endNotes3 = document.getElementById('A.3notes').value;
 				var A_3firstCompliance = document.getElementById('A.3compliance1').value;
+				var A_3secondCompliance = document.getElementById('A.3compliance2').value;
+				var A_3thirdCompliance = document.getElementById('A.3compliance3').value;
+				var A_3fourthCompliance = document.getElementById('A.3compliance4').value;
+				var A_3fifthCompliance = document.getElementById('A.3compliance5').value;
+				var A_3sixthCompliance = document.getElementById('A.3compliance6').value;
+				var A_3seventhCompliance = document.getElementById('A.3compliance7').value;
+				var A_3eigthCompliance = document.getElementById('A.3compliance8').value;
+				var A_3ninthCompliance = document.getElementById('A.3compliance9').value;
+				var A_3tenthCompliance = document.getElementById('A.3compliance10').value;
 					    $('input[type=radio]').each(function()
 					    {
 					        localStorage.setItem(
@@ -704,6 +870,18 @@
 				window.localStorage.setItem('A.3notes', endNotes3);
 				window.localStorage.setItem('A.3score', score3);
 				window.localStorage.setItem('A.3compliance1', A_3firstCompliance);
+				window.localStorage.setItem('A.3compliance2', A_3secondCompliance);
+				window.localStorage.setItem('A.3compliance3', A_3thirdCompliance);
+				window.localStorage.setItem('A.3compliance4', A_3fourthCompliance);
+				window.localStorage.setItem('A.3compliance5', A_3fifthCompliance);
+				window.localStorage.setItem('A.3compliance6', A_3sixthCompliance);
+				window.localStorage.setItem('A.3compliance7', A_3seventhCompliance);
+				window.localStorage.setItem('A.3compliance8', A_3eigthCompliance);
+				window.localStorage.setItem('A.3compliance9', A_3ninthCompliance);
+				window.localStorage.setItem('A.3compliance10', A_3tenthCompliance);
+			}
+			else{
+				console.log('..');
 			}
 		}
 
