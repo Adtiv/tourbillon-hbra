@@ -5,7 +5,7 @@ function init(){
 		document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
 		return;
 	}
-
+	document.getElementById('btnSubmit').style.visibility = "visible";
 	if(window.localStorage.length != 0){
 		document.getElementById('company').value = window.localStorage.getItem('company');
 		document.getElementById('trade').value = window.localStorage.getItem('trade');

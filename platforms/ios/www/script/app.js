@@ -5,13 +5,14 @@ function init(){
 		document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
 		return;
 	}
-
+	document.getElementById('btnSubmit').style.visibility = "visible";
 	if(window.localStorage.length != 0){
 		document.getElementById('company').value = window.localStorage.getItem('company');
 		document.getElementById('trade').value = window.localStorage.getItem('trade');
 		document.getElementById('jobName').value = window.localStorage.getItem('jobName');
 		document.getElementById('jobNum').value = window.localStorage.getItem('jobNum');
 		document.getElementById('inspBy').value = window.localStorage.getItem('inspBy');
+		document.getElementById('email').value = window.localStorage.getItem('email');
 		document.getElementById('title').value = window.localStorage.getItem('title');
 		document.getElementById('empNum').value = window.localStorage.getItem('empNum');
 		document.getElementsByClassName('beginTime').value = window.localStorage.getItem('beginTime');
@@ -34,6 +35,7 @@ function storeLocalContent(){
 	var nameJob = document.getElementById('jobName').value;
 	var numJob = document.getElementById('jobNum').value;
 	var byInsp = document.getElementById('inspBy').value;
+	var emailAddress = document.getElementById('email').value
 	var jobTitle = document.getElementById('title').value;
 	var numEmp = document.getElementById('empNum').value;
 	var timeBegin = document.getElementsByClassName('beginTime').value;
@@ -49,6 +51,7 @@ function storeLocalContent(){
 	window.localStorage.setItem('jobName', nameJob);
 	window.localStorage.setItem('jobNum', numJob);
 	window.localStorage.setItem('inspBy', byInsp);
+	window.localStorage.setItem('email', emailAddress);
 	window.localStorage.setItem('title', jobTitle);
 	window.localStorage.setItem('empNum', numEmp);
 	window.localStorage.setItem('beginTime', timeBegin);

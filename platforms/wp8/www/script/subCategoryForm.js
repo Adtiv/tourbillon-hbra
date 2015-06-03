@@ -383,13 +383,25 @@
 				}
 			}
 		}
+		//to get the amount of checked checked forms
+		function formLength(formArr){
+			var len=0;
+			for(i=0; i<formArr.length; i++){
+				if(formArr[i]==1){
+					len++;
+				}
+			}
+			return len; 
+		}
 		var s;
+		var pageCount;
 		var globalPageIdentifier="page";
 		//Used for the form buttons, navigation/storing
 		function processFormOrder(page, bound, btnID, storePage){
+
 			//logic for storing local content on page
 			if(storePage=="A_1"){
-				//if first time store allScoresArray[0] else store test
+				//if first time store allScoresArray[0] else store the array in localStorage so you can change scores later
 				if(getScore1==null){
 					l =window.localStorage.setItem('l', allScoresArray[0]);
 				}
@@ -429,6 +441,13 @@
 				localStorage["checkedForms"] = JSON.stringify(checkedForms);
 				var count = localStorage.setItem("y", y);
 			}
+			var pCount=localStorage.getItem("pageCount");
+			if(pCount == null || pCount == "null"){
+				pageCount=0;
+			}
+			else{
+				pageCount=parseInt(pCount);
+			}
 			var checked= JSON.parse(localStorage["checkedForms"]);
 			var x = localStorage.getItem("y");
 			var hidebutton = document.getElementById(btnID);
@@ -439,6 +458,9 @@
 					while(x>0 && checked[x]!=1){
 						x--;
 					}
+					if(pageCount!=0){
+						pageCount--;
+					}
 				}
 			}
 			//Next button
@@ -448,6 +470,9 @@
 				}
 				while(x<checked.length && checked[x]!=1){
 					x++;
+				}
+				if(pageCount!=checked.length){
+					pageCount++;
 				}				
 			}
 			var y;
@@ -457,6 +482,8 @@
 				y = localStorage.setItem("y", x);
 				if(checked[x]==1){
 					if(bound==1){
+						pageCount=0;
+						localStorage.setItem("pageCount", pageCount);
 						window.location.href="pageTwo.html";
 					}
 					else{
@@ -466,6 +493,8 @@
 					}
 				}
 				else{
+					pageCount=0;
+					localStorage.setItem("pageCount", pageCount);
 					window.location.href="pageTwo.html";
 				}
 			}
@@ -523,9 +552,14 @@
 				}
 				//stores the x value
 				y = localStorage.setItem("y", x);
+				localStorage.setItem("pageCount", pageCount);
 			}
 		}
-
+		function homeScreen(){
+			pageCount=0;
+			localStorage.setItem("pageCount", pageCount);
+			window.location.href="index.html";
+		}
 		//Initializes the localstorage based on the page
 		function initialize(page){
 			var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
@@ -533,8 +567,18 @@
 				document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
 				return;
 			}
+			//variables for getting the pageCount and the number of checked options.
+			var pNum = localStorage.getItem("pageCount");
+			var checked= JSON.parse(localStorage["checkedForms"]);
+			var fLen= formLength(checked);
 			if(window.localStorage.length != 0){
 				if(page=="A_1"){
+					//to see if your on the last form. Replaces next arrow with submit button.
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('A_1arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
 					document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
 					$('input[type=radio]').each(function()
@@ -619,6 +663,11 @@
 				    });
 				}
 				else if(page=="A_2"){
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('A_2arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
 					document.getElementById('A.2notes').value = window.localStorage.getItem('A.2notes');
 					document.getElementById('A.2score').innerHTML = window.localStorage.getItem('A.2score');
 					$('input[type=radio]').each(function()
@@ -691,6 +740,11 @@
 				    });
 				}
 				else if(page=="A_3"){
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('A_3arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
 					document.getElementById('A.3notes').value = window.localStorage.getItem('A.3notes');
 					document.getElementById('A.3score').innerHTML = window.localStorage.getItem('A.3score');
 					$('input[type=radio]').each(function()

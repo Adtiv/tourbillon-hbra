@@ -29,25 +29,27 @@
 	</div>
 	<div class="center pageOne container page"><br><br>
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
-		<form>
-			<div class="label">Company Inspected:</div> <input type="text" id="company" class="input"/><br/><br/>
-			<div class="label">Trade:</div> <input type="text" id="trade" class="input"/><br/><br/>
-			<div class="label">Job Name:</div> <input type="text" id="jobName" class="input"/><br/><br/>
-			<div class="label">Job #:</div> <input type="text" id="jobNum" class="input"/><br/><br/>
-			<div class="label">Inspection by:</div> <input type="text" id="inspBy" class="input"/> <br/><br/>
-			<div class="label">Title:</div> <input type="text" id="title" class="input"/><br/><br/>
-			<div class="label">Employee #:</div> <input type="text" id="empNum" class="input"/><br/><br/>
-			<div class="label">Start Date &amp; Time:</div> <input type="text" id="datetimepicker" class="input beginTime"/><br/><br/>
-			<div class="label">End Date &amp; Time:</div> <input type="text" id="datetimepicker2" class="input endTime"/><br/><br/>
+		<form action="server/emailForm.php" method="post">
+			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
+			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
+			<div class="label">Job Name:</div> <input type="text" name="jobName" id="jobName" class="input"/><br/><br/>
+			<div class="label">Job #:</div> <input type="text" name="jobNum" id="jobNum" class="input"/><br/><br/>
+			<div class="label">Inspection by:</div> <input type="text" name="inspBy" id="inspBy" class="input"/> <br/><br/>
+			<div class="label">Email Address:</div> <input type="text" name="email" id="email" class="input"/> <br/><br/>
+			<div class="label">Title:</div> <input type="text" name="title" id="title" class="input"/><br/><br/>
+			<div class="label">Employee #:</div> <input type="text" name="empNum" id="empNum" class="input"/><br/><br/>
+			<div class="label">Start Date &amp; Time:</div> <input type="text" name="datetimepicker" id="datetimepicker" class="input beginTime"/><br/><br/>
+			<div class="label">End Date &amp; Time:</div> <input type="text" name="datetimepicker2" id="datetimepicker2" class="input endTime"/><br/><br/>
 			<div class="on-site">On-Site Safety Rep or Competent Person:</div><br/>
-				<div class="underling"><input type="text" id="repFirst" class="input"/><div class="on-site-label">First Name:</div></div><br/><br/>
-				<div class="underling"><input type="text" id="repLast" class="input"/><div class="on-site-label">Last Name:</div></div><br/><br/>
-			<div class="label">Employee Number:</div><textarea type="text" id="employeeNum" class="textArea"></textarea>
-			<div class="label">Weather or Special Conditions:</div><textarea type="text" id="weatherCom" class="textArea"></textarea>
+				<div class="underling"><input type="text" name="repFirst" id="repFirst" class="input"/><div class="on-site-label">First Name:</div></div><br/><br/>
+				<div class="underling"><input type="text" name="repFirst" id="repLast" class="input"/><div class="on-site-label">Last Name:</div></div><br/><br/>
+			<div class="label">Employee Number:</div><textarea type="text" name="employeeNum" id="employeeNum" class="textArea"></textarea>
+			<div class="label">Weather or Special Conditions:</div><textarea type="text" name="weatherCom" id="weatherCom" class="textArea"></textarea>
 			<br/><br/><br/><br/>
 			<div class="after-form">
                         <input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
 			<div class="arrowright"></div><input type="button" class="btn" id="btnSave" onclick="storeLocalContent()"/>
+			<input type="submit" name="submit" id="btnSubmit" value="Submit Form"/>
 			<!-- <input type="button" value="Clear Memory" class="btn" id="btnClear" onclick="clearLocalContent()"/> -->
 			</div>
 		</form>

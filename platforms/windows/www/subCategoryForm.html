@@ -5,11 +5,6 @@
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	<script type="text/javascript">
-		function homeScreen(){
-			window.location.href="index.html";
-		}
-	</script>
 </head>
 <body>
 	<div class="englishHeader">
@@ -351,7 +346,7 @@
 					<div class="rightAfter-form">
 						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatForms('A_1')"/>
 						<div class="position">
-							<div class="arrowNext"></div>
+							<div class="arrowNext" id="A_1arrow"></div>
 							<input type="button" id="btnNext" onclick="processFormOrder('A.1', '0', 'btnNext', 'A_1')"/>
 						</div>
 				</div>
