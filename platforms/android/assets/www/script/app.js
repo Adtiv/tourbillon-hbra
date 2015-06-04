@@ -5,7 +5,6 @@ function init(){
 		document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
 		return;
 	}
-	document.getElementById('btnSubmit').style.visibility = "visible";
 	if(window.localStorage.length != 0){
 		document.getElementById('company').value = window.localStorage.getItem('company');
 		document.getElementById('trade').value = window.localStorage.getItem('trade');
@@ -65,6 +64,36 @@ function storeLocalContent(){
 
 }
 
+
+
+	document.addEventListener('deviceready', function () {
+	    // cordova.plugins.email is now available
+	}, false);
+    //Email plugin functions:
+    function email(){
+    	alert('gets');
+    	alert(isAvailable());
+    	if(isAvailable()){
+    		open();
+    	}
+    }
+    cordova.plugins.email.isAvailable(
+    function (isAvailable) {
+	        // alert('Service is not available') unless isAvailable;
+	    }
+	);
+	cordova.plugins.email.open({
+	    to:      'aditocco@ufl.edu',
+	    cc:      '',
+	    bcc:     [],
+	    subject: 'Greetings',
+	    body:    'Worked!'
+	});
+
+
+
+
+	
 function clearLocalContent(){
 	window.localStorage.clear();
 }

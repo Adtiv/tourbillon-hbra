@@ -20,6 +20,9 @@
     "installed_plugins": {
         "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.example.hbra"
+        },
+        "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "com.example.hbra"
         }
     },
     "dependent_plugins": {}
