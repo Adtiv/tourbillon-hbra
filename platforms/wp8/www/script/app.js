@@ -65,8 +65,9 @@ function storeLocalContent(){
 }
 
 
-
+	//test email functions
 	document.addEventListener('deviceready', function () {
+	    console.log(cordova.plugins.email);
 	    // cordova.plugins.email is now available
 	}, false);
     //Email plugin functions:
@@ -93,7 +94,7 @@ function storeLocalContent(){
 
 
 
-	
+
 function clearLocalContent(){
 	window.localStorage.clear();
 }
