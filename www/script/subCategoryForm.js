@@ -439,6 +439,7 @@
 		var pageCount;
 		var globalPageIdentifier="page";
 		//Used for the form buttons, navigation/storing
+		//TO FIX:toggling between A.1 && other form screws up submit form button. 
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
 			if(storePage=="A_1"){
