@@ -10,9 +10,8 @@
     <content src="index.html" />
     
     <preference name="Orientation" value="portrait" />
-    <!--
     <preference name="Fullscreen" value="true"/>
-    !-->
+
     <feature name="Camera">
     	<param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
 	</feature>

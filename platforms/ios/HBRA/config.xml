@@ -30,6 +30,7 @@
     </author>
     <content src="index.html" />
     <preference name="Orientation" value="portrait" />
+    <preference name="Fullscreen" value="true" />
     <Capabilities>
         <Capability Name="ID_CAP_ISV_CAMERA" />
         <Capability Name="ID_HW_FRONTCAMERA" />
