@@ -63,7 +63,9 @@ function storeLocalContent(){
 	window.location.href = "pageTwo.html";
 
 }
-
+	function clearStorage(){
+		localStorage.clear();
+	}	
 
 	//test email functions
 	document.addEventListener('deviceready', function () {
@@ -95,8 +97,6 @@ function storeLocalContent(){
 
 
 
-function clearLocalContent(){
-	window.localStorage.clear();
-}
+
 
 window.onload = init;

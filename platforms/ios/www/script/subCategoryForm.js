@@ -101,7 +101,7 @@
 	    var storeScore5 = new Array(9);
 	    //TO FIX: 0 isnt showing when first going to page
 	    //TO FIX: after switching back and forth and changing scores the getScore array gets lost?
-	    //localStorage only stores for a couple page changes? 
+	    //Bug happens when you go from one page to the direct next one and dont change the score. 
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 	    	getScore2 = localStorage.getItem('l2');
@@ -109,11 +109,11 @@
 	    	getScore4 = localStorage.getItem('l4');
 	    	getScore5 = localStorage.getItem('l5');
 	    	var finalScore=0;
-	    	alert('getScore1' + getScore1);
-	    	alert('getScore2' + getScore2);
-	    	alert('getScore3' + getScore3);
-	    	alert('getScore4' + getScore4);
-	    	alert('getScore5' + getScore5);
+	    	console.log('getScore1' + getScore1);
+	    	console.log('getScore2' + getScore2);
+	    	console.log('getScore3' + getScore3);
+	    	console.log('getScore4' + getScore4);
+	    	console.log('getScore5' + getScore5);
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
@@ -151,7 +151,7 @@
 	    	}
 	    	else if(page=="A.2"){
 	    		if(getScore2==null){
-	    			alert('First');
+	    			console.log('First');
 		    		scoreTrack[index]= score;
 			    	allScoresArray[1]=scoreTrack;
 			    	for(i=0; i<10; i++){
@@ -161,7 +161,7 @@
 		    		document.getElementById("A.2score").innerHTML=score;
 				}
 				else{
-					alert('second');
+					console.log('second');
 					allScoresArray[1]=getScore2;
 					for(i=0; i<20; i=i+2){
 						if(allScoresArray[1][i]=="0"){
@@ -188,7 +188,7 @@
 	    	}
 	    	else if(page=="A.3"){
 				if(getScore3==null){
-	    			alert('First');
+	    			console.log('First');
 		    		scoreTrack[index]= score;
 			    	allScoresArray[2]=scoreTrack;
 			    	for(i=0; i<10; i++){
@@ -198,7 +198,7 @@
 		    		document.getElementById("A.3score").innerHTML=score;
 				}
 				else{
-					alert('second');
+					console.log('second');
 					allScoresArray[2]=getScore3;
 					for(i=0; i<20; i=i+2){
 						if(allScoresArray[2][i]=="0"){
@@ -225,7 +225,7 @@
 	    	}
 	    	else if(page=="A.4"){
 				if(getScore4==null){
-	    			alert('First');
+	    			console.log('First');
 		    		scoreTrack[index]= score;
 			    	allScoresArray[3]=scoreTrack;
 			    	for(i=0; i<9; i++){
@@ -235,7 +235,7 @@
 		    		document.getElementById("A.4score").innerHTML=score;
 				}
 				else{
-					alert('second');
+					console.log('second');
 					allScoresArray[3]=getScore4;
 					for(i=0; i<18; i=i+2){
 						if(allScoresArray[3][i]=="0"){
@@ -262,7 +262,7 @@
 	    	}
 	    	else if(page=="A.5"){
 				if(getScore5==null){
-	    			alert('First');
+	    			console.log('First');
 		    		scoreTrack[index]= score;
 			    	allScoresArray[4]=scoreTrack;
 			    	for(i=0; i<9; i++){
@@ -272,7 +272,7 @@
 		    		document.getElementById("A.5score").innerHTML=score;
 				}
 				else{
-					alert('second');
+					console.log('second');
 					allScoresArray[4]=getScore5;
 					for(i=0; i<18; i=i+2){
 						if(allScoresArray[4][i]=="0"){
@@ -487,25 +487,33 @@
 			if(storePage=="A_1"){
 				//if first time store allScoresArray[0] else store the array in localStorage so you can change scores later
 				if(getScore1==null){
-					l =window.localStorage.setItem('l', allScoresArray[0]);
+					if(allScoresArray[0]!=null){
+						l =window.localStorage.setItem('l', allScoresArray[0]);
+					}
 				}
 				else{
+					//if(storeScore1!=null)??
 					l =window.localStorage.setItem('l', storeScore1);
 				}
 				localStorageSubCatForms('A_1');
 			}
 			else if(storePage=="A_2"){
 				if(getScore2==null){
-					l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+					if(allScoresArray[1]!=null){
+						l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+					}
 				}
 				else{
+					console.log("score2" + storeScore2);
 					l2 =window.localStorage.setItem('l2', storeScore2);
 				}
 				localStorageSubCatForms('A_2');
 			}
 			else if(storePage=="A_3"){
 				if(getScore3==null){
-					l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+					if(allScoresArray[2]!=null){
+						l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+					}
 				}
 				else{
 					l3 =window.localStorage.setItem('l3', storeScore3);
@@ -514,7 +522,9 @@
 			}
 			else if(storePage=="A_4"){
 				if(getScore4==null){
-					l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+					if(allScoresArray[3]!=null){
+						l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+					}
 				}
 				else{
 					l4 =window.localStorage.setItem('l4', storeScore4);
@@ -658,19 +668,52 @@
 			pageCount=0;
 			localStorage.setItem("pageCount", pageCount);
 			if(page=="A_1"){
+				if(getScore1==null){
+					l =window.localStorage.setItem('l', allScoresArray[0]);
+				}
+				else{
+					l =window.localStorage.setItem('l', storeScore1);
+				}
 				localStorageSubCatForms('A_1');
 			}
 			else if(page=="A_2"){
+				if(getScore2==null){
+					l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+				}
+				else{
+					l2 =window.localStorage.setItem('l2', storeScore2);
+				}
 				localStorageSubCatForms('A_2');
 			}
 			else if(page=="A_3"){
+				if(getScore3==null){
+					l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+				}
+				else{
+					l3 =window.localStorage.setItem('l3', storeScore3);
+				}
 				localStorageSubCatForms('A_3');
 			}
 			else if(page=="A_4"){
+				if(getScore4==null){
+					l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+				}
+				else{
+					l4 =window.localStorage.setItem('l4', storeScore4);
+				}
 				localStorageSubCatForms('A_4');
 			}
 			else if(page=="A_5"){
+				if(getScore5==null){
+					l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+				}
+				else{
+					l5 =window.localStorage.setItem('l5', storeScore5);
+				}
 				localStorageSubCatForms('A_5');
+			}
+			else{
+				window.location.href="index.html";
 			}
 			window.location.href="index.html";
 		}
@@ -1243,7 +1286,18 @@
 				console.log('..');
 			}
 		}
-
+	function clearStorage(){
+		localStorage.clear();
+	}	
+	function viewData(){
+    	//shows all the key / value pairs
+    	for (i = 0; i < localStorage.length; i++){
+      		key = localStorage.key(i);
+      		value = localStorage.getItem(key);
+      		console.log(key + ": " + value);
+    	} // end for loop
+   
+  }
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
     document.addEventListener("deviceready", onDeviceReady, false);

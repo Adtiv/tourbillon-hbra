@@ -95,8 +95,6 @@ function storeLocalContent(){
 
 
 
-function clearLocalContent(){
-	window.localStorage.clear();
-}
+
 
 window.onload = init;
