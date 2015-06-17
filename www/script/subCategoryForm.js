@@ -480,6 +480,7 @@
 		var s;
 		var pageCount;
 		var globalPageIdentifier="page";
+		var setLen;
 		//Used for the form buttons, navigation/storing
 		//TO FIX:toggling between A.1 && other form screws up submit form button. 
 		function processFormOrder(page, bound, btnID, storePage){
@@ -550,6 +551,9 @@
 				var y = 0;
 				localStorage["checkedForms"] = JSON.stringify(checkedForms);
 				var count = localStorage.setItem("y", y);
+				var storeChecked= JSON.parse(localStorage["checkedForms"]);
+				var formLen = formLength(storeChecked);
+				setLen = localStorage.setItem('setLen', formLen);
 			}
 			var pCount=localStorage.getItem("pageCount");
 			if(pCount == null || pCount == "null"){
@@ -597,6 +601,8 @@
 						window.location.href="pageTwo.html";
 					}
 					else{
+						pageCount=1;
+						localStorage.setItem("pageCount", pageCount);
 						z = "A_1";
 						s=window.localStorage.setItem("s", z);
 						window.location.href="subCategoryForm.html";
@@ -738,7 +744,9 @@
 			//variables for getting the pageCount and the number of checked options.
 			var pNum = localStorage.getItem("pageCount");
 			var checked= JSON.parse(localStorage["checkedForms"]);
-			var fLen= formLength(checked);
+			var fLen= localStorage.getItem("setLen");
+			console.log("flen" + fLen);
+			console.log("pNum" + pNum);
 			if(window.localStorage.length != 0){
 				if(page=="A_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
@@ -1068,10 +1076,15 @@
 				    });
 				}
 				else if(page=="A_5"){
+					console.log('getTOpage5');
 					if(pNum==fLen){
+						console.log('GETS?');
 						document.getElementById('btnNext').style.visibility="hidden";
+						console.log('GETSHERE?');
 						document.getElementById('A_5arrow').style.visibility="hidden";
+						console.log('WTF?');
 						document.getElementById('btnSubmit').style.visibility="visible";
+						console.log('gets?');
 					}
 					document.getElementById('A.5notes').value = window.localStorage.getItem('A.5notes');
 					var initGetScore5=localStorage.getItem('l5');
@@ -1411,6 +1424,9 @@
 	else if(globalPageIdentifier=="A_3"){
 		window.onload=initialize('A_3');
 	}
-	else{
+	else if(globalPageIdentifier=="A_4"){
 		window.onload=initialize('A_4');
+	}
+	else{
+		window.onload=initialize('A_5');
 	}

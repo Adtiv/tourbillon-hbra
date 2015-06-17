@@ -101,13 +101,13 @@
 	    var storeScore5 = new Array(9);
 	    //TO FIX: 0 isnt showing when first going to page
 	    //TO FIX: after switching back and forth and changing scores the getScore array gets lost?
-	    //Bug happens when you go from one page to the direct next one and dont change the score. 
+	    //Bug happens when you go from one page to the direct next one and dont change the score.     
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
-	    	getScore2 = localStorage.getItem('l2');
-	    	getScore3 = localStorage.getItem('l3');
-	    	getScore4 = localStorage.getItem('l4');
-	    	getScore5 = localStorage.getItem('l5');
+		    getScore2 = localStorage.getItem('l2');
+		    getScore3 = localStorage.getItem('l3');
+		    getScore4 = localStorage.getItem('l4');
+		    getScore5 = localStorage.getItem('l5');
 	    	var finalScore=0;
 	    	console.log('getScore1' + getScore1);
 	    	console.log('getScore2' + getScore2);
@@ -504,7 +504,6 @@
 					}
 				}
 				else{
-					console.log("score2" + storeScore2);
 					l2 =window.localStorage.setItem('l2', storeScore2);
 				}
 				localStorageSubCatForms('A_2');
@@ -533,7 +532,9 @@
 			}
 			else if(storePage=="A_5"){
 				if(getScore5==null){
-					l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+					if(allScoresArray[4]!=null){
+						l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+					}
 				}
 				else{
 					l5 =window.localStorage.setItem('l5', storeScore5);
@@ -549,6 +550,10 @@
 				var y = 0;
 				localStorage["checkedForms"] = JSON.stringify(checkedForms);
 				var count = localStorage.setItem("y", y);
+				var storeChecked= JSON.parse(localStorage["checkedForms"]);
+				var formLen = formLength(storeChecked);
+				console.log("formOrder" + formLen);
+				localStorage.setItem(formLen, "formLen");
 			}
 			var pCount=localStorage.getItem("pageCount");
 			if(pCount == null || pCount == "null"){
@@ -669,7 +674,9 @@
 			localStorage.setItem("pageCount", pageCount);
 			if(page=="A_1"){
 				if(getScore1==null){
-					l =window.localStorage.setItem('l', allScoresArray[0]);
+					if(allScoresArray[0]!=null){
+						l =window.localStorage.setItem('l', allScoresArray[0]);
+					}
 				}
 				else{
 					l =window.localStorage.setItem('l', storeScore1);
@@ -678,7 +685,9 @@
 			}
 			else if(page=="A_2"){
 				if(getScore2==null){
-					l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+					if(allScoresArray[1]!=null){
+						l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+					}
 				}
 				else{
 					l2 =window.localStorage.setItem('l2', storeScore2);
@@ -687,7 +696,9 @@
 			}
 			else if(page=="A_3"){
 				if(getScore3==null){
-					l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+					if(allScoresArray[2]!=null){
+						l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+					}
 				}
 				else{
 					l3 =window.localStorage.setItem('l3', storeScore3);
@@ -696,7 +707,9 @@
 			}
 			else if(page=="A_4"){
 				if(getScore4==null){
-					l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+					if(allScoresArray[3]!=null){
+						l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+					}
 				}
 				else{
 					l4 =window.localStorage.setItem('l4', storeScore4);
@@ -705,7 +718,9 @@
 			}
 			else if(page=="A_5"){
 				if(getScore5==null){
-					l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+					if(allScoresArray[4]!=null){
+						l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+					}
 				}
 				else{
 					l5 =window.localStorage.setItem('l5', storeScore5);
@@ -726,8 +741,9 @@
 			}
 			//variables for getting the pageCount and the number of checked options.
 			var pNum = localStorage.getItem("pageCount");
-			var checked= JSON.parse(localStorage["checkedForms"]);
-			var fLen= formLength(checked);
+			//var checked= JSON.parse(localStorage["checkedForms"]);
+			var fLen= localStorage.getItem("formLen");
+			console.log("flen" + fLen);
 			if(window.localStorage.length != 0){
 				if(page=="A_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
@@ -737,7 +753,10 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
-					document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
+					var initGetScore1=localStorage.getItem('l');
+					if(initGetScore1!=null){
+						document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
+					}
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -826,7 +845,10 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.2notes').value = window.localStorage.getItem('A.2notes');
-					document.getElementById('A.2score').innerHTML = window.localStorage.getItem('A.2score');
+					var initGetScore2=localStorage.getItem('l2');
+					if(initGetScore2!=null){
+						document.getElementById('A.2score').innerHTML = window.localStorage.getItem('A.2score');
+					}
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -903,7 +925,10 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.3notes').value = window.localStorage.getItem('A.3notes');
-					document.getElementById('A.3score').innerHTML = window.localStorage.getItem('A.3score');
+					var initGetScore3=localStorage.getItem('l3');
+					if(initGetScore3!=null){
+						document.getElementById('A.3score').innerHTML = window.localStorage.getItem('A.3score');
+					}
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -980,7 +1005,10 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.4notes').value = window.localStorage.getItem('A.4notes');
-					document.getElementById('A.4score').innerHTML = window.localStorage.getItem('A.4score');
+					var initGetScore4=localStorage.getItem('l4');
+					if(initGetScore4!=null){
+						document.getElementById('A.4score').innerHTML = window.localStorage.getItem('A.4score');
+					}
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -1051,7 +1079,10 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.5notes').value = window.localStorage.getItem('A.5notes');
-					document.getElementById('A.5score').innerHTML = window.localStorage.getItem('A.5score');
+					var initGetScore5=localStorage.getItem('l5');
+					if(initGetScore5!=null){
+						document.getElementById('A.5score').innerHTML = window.localStorage.getItem('A.5score');
+					}
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -1252,7 +1283,7 @@
 				window.localStorage.setItem('A.4compliance8', A_4eigthCompliance);
 				window.localStorage.setItem('A.4compliance9', A_4ninthCompliance);
 			}
-			else if(page=="A_4"){
+			else if(page=="A_5"){
 				var score5 = document.getElementById('A.5score').innerHTML;
 				var endNotes5 = document.getElementById('A.5notes').value;
 				var A_5firstCompliance = document.getElementById('A.5compliance1').value;
@@ -1286,9 +1317,6 @@
 				console.log('..');
 			}
 		}
-	function clearStorage(){
-		localStorage.clear();
-	}	
 	function viewData(){
     	//shows all the key / value pairs
     	for (i = 0; i < localStorage.length; i++){
@@ -1296,7 +1324,6 @@
       		value = localStorage.getItem(key);
       		console.log(key + ": " + value);
     	} // end for loop
-   
   }
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
