@@ -98,10 +98,7 @@
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
 	    var storeScore4 = new Array(9);
-	    var storeScore5 = new Array(9);
-	    //TO FIX: 0 isnt showing when first going to page
-	    //TO FIX: after switching back and forth and changing scores the getScore array gets lost?
-	    //Bug happens when you go from one page to the direct next one and dont change the score.     
+	    var storeScore5 = new Array(9);   
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -298,7 +295,8 @@
 				}
 	    	}
 	    }
-	  	function goBack() {
+	  	function goBack(){
+	  		localStorageSubCatForms('checks');
     		window.location.href="pageOne.html";
 		}
 		//Creates an array with 1 as a checked form 0 unchecked
@@ -485,7 +483,10 @@
 		//TO FIX:toggling between A.1 && other form screws up submit form button. 
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
-			if(storePage=="A_1"){
+			if(storePage=="checks"){
+				localStorageSubCatForms('checks');
+			}
+			else if(storePage=="A_1"){
 				//if first time store allScoresArray[0] else store the array in localStorage so you can change scores later
 				if(getScore1==null){
 					if(allScoresArray[0]!=null){
@@ -549,11 +550,13 @@
 			var checked;
 			if(page=="pageTwo"){
 				var y = 0;
-				localStorage["checkedForms"] = JSON.stringify(checkedForms);
+				//localStorage["checkedForms"] = JSON.stringify(checkedForms);
 				var count = localStorage.setItem("y", y);
+				/*
 				var storeChecked= JSON.parse(localStorage["checkedForms"]);
 				var formLen = formLength(storeChecked);
 				setLen = localStorage.setItem('setLen', formLen);
+				*/
 			}
 			var pCount=localStorage.getItem("pageCount");
 			if(pCount == null || pCount == "null"){
@@ -562,7 +565,23 @@
 			else{
 				pageCount=parseInt(pCount);
 			}
-			var checked= JSON.parse(localStorage["checkedForms"]);
+			///
+			var temp=window.localStorage.getItem("forms");
+			var formLen;
+			console.log("temp" +temp);
+			if(temp==null){
+				checked= JSON.parse(localStorage["checkedForms"]);
+				formLen = formLength(checked);
+				setLen = localStorage.setItem('setLen', formLen);
+			}
+			else{
+				checked= JSON.parse(localStorage["storedCheckedForms"]);
+				formLen = formLength(checked);
+				setLen = localStorage.setItem('setLen', formLen);
+			}
+			console.log("checked: " + checked);
+			///
+			//checked= JSON.parse(localStorage["checkedForms"]);
 			var x = localStorage.getItem("y");
 			var hidebutton = document.getElementById(btnID);
 			//Back button 
@@ -598,6 +617,8 @@
 					if(bound==1){
 						pageCount=0;
 						localStorage.setItem("pageCount", pageCount);
+						z = "checks";
+						s=window.localStorage.setItem("s", z);
 						window.location.href="pageTwo.html";
 					}
 					else{
@@ -611,6 +632,8 @@
 				else{
 					pageCount=0;
 					localStorage.setItem("pageCount", pageCount);
+					z = "checks";
+					s=window.localStorage.setItem("s", z);
 					window.location.href="pageTwo.html";
 				}
 			}
@@ -672,9 +695,14 @@
 			}
 		}
 		function homeScreen(page){
+			var z = "checks";
+			var s=window.localStorage.setItem("s", z);
 			pageCount=0;
 			localStorage.setItem("pageCount", pageCount);
-			if(page=="A_1"){
+			if(page=="checks"){
+				localStorageSubCatForms('checks');
+			}
+			else if(page=="A_1"){
 				if(getScore1==null){
 					if(allScoresArray[0]!=null){
 						l =window.localStorage.setItem('l', allScoresArray[0]);
@@ -748,7 +776,15 @@
 			console.log("flen" + fLen);
 			console.log("pNum" + pNum);
 			if(window.localStorage.length != 0){
-				if(page=="A_1"){
+				
+				if(page=="checks"){
+					var i, checkboxes = document.querySelectorAll('input[type=checkbox]');
+					for (i = 0; i < checkboxes.length; i++) {
+        				checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === 'true' ? true:false;
+    				}
+    				console.log("Initializes!");
+				}
+				else if(page=="A_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
 						document.getElementById('btnNext').style.visibility="hidden";
@@ -1076,15 +1112,10 @@
 				    });
 				}
 				else if(page=="A_5"){
-					console.log('getTOpage5');
 					if(pNum==fLen){
-						console.log('GETS?');
 						document.getElementById('btnNext').style.visibility="hidden";
-						console.log('GETSHERE?');
 						document.getElementById('A_5arrow').style.visibility="hidden";
-						console.log('WTF?');
 						document.getElementById('btnSubmit').style.visibility="visible";
-						console.log('gets?');
 					}
 					document.getElementById('A.5notes').value = window.localStorage.getItem('A.5notes');
 					var initGetScore5=localStorage.getItem('l5');
@@ -1160,8 +1191,62 @@
 			}
 		}
 		//save to localStorage based on the page
+		var storedCheckedForms; 
 		function localStorageSubCatForms(page){
-			if(page=="A_1"){
+			
+			if(page=="checks"){
+				var i, checkboxes = document.querySelectorAll('input[type=checkbox]');
+				    for (i = 0; i < checkboxes.length; i++) {
+        				localStorage.setItem(checkboxes[i].value, checkboxes[i].checked); 
+    			}
+    			var test2 = window.localStorage.getItem('test3');
+    			if(test2==null){
+    				localStorage["checkedForms"] = JSON.stringify(checkedForms);
+    				//var firstChecked = JSON.parse(localStorage["checkedForms"]);
+    				var test3 = false;
+    				window.localStorage.setItem('test3', test3);
+    				console.log("FIRST");
+    			}
+    			else{
+    				console.log("SECOND");
+    				
+    				var test1 = window.localStorage.getItem('test');
+    				if(test1==null){
+    					storedCheckedForms=JSON.parse(localStorage["checkedForms"]);
+    					var test = false;
+    					window.localStorage.setItem('forms', storedCheckedForms); 
+    					window.localStorage.setItem('test', test);
+    					console.log("storedChecked=first");
+    					console.log("storedChecked[0]" + storedCheckedForms[0]);
+    				}
+					else{
+						storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
+						console.log("storedChecked=second");
+						console.log("storedChecked[1]" + storedCheckedForms[1]);
+					}
+	    			var x;
+	    			console.log("storedCheckedForms" + storedCheckedForms);
+	    			console.log("checkedForms" + checkedForms);
+	    			for(u = 0; u <20; u++){
+	    				console.log(storedCheckedForms[u]);
+	    			}
+	    			for(x = 0; x < checkedForms.length; x++){
+	    				if(checkedForms[x]==1 && storedCheckedForms[x]==0){
+	    					storedCheckedForms[x]=1;
+	    					console.log('HIT');
+	    				}
+	    				else if(checkedForms[x]==1 && storedCheckedForms[x]==1){
+	    					storedCheckedForms[x]=0;
+	    					console.log('HIT2');
+	    				}
+	    			}
+	    			localStorage["storedCheckedForms"] = JSON.stringify(storedCheckedForms);
+	    			console.log("storedCheckedForms" + storedCheckedForms);
+    			}
+
+    			console.log("Stores!");
+			}
+			else if(page=="A_1"){
 				var score1 = document.getElementById('A.1score').innerHTML;
 				var endNotes1 = document.getElementById('A.1notes').value;
 				var A_1firstCompliance = document.getElementById('A.1compliance1').value;
@@ -1415,6 +1500,7 @@
 
 	//Tracking the page on a global level through local storage. 
 	globalPageIdentifier=localStorage.getItem("s");
+
 	if(globalPageIdentifier=="A_1"){
 		window.onload=initialize('A_1');
 	}
@@ -1427,6 +1513,9 @@
 	else if(globalPageIdentifier=="A_4"){
 		window.onload=initialize('A_4');
 	}
-	else{
+	else if(globalPageIdentifier=="A_5"){
 		window.onload=initialize('A_5');
+	}
+	else{
+		window.onload=initialize('checks');
 	}

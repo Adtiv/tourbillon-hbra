@@ -98,10 +98,7 @@
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
 	    var storeScore4 = new Array(9);
-	    var storeScore5 = new Array(9);
-	    //TO FIX: 0 isnt showing when first going to page
-	    //TO FIX: after switching back and forth and changing scores the getScore array gets lost?
-	    //Bug happens when you go from one page to the direct next one and dont change the score.     
+	    var storeScore5 = new Array(9);   
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -298,7 +295,8 @@
 				}
 	    	}
 	    }
-	  	function goBack() {
+	  	function goBack(){
+	  		localStorageSubCatForms('checks');
     		window.location.href="pageOne.html";
 		}
 		//Creates an array with 1 as a checked form 0 unchecked
@@ -480,10 +478,16 @@
 		var s;
 		var pageCount;
 		var globalPageIdentifier="page";
+		var setLen;
 		//Used for the form buttons, navigation/storing
 		//TO FIX:toggling between A.1 && other form screws up submit form button. 
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
+			/*
+			if(storePage=="checks"){
+				localStorageSubCatForms('checks');
+			}
+			*/
 			if(storePage=="A_1"){
 				//if first time store allScoresArray[0] else store the array in localStorage so you can change scores later
 				if(getScore1==null){
@@ -552,8 +556,7 @@
 				var count = localStorage.setItem("y", y);
 				var storeChecked= JSON.parse(localStorage["checkedForms"]);
 				var formLen = formLength(storeChecked);
-				console.log("formOrder" + formLen);
-				localStorage.setItem(formLen, "formLen");
+				setLen = localStorage.setItem('setLen', formLen);
 			}
 			var pCount=localStorage.getItem("pageCount");
 			if(pCount == null || pCount == "null"){
@@ -598,9 +601,13 @@
 					if(bound==1){
 						pageCount=0;
 						localStorage.setItem("pageCount", pageCount);
+						z = "checks";
+						s=window.localStorage.setItem("s", z);
 						window.location.href="pageTwo.html";
 					}
 					else{
+						pageCount=1;
+						localStorage.setItem("pageCount", pageCount);
 						z = "A_1";
 						s=window.localStorage.setItem("s", z);
 						window.location.href="subCategoryForm.html";
@@ -609,6 +616,8 @@
 				else{
 					pageCount=0;
 					localStorage.setItem("pageCount", pageCount);
+					z = "checks";
+					s=window.localStorage.setItem("s", z);
 					window.location.href="pageTwo.html";
 				}
 			}
@@ -672,7 +681,10 @@
 		function homeScreen(page){
 			pageCount=0;
 			localStorage.setItem("pageCount", pageCount);
-			if(page=="A_1"){
+			if(page=="checks"){
+				localStorageSubCatForms('checks');
+			}
+			else if(page=="A_1"){
 				if(getScore1==null){
 					if(allScoresArray[0]!=null){
 						l =window.localStorage.setItem('l', allScoresArray[0]);
@@ -741,11 +753,20 @@
 			}
 			//variables for getting the pageCount and the number of checked options.
 			var pNum = localStorage.getItem("pageCount");
-			//var checked= JSON.parse(localStorage["checkedForms"]);
-			var fLen= localStorage.getItem("formLen");
+			var checked= JSON.parse(localStorage["checkedForms"]);
+			var fLen= localStorage.getItem("setLen");
 			console.log("flen" + fLen);
+			console.log("pNum" + pNum);
 			if(window.localStorage.length != 0){
-				if(page=="A_1"){
+				
+				if(page=="checks"){
+					var i, checkboxes = document.querySelectorAll('input[type=checkbox]');
+					for (i = 0; i < checkboxes.length; i++) {
+        				checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === 'true' ? true:false;
+    				}
+    				console.log("Initializes!");
+				}
+				else if(page=="A_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
 						document.getElementById('btnNext').style.visibility="hidden";
@@ -1153,7 +1174,15 @@
 		}
 		//save to localStorage based on the page
 		function localStorageSubCatForms(page){
-			if(page=="A_1"){
+			
+			if(page=="checks"){
+				var i, checkboxes = document.querySelectorAll('input[type=checkbox]');
+				    for (i = 0; i < checkboxes.length; i++) {
+        				localStorage.setItem(checkboxes[i].value, checkboxes[i].checked); 
+    			}
+    			console.log("Stores!");
+			}
+			else if(page=="A_1"){
 				var score1 = document.getElementById('A.1score').innerHTML;
 				var endNotes1 = document.getElementById('A.1notes').value;
 				var A_1firstCompliance = document.getElementById('A.1compliance1').value;
@@ -1407,6 +1436,7 @@
 
 	//Tracking the page on a global level through local storage. 
 	globalPageIdentifier=localStorage.getItem("s");
+
 	if(globalPageIdentifier=="A_1"){
 		window.onload=initialize('A_1');
 	}
@@ -1416,6 +1446,12 @@
 	else if(globalPageIdentifier=="A_3"){
 		window.onload=initialize('A_3');
 	}
-	else{
+	else if(globalPageIdentifier=="A_4"){
 		window.onload=initialize('A_4');
+	}
+	else if(globalPageIdentifier=="A_5"){
+		window.onload=initialize('A_5');
+	}
+	else{
+		window.onload=initialize('checks');
 	}
