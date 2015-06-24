@@ -305,44 +305,59 @@
 			var isChecked = input.checked;
 			isChecked = (isChecked)? true : false;
 			if(id=="jobsite"){
+				checkedForms[0]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[0]=1;
 				}
 				else{
 					checkedForms[0]=0;
 				}
+				*/
 			}
 			else if(id=="facility"){
+				checkedForms[1]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[1]=1;
 				}
 				else{
 					checkedForms[1]=0;
 				}
+				*/
 			}
 			else if(id=="ppe"){
+				checkedForms[2]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[2]=1;
 				}
 				else{
 					checkedForms[2]=0;
 				}
+				*/
 			}
 			else if(id=="housekeeping"){
+				checkedForms[3]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[3]=1;
 				}
 				else{
 					checkedForms[3]=0;
 				}
+				*/
 			}
 			else if(id=="fireProtection"){
+				checkedForms[4]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[4]=1;
 				}
 				else{
 					checkedForms[4]=0;
 				}
+				*/
 			}
 			else if(id=="traffic"){
 				if(isChecked==true){
@@ -483,12 +498,10 @@
 		//TO FIX:toggling between A.1 && other form screws up submit form button. 
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
-			/*
 			if(storePage=="checks"){
 				localStorageSubCatForms('checks');
 			}
-			*/
-			if(storePage=="A_1"){
+			else if(storePage=="A_1"){
 				//if first time store allScoresArray[0] else store the array in localStorage so you can change scores later
 				if(getScore1==null){
 					if(allScoresArray[0]!=null){
@@ -552,11 +565,13 @@
 			var checked;
 			if(page=="pageTwo"){
 				var y = 0;
-				localStorage["checkedForms"] = JSON.stringify(checkedForms);
+				//localStorage["checkedForms"] = JSON.stringify(checkedForms);
 				var count = localStorage.setItem("y", y);
+				/*
 				var storeChecked= JSON.parse(localStorage["checkedForms"]);
 				var formLen = formLength(storeChecked);
 				setLen = localStorage.setItem('setLen', formLen);
+				*/
 			}
 			var pCount=localStorage.getItem("pageCount");
 			if(pCount == null || pCount == "null"){
@@ -565,7 +580,23 @@
 			else{
 				pageCount=parseInt(pCount);
 			}
-			var checked= JSON.parse(localStorage["checkedForms"]);
+			///
+			var temp=window.localStorage.getItem("forms");
+			var formLen;
+			console.log("temp" +temp);
+			if(temp==null){
+				checked= JSON.parse(localStorage["checkedForms"]);
+				formLen = formLength(checked);
+				setLen = localStorage.setItem('setLen', formLen);
+			}
+			else{
+				checked= JSON.parse(localStorage["storedCheckedForms"]);
+				formLen = formLength(checked);
+				setLen = localStorage.setItem('setLen', formLen);
+			}
+			console.log("checked: " + checked);
+			///
+			//checked= JSON.parse(localStorage["checkedForms"]);
 			var x = localStorage.getItem("y");
 			var hidebutton = document.getElementById(btnID);
 			//Back button 
@@ -679,6 +710,8 @@
 			}
 		}
 		function homeScreen(page){
+			var z = "checks";
+			var s=window.localStorage.setItem("s", z);
 			pageCount=0;
 			localStorage.setItem("pageCount", pageCount);
 			if(page=="checks"){
@@ -1173,6 +1206,7 @@
 			}
 		}
 		//save to localStorage based on the page
+		var storedCheckedForms; 
 		function localStorageSubCatForms(page){
 			
 			if(page=="checks"){
@@ -1180,6 +1214,46 @@
 				    for (i = 0; i < checkboxes.length; i++) {
         				localStorage.setItem(checkboxes[i].value, checkboxes[i].checked); 
     			}
+    			var test2 = window.localStorage.getItem('test3');
+    			if(test2==null){
+    				localStorage["checkedForms"] = JSON.stringify(checkedForms);
+    				//var firstChecked = JSON.parse(localStorage["checkedForms"]);
+    				var test3 = false;
+    				window.localStorage.setItem('test3', test3);
+    				console.log("FIRST");
+    			}
+    			else{
+    				console.log("SECOND");
+    				
+    				var test1 = window.localStorage.getItem('test');
+    				if(test1==null){
+    					storedCheckedForms=JSON.parse(localStorage["checkedForms"]);
+    					var test = false;
+    					window.localStorage.setItem('forms', storedCheckedForms); 
+    					window.localStorage.setItem('test', test);
+    					console.log("storedChecked=first");
+    				}
+					else{
+						storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
+						console.log("storedChecked=second");
+					}
+	    			var x;
+	    			console.log("storedCheckedForms" + storedCheckedForms);
+	    			console.log("checkedForms" + checkedForms);
+	    			for(x = 0; x < checkedForms.length; x++){
+	    				if(checkedForms[x]==1 && storedCheckedForms[x]==0){
+	    					storedCheckedForms[x]=1;
+	    					console.log('HIT');
+	    				}
+	    				else if(checkedForms[x]==1 && storedCheckedForms[x]==1){
+	    					storedCheckedForms[x]=0;
+	    					console.log('HIT2');
+	    				}
+	    			}
+	    			localStorage["storedCheckedForms"] = JSON.stringify(storedCheckedForms);
+	    			console.log("storedCheckedForms" + storedCheckedForms);
+    			}
+
     			console.log("Stores!");
 			}
 			else if(page=="A_1"){
@@ -1436,7 +1510,7 @@
 
 	//Tracking the page on a global level through local storage. 
 	globalPageIdentifier=localStorage.getItem("s");
-
+	//if close out of program globalPageIdentifier==checks?? window.onbeforeunload?
 	if(globalPageIdentifier=="A_1"){
 		window.onload=initialize('A_1');
 	}
@@ -1454,4 +1528,10 @@
 	}
 	else{
 		window.onload=initialize('checks');
+	}
+	//something to do
+	window.onbeforeunload = exit();
+
+	function exit(){
+		console.log('wait!!');
 	}

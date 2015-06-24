@@ -66,19 +66,16 @@ function storeLocalContent(){
 	function clearStorage(){
 		localStorage.clear();
 	}	
-
 	//test email functions
 	document.addEventListener('deviceready', function () {
-	    console.log(cordova.plugins.email);
+		console.log("deviceReady");
 	    // cordova.plugins.email is now available
 	}, false);
     //Email plugin functions:
     function email(){
-    	alert('gets');
-    	alert(isAvailable());
-    	if(isAvailable()){
-    		open();
-    	}
+    	console.log('gets');
+    	open();
+    	console.log('getsHere');
     }
     cordova.plugins.email.isAvailable(
     function (isAvailable) {
@@ -87,8 +84,8 @@ function storeLocalContent(){
 	);
 	cordova.plugins.email.open({
 	    to:      'aditocco@ufl.edu',
-	    cc:      '',
-	    bcc:     [],
+	    cc:      'datocco13@gmail.com',
+	    bcc:     'datocco13@gmail.com',
 	    subject: 'Greetings',
 	    body:    'Worked!'
 	});
