@@ -91,6 +91,9 @@
 	    var l5;
 	    var l6;
 	    var l7;
+	    var l8;
+	    var l9;
+	    var l10;
 	    var getScore1;
 	    var getScore2;
 	    var getScore3;
@@ -98,13 +101,19 @@
 	    var getScore5;
 	    var getScore6;
 	    var getScore7;
+	    var getScore8;
+	    var getScore9;
+	    var getScore10;
 	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
 	    var storeScore4 = new Array(9);
 	    var storeScore5 = new Array(9);
 	    var storeScore6 = new Array(6);  
-	    var storeScore7 = new Array(7);    
+	    var storeScore7 = new Array(7);
+	    var storeScore8 = new Array(5); 
+	    var storeScore9 = new Array(10);
+	    var storeScore10 = new Array(10);     
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -113,6 +122,9 @@
 		    getScore5 = localStorage.getItem('l5');
 		    getScore6 = localStorage.getItem('l6');
 		    getScore7 = localStorage.getItem('l7');
+		    getScore8 = localStorage.getItem('l8');
+		    getScore9 = localStorage.getItem('l9');
+		    getScore10 = localStorage.getItem('l10');
 	    	var finalScore=0;
 	    	console.log('getScore1' + getScore1);
 	    	console.log('getScore2' + getScore2);
@@ -121,6 +133,9 @@
 	    	console.log('getScore5' + getScore5);
 	    	console.log('getScore6' + getScore6);
 	    	console.log('getScore7' + getScore7);
+	    	console.log('getScore8' + getScore8);
+	    	console.log('getScore9' + getScore9);
+	    	console.log('getScore10' + getScore10);
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
@@ -378,6 +393,117 @@
 		    		document.getElementById("A.7score").innerHTML=score;
 				}
 	    	}
+	    	else if(page=="A.8"){
+				if(getScore8==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[7]=scoreTrack;
+			    	for(i=0; i<5; i++){
+			    		finalScore+=allScoresArray[7][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("A.8score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[7]=getScore8;
+					for(i=0; i<10; i=i+2){
+						if(allScoresArray[7][i]=="0"){
+							storeScore8[i/2]=0;
+						}
+						else if(allScoresArray[7][i]=="1"){
+							storeScore8[i/2]=1;
+						}
+						else if(allScoresArray[7][i]=="3"){
+							storeScore8[i/2]=3;
+						}
+						else if(allScoresArray[7][i]=="5"){
+							storeScore8[i/2]=5;
+						}
+					}
+		    		storeScore8[index]= score;
+			    	for(i=0; i<5; i++){
+			    		finalScore+=storeScore8[i];
+			    	}
+			    	score = finalScore;
+			    	l8 =window.localStorage.setItem('l8', storeScore8);
+		    		document.getElementById("A.8score").innerHTML=score;
+				}
+	    	}
+	    	else if(page=="B.1"){
+				if(getScore9==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[8]=scoreTrack;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=allScoresArray[8][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("B.1score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[8]=getScore9;
+					for(i=0; i<20; i=i+2){
+						if(allScoresArray[8][i]=="0"){
+							storeScore9[i/2]=0;
+						}
+						else if(allScoresArray[8][i]=="1"){
+							storeScore9[i/2]=1;
+						}
+						else if(allScoresArray[8][i]=="3"){
+							storeScore9[i/2]=3;
+						}
+						else if(allScoresArray[8][i]=="5"){
+							storeScore9[i/2]=5;
+						}
+					}
+		    		storeScore9[index]= score;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=storeScore9[i];
+			    	}
+			    	score = finalScore;
+			    	l9 =window.localStorage.setItem('l9', storeScore9);
+		    		document.getElementById("B.1score").innerHTML=score;
+				}
+	    	}
+	    	else if(page=="B.2"){
+				if(getScore10==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[9]=scoreTrack;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=allScoresArray[9][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("B.2score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[9]=getScore10;
+					for(i=0; i<20; i=i+2){
+						if(allScoresArray[9][i]=="0"){
+							storeScore10[i/2]=0;
+						}
+						else if(allScoresArray[9][i]=="1"){
+							storeScore10[i/2]=1;
+						}
+						else if(allScoresArray[9][i]=="3"){
+							storeScore10[i/2]=3;
+						}
+						else if(allScoresArray[9][i]=="5"){
+							storeScore10[i/2]=5;
+						}
+					}
+		    		storeScore10[index]= score;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=storeScore10[i];
+			    	}
+			    	score = finalScore;
+			    	l10 =window.localStorage.setItem('l10', storeScore10);
+		    		document.getElementById("B.2score").innerHTML=score;
+				}
+	    	}
 	    }
 	  	function goBack(){
 	  		localStorageSubCatForms('checks');
@@ -466,28 +592,37 @@
 				*/
 			}
 			else if(id=="licensing"){
+				checkedForms[7]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[7]=1;
 				}
 				else{
 					checkedForms[7]=0;
 				}
+				*/
 			}
 			else if(id=="generalFall"){
+				checkedForms[8]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[8]=1;
 				}
 				else{
 					checkedForms[8]=0;
 				}
+				*/
 			}
 			else if(id=="scaffold"){
+				checkedForms[9]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[9]=1;
 				}
 				else{
 					checkedForms[9]=0;
 				}
+				*/
 			}
 			else if(id=="ladder"){
 				if(isChecked==true){
@@ -670,6 +805,39 @@
 				}
 				localStorageSubCatForms('A_7');
 			}
+			else if(storePage=="A_8"){
+				if(getScore8==null){
+					if(allScoresArray[7]!=null){
+						l8 =window.localStorage.setItem('l8', allScoresArray[7]);
+					}
+				}
+				else{
+					l8 =window.localStorage.setItem('l8', storeScore8);
+				}
+				localStorageSubCatForms('A_8');
+			}
+			else if(storePage=="B_1"){
+				if(getScore9==null){
+					if(allScoresArray[8]!=null){
+						l9 =window.localStorage.setItem('l9', allScoresArray[8]);
+					}
+				}
+				else{
+					l9 =window.localStorage.setItem('l9', storeScore9);
+				}
+				localStorageSubCatForms('B_1');
+			}
+			else if(storePage=="B_2"){
+				if(getScore10==null){
+					if(allScoresArray[9]!=null){
+						l10 =window.localStorage.setItem('l10', allScoresArray[9]);
+					}
+				}
+				else{
+					l10 =window.localStorage.setItem('l10', storeScore10);
+				}
+				localStorageSubCatForms('B_2');
+			}
 			else{
 				console.log("last");
 			}
@@ -815,6 +983,18 @@
 						zeroOutScore();
 						window.location.href="A.8.html";
 					}
+					else if(x==8){
+						z = "B_1";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="B.1.html";
+					}
+					else if(x==8){
+						z = "B_2";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="B.2.html";
+					}
 				}
 				//stores the x value
 				y = localStorage.setItem("y", x);
@@ -905,6 +1085,39 @@
 					l7 =window.localStorage.setItem('l7', storeScore7);
 				}
 				localStorageSubCatForms('A_7');
+			}
+			else if(page=="A_8"){
+				if(getScore8==null){
+					if(allScoresArray[7]!=null){
+						l8 =window.localStorage.setItem('l8', allScoresArray[7]);
+					}
+				}
+				else{
+					l8 =window.localStorage.setItem('l8', storeScore8);
+				}
+				localStorageSubCatForms('A_8');
+			}
+			else if(page=="B_1"){
+				if(getScore9==null){
+					if(allScoresArray[8]!=null){
+						l9 =window.localStorage.setItem('l9', allScoresArray[8]);
+					}
+				}
+				else{
+					l9 =window.localStorage.setItem('l9', storeScore9);
+				}
+				localStorageSubCatForms('B_1');
+			}
+			else if(page=="B_2"){
+				if(getScore10==null){
+					if(allScoresArray[9]!=null){
+						l10 =window.localStorage.setItem('l10', allScoresArray[9]);
+					}
+				}
+				else{
+					l10 =window.localStorage.setItem('l10', storeScore10);
+				}
+				localStorageSubCatForms('B_2');
 			}
 			else{
 				window.location.href="index.html";
@@ -1452,6 +1665,216 @@
 						}
 				    });
 				}
+				else if(page=="A_8"){
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('A_8arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('A.8notes').value = window.localStorage.getItem('A.8notes');
+					var initGetScore8=localStorage.getItem('l8');
+					if(initGetScore8!=null){
+						document.getElementById('A.8score').innerHTML = window.localStorage.getItem('A.8score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('A.8compliance1').value = window.localStorage.getItem('A.8compliance1');
+								var showDiv=document.getElementById('A.8firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('A.8compliance2').value = window.localStorage.getItem('A.8compliance2');
+								var showDiv=document.getElementById('A.8secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('A.8compliance3').value = window.localStorage.getItem('A.8compliance3');
+								var showDiv=document.getElementById('A.8thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('A.8compliance4').value = window.localStorage.getItem('A.8compliance4');
+								var showDiv=document.getElementById('A.8fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('A.8compliance5').value = window.localStorage.getItem('A.8compliance5');
+								var showDiv=document.getElementById('A.8fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
+				else if(page=="B_1"){
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('B_1arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('B.1notes').value = window.localStorage.getItem('B.1notes');
+					var initGetScore9=localStorage.getItem('l9');
+					if(initGetScore9!=null){
+						document.getElementById('B.1score').innerHTML = window.localStorage.getItem('B.1score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('B.1compliance1').value = window.localStorage.getItem('B.1compliance1');
+								var showDiv=document.getElementById('B.1firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('B.1compliance2').value = window.localStorage.getItem('B.1compliance2');
+								var showDiv=document.getElementById('B.1secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('B.1compliance3').value = window.localStorage.getItem('B.1compliance3');
+								var showDiv=document.getElementById('B.1thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('B.1compliance4').value = window.localStorage.getItem('B.1compliance4');
+								var showDiv=document.getElementById('B.1fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('B.1compliance5').value = window.localStorage.getItem('B.1compliance5');
+								var showDiv=document.getElementById('B.1fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('B.1compliance6').value = window.localStorage.getItem('B.1compliance6');
+								var showDiv=document.getElementById('B.1sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('B.1compliance7').value = window.localStorage.getItem('B.1compliance7');
+								var showDiv=document.getElementById('B.1seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('B.1compliance8').value = window.localStorage.getItem('B.1compliance8');
+								var showDiv=document.getElementById('B.1eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('B.1compliance9').value = window.localStorage.getItem('B.1compliance9');
+								var showDiv=document.getElementById('B.1ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('B.1compliance10').value = window.localStorage.getItem('B.1compliance10');
+								var showDiv=document.getElementById('B.1tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
+				else if(page=="B_2"){
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('B_2arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('B.2notes').value = window.localStorage.getItem('B.2notes');
+					var initGetScore10=localStorage.getItem('l10');
+					if(initGetScore10!=null){
+						document.getElementById('B.2score').innerHTML = window.localStorage.getItem('B.2score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('B.2compliance1').value = window.localStorage.getItem('B.2compliance1');
+								var showDiv=document.getElementById('B.2firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('B.2compliance2').value = window.localStorage.getItem('B.2compliance2');
+								var showDiv=document.getElementById('B.2secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('B.2compliance3').value = window.localStorage.getItem('B.2compliance3');
+								var showDiv=document.getElementById('B.2thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('B.2compliance4').value = window.localStorage.getItem('B.2compliance4');
+								var showDiv=document.getElementById('B.2fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('B.2compliance5').value = window.localStorage.getItem('B.2compliance5');
+								var showDiv=document.getElementById('B.2fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('B.2compliance6').value = window.localStorage.getItem('B.2compliance6');
+								var showDiv=document.getElementById('B.2sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('B.2compliance7').value = window.localStorage.getItem('B.2compliance7');
+								var showDiv=document.getElementById('B.2seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('B.2compliance8').value = window.localStorage.getItem('B.2compliance8');
+								var showDiv=document.getElementById('B.2eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('B.2compliance9').value = window.localStorage.getItem('B.2compliance9');
+								var showDiv=document.getElementById('B.2ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('B.2compliance10').value = window.localStorage.getItem('B.2compliance10');
+								var showDiv=document.getElementById('B.2tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
 				else{
 					console.log('..');
 				}
@@ -1718,6 +2141,92 @@
 				window.localStorage.setItem('A.7compliance6', A_7sixthCompliance);
 				window.localStorage.setItem('A.7compliance7', A_7seventhCompliance);
 			}
+			else if(page=="A_8"){
+				var score8 = document.getElementById('A.8score').innerHTML;
+				var endNotes8 = document.getElementById('A.8notes').value;
+				var A_8firstCompliance = document.getElementById('A.8compliance1').value;
+				var A_8secondCompliance = document.getElementById('A.8compliance2').value;
+				var A_8thirdCompliance = document.getElementById('A.8compliance3').value;
+				var A_8fourthCompliance = document.getElementById('A.8compliance4').value;
+				var A_8fifthCompliance = document.getElementById('A.8compliance5').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('A.8notes', endNotes8);
+				window.localStorage.setItem('A.8score', score8);
+				window.localStorage.setItem('A.8compliance1', A_8firstCompliance);
+				window.localStorage.setItem('A.8compliance2', A_8secondCompliance);
+				window.localStorage.setItem('A.8compliance3', A_8thirdCompliance);
+				window.localStorage.setItem('A.8compliance4', A_8fourthCompliance);
+				window.localStorage.setItem('A.8compliance5', A_8fifthCompliance);
+			}
+			else if(page=="B_1"){
+				var score9 = document.getElementById('B.1score').innerHTML;
+				var endNotes9 = document.getElementById('B.1notes').value;
+				var B_1firstCompliance = document.getElementById('B.1compliance1').value;
+				var B_1secondCompliance = document.getElementById('B.1compliance2').value;
+				var B_1thirdCompliance = document.getElementById('B.1compliance3').value;
+				var B_1fourthCompliance = document.getElementById('B.1compliance4').value;
+				var B_1fifthCompliance = document.getElementById('B.1compliance5').value;
+				var B_1sixthCompliance = document.getElementById('B.1compliance6').value;
+				var B_1seventhCompliance = document.getElementById('B.1compliance7').value;
+				var B_1eigthCompliance = document.getElementById('B.1compliance8').value;
+				var B_1ninthCompliance = document.getElementById('B.1compliance9').value;
+				var B_1tenthCompliance = document.getElementById('B.1compliance10').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('B.1notes', endNotes9);
+				window.localStorage.setItem('B.1score', score9);
+				window.localStorage.setItem('B.1compliance1', B_1firstCompliance);
+				window.localStorage.setItem('B.1compliance2', B_1secondCompliance);
+				window.localStorage.setItem('B.1compliance3', B_1thirdCompliance);
+				window.localStorage.setItem('B.1compliance4', B_1fourthCompliance);
+				window.localStorage.setItem('B.1compliance5', B_1fifthCompliance);
+				window.localStorage.setItem('B.1compliance6', B_1sixthCompliance);
+				window.localStorage.setItem('B.1compliance7', B_1seventhCompliance);
+				window.localStorage.setItem('B.1compliance8', B_1eigthCompliance);
+				window.localStorage.setItem('B.1compliance9', B_1ninthCompliance);
+				window.localStorage.setItem('B.1compliance10', B_1tenthCompliance);
+			}
+			else if(page=="B_2"){
+				var score10 = document.getElementById('B.2score').innerHTML;
+				var endNotes10 = document.getElementById('B.2notes').value;
+				var B_2firstCompliance = document.getElementById('B.2compliance1').value;
+				var B_2secondCompliance = document.getElementById('B.2compliance2').value;
+				var B_2thirdCompliance = document.getElementById('B.2compliance3').value;
+				var B_2fourthCompliance = document.getElementById('B.2compliance4').value;
+				var B_2fifthCompliance = document.getElementById('B.2compliance5').value;
+				var B_2sixthCompliance = document.getElementById('B.2compliance6').value;
+				var B_2seventhCompliance = document.getElementById('B.2compliance7').value;
+				var B_2eigthCompliance = document.getElementById('B.2compliance8').value;
+				var B_2ninthCompliance = document.getElementById('B.2compliance9').value;
+				var B_2tenthCompliance = document.getElementById('B.2compliance10').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('B.2notes', endNotes10);
+				window.localStorage.setItem('B.2score', score10);
+				window.localStorage.setItem('B.2compliance1', B_2firstCompliance);
+				window.localStorage.setItem('B.2compliance2', B_2secondCompliance);
+				window.localStorage.setItem('B.2compliance3', B_2thirdCompliance);
+				window.localStorage.setItem('B.2compliance4', B_2fourthCompliance);
+				window.localStorage.setItem('B.2compliance5', B_2fifthCompliance);
+				window.localStorage.setItem('B.2compliance6', B_2sixthCompliance);
+				window.localStorage.setItem('B.2compliance7', B_2seventhCompliance);
+				window.localStorage.setItem('B.2compliance8', B_2eigthCompliance);
+				window.localStorage.setItem('B.2compliance9', B_2ninthCompliance);
+				window.localStorage.setItem('B.2compliance10', B_2tenthCompliance);
+			}
 			else{
 				console.log('..');
 			}
@@ -1833,6 +2342,15 @@
 	}
 	else if(globalPageIdentifier=="A_7"){
 		window.onload=initialize('A_7');
+	}
+	else if(globalPageIdentifier=="A_8"){
+		window.onload=initialize('A_8');
+	}
+	else if(globalPageIdentifier=="B_1"){
+		window.onload=initialize('B_1');
+	}
+	else if(globalPageIdentifier=="B_2"){
+		window.onload=initialize('B_2');
 	}
 	else{
 		window.onload=initialize('checks');

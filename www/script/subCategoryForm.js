@@ -94,6 +94,7 @@
 	    var l8;
 	    var l9;
 	    var l10;
+	    var l11;
 	    var getScore1;
 	    var getScore2;
 	    var getScore3;
@@ -104,6 +105,7 @@
 	    var getScore8;
 	    var getScore9;
 	    var getScore10;
+	    var getScore11;
 	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
@@ -113,7 +115,8 @@
 	    var storeScore7 = new Array(7);
 	    var storeScore8 = new Array(5); 
 	    var storeScore9 = new Array(10);
-	    var storeScore10 = new Array(10);     
+	    var storeScore10 = new Array(10);
+	    var storeScore11 = new Array(9);     
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -504,6 +507,43 @@
 		    		document.getElementById("B.2score").innerHTML=score;
 				}
 	    	}
+	    	else if(page=="B.3"){
+				if(getScore11==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[10]=scoreTrack;
+			    	for(i=0; i<9; i++){
+			    		finalScore+=allScoresArray[10][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("B.3score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[10]=getScore11;
+					for(i=0; i<18; i=i+2){
+						if(allScoresArray[10][i]=="0"){
+							storeScore11[i/2]=0;
+						}
+						else if(allScoresArray[10][i]=="1"){
+							storeScore11[i/2]=1;
+						}
+						else if(allScoresArray[10][i]=="3"){
+							storeScore11[i/2]=3;
+						}
+						else if(allScoresArray[10][i]=="5"){
+							storeScore11[i/2]=5;
+						}
+					}
+		    		storeScore11[index]= score;
+			    	for(i=0; i<9; i++){
+			    		finalScore+=storeScore11[i];
+			    	}
+			    	score = finalScore;
+			    	l11 =window.localStorage.setItem('l11', storeScore11);
+		    		document.getElementById("B.3score").innerHTML=score;
+				}
+	    	}
 	    }
 	  	function goBack(){
 	  		localStorageSubCatForms('checks');
@@ -625,12 +665,15 @@
 				*/
 			}
 			else if(id=="ladder"){
+				checkedForms[10]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[10]=1;
 				}
 				else{
 					checkedForms[10]=0;
 				}
+				*/
 			}
 			else if(id=="tool"){
 				if(isChecked==true){
@@ -838,6 +881,17 @@
 				}
 				localStorageSubCatForms('B_2');
 			}
+			else if(storePage=="B_3"){
+				if(getScore11==null){
+					if(allScoresArray[10]!=null){
+						l11 =window.localStorage.setItem('l11', allScoresArray[10]);
+					}
+				}
+				else{
+					l11 =window.localStorage.setItem('l11', storeScore11);
+				}
+				localStorageSubCatForms('B_3');
+			}
 			else{
 				console.log("last");
 			}
@@ -989,11 +1043,17 @@
 						zeroOutScore();
 						window.location.href="B.1.html";
 					}
-					else if(x==8){
+					else if(x==9){
 						z = "B_2";
 						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="B.2.html";
+					}
+					else if(x==10){
+						z = "B_3";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="B.3.html";
 					}
 				}
 				//stores the x value
@@ -1118,6 +1178,17 @@
 					l10 =window.localStorage.setItem('l10', storeScore10);
 				}
 				localStorageSubCatForms('B_2');
+			}
+			else if(page=="B_3"){
+				if(getScore11==null){
+					if(allScoresArray[10]!=null){
+						l11 =window.localStorage.setItem('l11', allScoresArray[10]);
+					}
+				}
+				else{
+					l11 =window.localStorage.setItem('l11', storeScore11);
+				}
+				localStorageSubCatForms('B_3');
 			}
 			else{
 				window.location.href="index.html";
@@ -1875,6 +1946,80 @@
 						}
 				    });
 				}
+				else if(page=="B_3"){
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('B_3arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('B.3notes').value = window.localStorage.getItem('B.3notes');
+					var initGetScore11=localStorage.getItem('l11');
+					if(initGetScore11!=null){
+						document.getElementById('B.3score').innerHTML = window.localStorage.getItem('B.3score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('B.3compliance1').value = window.localStorage.getItem('B.3compliance1');
+								var showDiv=document.getElementById('B.3firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('B.3compliance2').value = window.localStorage.getItem('B.3compliance2');
+								var showDiv=document.getElementById('B.3secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('B.3compliance3').value = window.localStorage.getItem('B.3compliance3');
+								var showDiv=document.getElementById('B.3thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('B.3compliance4').value = window.localStorage.getItem('B.3compliance4');
+								var showDiv=document.getElementById('B.3fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('B.3compliance5').value = window.localStorage.getItem('B.3compliance5');
+								var showDiv=document.getElementById('B.3fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('B.3compliance6').value = window.localStorage.getItem('B.3compliance6');
+								var showDiv=document.getElementById('B.3sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('B.3compliance7').value = window.localStorage.getItem('B.3compliance7');
+								var showDiv=document.getElementById('B.3seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('B.3compliance8').value = window.localStorage.getItem('B.3compliance8');
+								var showDiv=document.getElementById('B.3eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('B.3compliance9').value = window.localStorage.getItem('B.3compliance9');
+								var showDiv=document.getElementById('B.3ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
 				else{
 					console.log('..');
 				}
@@ -2227,6 +2372,36 @@
 				window.localStorage.setItem('B.2compliance9', B_2ninthCompliance);
 				window.localStorage.setItem('B.2compliance10', B_2tenthCompliance);
 			}
+			else if(page=="B_3"){
+				var score11 = document.getElementById('B.3score').innerHTML;
+				var endNotes11 = document.getElementById('B.3notes').value;
+				var B_3firstCompliance = document.getElementById('B.3compliance1').value;
+				var B_3secondCompliance = document.getElementById('B.3compliance2').value;
+				var B_3thirdCompliance = document.getElementById('B.3compliance3').value;
+				var B_3fourthCompliance = document.getElementById('B.3compliance4').value;
+				var B_3fifthCompliance = document.getElementById('B.3compliance5').value;
+				var B_3sixthCompliance = document.getElementById('B.3compliance6').value;
+				var B_3seventhCompliance = document.getElementById('B.3compliance7').value;
+				var B_3eigthCompliance = document.getElementById('B.3compliance8').value;
+				var B_3ninthCompliance = document.getElementById('B.3compliance9').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('B.3notes', endNotes11);
+				window.localStorage.setItem('B.3score', score11);
+				window.localStorage.setItem('B.3compliance1', B_3firstCompliance);
+				window.localStorage.setItem('B.3compliance2', B_3secondCompliance);
+				window.localStorage.setItem('B.3compliance3', B_3thirdCompliance);
+				window.localStorage.setItem('B.3compliance4', B_3fourthCompliance);
+				window.localStorage.setItem('B.3compliance5', B_3fifthCompliance);
+				window.localStorage.setItem('B.3compliance6', B_3sixthCompliance);
+				window.localStorage.setItem('B.3compliance7', B_3seventhCompliance);
+				window.localStorage.setItem('B.3compliance8', B_3eigthCompliance);
+				window.localStorage.setItem('B.3compliance9', B_3ninthCompliance);
+			}
 			else{
 				console.log('..');
 			}
@@ -2351,6 +2526,9 @@
 	}
 	else if(globalPageIdentifier=="B_2"){
 		window.onload=initialize('B_2');
+	}
+	else if(globalPageIdentifier=="B_3"){
+		window.onload=initialize('B_3');
 	}
 	else{
 		window.onload=initialize('checks');
