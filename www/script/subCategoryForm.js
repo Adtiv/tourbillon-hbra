@@ -95,6 +95,9 @@
 	    var l9;
 	    var l10;
 	    var l11;
+	    var l12;
+	    var l13;
+	    var l14;
 	    var getScore1;
 	    var getScore2;
 	    var getScore3;
@@ -106,6 +109,9 @@
 	    var getScore9;
 	    var getScore10;
 	    var getScore11;
+	    var getScore12;
+	    var getScore13;
+	    var getScore14;
 	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
@@ -116,7 +122,10 @@
 	    var storeScore8 = new Array(5); 
 	    var storeScore9 = new Array(10);
 	    var storeScore10 = new Array(10);
-	    var storeScore11 = new Array(9);     
+	    var storeScore11 = new Array(9);  
+	    var storeScore12 = new Array(12);     
+	    var storeScore13 = new Array(9); 
+	    var storeScore14 = new Array(12); 
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -128,6 +137,10 @@
 		    getScore8 = localStorage.getItem('l8');
 		    getScore9 = localStorage.getItem('l9');
 		    getScore10 = localStorage.getItem('l10');
+		    getScore11 = localStorage.getItem('l11');
+		    getScore12 = localStorage.getItem('l12');
+		    getScore13 = localStorage.getItem('l13');
+		    getScore14 = localStorage.getItem('l14');
 	    	var finalScore=0;
 	    	console.log('getScore1' + getScore1);
 	    	console.log('getScore2' + getScore2);
@@ -139,6 +152,10 @@
 	    	console.log('getScore8' + getScore8);
 	    	console.log('getScore9' + getScore9);
 	    	console.log('getScore10' + getScore10);
+	    	console.log('getScore11' + getScore11);
+	    	console.log('getScore12' + getScore12);
+		    console.log('getScore13' + getScore13);
+		    console.log('getScore14' + getScore14);    	
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
@@ -544,6 +561,117 @@
 		    		document.getElementById("B.3score").innerHTML=score;
 				}
 	    	}
+	    	else if(page=="C.1"){
+				if(getScore12==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[11]=scoreTrack;
+			    	for(i=0; i<12; i++){
+			    		finalScore+=allScoresArray[11][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("C.1score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[11]=getScore12;
+					for(i=0; i<24; i=i+2){
+						if(allScoresArray[11][i]=="0"){
+							storeScore12[i/2]=0;
+						}
+						else if(allScoresArray[11][i]=="1"){
+							storeScore12[i/2]=1;
+						}
+						else if(allScoresArray[11][i]=="3"){
+							storeScore12[i/2]=3;
+						}
+						else if(allScoresArray[11][i]=="5"){
+							storeScore12[i/2]=5;
+						}
+					}
+		    		storeScore12[index]= score;
+			    	for(i=0; i<12; i++){
+			    		finalScore+=storeScore12[i];
+			    	}
+			    	score = finalScore;
+			    	l12 =window.localStorage.setItem('l12', storeScore12);
+		    		document.getElementById("C.1score").innerHTML=score;
+				}
+	    	}
+	    	else if(page=="C.2"){
+				if(getScore13==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[12]=scoreTrack;
+			    	for(i=0; i<9; i++){
+			    		finalScore+=allScoresArray[12][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("C.2score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[12]=getScore13;
+					for(i=0; i<18; i=i+2){
+						if(allScoresArray[12][i]=="0"){
+							storeScore13[i/2]=0;
+						}
+						else if(allScoresArray[12][i]=="1"){
+							storeScore13[i/2]=1;
+						}
+						else if(allScoresArray[12][i]=="3"){
+							storeScore13[i/2]=3;
+						}
+						else if(allScoresArray[12][i]=="5"){
+							storeScore13[i/2]=5;
+						}
+					}
+		    		storeScore13[index]= score;
+			    	for(i=0; i<9; i++){
+			    		finalScore+=storeScore13[i];
+			    	}
+			    	score = finalScore;
+			    	l13 =window.localStorage.setItem('l13', storeScore13);
+		    		document.getElementById("C.2score").innerHTML=score;
+				}
+	    	}
+	    	else if(page=="D.1"){
+				if(getScore14==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[13]=scoreTrack;
+			    	for(i=0; i<12; i++){
+			    		finalScore+=allScoresArray[13][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("D.1score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[13]=getScore14;
+					for(i=0; i<24; i=i+2){
+						if(allScoresArray[13][i]=="0"){
+							storeScore14[i/2]=0;
+						}
+						else if(allScoresArray[13][i]=="1"){
+							storeScore14[i/2]=1;
+						}
+						else if(allScoresArray[13][i]=="3"){
+							storeScore14[i/2]=3;
+						}
+						else if(allScoresArray[13][i]=="5"){
+							storeScore14[i/2]=5;
+						}
+					}
+		    		storeScore14[index]= score;
+			    	for(i=0; i<12; i++){
+			    		finalScore+=storeScore14[i];
+			    	}
+			    	score = finalScore;
+			    	l14 =window.localStorage.setItem('l14', storeScore14);
+		    		document.getElementById("D.1score").innerHTML=score;
+				}
+	    	}
 	    }
 	  	function goBack(){
 	  		localStorageSubCatForms('checks');
@@ -676,28 +804,37 @@
 				*/
 			}
 			else if(id=="tool"){
+				checkedForms[11]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[11]=1;
 				}
 				else{
 					checkedForms[11]=0;
 				}
+				*/
 			}
 			else if(id=="electric"){
+				checkedForms[12]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[12]=1;
 				}
 				else{
 					checkedForms[12]=0;
 				}
+				*/
 			}
 			else if(id=="crane"){
+				checkedForms[13]=1;
+				/*
 				if(isChecked==true){
 					checkedForms[13]=1;
 				}
 				else{
 					checkedForms[13]=0;
 				}
+				*/
 			}
 			else if(id=="heavyEq"){
 				if(isChecked==true){
@@ -892,6 +1029,39 @@
 				}
 				localStorageSubCatForms('B_3');
 			}
+			else if(storePage=="C_1"){
+				if(getScore12==null){
+					if(allScoresArray[11]!=null){
+						l12 =window.localStorage.setItem('l12', allScoresArray[11]);
+					}
+				}
+				else{
+					l12 =window.localStorage.setItem('l12', storeScore12);
+				}
+				localStorageSubCatForms('C_1');
+			}
+			else if(storePage=="C_2"){
+				if(getScore13==null){
+					if(allScoresArray[12]!=null){
+						l13 =window.localStorage.setItem('l13', allScoresArray[12]);
+					}
+				}
+				else{
+					l13 =window.localStorage.setItem('l13', storeScore13);
+				}
+				localStorageSubCatForms('C_2');
+			}
+			else if(storePage=="D_1"){
+				if(getScore14==null){
+					if(allScoresArray[13]!=null){
+						l14 =window.localStorage.setItem('l14', allScoresArray[13]);
+					}
+				}
+				else{
+					l14 =window.localStorage.setItem('l14', storeScore14);
+				}
+				localStorageSubCatForms('D_1');
+			}
 			else{
 				console.log("last");
 			}
@@ -1055,6 +1225,24 @@
 						zeroOutScore();
 						window.location.href="B.3.html";
 					}
+					else if(x==11){
+						z = "C_1";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="C.1.html";
+					}
+					else if(x==12){
+						z = "C_2";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="C.2.html";
+					}
+					else if(x==13){
+						z = "D_1";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="D.1.html";
+					}
 				}
 				//stores the x value
 				y = localStorage.setItem("y", x);
@@ -1189,6 +1377,39 @@
 					l11 =window.localStorage.setItem('l11', storeScore11);
 				}
 				localStorageSubCatForms('B_3');
+			}
+			else if(page=="C_1"){
+				if(getScore12==null){
+					if(allScoresArray[11]!=null){
+						l12 =window.localStorage.setItem('l12', allScoresArray[11]);
+					}
+				}
+				else{
+					l12 =window.localStorage.setItem('l12', storeScore12);
+				}
+				localStorageSubCatForms('C_1');
+			}
+			else if(page=="C_2"){
+				if(getScore13==null){
+					if(allScoresArray[12]!=null){
+						l13 =window.localStorage.setItem('l13', allScoresArray[12]);
+					}
+				}
+				else{
+					l13 =window.localStorage.setItem('l13', storeScore13);
+				}
+				localStorageSubCatForms('C_2');
+			}
+			else if(page=="D_1"){
+				if(getScore14==null){
+					if(allScoresArray[13]!=null){
+						l14 =window.localStorage.setItem('l14', allScoresArray[13]);
+					}
+				}
+				else{
+					l14 =window.localStorage.setItem('l14', storeScore14);
+				}
+				localStorageSubCatForms('D_1');
 			}
 			else{
 				window.location.href="index.html";
@@ -2020,6 +2241,267 @@
 						}
 				    });
 				}
+				else if(page=="C_1"){
+					//to see if your on the last form. Replaces next arrow with submit button.
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('C_1arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('C.1notes').value = window.localStorage.getItem('C.1notes');
+					var initGetScore12=localStorage.getItem('l12');
+					if(initGetScore12!=null){
+						document.getElementById('C.1score').innerHTML = window.localStorage.getItem('C.1score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('C.1compliance1').value = window.localStorage.getItem('C.1compliance1');
+								var showDiv=document.getElementById('C.1firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('C.1compliance2').value = window.localStorage.getItem('C.1compliance2');
+								var showDiv=document.getElementById('C.1secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('C.1compliance3').value = window.localStorage.getItem('C.1compliance3');
+								var showDiv=document.getElementById('C.1thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('C.1compliance4').value = window.localStorage.getItem('C.1compliance4');
+								var showDiv=document.getElementById('C.1fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('C.1compliance5').value = window.localStorage.getItem('C.1compliance5');
+								var showDiv=document.getElementById('C.1fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('C.1compliance6').value = window.localStorage.getItem('C.1compliance6');
+								var showDiv=document.getElementById('C.1sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('C.1compliance7').value = window.localStorage.getItem('C.1compliance7');
+								var showDiv=document.getElementById('C.1seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('C.1compliance8').value = window.localStorage.getItem('C.1compliance8');
+								var showDiv=document.getElementById('C.1eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('C.1compliance9').value = window.localStorage.getItem('C.1compliance9');
+								var showDiv=document.getElementById('C.1ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('C.1compliance10').value = window.localStorage.getItem('C.1compliance10');
+								var showDiv=document.getElementById('C.1tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box11'){
+								document.getElementById('C.1compliance11').value = window.localStorage.getItem('C.1compliance11');
+								var showDiv=document.getElementById('C.1eleventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('C.1compliance12').value = window.localStorage.getItem('C.1compliance12');
+								var showDiv=document.getElementById('C.1twelthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
+				else if(page=="C_2"){
+					//to see if your on the last form. Replaces next arrow with submit button.
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('C_2arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('C.2notes').value = window.localStorage.getItem('C.2notes');
+					var initGetScore13=localStorage.getItem('l13');
+					if(initGetScore13!=null){
+						document.getElementById('C.2score').innerHTML = window.localStorage.getItem('C.2score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('C.2compliance1').value = window.localStorage.getItem('C.2compliance1');
+								var showDiv=document.getElementById('C.2firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('C.2compliance2').value = window.localStorage.getItem('C.2compliance2');
+								var showDiv=document.getElementById('C.2secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('C.2compliance3').value = window.localStorage.getItem('C.2compliance3');
+								var showDiv=document.getElementById('C.2thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('C.2compliance4').value = window.localStorage.getItem('C.2compliance4');
+								var showDiv=document.getElementById('C.2fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('C.2compliance5').value = window.localStorage.getItem('C.2compliance5');
+								var showDiv=document.getElementById('C.2fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('C.2compliance6').value = window.localStorage.getItem('C.2compliance6');
+								var showDiv=document.getElementById('C.2sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('C.2compliance7').value = window.localStorage.getItem('C.2compliance7');
+								var showDiv=document.getElementById('C.2seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('C.2compliance8').value = window.localStorage.getItem('C.2compliance8');
+								var showDiv=document.getElementById('C.2eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('C.2compliance9').value = window.localStorage.getItem('C.2compliance9');
+								var showDiv=document.getElementById('C.2ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
+				else if(page=="D_1"){
+					//to see if your on the last form. Replaces next arrow with submit button.
+					if(pNum==fLen){
+						document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('D_1arrow').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('D.1notes').value = window.localStorage.getItem('D.1notes');
+					var initGetScore14=localStorage.getItem('l14');
+					if(initGetScore14!=null){
+						document.getElementById('D.1score').innerHTML = window.localStorage.getItem('D.1score');
+					}
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('D.1compliance1').value = window.localStorage.getItem('D.1compliance1');
+								var showDiv=document.getElementById('D.1firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('D.1compliance2').value = window.localStorage.getItem('D.1compliance2');
+								var showDiv=document.getElementById('D.1secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('D.1compliance3').value = window.localStorage.getItem('D.1compliance3');
+								var showDiv=document.getElementById('D.1thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('D.1compliance4').value = window.localStorage.getItem('D.1compliance4');
+								var showDiv=document.getElementById('D.1fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('D.1compliance5').value = window.localStorage.getItem('D.1compliance5');
+								var showDiv=document.getElementById('D.1fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('D.1compliance6').value = window.localStorage.getItem('D.1compliance6');
+								var showDiv=document.getElementById('D.1sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('D.1compliance7').value = window.localStorage.getItem('D.1compliance7');
+								var showDiv=document.getElementById('D.1seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('D.1compliance8').value = window.localStorage.getItem('D.1compliance8');
+								var showDiv=document.getElementById('D.1eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('D.1compliance9').value = window.localStorage.getItem('D.1compliance9');
+								var showDiv=document.getElementById('D.1ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('D.1compliance10').value = window.localStorage.getItem('D.1compliance10');
+								var showDiv=document.getElementById('D.1tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box11'){
+								document.getElementById('D.1compliance11').value = window.localStorage.getItem('D.1compliance11');
+								var showDiv=document.getElementById('D.1eleventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else{
+								document.getElementById('D.1compliance12').value = window.localStorage.getItem('D.1compliance12');
+								var showDiv=document.getElementById('D.1twelthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
 				else{
 					console.log('..');
 				}
@@ -2402,6 +2884,108 @@
 				window.localStorage.setItem('B.3compliance8', B_3eigthCompliance);
 				window.localStorage.setItem('B.3compliance9', B_3ninthCompliance);
 			}
+			else if(page=="C_1"){
+				var score12 = document.getElementById('C.1score').innerHTML;
+				var endNotes12 = document.getElementById('C.1notes').value;
+				var C_1firstCompliance = document.getElementById('C.1compliance1').value;
+				var C_1secondCompliance = document.getElementById('C.1compliance2').value;
+				var C_1thirdCompliance = document.getElementById('C.1compliance3').value;
+				var C_1fourthCompliance = document.getElementById('C.1compliance4').value;
+				var C_1fifthCompliance = document.getElementById('C.1compliance5').value;
+				var C_1sixthCompliance = document.getElementById('C.1compliance6').value;
+				var C_1seventhCompliance = document.getElementById('C.1compliance7').value;
+				var C_1eigthCompliance = document.getElementById('C.1compliance8').value;
+				var C_1ninthCompliance = document.getElementById('C.1compliance9').value;
+				var C_1tenthCompliance = document.getElementById('C.1compliance10').value;
+				var C_1eleventhCompliance = document.getElementById('C.1compliance11').value;
+				var C_1twelthCompliance = document.getElementById('C.1compliance12').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('C.1notes', endNotes12);
+				window.localStorage.setItem('C.1score', score12);
+				window.localStorage.setItem('C.1compliance1', C_1firstCompliance);
+				window.localStorage.setItem('C.1compliance2', C_1secondCompliance);
+				window.localStorage.setItem('C.1compliance3', C_1thirdCompliance);
+				window.localStorage.setItem('C.1compliance4', C_1fourthCompliance);
+				window.localStorage.setItem('C.1compliance5', C_1fifthCompliance);
+				window.localStorage.setItem('C.1compliance6', C_1sixthCompliance);
+				window.localStorage.setItem('C.1compliance7', C_1seventhCompliance);
+				window.localStorage.setItem('C.1compliance8', C_1eigthCompliance);
+				window.localStorage.setItem('C.1compliance9', C_1ninthCompliance);
+				window.localStorage.setItem('C.1compliance10', C_1tenthCompliance);
+				window.localStorage.setItem('C.1compliance11', C_1eleventhCompliance);
+				window.localStorage.setItem('C.1compliance12', C_1twelthCompliance);
+			}
+			else if(page=="C_2"){
+				var score13 = document.getElementById('C.2score').innerHTML;
+				var endNotes13 = document.getElementById('C.2notes').value;
+				var C_2firstCompliance = document.getElementById('C.2compliance1').value;
+				var C_2secondCompliance = document.getElementById('C.2compliance2').value;
+				var C_2thirdCompliance = document.getElementById('C.2compliance3').value;
+				var C_2fourthCompliance = document.getElementById('C.2compliance4').value;
+				var C_2fifthCompliance = document.getElementById('C.2compliance5').value;
+				var C_2sixthCompliance = document.getElementById('C.2compliance6').value;
+				var C_2seventhCompliance = document.getElementById('C.2compliance7').value;
+				var C_2eigthCompliance = document.getElementById('C.2compliance8').value;
+				var C_2ninthCompliance = document.getElementById('C.2compliance9').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('C.2notes', endNotes13);
+				window.localStorage.setItem('C.2score', score13);
+				window.localStorage.setItem('C.2compliance1', C_2firstCompliance);
+				window.localStorage.setItem('C.2compliance2', C_2secondCompliance);
+				window.localStorage.setItem('C.2compliance3', C_2thirdCompliance);
+				window.localStorage.setItem('C.2compliance4', C_2fourthCompliance);
+				window.localStorage.setItem('C.2compliance5', C_2fifthCompliance);
+				window.localStorage.setItem('C.2compliance6', C_2sixthCompliance);
+				window.localStorage.setItem('C.2compliance7', C_2seventhCompliance);
+				window.localStorage.setItem('C.2compliance8', C_2eigthCompliance);
+				window.localStorage.setItem('C.2compliance9', C_2ninthCompliance);
+			}
+			else if(page=="D_1"){
+				var score14 = document.getElementById('D.1score').innerHTML;
+				var endNotes14 = document.getElementById('D.1notes').value;
+				var D_1firstCompliance = document.getElementById('D.1compliance1').value;
+				var D_1secondCompliance = document.getElementById('D.1compliance2').value;
+				var D_1thirdCompliance = document.getElementById('D.1compliance3').value;
+				var D_1fourthCompliance = document.getElementById('D.1compliance4').value;
+				var D_1fifthCompliance = document.getElementById('D.1compliance5').value;
+				var D_1sixthCompliance = document.getElementById('D.1compliance6').value;
+				var D_1seventhCompliance = document.getElementById('D.1compliance7').value;
+				var D_1eigthCompliance = document.getElementById('D.1compliance8').value;
+				var D_1ninthCompliance = document.getElementById('D.1compliance9').value;
+				var D_1tenthCompliance = document.getElementById('D.1compliance10').value;
+				var D_1eleventhCompliance = document.getElementById('D.1compliance11').value;
+				var D_1twelthCompliance = document.getElementById('D.1compliance12').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('D.1notes', endNotes14);
+				window.localStorage.setItem('D.1score', score14);
+				window.localStorage.setItem('D.1compliance1', D_1firstCompliance);
+				window.localStorage.setItem('D.1compliance2', D_1secondCompliance);
+				window.localStorage.setItem('D.1compliance3', D_1thirdCompliance);
+				window.localStorage.setItem('D.1compliance4', D_1fourthCompliance);
+				window.localStorage.setItem('D.1compliance5', D_1fifthCompliance);
+				window.localStorage.setItem('D.1compliance6', D_1sixthCompliance);
+				window.localStorage.setItem('D.1compliance7', D_1seventhCompliance);
+				window.localStorage.setItem('D.1compliance8', D_1eigthCompliance);
+				window.localStorage.setItem('D.1compliance9', D_1ninthCompliance);
+				window.localStorage.setItem('D.1compliance10', D_1tenthCompliance);
+				window.localStorage.setItem('D.1compliance11', D_1eleventhCompliance);
+				window.localStorage.setItem('D.1compliance12', D_1twelthCompliance);
+			}
 			else{
 				console.log('..');
 			}
@@ -2529,6 +3113,15 @@
 	}
 	else if(globalPageIdentifier=="B_3"){
 		window.onload=initialize('B_3');
+	}
+	else if(globalPageIdentifier=="C_1"){
+		window.onload=initialize('C_1');
+	}
+	else if(globalPageIdentifier=="C_2"){
+		window.onload=initialize('C_2');
+	}
+	else if(globalPageIdentifier=="D_1"){
+		window.onload=initialize('D_1');
 	}
 	else{
 		window.onload=initialize('checks');

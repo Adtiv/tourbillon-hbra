@@ -68,7 +68,7 @@ function storeLocalContent(){
 	}	
 	//test email functions
 	document.addEventListener('deviceready', function () {
-		console.log("deviceReady");
+		console.log("deviceReady");	
 	    // cordova.plugins.email is now available
 	}, false);
     //Email plugin functions:
