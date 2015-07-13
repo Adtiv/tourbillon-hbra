@@ -218,12 +218,12 @@
         </PostBuildEvent>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Plugins\org.apache.cordova.camera\Camera.cs" />
-    </ItemGroup>
-    <ItemGroup>
         <Compile Include="Plugins\de.appplant.cordova.plugin.email-composer\EmailComposer.cs" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Plugins\de.appplant.cordova.plugin.email-composer\Options.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Plugins\org.apache.cordova.camera\Camera.cs" />
     </ItemGroup>
 </Project>

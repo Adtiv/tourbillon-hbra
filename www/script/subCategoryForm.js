@@ -4194,85 +4194,158 @@
       		value = localStorage.getItem(key);
       		console.log(key + ": " + value);
     	} // end for loop
-  }
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady(){
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-        console.log(navigator.camera);
-    }
+  	}
+                var pictureSource;   // picture source
+                var destinationType; // sets the format of returned value
+                document.addEventListener("deviceready", onDeviceReady, false);
+                function onDeviceReady(){
+                    pictureSource=navigator.camera.PictureSourceType;
+                    destinationType=navigator.camera.DestinationType;
+                    console.log(navigator.camera);
+                }
+				// Called when a photo is successfully retrieved
+                var pictureCount;
+                function onPhotoURISuccess(imageURI) {
+                  // Uncomment to view the image file URI
+                  // Get image handle
+                  //
+                  var pCount=localStorage.getItem('pictureCount');
+                  if(pCount==1){
+                    var photo1 = document.getElementById('photo1');
+                    photo1.style.display = 'block';
+                    photo1.src = imageURI;
+                  }
+                    movePic(imageURI);
+                    console.log("gets");
+                }
 
+                // A button will call this function
+                //
+                function capturePhoto(pNum){
+                  if(pNum==1){
+                    pictureCount=1;
+                    localStorage.setItem('pictureCount', pictureCount);
+                  }
+                  navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI});
+                }
 
-	//camera functions
-   function onPhotoDataSuccess(imageData) {
-      // Uncomment to view the base64-encoded image data
-      // console.log(imageData);
+                // A button will call this function
+                //
+                function capturePhotoEdit() {
+                  // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+                  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+                    destinationType: destinationType.DATA_URL });
+                }
 
-      // Get image handle
-      //
-      var smallImage = document.getElementById('smallImage');
+                // A button will call this function
+                //
+                function getPhoto(source, pNum) {
+                  // Retrieve image file location from specified source
+                  navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+                    destinationType: destinationType.FILE_URI,
+                    sourceType: source });
+                }
+                /*
+                window.onload = function(){
+                  console.log("ya");
+                  var x = localStorage.getItem('imagepath1');
+                  var x2 = localStorage.getItem('imagepath2');
+                  var x3 = localStorage.getItem('imagepath3');
+                  var photo1 = document.getElementById("photo1");
+                  photo1.src = x; 
+                  photo1.style.display = 'block';
+                  var photo12 = document.getElementById("photo12");
+                  photo12.src = x2; 
+                  photo12.style.display = 'block';
+                  console.log(photo12.src);
+                  var photo13 = document.getElementById("photo13");
+                  photo13.src = x3; 
+                  photo13.style.display = 'block';
+                  console.log(photo13.src);
+                }
+                */
+                function clearStorage(){
+                  localStorage.clear();
+                  ClearDirectory();
+                  var photo1 = document.getElementById("photo1");
+                  photo1.src = "";
+                } 
+                function movePic(file){ 
+                    window.resolveLocalFileSystemURL(file, resolveOnSuccess, resOnError); 
+                } 
+                function resolveOnSuccess(entry){ 
+                  var d = new Date();
+                  var n = d.getTime();
+                  //new file name
+                  var newFileName = n + ".jpg";
+                  var myFolderApp = "MyAppFolder";
 
-      // Unhide image elements
-      //
-      smallImage.style.display = 'block';
+                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
+                  //The folder is created if doesn't exist
+                  fileSys.root.getDirectory( myFolderApp,
+                                  {create:true, exclusive: false},
+                                  function(directory) {
+                                      entry.moveTo(directory, newFileName,  successMove, resOnError);
+                                  },
+                                  resOnError);
+                                  },
+                  resOnError);
+              }
 
-      // Show the captured photo
-      // The in-line CSS rules are used to resize the image
-      //
-      smallImage.src = "data:image/jpeg;base64," + imageData;
-    }
+              //Callback function when the file has been moved successfully - inserting the complete path
+              //var entryReader; 
+              function successMove(entry) {
+                  //Store imagepath in session for future use
+                  // like to store it in database
+                  var picCount=localStorage.getItem('pictureCount');
+                  if(picCount==1){
+                    console.log("first");
+                    localStorage.setItem('imagepath1', entry.toURL());
+                    console.log("entry.toURL()" + entry.toURL());
+                    console.log("entry.fullPath" + entry.fullPath);
+                  }
+              }
+              // Get a directory reader
+              //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
+              // Get a list of all the entries in the directory
+                function ClearDirectory() {
+                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+                  function fail(evt) {
+                      alert("FILE SYSTEM FAILURE" + evt.target.error.code);
+                  }
+                  function onFileSystemSuccess(fileSystem) {
+                      fileSystem.root.getDirectory(
+                           "MyAppFolder",
+                          {create : true, exclusive : false},
+                          function(entry) {
+                          entry.removeRecursively(function() {
+                              console.log("Remove Recursively Succeeded");
+                          }, fail);
+                      }, fail);
+                  }
+              }
+              function resOnError(error) {
+                  alert(error.code);
+              }
+              function onFail(message) {
+                alert('Failed because: ' + message);
+              }
+              function openImage(){
+                /*
+                var path = localStorage.getItem('imagepath1');
+                console.log(path);
+                window.open('path', '_system', ' ');
+                console.log('get');
+                */
+                var image1 = document.getElementById('photo1');
+                if(image1.style.height!='75vh'){
+                  image1.style.height = '75vh';
+                  image1.style.width = '75vw';
 
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoURISuccess(imageURI) {
-      // Uncomment to view the image file URI
-      // console.log(imageURI);
-
-      // Get image handle
-      //
-      var largeImage = document.getElementById('largeImage');
-
-      // Unhide image elements
-      //
-      largeImage.style.display = 'block';
-
-      // Show the captured photo
-      // The in-line CSS rules are used to resize the image
-      //
-      largeImage.src = imageURI;
-    }
-
-    // A button will call this function
-    //
-    function capturePhoto() {
-      // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL });
-    }
-
-    // A button will call this function
-    //
-    function capturePhotoEdit() {
-      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL });
-    }
-    // A button will call this function
-    //
-    function getPhoto(source) {
-      // Retrieve image file location from specified source
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
-    }
-
-    // Called if something bad happens.
-    //
-    function onFail(message) {
-      alert('Failed because: ' + message);
-    }
+                }
+                console.log('here');
+              }
 
 
 	//Tracking the page on a global level through local storage. 

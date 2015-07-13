@@ -9,11 +9,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Camera\"><param name=\"wp-package\" value=\"Camera\" /></feature>",
+                            "xml": "<feature name=\"EmailComposer\"><param name=\"wp-package\" value=\"EmailComposer\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"EmailComposer\"><param name=\"wp-package\" value=\"EmailComposer\" /></feature>",
+                            "xml": "<feature name=\"Camera\"><param name=\"wp-package\" value=\"Camera\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -36,10 +36,10 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.camera": {
+        "de.appplant.cordova.plugin.email-composer": {
             "PACKAGE_NAME": "{0dbb04b0-00e1-11e5-8307-61efd0ef0ebc}"
         },
-        "de.appplant.cordova.plugin.email-composer": {
+        "org.apache.cordova.camera": {
             "PACKAGE_NAME": "{0dbb04b0-00e1-11e5-8307-61efd0ef0ebc}"
         }
     },

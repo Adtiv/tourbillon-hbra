@@ -43,12 +43,14 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(1);">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-							
-						<button class="uploadPhotoButton" onclick="capturePhoto();">Choose File</button>
-					    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-						
-
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 1);">Photo Library</button>
+					    <a href="#" onclick="openImage();">
+				        	<img style="display:none;width:70px;height:70px;" id="photo1" src="" />
+				        </a>
 					</div>
 					<div class="photoUploadText">
 						no file selected

@@ -1,5 +1,20 @@
-﻿cordova.define('cordova/plugin_list', function(require, exports, module) {
+cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
+    {
+        "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",
+        "id": "de.appplant.cordova.plugin.email-composer.EmailComposer",
+        "clobbers": [
+            "cordova.plugins.email",
+            "plugin.email"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.email-composer/src/windows/EmailComposerProxy.js",
+        "id": "de.appplant.cordova.plugin.email-composer.EmailComposerProxy",
+        "merges": [
+            ""
+        ]
+    },
     {
         "file": "plugins/org.apache.cordova.camera/www/CameraConstants.js",
         "id": "org.apache.cordova.camera.Camera",
@@ -34,28 +49,13 @@ module.exports = [
         "merges": [
             ""
         ]
-    },
-    {
-        "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",
-        "id": "de.appplant.cordova.plugin.email-composer.EmailComposer",
-        "clobbers": [
-            "cordova.plugins.email",
-            "plugin.email"
-        ]
-    },
-    {
-        "file": "plugins/de.appplant.cordova.plugin.email-composer/src/windows/EmailComposerProxy.js",
-        "id": "de.appplant.cordova.plugin.email-composer.EmailComposerProxy",
-        "merges": [
-            ""
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.camera": "0.3.4",
-    "de.appplant.cordova.plugin.email-composer": "0.8.2"
+    "de.appplant.cordova.plugin.email-composer": "0.8.2",
+    "org.apache.cordova.camera": "0.3.6"
 }
 // BOTTOM OF METADATA
 });
