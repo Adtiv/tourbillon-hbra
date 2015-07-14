@@ -1871,6 +1871,12 @@
 				return;
 			}
 			//variables for getting the pageCount and the number of checked options.
+			/*
+			if(page=="checks" && localStorage.getItem("pageCount")!=0){
+				pageCount=0;
+				localStorage.setItem("pageCount", pageCount);
+			}
+			*/
 			var pNum = localStorage.getItem("pageCount");
 			var checked= JSON.parse(localStorage["checkedForms"]);
 			var fLen= localStorage.getItem("setLen");
@@ -1898,7 +1904,85 @@
 						var ip1 = localStorage.getItem('imagepath1');
 						var photo1 = document.getElementById("photo1");
 	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'block';
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById("pic1").innerHTML="A.1-1.jpg";
+	                }
+	                if(localStorage.getItem('imagepath2')!=null){
+						var ip2 = localStorage.getItem('imagepath2');
+						var photo2 = document.getElementById("photo2");
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById("pic2").innerHTML="A.1-2.jpg";
+	                }
+	                if(localStorage.getItem('imagepath3')!=null){
+						var ip3 = localStorage.getItem('imagepath3');
+						var photo3 = document.getElementById("photo3");
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById("pic3").innerHTML="A.1-3.jpg";
+	                }
+	                if(localStorage.getItem('imagepath4')!=null){
+						var ip4 = localStorage.getItem('imagepath4');
+						var photo4 = document.getElementById("photo4");
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById("pic4").innerHTML="A.1-4.jpg";
+	                }
+	                if(localStorage.getItem('imagepath5')!=null){
+						var ip5 = localStorage.getItem('imagepath5');
+						var photo5 = document.getElementById("photo5");
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById("pic5").innerHTML="A.1-5.jpg";
+	                }
+	                if(localStorage.getItem('imagepath6')!=null){
+						var ip6 = localStorage.getItem('imagepath6');
+						var photo6 = document.getElementById("photo6");
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById("pic6").innerHTML="A.1-6.jpg";
+	                }
+	                if(localStorage.getItem('imagepath7')!=null){
+						var ip7 = localStorage.getItem('imagepath7');
+						var photo7 = document.getElementById("photo7");
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById("pic7").innerHTML="A.1-7.jpg";
+	                }
+	                if(localStorage.getItem('imagepath8')!=null){
+						var ip8 = localStorage.getItem('imagepath8');
+						var photo8 = document.getElementById("photo8");
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById("pic8").innerHTML="A.1-8.jpg";
+	                }
+	                if(localStorage.getItem('imagepath9')!=null){
+						var ip9 = localStorage.getItem('imagepath9');
+						var photo9 = document.getElementById("photo9");
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById("pic9").innerHTML="A.1-9.jpg";
+	                }
+	                if(localStorage.getItem('imagepath10')!=null){
+						var ip10 = localStorage.getItem('imagepath10');
+						var photo10 = document.getElementById("photo10");
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById("pic10").innerHTML="A.1-10.jpg";
+	                }
+	                if(localStorage.getItem('imagepath11')!=null){
+						var ip11 = localStorage.getItem('imagepath11');
+						var photo11 = document.getElementById("photo11");
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById("pic11").innerHTML="A.1-11.jpg";
+	                }
+	                if(localStorage.getItem('imagepath12')!=null){
+						var ip12 = localStorage.getItem('imagepath12');
+						var photo12 = document.getElementById("photo12");
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById("pic12").innerHTML="A.1-12.jpg";
 	                }
 					var initGetScore1=localStorage.getItem('l');
 					if(initGetScore1!=null){
@@ -4202,147 +4286,147 @@
       		console.log(key + ": " + value);
     	} // end for loop
   	}
-                var pictureSource;   // picture source
-                var destinationType; // sets the format of returned value
-                document.addEventListener("deviceready", onDeviceReady, false);
-                function onDeviceReady(){
-                    pictureSource=navigator.camera.PictureSourceType;
-                    destinationType=navigator.camera.DestinationType;
-                    console.log(navigator.camera);
-                }
-				// Called when a photo is successfully retrieved
-                var pictureCount;
-                function onPhotoURISuccess(imageURI) {
-                  // Uncomment to view the image file URI
-                  // Get image handle
-                  //
-                  var pCount=localStorage.getItem('pictureCount');
-                  if(pCount==1){
-                    var photo1 = document.getElementById('photo1');
-                    photo1.style.display = 'block';
-                    photo1.src = imageURI;
-                  }
-                    movePic(imageURI);
-                    console.log("gets");
-                }
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady(){
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        console.log(navigator.camera);
+    }
+	// Called when a photo is successfully retrieved
+    var pictureCount;
+    function onPhotoURISuccess(imageURI) {
+      // Uncomment to view the image file URI
+      // Get image handle
+      //
+      console.log("getsHERE");
+      var pCount=localStorage.getItem('pictureCount');
+      var photo = "photo";
+      var imageID = photo + pCount;
+      var image = document.getElementById(imageID);
+      image.style.display = 'inline-block';
+      image.src = imageURI;
+      movePic(imageURI);
+    }
 
-                // A button will call this function
-                //
-                function capturePhoto(pNum){
-                  if(pNum==1){
-                    pictureCount=1;
-                    localStorage.setItem('pictureCount', pictureCount);
-                  }
-                  navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                    destinationType: Camera.DestinationType.FILE_URI});
-                }
+    // A button will call this function
+    //
+    function capturePhoto(pNum){
+      pictureCount=pNum;
+      localStorage.setItem('pictureCount', pictureCount);
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI});
+    }
+    // A button will call this function
+    //
+    function getPhoto(source, pNum){
+      pictureCount=pNum;
+      localStorage.setItem('pictureCount', pictureCount);         
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType: source });
+      console.log("HERE?");
+    }
+    function clearStorage(){
+      localStorage.clear();
+      ClearDirectory();
+      //check this?
+      navigator.camera.cleanup(onSuccess, onFail);
+    } 
+    function onSuccess() {
+	    console.log("Camera cleanup success.");
+	}
+    function movePic(file){ 
+        window.resolveLocalFileSystemURL(file, resolveOnSuccess, resOnError); 
+    } 
+    function resolveOnSuccess(entry){ 
+      var d = new Date();
+      var n = d.getTime();
+      //new file name
+      var x = localStorage.getItem('pictureCount');
+      if(x<=12){
+      	var newFileName = n + "_A.1-" + x + ".jpg";
+      }
+      var myFolderApp = "MyAppFolder";
 
-                // A button will call this function
-                //
-                function capturePhotoEdit() {
-                  // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-                  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-                    destinationType: destinationType.DATA_URL });
-                }
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
+      //The folder is created if doesn't exist
+      fileSys.root.getDirectory( myFolderApp,
+                      {create:true, exclusive: false},
+                      function(directory) {
+                          entry.moveTo(directory, newFileName,  successMove, resOnError);
+                      },
+                      resOnError);
+                      },
+      resOnError);
+  }
 
-                // A button will call this function
-                //
-                function getPhoto(source, pNum) {
-                  if(pNum==1){
-                    pictureCount=1;
-                    localStorage.setItem('pictureCount', pictureCount);
-                  }
-                  // Retrieve image file location from specified source
-                  navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                    destinationType: destinationType.FILE_URI,
-                    sourceType: source });
-                }
-                function clearStorage(){
-                  localStorage.clear();
-                  ClearDirectory();
-                  var photo1 = document.getElementById("photo1");
-                  photo1.src = "";
-                } 
-                function movePic(file){ 
-                    window.resolveLocalFileSystemURL(file, resolveOnSuccess, resOnError); 
-                } 
-                function resolveOnSuccess(entry){ 
-                  var d = new Date();
-                  var n = d.getTime();
-                  //new file name
-                  var newFileName = n + ".jpg";
-                  var myFolderApp = "MyAppFolder";
-
-                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
-                  //The folder is created if doesn't exist
-                  fileSys.root.getDirectory( myFolderApp,
-                                  {create:true, exclusive: false},
-                                  function(directory) {
-                                      entry.moveTo(directory, newFileName,  successMove, resOnError);
-                                  },
-                                  resOnError);
-                                  },
-                  resOnError);
-              }
-
-              //Callback function when the file has been moved successfully - inserting the complete path
-              //var entryReader; 
-              function successMove(entry) {
-                  //Store imagepath in session for future use
-                  // like to store it in database
-                  var picCount=localStorage.getItem('pictureCount');
-                  if(picCount==1){
-                    console.log("first");
-                    localStorage.setItem('imagepath1', entry.toURL());
-                    console.log("entry.toURL()" + entry.toURL());
-                    console.log("entry.fullPath" + entry.fullPath);
-                  }
-              }
-              // Get a directory reader
-              //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
-              // Get a list of all the entries in the directory
-                function ClearDirectory() {
-                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-                  function fail(evt) {
-                      alert("FILE SYSTEM FAILURE" + evt.target.error.code);
-                  }
-                  function onFileSystemSuccess(fileSystem) {
-                      fileSystem.root.getDirectory(
-                           "MyAppFolder",
-                          {create : true, exclusive : false},
-                          function(entry) {
-                          entry.removeRecursively(function() {
-                              console.log("Remove Recursively Succeeded");
-                          }, fail);
-                      }, fail);
-                  }
-              }
-              function resOnError(error) {
-                  alert(error.code);
-              }
-              function onFail(message) {
-                alert('Failed because: ' + message);
-              }
-              function openImage(){
-                /*
-                var path = localStorage.getItem('imagepath1');
-                console.log(path);
-                window.open('path', '_system', ' ');
-                console.log('get');
-                */
-                var image1 = document.getElementById('photo1');
-                if(image1.style.height!='75vh'){
-                  image1.style.height = '75vh';
-                  image1.style.width = '75vw';
-
-                }
-                else{
-                	image1.style.height = '7%'; 
-                	image1.style.width = '7%';
-                }
-                
-                console.log('here');
-              }
+  //Callback function when the file has been moved successfully - inserting the complete path
+  //var entryReader; 
+  function successMove(entry) {
+      //Store imagepath in session for future use
+      // like to store it in database
+      var picCount=localStorage.getItem('pictureCount');
+      var pathNum = "imagepath" + picCount; 
+      var photoNum = "photo" + picCount; 
+      var picNum = "pic" + picCount; 
+      localStorage.setItem(pathNum, entry.toURL());
+      var image = document.getElementById(photoNum);
+      image.src = localStorage.getItem(pathNum);
+      document.getElementById(picNum).innerHTML="A.1-"+picCount+".jpg";
+      /*
+      if(picCount==1){
+        localStorage.setItem('imagepath1', entry.toURL());
+        var photo1 = document.getElementById('photo1');
+        photo1.src = localStorage.getItem('imagepath1');
+        document.getElementById("pic1").innerHTML="A.1-1.jpg";
+        console.log("entry.toURL()" + entry.toURL());
+        console.log("entry.fullPath" + entry.fullPath);
+      }
+      */   
+  }
+  // Get a directory reader
+  //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
+  // Get a list of all the entries in the directory
+    function ClearDirectory() {
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+      function fail(evt) {
+          alert("FILE SYSTEM FAILURE" + evt.target.error.code);
+      }
+      function onFileSystemSuccess(fileSystem) {
+          fileSystem.root.getDirectory(
+               "MyAppFolder",
+              {create : true, exclusive : false},
+              function(entry) {
+              entry.removeRecursively(function() {
+                  console.log("Remove Recursively Succeeded");
+              }, fail);
+          }, fail);
+      }
+  }
+  function resOnError(error) {
+      alert(error.code);
+  }
+  function onFail(message) {
+    alert('Failed because: ' + message);
+  }
+  function openImage(pNum){
+  	var photo="photo";
+  	var num = pNum;
+  	var imageId = photo + num;
+  	var image = document.getElementById(imageId);
+	if(image.style.height!='75vh'){
+      image.style.height = '75vh';
+      image.style.width = '86vw';
+    }
+    else{
+    	image.style.height = '7%'; 
+    	image.style.width = '7%';
+    }                            
+    console.log('here');
+  }
 
 
 	//Tracking the page on a global level through local storage. 
