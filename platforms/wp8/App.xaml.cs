@@ -32,7 +32,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace com.example.hbra
+namespace com.phonegap.hbra
 {
     public partial class App : Application
     {

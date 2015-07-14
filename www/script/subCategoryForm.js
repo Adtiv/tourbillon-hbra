@@ -1893,6 +1893,14 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
+					
+					if(localStorage.getItem('imagepath1')!=null){
+						var ip1 = localStorage.getItem('imagepath1');
+						var photo1 = document.getElementById("photo1");
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById("pic1").innerHTML="A.1-1.jpg";
+	                }
 					var initGetScore1=localStorage.getItem('l');
 					if(initGetScore1!=null){
 						document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
@@ -4209,14 +4217,15 @@
                   // Uncomment to view the image file URI
                   // Get image handle
                   //
+                  console.log("getsHERE");
                   var pCount=localStorage.getItem('pictureCount');
                   if(pCount==1){
                     var photo1 = document.getElementById('photo1');
-                    photo1.style.display = 'block';
+                    photo1.style.display = 'inline-block';
                     photo1.src = imageURI;
+                    console.log("changes source");
                   }
                     movePic(imageURI);
-                    console.log("gets");
                 }
 
                 // A button will call this function
@@ -4229,42 +4238,20 @@
                   navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
                     destinationType: Camera.DestinationType.FILE_URI});
                 }
-
-                // A button will call this function
-                //
-                function capturePhotoEdit() {
-                  // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-                  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-                    destinationType: destinationType.DATA_URL });
-                }
-
                 // A button will call this function
                 //
                 function getPhoto(source, pNum) {
+                  if(pNum==1){
+                    pictureCount=1;
+                    localStorage.setItem('pictureCount', pictureCount);
+                    console.log('storesCount');
+                  }
                   // Retrieve image file location from specified source
                   navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                    destinationType: destinationType.FILE_URI,
+                    destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: source });
+                  console.log("HERE?");
                 }
-                /*
-                window.onload = function(){
-                  console.log("ya");
-                  var x = localStorage.getItem('imagepath1');
-                  var x2 = localStorage.getItem('imagepath2');
-                  var x3 = localStorage.getItem('imagepath3');
-                  var photo1 = document.getElementById("photo1");
-                  photo1.src = x; 
-                  photo1.style.display = 'block';
-                  var photo12 = document.getElementById("photo12");
-                  photo12.src = x2; 
-                  photo12.style.display = 'block';
-                  console.log(photo12.src);
-                  var photo13 = document.getElementById("photo13");
-                  photo13.src = x3; 
-                  photo13.style.display = 'block';
-                  console.log(photo13.src);
-                }
-                */
                 function clearStorage(){
                   localStorage.clear();
                   ClearDirectory();
@@ -4278,7 +4265,42 @@
                   var d = new Date();
                   var n = d.getTime();
                   //new file name
-                  var newFileName = n + ".jpg";
+                  if(localStorage.getItem('pictureCount')==1){
+                  	var newFileName = n + "_A.1-1.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==2){
+                  	var newFileName = n + "_A.1-2.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==3){
+                  	var newFileName = n + "_A.1-3.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==4){
+                  	var newFileName = n + "_A.1-4.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==5){
+                  	var newFileName = n + "_A.1-5.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==6){
+                  	var newFileName = n + "_A.1-6.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==7){
+                  	var newFileName = n + "_A.1-7.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==8){
+                  	var newFileName = n + "_A.1-8.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==9){
+                  	var newFileName = n + "_A.1-9.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==10){
+                  	var newFileName = n + "_A.1-10.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==11){
+                  	var newFileName = n + "_A.1-11.jpg";
+                  }
+                  else if(localStorage.getItem('pictureCount')==12){
+                  	var newFileName = n + "_A.1-12.jpg";
+                  }
                   var myFolderApp = "MyAppFolder";
 
                   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
@@ -4300,8 +4322,10 @@
                   // like to store it in database
                   var picCount=localStorage.getItem('pictureCount');
                   if(picCount==1){
-                    console.log("first");
                     localStorage.setItem('imagepath1', entry.toURL());
+                    var photo1 = document.getElementById('photo1');
+                    photo1.src = localStorage.getItem('imagepath1');
+                    document.getElementById("pic1").innerHTML="A.1-1.jpg";
                     console.log("entry.toURL()" + entry.toURL());
                     console.log("entry.fullPath" + entry.fullPath);
                   }
@@ -4341,9 +4365,15 @@
                 var image1 = document.getElementById('photo1');
                 if(image1.style.height!='75vh'){
                   image1.style.height = '75vh';
-                  image1.style.width = '75vw';
+                  image1.style.width = '86vw';
+                  //simage1.style.verticalAlign = "middle";
 
                 }
+                else{
+                	image1.style.height = '7%'; 
+                	image1.style.width = '7%';
+                }
+                
                 console.log('here');
               }
 

@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.hbra" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.phonegap.hbra" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="EmailComposer">
         <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
     <name>HBRA</name>
     <description>
@@ -14,6 +17,23 @@
     <content src="index.html" />
     <preference name="Orientation" value="portrait" />
     <preference name="Fullscreen" value="true" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+    <gap:plugin name="com.performanceactive.plugins.camera" version="1.3" />
+    <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
@@ -43,10 +63,5 @@
         <Capability Name="ID_CAP_ISV_CAMERA" />
         <Capability Name="ID_HW_FRONTCAMERA" />
     </Capabilities>
-    <gap:plugin name="com.performanceactive.plugins.camera" version="1.3" />
-    <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
     <access origin="*" />
-    <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-    </feature>
 </widget>

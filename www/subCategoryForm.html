@@ -48,12 +48,18 @@
 						</a>
 					<div id="buttonWrapper">
 						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 1);">Photo Library</button>
-					    <a href="#" onclick="openImage();">
-				        	<img style="display:none;width:70px;height:70px;" id="photo1" src="" />
-				        </a>
 					</div>
+					
+						<a href="#" onclick="openImage();">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="photo1" src="" />
+				        </a>
+				  		<!--
+				  		<a>
+				        	<img class="imgIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						!-->
 					<div class="photoUploadText">
-						no file selected
+						<p id="pic1">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
@@ -371,6 +377,7 @@
 <script src="vendor/dateTimePicker/jquery.datetimepicker.js"></script>
 <script src="script/app.js" type="text/javascript"></script>
 <script src="script/subCategoryForm.js" type="text/javascript"></script>
+<script type="text/javascript" src="cordova.js"></script>
 <script>
 	jQuery('#datetimepicker').datetimepicker();
 	jQuery('#datetimepicker2').datetimepicker();

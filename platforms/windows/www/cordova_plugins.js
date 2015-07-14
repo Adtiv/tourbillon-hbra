@@ -1,4 +1,4 @@
-cordova.define('cordova/plugin_list', function(require, exports, module) {
+﻿cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
         "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",

@@ -1893,6 +1893,13 @@
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
+					
+					if(localStorage.getItem('imagepath1')!=null){
+						var ip1 = localStorage.getItem('imagepath1');
+						var photo1 = document.getElementById("photo1");
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'block';
+	                }
 					var initGetScore1=localStorage.getItem('l');
 					if(initGetScore1!=null){
 						document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
@@ -4194,7 +4201,7 @@
       		value = localStorage.getItem(key);
       		console.log(key + ": " + value);
     	} // end for loop
-  }
+  	}
                 var pictureSource;   // picture source
                 var destinationType; // sets the format of returned value
                 document.addEventListener("deviceready", onDeviceReady, false);
@@ -4211,9 +4218,9 @@
                   //
                   var pCount=localStorage.getItem('pictureCount');
                   if(pCount==1){
-                    var largeImage = document.getElementById('largeImage');
-                    largeImage.style.display = 'block';
-                    largeImage.src = imageURI;
+                    var photo1 = document.getElementById('photo1');
+                    photo1.style.display = 'block';
+                    photo1.src = imageURI;
                   }
                     movePic(imageURI);
                     console.log("gets");
@@ -4241,35 +4248,20 @@
                 // A button will call this function
                 //
                 function getPhoto(source, pNum) {
+                  if(pNum==1){
+                    pictureCount=1;
+                    localStorage.setItem('pictureCount', pictureCount);
+                  }
                   // Retrieve image file location from specified source
                   navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
                     destinationType: destinationType.FILE_URI,
                     sourceType: source });
                 }
-                /*
-                window.onload = function(){
-                  console.log("ya");
-                  var x = localStorage.getItem('imagepath1');
-                  var x2 = localStorage.getItem('imagepath2');
-                  var x3 = localStorage.getItem('imagepath3');
-                  var largeImage = document.getElementById("largeImage");
-                  largeImage.src = x; 
-                  largeImage.style.display = 'block';
-                  var largeImage2 = document.getElementById("largeImage2");
-                  largeImage2.src = x2; 
-                  largeImage2.style.display = 'block';
-                  console.log(largeImage2.src);
-                  var largeImage3 = document.getElementById("largeImage3");
-                  largeImage3.src = x3; 
-                  largeImage3.style.display = 'block';
-                  console.log(largeImage3.src);
-                }
-                */
                 function clearStorage(){
                   localStorage.clear();
                   ClearDirectory();
-                  var largeImage = document.getElementById("largeImage");
-                  largeImage.src = "";
+                  var photo1 = document.getElementById("photo1");
+                  photo1.src = "";
                 } 
                 function movePic(file){ 
                     window.resolveLocalFileSystemURL(file, resolveOnSuccess, resOnError); 
@@ -4338,12 +4330,17 @@
                 window.open('path', '_system', ' ');
                 console.log('get');
                 */
-                var image1 = document.getElementById('largeImage');
+                var image1 = document.getElementById('photo1');
                 if(image1.style.height!='75vh'){
                   image1.style.height = '75vh';
                   image1.style.width = '75vw';
 
                 }
+                else{
+                	image1.style.height = '7%'; 
+                	image1.style.width = '7%';
+                }
+                
                 console.log('here');
               }
 

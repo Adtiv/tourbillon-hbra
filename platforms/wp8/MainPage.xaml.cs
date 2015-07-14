@@ -34,7 +34,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Resources;
 
 
-namespace com.example.hbra
+namespace com.phonegap.hbra
 {
     public partial class MainPage : PhoneApplicationPage
     {

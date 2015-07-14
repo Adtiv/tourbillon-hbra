@@ -49,7 +49,7 @@
       </dict>
     </dict>
     <key>CFBundleIdentifier</key>
-    <string>com.example.hbra</string>
+    <string>com.phonegap.hbra</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
@@ -59,9 +59,9 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>
-    <string>0.0.1</string>
+    <string>1.0.0</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.0.1</string>
+    <string>1.0.0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSMainNibFile</key>
@@ -177,15 +177,6 @@
         <key>UILaunchImageSize</key>
         <string>{768, 1024}</string>
       </dict>
-    </array>
-    <key>UIInterfaceOrientation</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-    </array>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
     </array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string></string>
