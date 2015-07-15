@@ -22,9 +22,6 @@
 		document.getElementById('weatherCom').value = window.localStorage.getItem('weatherCom');
 
 	}
-
-
-
 	
 }
 
@@ -63,14 +60,69 @@ function storeLocalContent(){
 	window.location.href = "pageTwo.html";
 
 }
-	function clearStorage(){
-		localStorage.clear();
-	}	
-	//test email functions
 	document.addEventListener('deviceready', function () {
 		console.log("deviceReady");	
 	    // cordova.plugins.email is now available
 	}, false);
+	function clearStorage(){
+		localStorage.clear();
+		ClearDirectory();
+	}
+	function ClearDirectory() {
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+      function fail(evt) {
+          alert("FILE SYSTEM FAILURE" + evt.target.error.code);
+      }
+      function onFileSystemSuccess(fileSystem) {
+          fileSystem.root.getDirectory(
+               "MyAppFolder",
+              {create : true, exclusive : false},
+              function(entry) {
+              entry.removeRecursively(function() {
+                  console.log("Remove Recursively Succeeded");
+              }, fail);
+          }, fail);
+      }
+  }
+  	function generatePDF(){
+		console.log("generating pdf...");
+		var doc = new jsPDF();
+		 
+		doc.text(20, 20, 'HELLO!');
+		 
+		doc.setFont("courier");
+		doc.setFontType("normal");
+		doc.text(20, 30, 'This is a PDF document generated using JSPDF.');
+		doc.text(20, 50, 'YES, Inside of PhoneGap!');
+		 
+		var pdfOutput = doc.output();
+		console.log( pdfOutput );
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+	    console.log(fileSystem.name);
+	   console.log(fileSystem.root.name);
+	   console.log(fileSystem.root.fullPath);
+	   fileSystem.root.getFile("test.pdf", {create: true}, function(entry) {
+	      var fileEntry = entry;
+	      console.log(entry);
+	      entry.createWriter(function(writer) {
+	         writer.onwrite = function(evt) {
+	         console.log("write success");
+	      };
+	      console.log("writing to file");
+	         writer.write( pdfOutput );
+	      }, function(error) {
+	         console.log(error);
+	      });
+	   }, function(error){
+		      console.log(error);
+		   });
+		},
+		function(event){
+		 console.log( evt.target.error.code );
+		});
+	}	
+	/*
+	//test email functions
     //Email plugin functions:
     function email(){
     	console.log('gets');
@@ -89,6 +141,7 @@ function storeLocalContent(){
 	    subject: 'Greetings',
 	    body:    'Worked!'
 	});
+*/
 
 
 
