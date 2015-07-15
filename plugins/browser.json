@@ -24,10 +24,7 @@
         "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.example.hbra"
         },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "cordova-plugin-file": {
+        "org.apache.cordova.file": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },

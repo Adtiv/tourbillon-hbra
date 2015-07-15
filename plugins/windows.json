@@ -56,10 +56,7 @@
         "org.apache.cordova.camera": {
             "PACKAGE_NAME": "HBRA"
         },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "HBRA"
-        },
-        "cordova-plugin-file": {
+        "org.apache.cordova.file": {
             "PACKAGE_NAME": "HBRA"
         }
     },

@@ -63,9 +63,6 @@
         <Capability Name="ID_HW_FRONTCAMERA" />
     </Capabilities>
     <access origin="*" />
-    <feature name="StatusBar">
-        <param name="wp-package" value="StatusBar" />
-    </feature>
     <feature name="File">
         <param name="wp-package" value="File" />
     </feature>

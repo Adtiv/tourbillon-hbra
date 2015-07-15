@@ -17,10 +17,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         }
@@ -46,10 +42,7 @@
         "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.example.hbra"
         },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "cordova-plugin-file": {
+        "org.apache.cordova.file": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },
