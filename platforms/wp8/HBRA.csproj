@@ -226,4 +226,10 @@
     <ItemGroup>
         <Compile Include="Plugins\org.apache.cordova.camera\Camera.cs" />
     </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Plugins\org.apache.cordova.statusbar\StatusBar.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Plugins\cordova-plugin-file\File.cs" />
+    </ItemGroup>
 </Project>
