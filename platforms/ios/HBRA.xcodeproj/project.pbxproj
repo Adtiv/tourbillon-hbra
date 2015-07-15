@@ -49,6 +49,7 @@
 		751A3AFF716F43C6A48A65D2 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4552E80FEE4340FA94D964D0 /* CDVFile.m */; };
 		E1A9FA39029C4587AED92ACB /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF88D618C88A4D669837288B /* CDVLocalFilesystem.m */; };
 		D4FE4AC498C8405587E6A13B /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079659B90084EEA988EECF6 /* CDVAssetLibraryFilesystem.m */; };
+		D800FDFAF6ED4EF19786424A /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A099EB8AFD13473ABB99D14C /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,8 @@
 		4678342CD4DE41B790B981BD /* CDVFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFile.h"; path = "org.apache.cordova.file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		6F52AA33F8B1463CB5927D8F /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocalFilesystem.h"; path = "org.apache.cordova.file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		FBA6EAD2CBC24508B687CAF9 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		A099EB8AFD13473ABB99D14C /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		AF2598DB7AA048508486A644 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 				4678342CD4DE41B790B981BD /* CDVFile.h */,
 				6F52AA33F8B1463CB5927D8F /* CDVLocalFilesystem.h */,
 				FBA6EAD2CBC24508B687CAF9 /* CDVAssetLibraryFilesystem.h */,
+				A099EB8AFD13473ABB99D14C /* CDVStatusBar.m */,
+				AF2598DB7AA048508486A644 /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "HBRA/Plugins";
@@ -442,6 +447,7 @@
 				751A3AFF716F43C6A48A65D2 /* CDVFile.m in Sources */,
 				E1A9FA39029C4587AED92ACB /* CDVLocalFilesystem.m in Sources */,
 				D4FE4AC498C8405587E6A13B /* CDVAssetLibraryFilesystem.m in Sources */,
+				D800FDFAF6ED4EF19786424A /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

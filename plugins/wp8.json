@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"File\"><param name=\"wp-package\" value=\"File\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"wp-package\" value=\"StatusBar\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -47,6 +51,9 @@
             "PACKAGE_NAME": "{0dbb04b0-00e1-11e5-8307-61efd0ef0ebc}"
         },
         "org.apache.cordova.file": {
+            "PACKAGE_NAME": "{0dbb04b0-00e1-11e5-8307-61efd0ef0ebc}"
+        },
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "{0dbb04b0-00e1-11e5-8307-61efd0ef0ebc}"
         }
     },

@@ -66,4 +66,7 @@
     <feature name="File">
         <param name="wp-package" value="File" />
     </feature>
+    <feature name="StatusBar">
+        <param name="wp-package" value="StatusBar" />
+    </feature>
 </widget>

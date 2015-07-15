@@ -26,6 +26,9 @@
         },
         "org.apache.cordova.file": {
             "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },
     "dependent_plugins": {}

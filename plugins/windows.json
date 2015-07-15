@@ -58,6 +58,9 @@
         },
         "org.apache.cordova.file": {
             "PACKAGE_NAME": "HBRA"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "HBRA"
         }
     },
     "dependent_plugins": {}

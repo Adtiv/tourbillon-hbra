@@ -229,4 +229,7 @@
     <ItemGroup>
         <Compile Include="Plugins\org.apache.cordova.file\File.cs" />
     </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Plugins\cordova-plugin-statusbar\StatusBar.cs" />
+    </ItemGroup>
 </Project>
