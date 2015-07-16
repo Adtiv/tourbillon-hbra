@@ -82,19 +82,28 @@ function storeLocalContent(){
                   console.log("Remove Recursively Succeeded");
               }, fail);
           }, fail);
+          fileSystem.root.getFile(
+               "test.pdf",
+              {create : true},
+              function(entry) {
+              entry.remove(function() {
+                  console.log("Remove Succeeded");
+              }, fail);
+          }, fail);
       }
   }
   	function generatePDF(){
 		console.log("generating pdf...");
-		var doc = new jsPDF();
-		 
-		doc.text(20, 20, 'HELLO!');
-		 
-		doc.setFont("courier");
+		var doc = new jsPDF('p', 'mm', 'letter');
+		doc.setFontSize(18);
+		doc.setFont('courier', 'bold');
+		doc.text(20, 20, 'Residential Construction - Site Safety Inspection / Evaluation');
 		doc.setFontType("normal");
-		doc.text(20, 30, 'This is a PDF document generated using JSPDF.');
-		doc.text(20, 50, 'YES, Inside of PhoneGap!');
-		 
+		doc.setFontSize(12);
+		doc.text(20, 30, 'Company Inspected: ');
+		doc.text(20, 50, 'This workplace safety inspection form will measure your level of compliance with OSHA regulations');
+		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
+		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
 		var pdfOutput = doc.output();
 		console.log( pdfOutput );
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
@@ -104,6 +113,8 @@ function storeLocalContent(){
 	   fileSystem.root.getFile("test.pdf", {create: true}, function(entry) {
 	      var fileEntry = entry;
 	      console.log(entry);
+	      console.log("entry.toURL()" + entry.toURL());
+	      localStorage.setItem('pdfURL', entry.toURL());
 	      entry.createWriter(function(writer) {
 	         writer.onwrite = function(evt) {
 	         console.log("write success");
@@ -120,7 +131,28 @@ function storeLocalContent(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
-	}	
+	}
+	function viewDocument()
+	{
+		var pdfPath = localStorage.getItem('pdfURL');
+		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+	}
+	function View(){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+        console.log("Root = " + fs.root.fullPath);
+        var directoryReader = fs.root.createReader();
+        directoryReader.readEntries(function(entries) {
+        	var i;
+        	for (i=0; i<entries.length; i++) {
+        		console.log(entries[i].name);
+        	}
+        }, function (error) {
+        	alert(error.code);
+        })
+        }, function (error) {
+        	alert(error.code);
+        });
+	}
 	/*
 	//test email functions
     //Email plugin functions:

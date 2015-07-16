@@ -23,6 +23,10 @@
                         {
                             "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SitewaertsDocumentViewer\"><param name=\"android-package\" value=\"de.sitewaerts.cordova.documentviewer.DocumentViewerPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -33,6 +37,10 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
                             "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -50,6 +58,9 @@
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
         "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "de.sitewaerts.cordova.documentviewer": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },

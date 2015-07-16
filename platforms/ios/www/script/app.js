@@ -104,6 +104,7 @@ function storeLocalContent(){
 	   fileSystem.root.getFile("test.pdf", {create: true}, function(entry) {
 	      var fileEntry = entry;
 	      console.log(entry);
+	      console.log("entry.toURL()"entry.toURL())
 	      entry.createWriter(function(writer) {
 	         writer.onwrite = function(evt) {
 	         console.log("write success");
@@ -120,7 +121,32 @@ function storeLocalContent(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
-	}	
+	}
+	function viewPDF(){
+		console.log("get");
+		SitewaertsDocumentViewer.viewDocument(
+    	url, mimeType, options, onShow, onClose, onMissingApp, onError);
+		console.log("worked?");
+    }	
+    function onShow(){
+	  window.console.log('document shown');
+	  //e.g. track document usage
+	}
+	function onClose(){
+	  window.console.log('document closed');
+	  //e.g. remove temp files
+	}
+	function onMissingApp(id, installer){
+	    if(confirm("Do you want to install the free PDF Viewer App "
+	            + appId + " for Android?"))
+	    {
+	        installer();
+	    }
+	}
+	function onError(){
+	  window.console.log(error);
+	  alert("Sorry! Cannot view document.");
+	}
 	/*
 	//test email functions
     //Email plugin functions:

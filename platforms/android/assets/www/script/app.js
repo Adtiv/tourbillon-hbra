@@ -104,6 +104,8 @@ function storeLocalContent(){
 	   fileSystem.root.getFile("test.pdf", {create: true}, function(entry) {
 	      var fileEntry = entry;
 	      console.log(entry);
+	      console.log("entry.toURL()" + entry.toURL());
+	      localStorage.setItem('pdfURL', entry.toURL());
 	      entry.createWriter(function(writer) {
 	         writer.onwrite = function(evt) {
 	         console.log("write success");
@@ -120,7 +122,12 @@ function storeLocalContent(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
-	}	
+	}
+	function viewDocument()
+	{
+		var pdfPath = localStorage.getItem('pdfURL');
+		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+	}
 	/*
 	//test email functions
     //Email plugin functions:
