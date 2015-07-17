@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local Data Test</title>
+	<link href="style/style.css" rel="stylesheet"/>
+		<!--
+	    <link rel="stylesheet" type="text/css" href="zepto-page-transitions-master/min/transition.min.css" />
+        <script type="text/javascript" src="zepto.min.js"></script>
+        <script type="text/javascript" src="zepto-page-transitions-master/min/transition.min.js"></script>
+        !-->
+	<script type="text/javascript">
+		function back(){
+			window.history.back();
+		}
+	</script>
+</head>
+<body>
+	<div class = "testDiv">
+		<div id="ignoreThis">
+		</div>
+		<div class="center pageOne container page"><br><br>
+				<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
+				<p> THIS IS THE TEST PDF ALL DOCUMENTATION WILL GO HERE </P>
+				<p id="testing"></p>
+			<button onclick="viewDocument()">viewPDF</button>
+			<button onclick="back()">back</button>
+		</div>	
+	</div>
+</body>
+<script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/ >
+<script src="vendor/jquery.js"></script>
+<script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
+<script src="vendor/dateTimePicker/jquery.datetimepicker.js"></script>
+<script src="script/htmlToPDF.js" type="text/javascript"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/dist/jspdf.debug.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/dist/jspdf.min.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/jspdf.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/from_html.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/split_text_to_size.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/standard_fonts_metrics.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/addhtml.js"></script>
+<script>
+	jQuery('#datetimepicker').datetimepicker();
+	jQuery('#datetimepicker2').datetimepicker();
+</script>
+</html>

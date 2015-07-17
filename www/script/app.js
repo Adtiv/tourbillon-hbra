@@ -93,8 +93,27 @@ function storeLocalContent(){
       }
   }
   	function generatePDF(){
+  		window.location.href = "formComplete.html"; 
+  		/*
+		var doc = new jsPDF();          
+		var elementHandler = {
+		  '#ignoreThis': function (element, renderer) {
+		    return true;
+		  }
+		};
+		console.log('1');
+		var source = $('#test')[0];
+		console.log('1');
+		doc.fromHTML(
+		    source,
+		    15,
+		    15,
+		    {
+		      'width': 180,'elementHandlers': elementHandler
+		    });
 		console.log("generating pdf...");
-		var doc = new jsPDF('p', 'mm', 'letter');
+		/*
+		var doc = new jsPDF('p', 'mm', 'letter');	
 		doc.setFontSize(18);
 		doc.setFont('courier', 'bold');
 		doc.text(20, 20, 'Residential Construction - Site Safety Inspection / Evaluation');
@@ -104,6 +123,7 @@ function storeLocalContent(){
 		doc.text(20, 50, 'This workplace safety inspection form will measure your level of compliance with OSHA regulations');
 		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
 		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
+		
 		var pdfOutput = doc.output();
 		console.log( pdfOutput );
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
@@ -131,6 +151,7 @@ function storeLocalContent(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
+		*/
 	}
 	function viewDocument()
 	{
