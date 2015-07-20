@@ -1,6 +1,9 @@
+
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
+	generatePDF();
 }, false);
+
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
@@ -78,4 +81,4 @@ function generatePDF(){
 		var pdfPath = localStorage.getItem('pdfURL');
 		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
-	window.onload=generatePDF; 
+	//window.onload=generatePDF; 
