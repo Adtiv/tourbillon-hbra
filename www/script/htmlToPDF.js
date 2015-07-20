@@ -12,13 +12,25 @@ function compileStoredVariables(){
 		return;
 	}
 	if(localStorage.length!=0){
-		var x = localStorage.getItem('company');
-		document.getElementById('testing').innerHTML=x;
+		document.getElementById('company').innerHTML=localStorage.getItem('company');
+		document.getElementById('trade').innerHTML= localStorage.getItem('trade');
+		document.getElementById('jobName').innerHTML = localStorage.getItem('jobName');
+		document.getElementById('jobNum').innerHTML = localStorage.getItem('jobNum');
+		document.getElementById('inspBy').innerHTML = localStorage.getItem('inspBy');
+		//document.getElementById('email').innerHTML = localStorage.getItem('email');
+		document.getElementById('title').innerHTML = localStorage.getItem('title');
+		document.getElementById('empNum').innerHTML = localStorage.getItem('empNum');
+		//document.getElementsByClassName('beginTime').innerHTML = localStorage.getItem('beginTime');
+		//document.getElementsByClassName('endtime').innerHTML = localStorage.getItem('endTime');
+		document.getElementById('repFirst').innerHTML = localStorage.getItem('repFirst');
+		document.getElementById('repLast').innerHTML = localStorage.getItem('repLast');
+		document.getElementById('employeeNum').innerHTML = localStorage.getItem('employeeNum');
+		document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
 	}
 }
 function generatePDF(){
 		console.log('gets');
-		//compileStoredVariables();
+		compileStoredVariables();
 		console.log('here?');
 		var doc = new jsPDF();          
 		var elementHandler = {
