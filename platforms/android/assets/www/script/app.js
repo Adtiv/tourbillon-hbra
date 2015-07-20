@@ -67,6 +67,7 @@ function storeLocalContent(){
 	function clearStorage(){
 		localStorage.clear();
 		ClearDirectory();
+		//window.reload();
 	}
 	function ClearDirectory() {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
@@ -93,14 +94,16 @@ function storeLocalContent(){
       }
   }
   	function generatePDF(){
+  		window.location.href = "formComplete.html"; 
+  		/*
 		var doc = new jsPDF();          
 		var elementHandler = {
-		  '#englishHeader': function (element, renderer) {
+		  '#ignoreThis': function (element, renderer) {
 		    return true;
 		  }
 		};
 		console.log('1');
-		var source = window.document.getElementsByTagName("body")[0];
+		var source = $('#test')[0];
 		console.log('1');
 		doc.fromHTML(
 		    source,
@@ -121,8 +124,8 @@ function storeLocalContent(){
 		doc.text(20, 50, 'This workplace safety inspection form will measure your level of compliance with OSHA regulations');
 		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
 		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
-		*/
-		var pdfOutput = doc.output('datauri');
+		
+		var pdfOutput = doc.output();
 		console.log( pdfOutput );
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
 	    console.log(fileSystem.name);
@@ -149,6 +152,7 @@ function storeLocalContent(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
+		*/
 	}
 	function viewDocument()
 	{

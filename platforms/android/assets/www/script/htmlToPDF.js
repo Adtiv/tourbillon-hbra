@@ -1,5 +1,6 @@
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
+    // cordova.plugins.email is now available
 }, false);
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);

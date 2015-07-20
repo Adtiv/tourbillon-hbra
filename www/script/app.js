@@ -67,6 +67,7 @@ function storeLocalContent(){
 	function clearStorage(){
 		localStorage.clear();
 		ClearDirectory();
+		//window.reload();
 	}
 	function ClearDirectory() {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
