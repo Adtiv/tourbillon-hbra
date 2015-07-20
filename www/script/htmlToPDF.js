@@ -12,20 +12,69 @@ function compileStoredVariables(){
 		return;
 	}
 	if(localStorage.length!=0){
-		document.getElementById('company').innerHTML=localStorage.getItem('company');
-		document.getElementById('trade').innerHTML= localStorage.getItem('trade');
-		document.getElementById('jobName').innerHTML = localStorage.getItem('jobName');
-		document.getElementById('jobNum').innerHTML = localStorage.getItem('jobNum');
-		document.getElementById('inspBy').innerHTML = localStorage.getItem('inspBy');
+		if(localStorage.getItem('company')!=null){
+			document.getElementById('company').innerHTML=localStorage.getItem('company');
+		}
+		if(localStorage.getItem('trade')!=null){
+			document.getElementById('trade').innerHTML= localStorage.getItem('trade');
+		}
+		if(localStorage.getItem('jobName')!=null){
+			document.getElementById('jobName').innerHTML = localStorage.getItem('jobName');
+		}
+		if(localStorage.getItem('jobNum')!=null){
+			document.getElementById('jobNum').innerHTML = localStorage.getItem('jobNum');
+		}
+		if(localStorage.getItem('inspBy')!=null){
+			document.getElementById('inspBy').innerHTML = localStorage.getItem('inspBy');
+		}
 		//document.getElementById('email').innerHTML = localStorage.getItem('email');
-		document.getElementById('title').innerHTML = localStorage.getItem('title');
-		document.getElementById('empNum').innerHTML = localStorage.getItem('empNum');
+		if(localStorage.getItem('title')!=null){	
+			document.getElementById('title').innerHTML = localStorage.getItem('title');
+		}
+		if(localStorage.getItem('empNum')!=null){
+			document.getElementById('empNum').innerHTML = localStorage.getItem('empNum');
+		}
 		//document.getElementsByClassName('beginTime').innerHTML = localStorage.getItem('beginTime');
 		//document.getElementsByClassName('endtime').innerHTML = localStorage.getItem('endTime');
-		document.getElementById('repFirst').innerHTML = localStorage.getItem('repFirst');
-		document.getElementById('repLast').innerHTML = localStorage.getItem('repLast');
-		document.getElementById('employeeNum').innerHTML = localStorage.getItem('employeeNum');
-		document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
+		if(localStorage.getItem('repFirst')!=null){
+			document.getElementById('repFirst').innerHTML = localStorage.getItem('repFirst');
+		}
+		if(localStorage.getItem('repLast')!=null){
+			document.getElementById('repLast').innerHTML = localStorage.getItem('repLast');
+		}
+		if(localStorage.getItem('employeeNum')!=null){
+			document.getElementById('employeeNum').innerHTML = localStorage.getItem('employeeNum');
+		}
+		if(localStorage.getItem('weatherCom')!=null){
+			document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
+		}
+		if(localStorage.getItem('storedCheckedForms')!=null){
+			var storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
+			console.log("storedCheckedForms"+ storedCheckedForms);
+			if(storedCheckedForms[0]==1){
+				var storedScore1=localStorage.getItem('l');
+				console.log(storedScore1);
+				console.log("score A.1-1" + storedScore1[0]);
+				document.getElementById('scoreA.1-1').innerHTML = storedScore1[0];
+				if(storedScore1[0]==1 || storedScore1[0]==3){
+					document.getElementById('A.1compliance1').innerHTML = "-"+localStorage.getItem('A.1compliance1');
+				}
+				document.getElementById('scoreA.1-2').innerHTML = storedScore1[2];
+				document.getElementById('scoreA.1-3').innerHTML = storedScore1[4];
+				document.getElementById('scoreA.1-4').innerHTML = storedScore1[6];
+				document.getElementById('scoreA.1-5').innerHTML = storedScore1[8];
+				document.getElementById('scoreA.1-6').innerHTML = storedScore1[10];
+				document.getElementById('scoreA.1-7').innerHTML = storedScore1[12];
+				document.getElementById('scoreA.1-8').innerHTML = storedScore1[14];
+				document.getElementById('scoreA.1-9').innerHTML = storedScore1[16];
+				document.getElementById('scoreA.1-10').innerHTML = storedScore1[18];
+				document.getElementById('scoreA.1-11').innerHTML = storedScore1[20];
+				document.getElementById('scoreA.1-12').innerHTML = storedScore1[22];
+				document.getElementById('A.1score').innerHTML = localStorage.getItem('A.1score');
+				document.getElementById('A.1notes').innerHTML = localStorage.getItem('A.1notes');
+				//document.getElementById('weatherCom').innerHTML = storedScore1[0];
+			}
+		}
 	}
 }
 function generatePDF(){

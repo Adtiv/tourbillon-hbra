@@ -1,7 +1,9 @@
+
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
-    // cordova.plugins.email is now available
+	generatePDF();
 }, false);
+
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
@@ -10,8 +12,27 @@ function compileStoredVariables(){
 		return;
 	}
 	if(localStorage.length!=0){
-		var x = localStorage.getItem('company');
-		document.getElementById('testing').innerHTML=x;
+		document.getElementById('company').innerHTML=localStorage.getItem('company');
+		document.getElementById('trade').innerHTML= localStorage.getItem('trade');
+		document.getElementById('jobName').innerHTML = localStorage.getItem('jobName');
+		document.getElementById('jobNum').innerHTML = localStorage.getItem('jobNum');
+		document.getElementById('inspBy').innerHTML = localStorage.getItem('inspBy');
+		//document.getElementById('email').innerHTML = localStorage.getItem('email');
+		document.getElementById('title').innerHTML = localStorage.getItem('title');
+		document.getElementById('empNum').innerHTML = localStorage.getItem('empNum');
+		//document.getElementsByClassName('beginTime').innerHTML = localStorage.getItem('beginTime');
+		//document.getElementsByClassName('endtime').innerHTML = localStorage.getItem('endTime');
+		document.getElementById('repFirst').innerHTML = localStorage.getItem('repFirst');
+		document.getElementById('repLast').innerHTML = localStorage.getItem('repLast');
+		document.getElementById('employeeNum').innerHTML = localStorage.getItem('employeeNum');
+		document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
+		var storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
+		console.log("storedCheckedForms"+ storedCheckedForms);
+		if(storedCheckedForms[0]==1){
+			console.log("here?");
+			var storedScore1=localStorage.getItem('l');
+			console.log("score A.1-1" + storedScore1[0]);
+		}
 	}
 }
 function generatePDF(){
@@ -79,4 +100,4 @@ function generatePDF(){
 		var pdfPath = localStorage.getItem('pdfURL');
 		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
-	window.onload=generatePDF; 
+	//window.onload=generatePDF; 
