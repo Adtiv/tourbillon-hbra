@@ -51,6 +51,11 @@
 			margin-left: 10%;
 			word-break: break-all;
 		}
+		#A.1{
+			visibility:hidden;
+			display: none;
+			color: blue;
+		}
 	</style>
 </head>
 <body>
@@ -63,23 +68,24 @@
 				<p class="formText"> This workplace safety inspection form will measure your level of compliance with OSHA regulations based on your current work business or activities. Note that the checklist may not be all inclusive of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.</P><br>
 				<p class="formText"><strong>Instructions:</strong> Evaluate the level of regulatory compliance with OSHA Regulations with a <strong>1, 3 or 5</strong> (<strong>1</strong> = Non-Compliant, <strong>3</strong> = Partially Compliant, <strong>5</strong> = Fully Compliant) Note <q><strong>0</strong></strong> if inspection item is not applicable for this inspection. Activities or items rated <strong>1</strong> and <strong>3</strong> note deficiencies and will appear in NON-COMPLIANT/ ABATEMENT section and recommendations for corrective action must be stated to complete the inspection. Record all corrective action and note the date of abatement or compliance.</p><br>
 				<p class="sectionTitle"><strong>A. General Inspection</strong></p><br>
-				<p class="subCatTitle"><strong>A.1 Jobsite (Trailer or Vehicle)</strong></p><br>
-				<p class="formText"> 1. On-Site Safety Representative: <span class="input" id="scoreA.1-1"></span></p>
-				<p class="formText nonCompliance" id="A.1compliance1"></p>
-				<p class="formText"> 2. Emergency Info Posted - Phone Numbers /Address: <span class="input" id="scoreA.1-2"></span></p>
-				<p class="formText"> 3. All required Posters in place (OSHA, etc): <span class="input" id="scoreA.1-3"></span></p>
-				<p class="formText"> 4. First Aid Supplies accessible and adequately stocked Incl. Band Aids, tourniquet, gloves, eye cup / solution, gauze, first aid tape. (exclude any creams or oral meds): <span class="input" id="scoreA.1-4"></span></p>
-				<p class="formText"> 5. Eye Wash Available and Maintained - clean water with solution (if applicable): <span class="input" id="scoreA.1-5"></span></p>
-				<p class="formText"> 6. Blood borne Pathogen Kit: <span class="input" id="scoreA.1-6"></span></p>
-				<p class="formText"> 7. Fire Extinguisher (inspected -date and initial tag): <span class="input" id="scoreA.1-7"></span></p>	
-				<p class="formText"> 8. Haz-Com Program &amp SDS's on-site and up to date: <span class="input" id="scoreA.1-8"></span></p>
-				<p class="formText"> 9. On-site Copy of Company Safety &amp Health Program Or GC's is adopted and followed: <span class="input" id="scoreA.1-9"></span></p>
-				<p class="formText"> 10. Access to Employee Training Records including Tool Box Talk Safety Meetings: <span class="input" id="scoreA.1-10"></span></p>
-				<p class="formText"> 11. Contractor conducts New Employee Safety Orientation: <span class="input" id="scoreA.1-11"></span></p>
-				<p class="formText"> 12. Contractor has Site Specific Safety Plan (fall protection and other): <span class="input" id="scoreA.1-12"></span></p><br>
-				<p class="formText"> Total Score: <span class="input" id="A.1score"></span></p>
-				<p class="formText"> Notes: <span class="input" id="A.1notes"></span></p>
-
+				<div id="A.1" style="visibility:hidden;display:none;">
+					<p class="subCatTitle"><strong>A.1 Jobsite (Trailer or Vehicle)</strong></p><br>
+					<p class="formText"> 1. On-Site Safety Representative: <span class="input" id="scoreA.1-1"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance1"></p>
+					<p class="formText"> 2. Emergency Info Posted - Phone Numbers /Address: <span class="input" id="scoreA.1-2"></span></p>
+					<p class="formText"> 3. All required Posters in place (OSHA, etc): <span class="input" id="scoreA.1-3"></span></p>
+					<p class="formText"> 4. First Aid Supplies accessible and adequately stocked Incl. Band Aids, tourniquet, gloves, eye cup / solution, gauze, first aid tape. (exclude any creams or oral meds): <span class="input" id="scoreA.1-4"></span></p>
+					<p class="formText"> 5. Eye Wash Available and Maintained - clean water with solution (if applicable): <span class="input" id="scoreA.1-5"></span></p>
+					<p class="formText"> 6. Blood borne Pathogen Kit: <span class="input" id="scoreA.1-6"></span></p>
+					<p class="formText"> 7. Fire Extinguisher (inspected -date and initial tag): <span class="input" id="scoreA.1-7"></span></p>	
+					<p class="formText"> 8. Haz-Com Program &amp SDS's on-site and up to date: <span class="input" id="scoreA.1-8"></span></p>
+					<p class="formText"> 9. On-site Copy of Company Safety &amp Health Program Or GC's is adopted and followed: <span class="input" id="scoreA.1-9"></span></p>
+					<p class="formText"> 10. Access to Employee Training Records including Tool Box Talk Safety Meetings: <span class="input" id="scoreA.1-10"></span></p>
+					<p class="formText"> 11. Contractor conducts New Employee Safety Orientation: <span class="input" id="scoreA.1-11"></span></p>
+					<p class="formText"> 12. Contractor has Site Specific Safety Plan (fall protection and other): <span class="input" id="scoreA.1-12"></span></p><br>
+					<p class="formText"> Total Score: <span class="input" id="A.1score"></span></p>
+					<p class="formText"> Notes: <span class="input" id="A.1notes"></span></p>
+				</div>
 			<button onclick="viewDocument()">viewPDF</button>
 			<button onclick="back()">back</button>
 		</div>	
