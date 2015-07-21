@@ -2,6 +2,7 @@
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	generatePDF();
+	alert("Update?");
 }, false);
 
 function compileStoredVariables(){
