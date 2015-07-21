@@ -1,6 +1,13 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
+    },
+    {
         "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",
         "id": "de.appplant.cordova.plugin.email-composer.EmailComposer",
         "clobbers": [
@@ -183,20 +190,21 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
         "clobbers": [
-            "window.StatusBar"
+            "window.open"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "cordova-plugin-statusbar": "1.0.1",
     "de.appplant.cordova.plugin.email-composer": "0.8.2",
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.file": "1.3.3",
-    "cordova-plugin-statusbar": "1.0.1"
+    "org.apache.cordova.inappbrowser": "0.6.0"
 }
 // BOTTOM OF METADATA
 });
