@@ -52,6 +52,7 @@ function compileStoredVariables(){
 			var storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
 			console.log("storedCheckedForms"+ storedCheckedForms);
 			if(storedCheckedForms[0]==1){
+				//if(localStorage.getItem('l')!=null);
 				var showDiv=document.getElementById('A.1');
 				showDiv.style.visibility="visible";
 				showDiv.style.display="inline";
@@ -59,7 +60,8 @@ function compileStoredVariables(){
 				console.log(storedScore1);
 				console.log("score A.1-1" + storedScore1[0]);
 				document.getElementById('scoreA.1-1').innerHTML = storedScore1[0];
-				if(storedScore1[0]==1 || storedScore1[0]==3){
+				//console.log("A.1compliance1"+ localStorage.getItem('A.1compliance1'));
+				if(storedScore1[0]==1 || storedScore1[0]==3){ //&& localStorage.getItem('A.1compliance1').length>0){
 					document.getElementById('A.1compliance1').innerHTML = "-"+localStorage.getItem('A.1compliance1');
 				}
 				document.getElementById('scoreA.1-2').innerHTML = storedScore1[2];
@@ -85,23 +87,32 @@ function generatePDF(){
 		compileStoredVariables();
 		console.log('here?');
 		var doc = new jsPDF();
-		var storedCheckedForms;
+		
+		var checkedForms=null;
+		/*
 		if(localStorage.getItem('storedCheckedForms')!=null){
-			storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);  
+			checkedForms = JSON.parse(localStorage["storedCheckedForms"]);  
+			console.log("checkedForms"+checkedForms);
 		}
-		console.log("here");        
+		*/
+		console.log("here");       
 		var elementHandler = {
 		  '#A.1': function (element, renderer) {
-		  		if(storedCheckedForms!=null){
-		  			if(storedCheckedForms[0]==0){
-		  				return true;
-		  			}
-		  			else{
-		  				return false;
-		  			}
+		  		//return false;
+		  		if(document.getElementById('A.1').style.visibility=="visible"){
+		  			return false;
+		  		}
 		  		else{
 		  			return true;
 		  		}
+				/*
+	  			if(checkedForms[0]==0){
+	  				return true;
+	  			}
+	  			else{
+	  				return false;
+	  			}
+		  		*/
 		  }
 		};
 		console.log('1');

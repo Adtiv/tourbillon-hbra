@@ -26,7 +26,7 @@
 		.container{
 			padding-left:5%;
 			padding-right:5%;
-			padding-top:10%;
+			padding-top:8%;
 			max-width:600px;
 			background:white;
 		}
@@ -56,12 +56,20 @@
 			display: none;
 			color: blue;
 		}
+		#statusBar{
+			color:black;
+			float: top;
+			top:0;
+			height:4%;
+			width: 100%;
+			background-color: black;
+			position:fixed;
+		}
 	</style>
 </head>
 <body>
 	<div class = "testDiv">
-		<div id="ignoreThis">
-		</div>
+		<div id="statusBar"></div>
 		<div class="center pageOne container page">
 				<p id="completeFormTitle"><strong>Residential Construction-Site Safety Inspection/Evaluation</strong></p><br><br>
 				<p class="formText">Company Inspected: <span class="formText input" id="company"></span> Trade: <span class="formText input" id="trade"></span> Job Name: <span class="formText input" id="jobName"></span> Job # <span class="formText input" id="jobNum"></span> Inspection By: <span class="formText input" id="inspBy"></span> Title: <span class="formText input" id="title"></span> Emp. #: <span class="formText input" id="empNum"></span> Insp. Date: <span class="formText input" id="inspDate"></span> Time: <span class="formText input" id="beginTime"></span> to <span class="formText input" id="endtime"></span> On-Site Safety Representative: <span class="formText input" id="repFirst"></span> or Competent Person: <span class="formText input" id="repLast"></span> Emp. #: <span class="formText input" id="employeeNum"></span> Weather or Special Conditions: <span class="formText input" id="weatherCom"></span></p><br>
@@ -73,18 +81,54 @@
 					<p class="formText"> 1. On-Site Safety Representative: <span class="input" id="scoreA.1-1"></span></p>
 					<p class="formText nonCompliance" id="A.1compliance1"></p>
 					<p class="formText"> 2. Emergency Info Posted - Phone Numbers /Address: <span class="input" id="scoreA.1-2"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance2"></p>
 					<p class="formText"> 3. All required Posters in place (OSHA, etc): <span class="input" id="scoreA.1-3"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance3"></p>
 					<p class="formText"> 4. First Aid Supplies accessible and adequately stocked Incl. Band Aids, tourniquet, gloves, eye cup / solution, gauze, first aid tape. (exclude any creams or oral meds): <span class="input" id="scoreA.1-4"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance4"></p>
 					<p class="formText"> 5. Eye Wash Available and Maintained - clean water with solution (if applicable): <span class="input" id="scoreA.1-5"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance5"></p>
 					<p class="formText"> 6. Blood borne Pathogen Kit: <span class="input" id="scoreA.1-6"></span></p>
-					<p class="formText"> 7. Fire Extinguisher (inspected -date and initial tag): <span class="input" id="scoreA.1-7"></span></p>	
+					<p class="formText nonCompliance" id="A.1compliance6"></p>
+					<p class="formText"> 7. Fire Extinguisher (inspected -date and initial tag): <span class="input" id="scoreA.1-7"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance7"></p>	
 					<p class="formText"> 8. Haz-Com Program &amp SDS's on-site and up to date: <span class="input" id="scoreA.1-8"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance8"></p>
 					<p class="formText"> 9. On-site Copy of Company Safety &amp Health Program Or GC's is adopted and followed: <span class="input" id="scoreA.1-9"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance9"></p>
 					<p class="formText"> 10. Access to Employee Training Records including Tool Box Talk Safety Meetings: <span class="input" id="scoreA.1-10"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance10"></p>
 					<p class="formText"> 11. Contractor conducts New Employee Safety Orientation: <span class="input" id="scoreA.1-11"></span></p>
-					<p class="formText"> 12. Contractor has Site Specific Safety Plan (fall protection and other): <span class="input" id="scoreA.1-12"></span></p><br>
+					<p class="formText nonCompliance" id="A.1compliance11"></p>
+					<p class="formText"> 12. Contractor has Site Specific Safety Plan (fall protection and other): <span class="input" id="scoreA.1-12"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance12"></p><br>
 					<p class="formText"> Total Score: <span class="input" id="A.1score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.1notes"></span></p>
+					<p class="formText"> Notes: <span class="input" id="A.1notes"></span></p><br>
+				</div>
+				<div id="A.2" style="visibility:hidden;display:none;">
+					<p class="subCatTitle"><strong>A.2 Jobsite (Trailer or Vehicle)</strong></p><br>
+					<p class="formText"> 1. Site Perimeter Fence in place /secure: <span class="input" id="scoreA.2-1"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance1"></p>
+					<p class="formText"> 2. Warning Signs (hard hats, No Trespassing, etc.): <span class="input" id="scoreA.2-2"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance2"></p>
+					<p class="formText"> 3. Travel/Access ways (unobstructed and maintained): <span class="input" id="scoreA.2-3"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance3"></p>
+					<p class="formText"> 4. All holes and openings (floor, roof, window and other) adequately protected by barriers/barricades and MARKED: <span class="input" id="scoreA.2-4"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance4"></p>
+					<p class="formText"> 5. Public and Worker Accessibility, Detours Adequate, Detours, Canopies, Sidewalks, etc: <span class="input" id="scoreA.2-5"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance5"></p>
+					<p class="formText"> 6. Traffic Control Plan / Necessary Traffic Details: <span class="input" id="scoreA.2-6"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance6"></p>
+					<p class="formText"> 7. Adequate Lighting for Site and Public: <span class="input" id="scoreA.2-7"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance7"></p>	
+					<p class="formText"> 8. Emergency Evacuation / Action Plan in Place: <span class="input" id="scoreA.2-8"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance8"></p>
+					<p class="formText"> 9. Visitor / Public Safety Controls in Place (Signs, Visitor PPE, etc.): <span class="input" id="scoreA.2-9"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance9"></p>
+					<p class="formText"> 10. Fall Prevention - Guardrails installed where fall exposures are present to the public: <span class="input" id="scoreA.2-10"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance10"></p><br>
+					<p class="formText"> Total Score: <span class="input" id="A.2score"></span></p>
+					<p class="formText"> Notes: <span class="input" id="A.2notes"></span></p><br>
 				</div>
 			<button onclick="viewDocument()">viewPDF</button>
 			<button onclick="back()">back</button>
