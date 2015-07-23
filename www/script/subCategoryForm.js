@@ -2080,6 +2080,78 @@
 					if(initGetScore2!=null){
 						document.getElementById('A.2score').innerHTML = window.localStorage.getItem('A.2score');
 					}
+					/*
+	                if(localStorage.getItem('A.2imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.2imagepath1');
+						var photo1 = document.getElementById('A.2photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic1').innerHTML="A.2-1.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.2imagepath2');
+						var photo2 = document.getElementById('A.2photo2');
+	                  	photo2.src = A.2ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic2').innerHTML="A.2-2.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.2imagepath3');
+						var photo3 = document.getElementById('A.2photo3');
+	                  	photo3.src = A.2ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic3').innerHTML="A.2-3.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.2imagepath4');
+						var photo4 = document.getElementById('A.2photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic4').innerHTML="A.2-4.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.2imagepath5');
+						var photo5 = document.getElementById('A.2photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic5').innerHTML="A.2-5.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.2imagepath6');
+						var photo6 = document.getElementById('A.2photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic6').innerHTML="A.2-6.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath7')!=null){
+						var ip7 = localStorage.getItem('A.2imagepath7');
+						var photo7 = document.getElementById('A.2photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic7').innerHTML="A.2-7.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath8')!=null){
+						var ip8 = localStorage.getItem('A.2imagepath8');
+						var photo8 = document.getElementById('A.2photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic8').innerHTML="A.2-8.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath9')!=null){
+						var ip9 = localStorage.getItem('A.2imagepath9');
+						var photo9 = document.getElementById('A.2photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic9').innerHTML="A.2-9.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath10')!=null){
+						var ip10 = localStorage.getItem('A.2imagepath10');
+						var photo10 = document.getElementById('A.2photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic10').innerHTML="A.2-10.jpg";
+	                }
+					*/
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -4303,10 +4375,17 @@
       console.log("getsHERE");
       var pCount=localStorage.getItem('pictureCount');
       var photo = "photo";
-      var imageID = photo + pCount;
-      var image = document.getElementById(imageID);
+      if(pCount<=12){
+      	var imageID = "photo" + pCount;
+      	var image = document.getElementById(imageID);
+      }
+      else if(pCount>12&&pCount<=22){
+      	pCount=pCount-12;
+        var imageID = "A.2photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
       image.style.display = 'inline-block';
-      image.src = imageURI;
+      image.src = imageURI;	
       movePic(imageURI);
     }
 
@@ -4349,6 +4428,10 @@
       if(x<=12){
       	var newFileName = n + "_A.1-" + x + ".jpg";
       }
+      if(x>12 && x<=22){
+      	x=x-12;
+      	var newFileName = n +"_A.2-" + x + ".jpg";
+      }
       var myFolderApp = "MyAppFolder";
 
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
@@ -4369,23 +4452,23 @@
       //Store imagepath in session for future use
       // like to store it in database
       var picCount=localStorage.getItem('pictureCount');
-      var pathNum = "imagepath" + picCount; 
-      var photoNum = "photo" + picCount; 
-      var picNum = "pic" + picCount; 
-      localStorage.setItem(pathNum, entry.toURL());
-      var image = document.getElementById(photoNum);
+      if(picCount<=12){
+	      var pathNum = "imagepath" + picCount;
+	      var photoNum = "photo" + picCount; 
+	      var picNum = "pic" + picCount; 
+          document.getElementById(picNum).innerHTML="A.1-"+picCount+".jpg";
+	  }
+	  else if(picCount>12 && picCount <=22){
+	  	  picCount=picCount-12;
+	  	  var pathNum = "A.2imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      var photoNum = "A.2photo" + picCount; 
+	      var picNum = "A.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.2-"+picCount+".jpg"; 	
+	  }
+	  var image = document.getElementById(photoNum);
       image.src = localStorage.getItem(pathNum);
-      document.getElementById(picNum).innerHTML="A.1-"+picCount+".jpg";
-      /*
-      if(picCount==1){
-        localStorage.setItem('imagepath1', entry.toURL());
-        var photo1 = document.getElementById('photo1');
-        photo1.src = localStorage.getItem('imagepath1');
-        document.getElementById("pic1").innerHTML="A.1-1.jpg";
-        console.log("entry.toURL()" + entry.toURL());
-        console.log("entry.fullPath" + entry.fullPath);
-      }
-      */   
+      localStorage.setItem(pathNum, entry.toURL()); 
   }
   // Get a directory reader
   //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
@@ -4413,9 +4496,15 @@
     alert('Failed because: ' + message);
   }
   function openImage(pNum){
-  	var photo="photo";
-  	var num = pNum;
-  	var imageId = photo + num;
+  	if(pNum<=12){
+  		var photo="photo";
+  		var imageId = photo + pNum;
+  	}
+  	else if(pNum>12 && pNum<=22){
+  		var photo="A.2photo";
+  		var num=pNum-12;
+  		var imageId =photo + num;
+  	}
   	var image = document.getElementById(imageId);
 	if(image.style.height!='75vh'){
       image.style.height = '75vh';

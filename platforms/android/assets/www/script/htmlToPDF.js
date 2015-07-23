@@ -5,7 +5,7 @@ document.addEventListener('deviceready', function () {
 	alert("Update?");
 }, false);
 
-function compileStoredVariables(){
+function compileStoredVariables(doc){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
 	if(!bSupportsLocal){
@@ -163,6 +163,7 @@ function compileStoredVariables(){
 					if((storedScore[12]==1 || storedScore[12]==3) && localStorage.getItem('A.2compliance7')!=""){
 						document.getElementById('A.2compliance7').innerHTML = "-"+localStorage.getItem('A.2compliance7');
 					}
+					$('<p>---PAGE BREAK---</p>').insertAfter('.A_2 p:nth-child(16)');
 					document.getElementById('scoreA.2-8').innerHTML = storedScore[14];
 					if((storedScore[14]==1 || storedScore[14]==3) && localStorage.getItem('A.2compliance8')!=""){
 						document.getElementById('A.2compliance8').innerHTML = "-"+localStorage.getItem('A.2compliance8');
@@ -183,11 +184,23 @@ function compileStoredVariables(){
 		}
 	}
 }
+function checkPageSize(doc){
+	console.log("doc"+doc);
+	var pageHeight= doc.internal.pageSize.height;
+	// Before adding new content
+	var y = 500 // Height position of new content
+	if (y >= pageHeight)
+	{
+	  doc.addPage();
+	  y = 0 // Restart height position
+	}
+}
 function generatePDF(){
 		console.log('gets');
-		compileStoredVariables();
-		console.log('here?');
+		//compileStoredVariables();
 		var doc = new jsPDF();
+		console.log(doc.internal.pageSize.height);
+		compileStoredVariables(doc);
 		/*
 		if(localStorage.getItem('storedCheckedForms')!=null){
 			checkedForms = JSON.parse(localStorage["storedCheckedForms"]);  
