@@ -13,7 +13,6 @@
 		    FastClick.attach(document.body);
 		    console.log("worked");
 			var btn = document.querySelector("btn");
-	        var span = document.querySelector( "span" );
 	        var delay;
 
 		    btn.addEventListener( "touchend", function() {
@@ -23,8 +22,7 @@
 		    });
 		    btn.addEventListener( "click", function() {
 		    	console.log("here?");
-		        span.innerHTML = Date.now() - delay;
-		        console.log(Date.now()-delay);
+		        console.log("time in ms: " + (Date.now()-delay));
 		    });
 		}
 		//var button = document.querySelector(".fastClick");
@@ -58,7 +56,7 @@
 		!-->
 
 		<div id="sponsorBox"><br><p id="sponsor">Please Support our Safety App Sponsors!</p><div id="topAd"><img src="images/NAHB logo.jpg" id="topAdImage"></div><div class="ad" id="bottomAdd"><img src="images/HBRAlogo_01.jpg" class="adImage"></div><div class="ad" id="bottomAd"><img src="images/logo.jpg" class="adImage"></div><br><br><br></div>
-		<p>Delay was <span></span> milliseconds.</p>
+
 		<div id="languages"><div id="footer"><btn id="btnA" onclick="chooseLanguage('English')"><div class= "language" id="English"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">English</div></btn><btn id="btnA" onclick="chooseLanguage('Spanish')"><div class= "language" id="Spanish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Spanish</div></btn><btn onclick="chooseLanguage('Portuguese')"><div class= "language" id="Portuguese"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Portuguese</div></btn><btn onclick="chooseLanguage('Polish')"><div class= "language" id="Polish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Polish</div></btn></div></div>
 
     </div>
