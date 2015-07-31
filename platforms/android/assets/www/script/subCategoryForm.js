@@ -5603,6 +5603,21 @@
     function onDeviceReady(){
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        FastClick.attach(document.body);
+        	var btn = document.getElementById("btnNext");
+	        var span = document.querySelector( "span" );
+	        var delay;
+
+		    btn.addEventListener( "touchend", function() {
+		    	console.log("here1?");
+		        delay = Date.now();
+		        console.log(delay);
+		    });
+		    btn.addEventListener( "click", function() {
+		    	console.log("here?");
+		        //span.innerHTML = Date.now() - delay;
+		        console.log("Time in ms: " + (Date.now()-delay));
+		    });
         console.log(navigator.camera);
     }
 	// Called when a photo is successfully retrieved
@@ -6146,7 +6161,7 @@
   	var image = document.getElementById(imageId);
 	if(image.style.height!='75vh'){
       image.style.height = '75vh';
-      image.style.width = '86vw';
+      image.style.width = '95%';
     }
     else{
     	image.style.height = '7%'; 

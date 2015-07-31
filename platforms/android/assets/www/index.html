@@ -3,17 +3,38 @@
 <head>
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
-    <script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type='application/javascript' src='script/fastclick-master/lib/fastclick.js'></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	<script type="text/javascript">
-		var button = document.querySelector(".fastClick");
-		new FastClick(button);
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady()
+		{
+		    FastClick.attach(document.body);
+		    console.log("worked");
+			var btn = document.querySelector("btn");
+	        var delay;
+
+		    btn.addEventListener( "touchend", function() {
+		    	console.log("here?");
+		        delay = Date.now();
+		        console.log(delay);
+		    });
+		    btn.addEventListener( "click", function() {
+		    	console.log("here?");
+		        console.log("time in ms: " + (Date.now()-delay));
+		    });
+		}
+		//var button = document.querySelector(".fastClick");
+		//new FastClick(button);
 		function chooseLanguage(id){
 			if(id=='English'){
 				window.location.href="pageOne.html";
+				console.log("test");
 			}
 			else if(id=='Spanish'){
-				window.location.href="pageOne.html";
+				//window.location.href="pageOne.html";
+				console.log("test2");
 			}
 			else if(id=='Portuguese'){
 				window.location.href="";
@@ -22,7 +43,6 @@
 				window.location.href="";
 			}
 		}
-
 	</script>
 </head>
 <body>
@@ -37,7 +57,7 @@
 
 		<div id="sponsorBox"><br><p id="sponsor">Please Support our Safety App Sponsors!</p><div id="topAd"><img src="images/NAHB logo.jpg" id="topAdImage"></div><div class="ad" id="bottomAdd"><img src="images/HBRAlogo_01.jpg" class="adImage"></div><div class="ad" id="bottomAd"><img src="images/logo.jpg" class="adImage"></div><br><br><br></div>
 
-		<div id="languages"><div id="footer"><btn class="fastClick" onclick="chooseLanguage('English')"><div class= "language" id="English"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">English</div></btn><btn onclick="chooseLanguage('Spanish')"><div class= "language" id="Spanish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Spanish</div></btn><btn onclick="chooseLanguage('Portuguese')"><div class= "language" id="Portuguese"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Portuguese</div></btn><btn onclick="chooseLanguage('Polish')"><div class= "language" id="Polish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Polish</div></btn></div></div>
+		<div id="languages"><div id="footer"><btn id="btnA" onclick="chooseLanguage('English')"><div class= "language" id="English"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">English</div></btn><btn id="btnA" onclick="chooseLanguage('Spanish')"><div class= "language" id="Spanish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Spanish</div></btn><btn onclick="chooseLanguage('Portuguese')"><div class= "language" id="Portuguese"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Portuguese</div></btn><btn onclick="chooseLanguage('Polish')"><div class= "language" id="Polish"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine"><hr class="center btnLine" id="lastLine">Polish</div></btn></div></div>
 
     </div>
 </body>

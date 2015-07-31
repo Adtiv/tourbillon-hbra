@@ -6161,7 +6161,7 @@
   	var image = document.getElementById(imageId);
 	if(image.style.height!='75vh'){
       image.style.height = '75vh';
-      image.style.width = '86vw';
+      image.style.width = '95%';
     }
     else{
     	image.style.height = '7%'; 
