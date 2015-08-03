@@ -80,7 +80,7 @@ form{
   margin-left: 5%;
   font-size: 4vw;
   overflow: auto;
-  word-break: break-all;
+  word-wrap:break-word;
   text-align: center;
 }
 .inspCategory{
