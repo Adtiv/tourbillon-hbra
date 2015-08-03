@@ -451,8 +451,11 @@ margin-bottom: 4%;
 	display:inline-block;
 }
 #refresh{
+	width:5.8vw;
+	height: 4.5vw;
 	float:right;
 	display:inline-block;
+	padding-right:5%;
 }
 .goBack{
 	padding-left:5%;
@@ -607,6 +610,33 @@ margin-bottom: 4%;
 .position{
 	float: right;
 }
-.formNum{
-
+#popup{
+	visibility: hidden;
+	position: absolute;
+	font-size: 4vw;
+	float: right;
+	margin-right: 1%;
+	height:20%;
+	width:60%;
+	overflow: auto;
+	padding-top: 2%;
+	border:2px solid blue;
+	border-radius: 35px;
+	text-align: center;
+	z-index:999;
+	background-color: black;
+	color:white;
+	font-weight: bold;
+	padding-left:4%;
+	padding-right:4%;
+	right:0;
 }
+.popupBtn{
+	display: inline-block;
+	background-color: #E6E6E6;
+	border-radius: 10px; 
+	border:1px solid black;
+	position:relative;
+	left:25%;
+}
+

@@ -65,10 +65,18 @@ function storeLocalContent(){
 		console.log("deviceReady");	
 	    // cordova.plugins.email is now available
 	}, false);
+	function popup(){
+		document.getElementById('popup').style.visibility='visible';
+		document.getElementById('popup').style.position='fixed';
+		document.getElementById('popup').style.top='1';
+	}
+	function no(){
+		document.getElementById('popup').style.visibility='hidden';
+	}
 	function clearStorage(){
 		localStorage.clear();
 		ClearDirectory();
-		//window.reload();
+		window.location.href="index.html"
 	}
 	function ClearDirectory() {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);

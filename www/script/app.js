@@ -67,6 +67,8 @@ function storeLocalContent(){
 	}, false);
 	function popup(){
 		document.getElementById('popup').style.visibility='visible';
+		document.getElementById('popup').style.position='fixed';
+		document.getElementById('popup').style.top='1';
 	}
 	function no(){
 		document.getElementById('popup').style.visibility='hidden';

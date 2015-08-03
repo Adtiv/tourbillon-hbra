@@ -1,10 +1,12 @@
 
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
+	FastClick.attach(document.body);
 	generatePDF();
+	alert("Update?");
 }, false);
 
-function compileStoredVariables(){
+function compileStoredVariables(doc){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
 	if(!bSupportsLocal){
@@ -162,6 +164,7 @@ function compileStoredVariables(){
 					if((storedScore[12]==1 || storedScore[12]==3) && localStorage.getItem('A.2compliance7')!=""){
 						document.getElementById('A.2compliance7').innerHTML = "-"+localStorage.getItem('A.2compliance7');
 					}
+					$('<p>---PAGE BREAK---</p>').insertAfter('.A_2 p:nth-child(16)');
 					document.getElementById('scoreA.2-8').innerHTML = storedScore[14];
 					if((storedScore[14]==1 || storedScore[14]==3) && localStorage.getItem('A.2compliance8')!=""){
 						document.getElementById('A.2compliance8').innerHTML = "-"+localStorage.getItem('A.2compliance8');
@@ -182,11 +185,23 @@ function compileStoredVariables(){
 		}
 	}
 }
+function checkPageSize(doc){
+	console.log("doc"+doc);
+	var pageHeight= doc.internal.pageSize.height;
+	// Before adding new content
+	var y = 500 // Height position of new content
+	if (y >= pageHeight)
+	{
+	  doc.addPage();
+	  y = 0 // Restart height position
+	}
+}
 function generatePDF(){
 		console.log('gets');
-		compileStoredVariables();
-		console.log('here?');
+		//compileStoredVariables();
 		var doc = new jsPDF();
+		console.log(doc.internal.pageSize.height);
+		compileStoredVariables(doc);
 		/*
 		if(localStorage.getItem('storedCheckedForms')!=null){
 			checkedForms = JSON.parse(localStorage["storedCheckedForms"]);  
@@ -239,13 +254,17 @@ function generatePDF(){
 		console.log('1');
 		var source = $('.testDiv')[0];
 		console.log('1');
+		var options = {
+	         pagesplit: true
+	    };
 		doc.fromHTML(
 		    source,
 		    15,
 		    15,
 		    {
-		      'width': 180,'elementHandlers': elementHandler
+		      'width': 180,'pagesplit': true,'elementHandlers': elementHandler
 		    });
+		console.log('1');
 		/*
 		var doc = new jsPDF('p', 'mm', 'letter');	
 		doc.setFontSize(18);
@@ -258,13 +277,16 @@ function generatePDF(){
 		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
 		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
 		*/
+		console.log(doc.internal.pageSize.height);
 		var pdfOutput = doc.output();
 		console.log( pdfOutput );
+		//doc.addHTML($(".testDiv"), options, function()
+		//{
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
 	    console.log(fileSystem.name);
 	   console.log(fileSystem.root.name);
 	   console.log(fileSystem.root.fullPath);
-	   fileSystem.root.getFile("test.pdf", {create: true}, function(entry) {
+	   fileSystem.root.getFile("completedForm.pdf", {create: true}, function(entry) {
 	      var fileEntry = entry;
 	      console.log(entry);
 	      console.log("entry.toURL()" + entry.toURL());
@@ -285,6 +307,7 @@ function generatePDF(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
+	//}
 	}
 	function viewDocument()
 	{
