@@ -789,7 +789,7 @@
 		maxLineHeight = 0;
 		defaultFontSize = 12;
 
-		if (this.pdf.internal.pageSize.height - this.pdf.margins_doc.bottom < this.y + this.pdf.internal.getFontSize()) {
+		if (this.pdf.internal.pageSize.height - this.pdf.margins_doc.bottom < this.y + this.pdf.internal.getFontSize()*25.4/72) {
 			this.pdf.internal.write("ET", "Q");
 			this.pdf.internal.write("GOT HERE ya");
 			//renderer.pdf.addPage();
@@ -801,7 +801,7 @@
 			this.y = this.pdf.margins_doc.top;
 			this.pdf.internal.write("q", "BT 0 g", this.pdf.internal.getCoordinateString(this.x), this.pdf.internal.getVerticalCoordinateString(this.y), style.color, "Td");
 			//move cursor by one line on new page
-			maxLineHeight = Math.max(maxLineHeight, style["line-height"], style["font-size"])-70;
+			maxLineHeight = Math.max(maxLineHeight, style["line-height"], style["font-size"])-67.8;
 			this.pdf.internal.write(0, (-1 * defaultFontSize * maxLineHeight).toFixed(2), "Td");
 		}
 

@@ -129,7 +129,7 @@ function storeLocalContent(){
 	//test email functions
     //Email plugin functions:
     function email(){
-    	alert('updated');
+    	alert("updated");
 		cordova.plugins.email.open();
 	}
 
