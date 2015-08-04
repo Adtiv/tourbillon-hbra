@@ -795,11 +795,6 @@
 		if (this.pdf.internal.pageSize.height - this.pdf.margins_doc.bottom < this.y + this.pdf.internal.getFontSize()) {
 			text = "                    "+text; //"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t "
 			this.pdf.internal.write("ET", "Q");
-			this.pdf.internal.write("GOT HERE ya");
-			//renderer.pdf.addPage();
-			//renderer.y = renderer.pdf.margins_doc.top;
-			//var element = document.createComment("ADD_PAGE");
-			//document.body.appendChild(element);
 			
 			this.pdf.addPage();
 			this.y = this.pdf.margins_doc.top;

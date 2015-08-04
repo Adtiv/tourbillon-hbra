@@ -164,7 +164,6 @@ function compileStoredVariables(doc){
 					if((storedScore[12]==1 || storedScore[12]==3) && localStorage.getItem('A.2compliance7')!=""){
 						document.getElementById('A.2compliance7').innerHTML = "-"+localStorage.getItem('A.2compliance7');
 					}
-					$('<p>---PAGE BREAK---</p>').insertAfter('.A_2 p:nth-child(16)');
 					document.getElementById('scoreA.2-8').innerHTML = storedScore[14];
 					if((storedScore[14]==1 || storedScore[14]==3) && localStorage.getItem('A.2compliance8')!=""){
 						document.getElementById('A.2compliance8').innerHTML = "-"+localStorage.getItem('A.2compliance8');
