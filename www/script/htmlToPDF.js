@@ -481,11 +481,11 @@ function compileStoredVariables(doc){
 				}
 			}
 			if(storedCheckedForms[8]==1){
-				if(localStorage.getItem('l8')!=null){
+				if(localStorage.getItem('l9')!=null){
 					var showDiv=document.getElementById('B.1');
 					showDiv.style.visibility="visible";
 					showDiv.style.display="inline";
-					var storedScore=localStorage.getItem('l8');
+					var storedScore=localStorage.getItem('l9');
 					console.log(storedScore);
 					console.log("score B.1-1" + storedScore[0]);
 					document.getElementById('scoreB.1-1').innerHTML = storedScore[0];
@@ -515,7 +515,6 @@ function compileStoredVariables(doc){
 					if((storedScore[8]==1 || storedScore[8]==3) && localStorage.getItem('B.1compliance5')!=""){
 						document.getElementById('B.1compliance5').innerHTML = "-"+localStorage.getItem('B.1compliance5');
 					}
-					console.log(storedScore[10]);
 					document.getElementById('scoreB.1-6').innerHTML = storedScore[10];
 					if((storedScore[10]==1 || storedScore[10]==3) && localStorage.getItem('B.1compliance6')!=""){
 						document.getElementById('B.1compliance6').innerHTML = "-"+localStorage.getItem('B.1compliance6');
@@ -538,6 +537,66 @@ function compileStoredVariables(doc){
 					}
 					document.getElementById('B.1score').innerHTML = localStorage.getItem('B.1score');
 					document.getElementById('B.1notes').innerHTML = localStorage.getItem('B.1notes');
+					//document.getElementById('weatherCom').innerHTML = storedScore1[0];
+				}
+			}
+			if(storedCheckedForms[9]==1){
+				if(localStorage.getItem('l10')!=null){
+					var showDiv=document.getElementById('B.2');
+					showDiv.style.visibility="visible";
+					showDiv.style.display="inline";
+					var storedScore=localStorage.getItem('l10');
+					console.log(storedScore);
+					console.log("score B.2-1" + storedScore[0]);
+					document.getElementById('scoreB.2-1').innerHTML = storedScore[0];
+					/*
+					console.log("A.2compliance1"+ localStorage.getItem('A.2compliance1')+"compliance");
+					if(localStorage.getItem('A.2compliance1')==""){
+						console.log("equals");
+					}
+					*/
+					if((storedScore[0]==1 || storedScore[0]==3) && localStorage.getItem('B.2compliance1')!=""){ //&& localStorage.getItem('B.2compliance1')!=""){
+						document.getElementById('B.2compliance1').innerHTML = "-"+localStorage.getItem('B.2compliance1');
+						console.log("gets to compliance");
+					}
+					document.getElementById('scoreB.2-2').innerHTML = storedScore[2];
+					if((storedScore[2]==1 || storedScore[2]==3) && localStorage.getItem('B.2compliance2')!=""){
+						document.getElementById('B.2compliance2').innerHTML = "-"+localStorage.getItem('B.2compliance2');
+					}
+					document.getElementById('scoreB.2-3').innerHTML = storedScore[4];
+					if((storedScore[4]==1 || storedScore[4]==3) && localStorage.getItem('B.2compliance3')!=""){
+						document.getElementById('B.2compliance3').innerHTML = "-"+localStorage.getItem('B.2compliance3');
+					}
+					document.getElementById('scoreB.2-4').innerHTML = storedScore[6];
+					if((storedScore[6]==1 || storedScore[6]==3) && localStorage.getItem('B.2compliance4')!=""){
+						document.getElementById('B.2compliance4').innerHTML = "-"+localStorage.getItem('B.2compliance4');
+					}
+					document.getElementById('scoreB.2-5').innerHTML = storedScore[8];
+					if((storedScore[8]==1 || storedScore[8]==3) && localStorage.getItem('B.2compliance5')!=""){
+						document.getElementById('B.2compliance5').innerHTML = "-"+localStorage.getItem('B.2compliance5');
+					}
+					document.getElementById('scoreB.2-6').innerHTML = storedScore[10];
+					if((storedScore[10]==1 || storedScore[10]==3) && localStorage.getItem('B.2compliance6')!=""){
+						document.getElementById('B.2compliance6').innerHTML = "-"+localStorage.getItem('B.2compliance6');
+					}
+					document.getElementById('scoreB.2-7').innerHTML = storedScore[12];
+					if((storedScore[12]==1 || storedScore[12]==3) && localStorage.getItem('B.2compliance7')!=""){
+						document.getElementById('B.2compliance7').innerHTML = "-"+localStorage.getItem('B.2compliance7');
+					}
+					document.getElementById('scoreB.2-8').innerHTML = storedScore[14];
+					if((storedScore[14]==1 || storedScore[14]==3) && localStorage.getItem('B.2compliance8')!=""){
+						document.getElementById('B.2compliance8').innerHTML = "-"+localStorage.getItem('B.2compliance8');
+					}
+					document.getElementById('scoreB.2-9').innerHTML = storedScore[16];
+					if((storedScore[16]==1 || storedScore[16]==3) && localStorage.getItem('B.2compliance9')!=""){
+						document.getElementById('B.2compliance9').innerHTML = "-"+localStorage.getItem('B.2compliance9');
+					}
+					document.getElementById('scoreB.2-10').innerHTML = storedScore[18];
+					if((storedScore[18]==1 || storedScore[18]==3) && localStorage.getItem('B.2compliance10')!=""){
+						document.getElementById('B.2compliance10').innerHTML = "-"+localStorage.getItem('B.2compliance10');
+					}
+					document.getElementById('B.2score').innerHTML = localStorage.getItem('B.2score');
+					document.getElementById('B.2notes').innerHTML = localStorage.getItem('B.2notes');
 					//document.getElementById('weatherCom').innerHTML = storedScore1[0];
 				}
 			}
@@ -713,6 +772,23 @@ function generatePDF(){
 			'#B.1': function (element, renderer) {
 		  		//return false;
 		  		if(document.getElementById('B.1').style.visibility=="visible"){
+		  			return false;
+		  		}
+		  		else{
+		  			return true;
+		  		}
+				/*
+	  			if(checkedForms[0]==0){
+	  				return true;
+	  			}
+	  			else{
+	  				return false;
+	  			}
+		  		*/
+			},
+			'#B.2': function (element, renderer) {
+		  		//return false;
+		  		if(document.getElementById('B.2').style.visibility=="visible"){
 		  			return false;
 		  		}
 		  		else{
