@@ -133,6 +133,7 @@ function storeLocalContent(){
     	var pdfPath = localStorage.getItem('pdfURL');
     	alert(pdfPath);
 		cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form',
 		    attachments: pdfPath //=> Android
 		});
 	}
