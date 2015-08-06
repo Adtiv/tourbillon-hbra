@@ -1124,6 +1124,126 @@ function compileStoredVariables(doc){
 					//document.getElementById('weatherCom').innerHTML = storedScore1[0];
 				}
 			}
+			if(storedCheckedForms[18]==1){
+				if(localStorage.getItem('l19')!=null){
+					var showDiv=document.getElementById('E.2');
+					showDiv.style.visibility="visible";
+					showDiv.style.display="inline";
+					var storedScore=localStorage.getItem('l19');
+					console.log(storedScore);
+					console.log("score E.2-1" + storedScore[0]);
+					document.getElementById('scoreE.2-1').innerHTML = storedScore[0];
+					/*
+					console.log("A.1compliance1"+ localStorage.getItem('A.1compliance1')+"compliance");
+					if(localStorage.getItem('A.1compliance1')==""){
+						console.log("equals");
+					}
+					*/
+					if((storedScore[0]==1 || storedScore[0]==3) && localStorage.getItem('E.2compliance1')!=""){ //&& localStorage.getItem('E.2compliance1')!=""){
+						document.getElementById('E.2compliance1').innerHTML = "-"+localStorage.getItem('E.2compliance1');
+						console.log("gets to compliance");
+					}
+					document.getElementById('scoreE.2-2').innerHTML = storedScore[2];
+					if((storedScore[2]==1 || storedScore[2]==3) && localStorage.getItem('E.2compliance2')!=""){
+						document.getElementById('E.2compliance2').innerHTML = "-"+localStorage.getItem('E.2compliance2');
+					}
+					document.getElementById('scoreE.2-3').innerHTML = storedScore[4];
+					if((storedScore[4]==1 || storedScore[4]==3) && localStorage.getItem('E.2compliance3')!=""){
+						document.getElementById('E.2compliance3').innerHTML = "-"+localStorage.getItem('E.2compliance3');
+					}
+					document.getElementById('scoreE.2-4').innerHTML = storedScore[6];
+					if((storedScore[6]==1 || storedScore[6]==3) && localStorage.getItem('E.2compliance4')!=""){
+						document.getElementById('E.2compliance4').innerHTML = "-"+localStorage.getItem('E.2compliance4');
+					}
+					document.getElementById('scoreE.2-5').innerHTML = storedScore[8];
+					if((storedScore[8]==1 || storedScore[8]==3) && localStorage.getItem('E.2compliance5')!=""){
+						document.getElementById('E.2compliance5').innerHTML = "-"+localStorage.getItem('E.2compliance5');
+					}
+					document.getElementById('scoreE.2-6').innerHTML = storedScore[10];
+					if((storedScore[10]==1 || storedScore[10]==3) && localStorage.getItem('E.2compliance6')!=""){
+						document.getElementById('E.2compliance6').innerHTML = "-"+localStorage.getItem('E.2compliance6');
+					}
+					document.getElementById('scoreE.2-7').innerHTML = storedScore[12];
+					if((storedScore[12]==1 || storedScore[12]==3) && localStorage.getItem('E.2compliance7')!=""){
+						document.getElementById('E.2compliance7').innerHTML = "-"+localStorage.getItem('E.2compliance7');
+					}
+					document.getElementById('scoreE.2-8').innerHTML = storedScore[14];
+					if((storedScore[14]==1 || storedScore[14]==3) && localStorage.getItem('E.2compliance8')!=""){
+						document.getElementById('E.2compliance8').innerHTML = "-"+localStorage.getItem('E.2compliance8');
+					}
+					document.getElementById('E.2score').innerHTML = localStorage.getItem('E.2score');
+					document.getElementById('E.2notes').innerHTML = localStorage.getItem('E.2notes');
+					//document.getElementById('weatherCom').innerHTML = storedScore1[0];
+				}
+			}
+			if(storedCheckedForms[19]==1){
+				if(localStorage.getItem('l20')!=null){
+					var showDiv=document.getElementById('E.3');
+					showDiv.style.visibility="visible";
+					showDiv.style.display="inline";
+					var storedScore=localStorage.getItem('l20');
+					console.log(storedScore);
+					console.log("score E.3-1" + storedScore[0]);
+					document.getElementById('scoreE.3-1').innerHTML = storedScore[0];
+					/*
+					console.log("A.1compliance1"+ localStorage.getItem('A.1compliance1')+"compliance");
+					if(localStorage.getItem('A.1compliance1')==""){
+						console.log("equals");
+					}
+					*/
+					if((storedScore[0]==1 || storedScore[0]==3) && localStorage.getItem('E.3compliance1')!=""){ //&& localStorage.getItem('E.3compliance1')!=""){
+						document.getElementById('E.3compliance1').innerHTML = "-"+localStorage.getItem('E.3compliance1');
+						console.log("gets to compliance");
+					}
+					document.getElementById('scoreE.3-2').innerHTML = storedScore[2];
+					if((storedScore[2]==1 || storedScore[2]==3) && localStorage.getItem('E.3compliance2')!=""){
+						document.getElementById('E.3compliance2').innerHTML = "-"+localStorage.getItem('E.3compliance2');
+					}
+					document.getElementById('scoreE.3-3').innerHTML = storedScore[4];
+					if((storedScore[4]==1 || storedScore[4]==3) && localStorage.getItem('E.3compliance3')!=""){
+						document.getElementById('E.3compliance3').innerHTML = "-"+localStorage.getItem('E.3compliance3');
+					}
+					document.getElementById('scoreE.3-4').innerHTML = storedScore[6];
+					if((storedScore[6]==1 || storedScore[6]==3) && localStorage.getItem('E.3compliance4')!=""){
+						document.getElementById('E.3compliance4').innerHTML = "-"+localStorage.getItem('E.3compliance4');
+					}
+					document.getElementById('scoreE.3-5').innerHTML = storedScore[8];
+					if((storedScore[8]==1 || storedScore[8]==3) && localStorage.getItem('E.3compliance5')!=""){
+						document.getElementById('E.3compliance5').innerHTML = "-"+localStorage.getItem('E.3compliance5');
+					}
+					document.getElementById('scoreE.3-6').innerHTML = storedScore[10];
+					if((storedScore[10]==1 || storedScore[10]==3) && localStorage.getItem('E.3compliance6')!=""){
+						document.getElementById('E.3compliance6').innerHTML = "-"+localStorage.getItem('E.3compliance6');
+					}
+					document.getElementById('scoreE.3-7').innerHTML = storedScore[12];
+					if((storedScore[12]==1 || storedScore[12]==3) && localStorage.getItem('E.3compliance7')!=""){
+						document.getElementById('E.3compliance7').innerHTML = "-"+localStorage.getItem('E.3compliance7');
+					}
+					document.getElementById('scoreE.3-8').innerHTML = storedScore[14];
+					if((storedScore[14]==1 || storedScore[14]==3) && localStorage.getItem('E.3compliance8')!=""){
+						document.getElementById('E.3compliance8').innerHTML = "-"+localStorage.getItem('E.3compliance8');
+					}
+					document.getElementById('scoreE.3-9').innerHTML = storedScore[16];
+					if((storedScore[16]==1 || storedScore[16]==3) && localStorage.getItem('E.3compliance9')!=""){
+						document.getElementById('E.3compliance9').innerHTML = "-"+localStorage.getItem('E.3compliance9');
+					}
+					document.getElementById('scoreE.3-10').innerHTML = storedScore[18];
+					if((storedScore[18]==1 || storedScore[18]==3) && localStorage.getItem('E.3compliance10')!=""){
+						document.getElementById('E.3compliance10').innerHTML = "-"+localStorage.getItem('E.3compliance10');
+					}
+					document.getElementById('scoreE.3-11').innerHTML = storedScore[20];
+					if((storedScore[20]==1 || storedScore[20]==3) && localStorage.getItem('E.3compliance11')!=""){
+						document.getElementById('E.3compliance11').innerHTML = "-"+localStorage.getItem('E.3compliance11');
+					}
+					document.getElementById('scoreE.3-12').innerHTML = storedScore[22];
+					if((storedScore[22]==1 || storedScore[22]==3) && localStorage.getItem('E.3compliance12')!=""){
+						document.getElementById('E.3compliance12').innerHTML = "-"+localStorage.getItem('E.3compliance12');
+					}
+					document.getElementById('E.3score').innerHTML = localStorage.getItem('E.3score');
+					document.getElementById('E.3notes').innerHTML = localStorage.getItem('E.3notes');
+					//document.getElementById('weatherCom').innerHTML = storedScore1[0];
+				}
+			}
 		}
 	}
 }
@@ -1318,7 +1438,26 @@ function generatePDF(){
 		  		else{
 		  			return true;
 		  		}
+			},
+			'#E.2': function (element, renderer) {
+		  		//return false;
+		  		if(document.getElementById('E.2').style.visibility=="visible"){
+		  			return false;
+		  		}
+		  		else{
+		  			return true;
+		  		}
+			},
+			'#E.3': function (element, renderer) {
+		  		//return false;
+		  		if(document.getElementById('E.3').style.visibility=="visible"){
+		  			return false;
+		  		}
+		  		else{
+		  			return true;
+		  		}
 			}
+
 		};
 		console.log('1');
 		var source = $('.testDiv')[0];

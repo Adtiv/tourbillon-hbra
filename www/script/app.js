@@ -93,7 +93,7 @@ function storeLocalContent(){
               }, fail);
           }, fail);
           fileSystem.root.getFile(
-               "test.pdf",
+               "completedForm.pdf",
               {create : true},
               function(entry) {
               entry.remove(function() {
@@ -130,7 +130,11 @@ function storeLocalContent(){
     //Email plugin functions:
     function email(){
     	alert("updated");
-		cordova.plugins.email.open();
+    	var pdfPath = localStorage.getItem('pdfURL');
+    	alert(pdfPath);
+		cordova.plugins.email.open({
+		    attachments: pdfPath //=> Android
+		});
 	}
 
 
