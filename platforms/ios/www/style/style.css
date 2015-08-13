@@ -80,7 +80,7 @@ form{
   margin-left: 5%;
   font-size: 4vw;
   overflow: auto;
-  word-break: break-all;
+  word-wrap:break-word;
   text-align: center;
 }
 .inspCategory{
@@ -344,7 +344,7 @@ margin-bottom: 4%;
 #sponsorBox{
 	width:100%;
 	text-align: center;
-	position:fixed;
+	position:relative;
 	display: inline-block;
 }
 .ad{
@@ -458,6 +458,8 @@ margin-bottom: 4%;
 	padding-right:5%;
 }
 .goBack{
+	width:7.8vw;
+	height: 6vw;
 	padding-left:5%;
 	float: left;
 }

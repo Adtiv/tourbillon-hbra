@@ -93,7 +93,7 @@ function storeLocalContent(){
               }, fail);
           }, fail);
           fileSystem.root.getFile(
-               "test.pdf",
+               "completedForm.pdf",
               {create : true},
               function(entry) {
               entry.remove(function() {
@@ -130,7 +130,15 @@ function storeLocalContent(){
     //Email plugin functions:
     function email(){
     	alert("updated");
-		cordova.plugins.email.open();
+    	alert("test1");
+    	var pdfPath = localStorage.getItem('pdfURL');
+    	alert("test2");
+    	alert(pdfPath);
+    	alert("test3");
+		cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form',
+		    attachments: pdfPath //=> Android
+		});
 	}
 
 
