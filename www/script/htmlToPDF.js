@@ -3,9 +3,9 @@ document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
 	generatePDF();
-	alert("Update?");
+	alert("Updated?");
 }, false);
-
+	generatePDF();
 function compileStoredVariables(doc){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
@@ -1485,6 +1485,7 @@ function generatePDF(){
 		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
 		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
 		*/
+
 		console.log(doc.internal.pageSize.height);
 		var pdfOutput = doc.output();
 		console.log( pdfOutput );
