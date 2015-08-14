@@ -26,11 +26,8 @@
 			</div>
 		</btn>
 	</div>
-	<div id="ignore">
-	</div>
-	<div id = "test">
 	<div class="center pageOne container page"><br><br>
-			<div id="popup">Are you sure you want to reset?(THIS WILL DELETE ALL SAVED ANSWERS AND PHOTOS.)<br><button class="popupBtn" id="yes" onclick="clearStorage()">YES</button><button class="popupBtn" onclick="no()">NO</button></div>
+			<div id="popup">Are you sure you want to reset?(THIS WILL DELETE ALL SAVED ANSWERS AND PHOTOS.)<br><div class="btnCtrl"><button class="popupBtn" id="yes" onclick="clearStorage()">YES</button></div><div class="btnCtrl"><button class="popupBtn" id="no" onclick="no()">NO</button></div></div>
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
 		<form action="server/emailForm.php" method="post">
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
@@ -60,7 +57,6 @@
 		<button onclick="generatePDF()">pdf</button>
 		<button onclick="View()">view</button>
     </div>
-	</div>  
 
 </body>
 <script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>

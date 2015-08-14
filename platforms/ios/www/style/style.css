@@ -633,6 +633,9 @@ margin-bottom: 4%;
 	padding-right:4%;
 	right:0;
 }
+.btnCtrl{
+	display: inline-block;
+}
 .popupBtn{
 	display: inline-block;
 	background-color: #E6E6E6;
