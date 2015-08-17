@@ -25,7 +25,7 @@ function init(){
 	
 }
 
-function storeLocalContent(){
+function storeLocalContent(next){
 	var comp = document.getElementById('company').value;
 	var tradeType = document.getElementById('trade').value;
 	var nameJob = document.getElementById('jobName').value;
@@ -57,8 +57,9 @@ function storeLocalContent(){
 	window.localStorage.setItem('employeeNum', employeeNum);
 	window.localStorage.setItem('weatherCom', comWeather);
 
-	window.location.href = "pageTwo.html";
-
+	if(next=="next"){
+		window.location.href = "pageTwo.html";
+	}
 }
 	document.addEventListener('deviceready', function () {
 		FastClick.attach(document.body);

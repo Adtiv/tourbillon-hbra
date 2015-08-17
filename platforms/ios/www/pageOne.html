@@ -16,7 +16,7 @@
 		<div class="statusBarAfter"></div>
 		<btn class="goBackButton" onclick="homeScreen('pageOne')">
 			<div class="goBack">
-				&lt
+				<img src="images/home.png" width="100%" height="100%">
 			</div>
 		</btn>
 		English
@@ -47,8 +47,9 @@
 			<div class="label">Weather or Special Conditions:</div><textarea type="text" name="weatherCom" id="weatherCom" class="textArea"></textarea>
 			<br/><br/><br/><br/>
 			<div class="after-form">
-                        <input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent()"/>
-			<div class="arrowright"></div><input type="button" class="btn" id="btnSave" onclick="storeLocalContent()"/>
+				<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent('save')"/>
+				<btn onclick="storeLocalContent('next')"><img class="next" src="images/go_next_blue.png"></btn>
+			
 			<!--<input type="submit" name="submit" id="btnSubmit" value="Submit Form"/>
 			<!-- <input type="button" value="Clear Memory" class="btn" id="btnClear" onclick="clearLocalContent()"/> -->
 			</div>

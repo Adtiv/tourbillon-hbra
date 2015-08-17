@@ -66,14 +66,20 @@
             <div class="after-form">
          		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms('checks')"/>
          		<div class="leftAfter-form">
+         			<!--
 					<div class="arrowleft"></div><input type="button" id="btnBack" onclick="goBack()">
+				-->
+					<btn onclick="goBack()"><img class="prev" src="images/go_next_blue.png"></btn>
 				</div>
 				<div class="rightAfter-form">
+					<btn onclick="processFormOrder('pageTwo', '0', 'btnBack', 'checks')"><img id="checkNext" class="next" src="images/go_next_blue.png"></btn>
+					<!--
 					<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatForms('checks')"/>
 					<div class="position">
 						<div class="arrowNext"></div>
 						<input type="button" id="btnNext" onclick="processFormOrder('pageTwo', '0', 'btnBack', 'checks')"/>
 					</div>
+				-->
 				</div>
 
 			</div>

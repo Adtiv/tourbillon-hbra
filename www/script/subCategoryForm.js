@@ -940,229 +940,70 @@
 		}
 		//Creates an array with 1 as a checked form 0 unchecked
 		function isChecked(id){
-			var input = document.getElementById(id);
-			var isChecked = input.checked;
-			isChecked = (isChecked)? true : false;
-			if(id=="jobsite"){
+			console.log('checked:' + id);
+		}
+		function doubleCheck(){
+			if(document.getElementById('jobsite').checked==true){
 				checkedForms[0]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[0]=1;
-				}
-				else{
-					checkedForms[0]=0;
-				}
-				*/
 			}
-			else if(id=="facility"){
+			if(document.getElementById('facility').checked==true){
 				checkedForms[1]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[1]=1;
-				}
-				else{
-					checkedForms[1]=0;
-				}
-				*/
 			}
-			else if(id=="ppe"){
+			if(document.getElementById('ppe').checked==true){
 				checkedForms[2]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[2]=1;
-				}
-				else{
-					checkedForms[2]=0;
-				}
-				*/
 			}
-			else if(id=="housekeeping"){
+			if(document.getElementById('housekeeping').checked==true){
 				checkedForms[3]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[3]=1;
-				}
-				else{
-					checkedForms[3]=0;
-				}
-				*/
 			}
-			else if(id=="fireProtection"){
+			if(document.getElementById('fireProtection').checked==true){
 				checkedForms[4]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[4]=1;
-				}
-				else{
-					checkedForms[4]=0;
-				}
-				*/
 			}
-			else if(id=="traffic"){
+			if(document.getElementById('traffic').checked==true){
 				checkedForms[5]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[5]=1;
-				}
-				else{
-					checkedForms[5]=0;
-				}
-				*/
 			}
-			else if(id=="hazardSubs"){
+			if(document.getElementById('hazardSubs').checked==true){
 				checkedForms[6]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[6]=1;
-				}
-				else{
-					checkedForms[6]=0;
-				}
-				*/
 			}
-			else if(id=="licensing"){
+			if(document.getElementById('licensing').checked==true){
 				checkedForms[7]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[7]=1;
-				}
-				else{
-					checkedForms[7]=0;
-				}
-				*/
 			}
-			else if(id=="generalFall"){
+			if(document.getElementById('generalFall').checked==true){
 				checkedForms[8]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[8]=1;
-				}
-				else{
-					checkedForms[8]=0;
-				}
-				*/
 			}
-			else if(id=="scaffold"){
+			if(document.getElementById('scaffold').checked==true){
 				checkedForms[9]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[9]=1;
-				}
-				else{
-					checkedForms[9]=0;
-				}
-				*/
 			}
-			else if(id=="ladder"){
+			if(document.getElementById('ladder').checked==true){
 				checkedForms[10]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[10]=1;
-				}
-				else{
-					checkedForms[10]=0;
-				}
-				*/
 			}
-			else if(id=="tool"){
+			if(document.getElementById('tool').checked==true){
 				checkedForms[11]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[11]=1;
-				}
-				else{
-					checkedForms[11]=0;
-				}
-				*/
 			}
-			else if(id=="electric"){
+			if(document.getElementById('electric').checked==true){
 				checkedForms[12]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[12]=1;
-				}
-				else{
-					checkedForms[12]=0;
-				}
-				*/
 			}
-			else if(id=="crane"){
+			if(document.getElementById('crane').checked==true){
 				checkedForms[13]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[13]=1;
-				}
-				else{
-					checkedForms[13]=0;
-				}
-				*/
 			}
-			else if(id=="heavyEq"){
+			if(document.getElementById('heavyEq').checked==true){
 				checkedForms[14]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[14]=1;
-				}
-				else{
-					checkedForms[14]=0;
-				}
-				*/
 			}
-			else if(id=="trench"){
+			if(document.getElementById('trench').checked==true){
 				checkedForms[15]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[15]=1;
-				}
-				else{
-					checkedForms[15]=0;
-				}
-				*/
 			}
-			else if(id=="demo"){
+			if(document.getElementById('demo').checked==true){
 				checkedForms[16]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[16]=1;
-				}
-				else{
-					checkedForms[16]=0;
-				}
-				*/
 			}
-			else if(id=="sErection"){
+			if(document.getElementById('sErection').checked==true){
 				checkedForms[17]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[17]=1;
-				}
-				else{
-					checkedForms[17]=0;
-				}
-				*/
 			}
-			else if(id=="conc"){
+			if(document.getElementById('conc').checked==true){
 				checkedForms[18]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[18]=1;
-				}
-				else{
-					checkedForms[18]=0;
-				}
-				*/
 			}
-			else{
+			if(document.getElementById('weld').checked==true){
 				checkedForms[19]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[19]=1;
-				}
-				else{
-					checkedForms[19]=0;
-				}
-				*/
 			}
+			alert("checkedForms: " + checkedForms);
 		}
 		//to get the amount of checked checked forms
 		function formLength(formArr){
@@ -1183,6 +1024,7 @@
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
 			if(storePage=="checks"){
+				doubleCheck();
 				localStorageSubCatForms('checks');
 			}
 			else if(storePage=="A_1"){
@@ -1430,8 +1272,9 @@
 				pageCount=parseInt(pCount);
 			}
 			///
-			var temp=window.localStorage.getItem("forms");
+			//var temp=window.localStorage.getItem("forms");
 			var formLen;
+			/*
 			console.log("temp" +temp);
 			if(temp==null){
 				checked= JSON.parse(localStorage["checkedForms"]);
@@ -1443,6 +1286,10 @@
 				formLen = formLength(checked);
 				setLen = localStorage.setItem('setLen', formLen);
 			}
+			*/
+			checked= JSON.parse(localStorage["checkedForms"]);
+			formLen = formLength(checked);
+			setLen = localStorage.setItem('setLen', formLen);
 			console.log("checked: " + checked);
 			///
 			//checked= JSON.parse(localStorage["checkedForms"]);
@@ -1889,6 +1736,12 @@
 					for (i = 0; i < checkboxes.length; i++) {
         				checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === 'true' ? true:false;
     				}
+    				/*
+    				alert(storedCheckedForms);
+    				if(storedCheckedForms==null){
+    					document.getElementById('checkNext').style.visibility="hidden";
+    				}
+    				*/
     				console.log("Initializes!");
 				}
 				else if(page=="A_1"){
@@ -4905,6 +4758,9 @@
 				    for (i = 0; i < checkboxes.length; i++) {
         				localStorage.setItem(checkboxes[i].value, checkboxes[i].checked); 
     			}
+    			localStorage["checkedForms"] = JSON.stringify(checkedForms);
+    			alert("stored" + JSON.parse(localStorage["checkedForms"]));
+    			/*
     			var test2 = window.localStorage.getItem('test3');
     			if(test2==null){
     				localStorage["checkedForms"] = JSON.stringify(checkedForms);
@@ -4944,7 +4800,7 @@
 	    			localStorage["storedCheckedForms"] = JSON.stringify(storedCheckedForms);
 	    			console.log("storedCheckedForms" + storedCheckedForms);
     			}
-
+				*/
     			console.log("Stores!");
 			}
 			else if(page=="A_1"){
