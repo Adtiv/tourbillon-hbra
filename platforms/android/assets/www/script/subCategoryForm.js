@@ -1696,8 +1696,7 @@
 				    "href" : "index.html"
 				});
 			}
-			alert('updated');
-			window.plugins.nativepagetransitions.slide({
+			window.plugins.nativepagetransitions.fade({
 			    // the defaults for direction, duration, etc are all fine
 			    "href" : "index.html"
 			});
@@ -1705,6 +1704,7 @@
 		}
 		//Initializes the localstorage based on the page
 		function initialize(page){
+			alert("UPDATE");
 			var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 			if(!bSupportsLocal){
 				document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
@@ -6062,6 +6062,16 @@
 	};
 	window.plugins.nativepagetransitions.slide(
 	  options,
+	  function (msg) {console.log("success: " + msg)}, // called when the animation has finished
+	  function (msg) {alert("error: " + msg)} // called in case you pass in weird values
+	);
+	var options2 = {
+	  "duration"       :  50, // in milliseconds (ms), default 400
+	  "iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
+	  "androiddelay"   :  100
+	};
+	window.plugins.nativepagetransitions.fade(
+	  options2,
 	  function (msg) {console.log("success: " + msg)}, // called when the animation has finished
 	  function (msg) {alert("error: " + msg)} // called in case you pass in weird values
 	);
