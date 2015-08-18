@@ -1691,12 +1691,12 @@
 			}
 			else{
 				//window.location.href="index.html";
-				window.plugins.nativepagetransitions.slide({
+				window.plugins.nativepagetransitions.flip({
 				    // the defaults for direction, duration, etc are all fine
 				    "href" : "index.html"
 				});
 			}
-			window.plugins.nativepagetransitions.slide({
+			window.plugins.nativepagetransitions.flip({
 			    // the defaults for direction, duration, etc are all fine
 			    "href" : "index.html"
 			});
