@@ -1690,17 +1690,21 @@
 				localStorageSubCatForms('E_3');
 			}
 			else{
-				//window.location.href="index.html";
+				/*
 				window.plugins.nativepagetransitions.flip({
 				    // the defaults for direction, duration, etc are all fine
 				    "href" : "index.html"
 				});
+				*/
+				window.location.href="index.html";
 			}
+			/*
 			window.plugins.nativepagetransitions.flip({
 			    // the defaults for direction, duration, etc are all fine
 			    "href" : "index.html"
 			});
-			//window.location.href="index.html";
+			*/
+			window.location.href="index.html";
 		}
 		//Initializes the localstorage based on the page
 		function initialize(page){
