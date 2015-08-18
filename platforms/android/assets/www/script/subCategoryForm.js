@@ -1691,12 +1691,12 @@
 			}
 			else{
 				//window.location.href="index.html";
-				window.plugins.nativepagetransitions.fade({
+				window.plugins.nativepagetransitions.slide({
 				    // the defaults for direction, duration, etc are all fine
 				    "href" : "index.html"
 				});
 			}
-			window.plugins.nativepagetransitions.fade({
+			window.plugins.nativepagetransitions.slide({
 			    // the defaults for direction, duration, etc are all fine
 			    "href" : "index.html"
 			});
@@ -6050,13 +6050,3 @@
 	function exit(){
 		console.log('wait!!');
 	}
-	var options = {
-	  "duration"       :  50, // in milliseconds (ms), default 400
-	  "iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
-	  "androiddelay"   :  100
-	};
-	window.plugins.nativepagetransitions.fade(
-	  options,
-	  function (msg) {console.log("success: " + msg)}, // called when the animation has finished
-	  function (msg) {alert("error: " + msg)} // called in case you pass in weird values
-	);
