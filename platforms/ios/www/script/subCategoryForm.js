@@ -1003,7 +1003,6 @@
 			if(document.getElementById('weld').checked==true){
 				checkedForms[19]=1;
 			}
-			alert("checkedForms: " + checkedForms);
 		}
 		//to get the amount of checked checked forms
 		function formLength(formArr){
@@ -1271,22 +1270,7 @@
 			else{
 				pageCount=parseInt(pCount);
 			}
-			///
-			//var temp=window.localStorage.getItem("forms");
 			var formLen;
-			/*
-			console.log("temp" +temp);
-			if(temp==null){
-				checked= JSON.parse(localStorage["checkedForms"]);
-				formLen = formLength(checked);
-				setLen = localStorage.setItem('setLen', formLen);
-			}
-			else{
-				checked= JSON.parse(localStorage["storedCheckedForms"]);
-				formLen = formLength(checked);
-				setLen = localStorage.setItem('setLen', formLen);
-			}
-			*/
 			checked= JSON.parse(localStorage["checkedForms"]);
 			formLen = formLength(checked);
 			setLen = localStorage.setItem('setLen', formLen);
@@ -1706,9 +1690,17 @@
 				localStorageSubCatForms('E_3');
 			}
 			else{
-				window.location.href="index.html";
+				//window.location.href="index.html";
+				window.plugins.nativepagetransitions.slide({
+				    // the defaults for direction, duration, etc are all fine
+				    "href" : "index.html"
+				});
 			}
-			window.location.href="index.html";
+			window.plugins.nativepagetransitions.slide({
+			    // the defaults for direction, duration, etc are all fine
+			    "href" : "index.html"
+			});
+			//window.location.href="index.html";
 		}
 		//Initializes the localstorage based on the page
 		function initialize(page){
@@ -4759,48 +4751,6 @@
         				localStorage.setItem(checkboxes[i].value, checkboxes[i].checked); 
     			}
     			localStorage["checkedForms"] = JSON.stringify(checkedForms);
-    			alert("stored" + JSON.parse(localStorage["checkedForms"]));
-    			/*
-    			var test2 = window.localStorage.getItem('test3');
-    			if(test2==null){
-    				localStorage["checkedForms"] = JSON.stringify(checkedForms);
-    				//var firstChecked = JSON.parse(localStorage["checkedForms"]);
-    				var test3 = false;
-    				window.localStorage.setItem('test3', test3);
-    				console.log("FIRST");
-    			}
-    			else{
-    				console.log("SECOND");
-    				
-    				var test1 = window.localStorage.getItem('test');
-    				if(test1==null){
-    					storedCheckedForms=JSON.parse(localStorage["checkedForms"]);
-    					var test = false;
-    					window.localStorage.setItem('forms', storedCheckedForms); 
-    					window.localStorage.setItem('test', test);
-    					console.log("storedChecked=first");
-    				}
-					else{
-						storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
-						console.log("storedChecked=second");
-					}
-	    			var x;
-	    			console.log("storedCheckedForms" + storedCheckedForms);
-	    			console.log("checkedForms" + checkedForms);
-	    			for(x = 0; x < checkedForms.length; x++){
-	    				if(checkedForms[x]==1 && storedCheckedForms[x]==0){
-	    					storedCheckedForms[x]=1;
-	    					console.log('HIT');
-	    				}
-	    				else if(checkedForms[x]==1 && storedCheckedForms[x]==1){
-	    					storedCheckedForms[x]=0;
-	    					console.log('HIT2');
-	    				}
-	    			}
-	    			localStorage["storedCheckedForms"] = JSON.stringify(storedCheckedForms);
-	    			console.log("storedCheckedForms" + storedCheckedForms);
-    			}
-				*/
     			console.log("Stores!");
 			}
 			else if(page=="A_1"){
@@ -6099,3 +6049,18 @@
 	function exit(){
 		console.log('wait!!');
 	}
+	var options = {
+	  "direction"        : "up", // 'left|right|up|down', default 'left' (which is like 'next')
+	  "duration"         :  500, // in milliseconds (ms), default 400
+	  "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+	  "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+	  "androiddelay"     :  150, // same as above but for Android, default 70
+	  "winphonedelay"    :  250, // same as above but for Windows Phone, default 200,
+	  "fixedPixelsTop"   :    0, // the number of pixels of your fixed header, default 0 (iOS and Android)
+	  "fixedPixelsBottom":   60  // the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android)
+	};
+	window.plugins.nativepagetransitions.slide(
+	  options,
+	  function (msg) {console.log("success: " + msg)}, // called when the animation has finished
+	  function (msg) {alert("error: " + msg)} // called in case you pass in weird values
+	);
