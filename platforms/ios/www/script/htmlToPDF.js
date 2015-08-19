@@ -1279,7 +1279,7 @@ function generatePDF(){
         var error = function(status) {
             alert('Error: ' + status);
         }
-        var source = document.getElementById('testDiv');
+        var source = $("#testDiv").html();
         window.html2pdf.create(
             source,
             "~/Documents/completedForm.pdf", // on iOS,
