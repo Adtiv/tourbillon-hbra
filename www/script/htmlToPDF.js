@@ -1271,6 +1271,21 @@ function generatePDF(){
 			console.log("checkedForms"+checkedForms);
 		}
 		*/
+		var success = function(status) {
+            alert('Message: ' + status);
+        }
+
+        var error = function(status) {
+            alert('Error: ' + status);
+        }
+        var source = $('.testDiv')[0];
+        window.html2pdf.create(
+            source,
+            "~/Documents/completedForm.pdf", // on iOS,
+            // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
+            success,
+            error
+        );
 		console.log("here");    
 		/*   
 		var elementHandler = {
@@ -1461,7 +1476,7 @@ function generatePDF(){
 			}
 
 		};
-		
+
 		/*
 		console.log('1');
 		var source = $('.testDiv')[0];
@@ -1478,7 +1493,7 @@ function generatePDF(){
 		    });
 		console.log('1');
 		*/
-		
+		/*
 		var doc = new jsPDF('p', 'mm', 'letter');	
 		doc.setFontSize(18);
 		doc.setFont('courier', 'bold');
@@ -1526,7 +1541,7 @@ function generatePDF(){
 		function(event){
 		 console.log( evt.target.error.code );
 		});
-	//}
+	*/
 	}
 	function viewDocument()
 	{
