@@ -118,7 +118,7 @@ function storeLocalContent(next){
         directoryReader.readEntries(function(entries) {
         	var i;
         	for (i=0; i<entries.length; i++) {
-        		console.log(entries[i].name);
+        		alert(entries[i].name);
         	}
         }, function (error) {
         	alert(error.code);
