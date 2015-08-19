@@ -54,6 +54,7 @@ function compileStoredVariables(){
 			var storedCheckedForms = JSON.parse(localStorage["checkedForms"]);
 			console.log("storedCheckedForms"+ storedCheckedForms);
 			if(storedCheckedForms[0]==1){
+				alert("compilesA.1?");
 				if(localStorage.getItem('l')!=null){
 					var showDiv=document.getElementById('A.1');
 					showDiv.style.visibility="visible";
