@@ -2,11 +2,11 @@
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
+	alert(JSON.parse(localStorage["checkedForms"]));
 	generatePDF();
 	alert("Updated?");
 }, false);
-	generatePDF();
-function compileStoredVariables(doc){
+function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
 	if(!bSupportsLocal){
@@ -51,7 +51,7 @@ function compileStoredVariables(doc){
 			document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
 		}
 		if(localStorage.getItem('storedCheckedForms')!=null){
-			var storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
+			var storedCheckedForms = JSON.parse(localStorage["checkedForms"]);
 			console.log("storedCheckedForms"+ storedCheckedForms);
 			if(storedCheckedForms[0]==1){
 				if(localStorage.getItem('l')!=null){
