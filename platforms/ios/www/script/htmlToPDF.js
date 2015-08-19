@@ -1260,7 +1260,7 @@ function checkPageSize(doc){
 }
 function generatePDF(){
 		console.log('gets');
-		//compileStoredVariables();
+		compileStoredVariables();
 		/*
 		var doc = new jsPDF();
 		console.log(doc.internal.pageSize.height);
