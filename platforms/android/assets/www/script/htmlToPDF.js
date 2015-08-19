@@ -50,11 +50,10 @@ function compileStoredVariables(){
 		if(localStorage.getItem('weatherCom')!=null){
 			document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
 		}
-		if(localStorage.getItem('storedCheckedForms')!=null){
+		if(localStorage.getItem('checkedForms')!=null){
 			var storedCheckedForms = JSON.parse(localStorage["checkedForms"]);
 			console.log("storedCheckedForms"+ storedCheckedForms);
 			if(storedCheckedForms[0]==1){
-				alert("compilesA.1?");
 				if(localStorage.getItem('l')!=null){
 					var showDiv=document.getElementById('A.1');
 					showDiv.style.visibility="visible";
