@@ -1280,7 +1280,7 @@ function generatePDF(){
         }
         var source = $('.testDiv')[0];
         window.html2pdf.create(
-            source,
+            "<html><head></head><body><h1>Some</h1><p>html content.</p></body></html>",
             "~/Documents/completedForm.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
