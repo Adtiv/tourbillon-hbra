@@ -1261,6 +1261,7 @@ function checkPageSize(doc){
 function generatePDF(){
 		console.log('gets');
 		//compileStoredVariables();
+		/*
 		var doc = new jsPDF();
 		console.log(doc.internal.pageSize.height);
 		compileStoredVariables(doc);
@@ -1270,13 +1271,14 @@ function generatePDF(){
 			console.log("checkedForms"+checkedForms);
 		}
 		*/
-		console.log("here");       
+		console.log("here");    
+		/*   
 		var elementHandler = {
 			/*
 			'#statusBar': function (element, renderer) {
 				return true;
 			}
-			*/
+			
 			'#A.1': function (element, renderer) {
 		  		//return false;
 		  		if(document.getElementById('A.1').style.visibility=="visible"){
@@ -1459,6 +1461,8 @@ function generatePDF(){
 			}
 
 		};
+		
+		/*
 		console.log('1');
 		var source = $('.testDiv')[0];
 		console.log('1');
@@ -1473,7 +1477,8 @@ function generatePDF(){
 		      'width': 180,'pagesplit': true,'elementHandlers': elementHandler
 		    });
 		console.log('1');
-		/*
+		*/
+		
 		var doc = new jsPDF('p', 'mm', 'letter');	
 		doc.setFontSize(18);
 		doc.setFont('courier', 'bold');
@@ -1484,9 +1489,8 @@ function generatePDF(){
 		doc.text(20, 50, 'This workplace safety inspection form will measure your level of compliance with OSHA regulations');
 		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
 		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
-		*/
+		
 
-		console.log(doc.internal.pageSize.height);
 		var pdfOutput = doc.output();
 		console.log( pdfOutput );
 		//doc.addHTML($(".testDiv"), options, function()
