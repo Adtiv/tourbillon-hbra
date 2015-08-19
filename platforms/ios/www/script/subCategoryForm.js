@@ -1278,7 +1278,6 @@
 			///
 			//checked= JSON.parse(localStorage["checkedForms"]);
 			var x = localStorage.getItem("y");
-			var hidebutton = document.getElementById(btnID);
 			//Back button 
 			if(page=="lastPage"){
 				if(x!=0){
@@ -1708,7 +1707,6 @@
 		}
 		//Initializes the localstorage based on the page
 		function initialize(page){
-			alert("UPDATE");
 			var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 			if(!bSupportsLocal){
 				document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
@@ -1744,8 +1742,7 @@
 				else if(page=="A_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
@@ -1921,8 +1918,8 @@
 				}
 				else if(page=="A_2"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_2arrow').style.visibility="hidden";
+						//document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.2notes').value = window.localStorage.getItem('A.2notes');
@@ -2072,8 +2069,7 @@
 				}
 				else if(page=="A_3"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.3notes').value = window.localStorage.getItem('A.3notes');
@@ -2223,8 +2219,7 @@
 				}
 				else if(page=="A_4"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_4arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.4notes').value = window.localStorage.getItem('A.4notes');
@@ -2360,8 +2355,7 @@
 				}
 				else if(page=="A_5"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_5arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.5notes').value = window.localStorage.getItem('A.5notes');
@@ -2497,8 +2491,7 @@
 				}
 				else if(page=="A_6"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_6arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.6notes').value = window.localStorage.getItem('A.6notes');
@@ -2595,8 +2588,7 @@
 				}
 				else if(page=="A_7"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_7arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.7notes').value = window.localStorage.getItem('A.7notes');
@@ -2706,8 +2698,7 @@
 				}
 				else if(page=="A_8"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_8arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.8notes').value = window.localStorage.getItem('A.8notes');
@@ -2791,8 +2782,7 @@
 				}
 				else if(page=="B_1"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('B_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('B.1notes').value = window.localStorage.getItem('B.1notes');
@@ -2941,8 +2931,7 @@
 				}
 				else if(page=="B_2"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('B_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('B.2notes').value = window.localStorage.getItem('B.2notes');
@@ -3091,8 +3080,7 @@
 				}
 				else if(page=="B_3"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('B_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('B.3notes').value = window.localStorage.getItem('B.3notes');
@@ -3229,8 +3217,7 @@
 				else if(page=="C_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('C_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('C.1notes').value = window.localStorage.getItem('C.1notes');
@@ -3406,8 +3393,7 @@
 				else if(page=="C_2"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('C_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('C.2notes').value = window.localStorage.getItem('C.2notes');
@@ -3544,8 +3530,7 @@
 				else if(page=="D_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.1notes').value = window.localStorage.getItem('D.1notes');
@@ -3734,8 +3719,7 @@
 				else if(page=="D_2"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.2notes').value = window.localStorage.getItem('D.2notes');
@@ -3924,8 +3908,7 @@
 				else if(page=="D_3"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.3notes').value = window.localStorage.getItem('D.3notes');
@@ -4101,8 +4084,7 @@
 				else if(page=="D_4"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_4arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.4notes').value = window.localStorage.getItem('D.4notes');
@@ -4317,8 +4299,7 @@
 				else if(page=="E_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('E_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('E.1notes').value = window.localStorage.getItem('E.1notes');
@@ -4442,8 +4423,7 @@
 				else if(page=="E_2"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('E_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('E.2notes').value = window.localStorage.getItem('E.2notes');
@@ -4567,8 +4547,7 @@
 				else if(page=="E_3"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('E_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('E.3notes').value = window.localStorage.getItem('E.3notes');

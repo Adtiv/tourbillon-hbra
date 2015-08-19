@@ -345,19 +345,16 @@
 				<div class="scoreDiv">
 					<h3>Score</h3><br><p class="score" id="B.2score">0</p><br>
 				</div>
-				<div class="after-form">
+			<div class="after-form">
 	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms('B_2')"/>
 	         		<div class="leftAfter-form">
-						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '0', 'btnBack', 'B_2')">
+						<btn onclick="processFormOrder('lastPage', '0', 'btnBack', 'B_2'); return false;"><img class="prev" src="images/go_next_blue.png"></btn>
 					</div>
 					<div class="rightAfter-form">
 						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatForms('B_2')"/>
-						<div class="position">
-							<div class="arrowNext" id="B_2arrow"></div>
-							<input type="button" id="btnNext" onclick="processFormOrder('B.2', '0', 'btnNext', 'B_2')"/>
-						</div>
+						<btn onclick="processFormOrder('B.2', '0', 'btnNext', 'B_2'); return false;"><img id="checkNext" class="next" src="images/go_next_blue.png"></btn>
+					</div>
 				</div>
-			</div>
 				<div class="footerStyled">
 					<br><br><br><br>
 				<div>

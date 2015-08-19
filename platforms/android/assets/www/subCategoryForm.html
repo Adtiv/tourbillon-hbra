@@ -434,16 +434,13 @@
 				<div class="after-form">
 	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms('A_1')"/>
 	         		<div class="leftAfter-form">
-						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '1', 'btnBack', 'A_1')">
+						<btn onclick="processFormOrder('lastPage', '1', 'btnBack', 'A_1'); return false;"><img class="prev" src="images/go_next_blue.png"></btn>
 					</div>
 					<div class="rightAfter-form">
+						<btn onclick="processFormOrder('A.1', '0', 'btnNext', 'A_1'); return false;"><img id="checkNext" class="next" src="images/go_next_blue.png"></btn>
 						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatForms('A_1')"/>
-						<div class="position">
-							<div class="arrowNext" id="A_1arrow"></div>
-							<input type="button" id="btnNext" onclick="processFormOrder('A.1', '0', 'btnNext', 'A_1')"/>
-						</div>
+					</div>
 				</div>
-			</div>
 				<div class="footerStyled">
 					<br><br><br><br>
 				<div>
