@@ -1273,6 +1273,7 @@ function generatePDF(){
 		*/
 		var success = function(status) {
             alert('Message: ' + status);
+
         }
 
         var error = function(status) {
@@ -1286,6 +1287,16 @@ function generatePDF(){
             success,
             error
         );
+         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+		 function onFileSystemSuccess(fileSystem) {
+		          fileSystem.root.getFile(
+		               "completedForm.pdf",
+		              {create : true},
+		              function(entry) {
+						alert("toURL()"+entry.toURL());		
+						localStorage.setItem('pdfURL', entry.toURL());              
+		          	}, fail);
+		      }
 		console.log("here");    
 		/*   
 		var elementHandler = {
