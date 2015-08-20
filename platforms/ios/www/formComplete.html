@@ -41,11 +41,6 @@
 			font-weight: bold;
 			text-decoration: underline;
 		}
-		.nonCompliance{
-			font-style: italic;
-			margin-left: 10%;
-			word-break: break-all;
-		}
 		#A.1{
 			visibility:hidden;
 			display: none;
@@ -67,15 +62,15 @@
 		<header></header>
 		<div id="statusBar"></div>
 		<div class="center pageOne container page">
-				<p id="completeFormTitle" style="font-size:25px;"><strong>Residential Construction-Site Safety Inspection/Evaluation</strong></p><br><br>
+				<p id="completeFormTitle" style="font-size:25px;"><strong>Residential Construction-Site Safety Inspection/Evaluation</strong></p><br>
 				<p class="formText">Company Inspected: <span class="formText input" id="company"></span> Trade: <span class="formText input" id="trade"></span> Job Name: <span class="formText input" id="jobName"></span> Job # <span class="formText input" id="jobNum"></span> Inspection By: <span class="formText input" id="inspBy"></span> Title: <span class="formText input" id="title"></span> Emp. #: <span class="formText input" id="empNum"></span> Insp. Date: <span class="formText input" id="inspDate"></span> Time: <span class="formText input" id="beginTime"></span> to <span class="formText input" id="endtime"></span> On-Site Safety Representative: <span class="formText input" id="repFirst"></span> or Competent Person: <span class="formText input" id="repLast"></span> Emp. #: <span class="formText input" id="employeeNum"></span> Weather or Special Conditions: <span class="formText input" id="weatherCom"></span></p>
 				<p class="formText"> This workplace safety inspection form will measure your level of compliance with OSHA regulations based on your current work business or activities. Note that the checklist may not be all inclusive of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.</P>
 				<p class="formText"><strong>Instructions:</strong> Evaluate the level of regulatory compliance with OSHA Regulations with a <strong>1, 3 or 5</strong> (<strong>1</strong> = Non-Compliant, <strong>3</strong> = Partially Compliant, <strong>5</strong> = Fully Compliant) Note <q><strong>0</strong></strong> if inspection item is not applicable for this inspection. Activities or items rated <strong>1</strong> and <strong>3</strong> note deficiencies and will appear in NON-COMPLIANT/ ABATEMENT section and recommendations for corrective action must be stated to complete the inspection. Record all corrective action and note the date of abatement or compliance.</p><br>
-				<p class="sectionTitle" style="font-size:6vw;"><strong>A. General Inspection</strong></p><br>
+				<p class="sectionTitle" style="font-size:18px;"><strong>A. General Inspection</strong></p><br>
 				<div id="A.1" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;"><strong>A.1 Jobsite (Trailer or Vehicle)</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.1 Jobsite (Trailer or Vehicle)</strong></p><br>
 					<p class="formText"> 1. On-Site Safety Representative: <span class="input" id="scoreA.1-1"></span></p>
-					<p class="formText nonCompliance" id="A.1compliance1"></p>
+					<p class="formText nonCompliance" id="A.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 2. Emergency Info Posted - Phone Numbers /Address: <span class="input" id="scoreA.1-2"></span></p>
 					<p class="formText nonCompliance" id="A.1compliance2"></p>
 					<p class="formText"> 3. All required Posters in place (OSHA, etc): <span class="input" id="scoreA.1-3"></span></p>
@@ -102,7 +97,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.1notes"></span></p><br>
 				</div>
 				<div class="A_2" id="A.2" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>A.2 Jobsite (Trailer or Vehicle)</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.2 Jobsite (Trailer or Vehicle)</strong></p><br>
 					<p class="formText"> 1. Site Perimeter Fence in place /secure: <span class="input" id="scoreA.2-1"></span></p>
 					<p class="formText nonCompliance" id="A.2compliance1"></p>
 					<p class="formText"> 2. Warning Signs (hard hats, No Trespassing, etc.): <span class="input" id="scoreA.2-2"></span></p>
@@ -127,7 +122,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.2notes"></span></p><br>
 				</div>		
 				<div class="A_3" id="A.3" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>A.3 Personal Protective Equipment (PPE)</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.3 Personal Protective Equipment (PPE)</strong></p><br>
 					<p class="formText"> 1. Hard Hats (Worn at all Times): <span class="input" id="scoreA.3-1"></span></p>
 					<p class="formText nonCompliance" id="A.3compliance1"></p>
 					<p class="formText"> 2. Safety Vests (if Required): <span class="input" id="scoreA.3-2"></span></p>
@@ -152,7 +147,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.3notes"></span></p><br>
 				</div>			
 				<div class="A_4" id="A.4" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>A.4 Housekeeping</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.4 Housekeeping</strong></p><br>
 					<p class="formText"> 1. Exits / Access ways: Properly Marked, Maintained (Unobstructed 28&#34 Minimum): <span class="input" id="scoreA.4-1"></span></p>
 					<p class="formText nonCompliance" id="A.4compliance1"></p>
 					<p class="formText"> 2. Trash Receptacles: Adequate Number &amp; Maintained: <span class="input" id="scoreA.4-2"></span></p>
@@ -175,7 +170,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.4notes"></span></p><br>
 				</div>	
 				<div class="A_5" id="A.5" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>A.5 Fire Protection / Prevention </strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.5 Fire Protection / Prevention </strong></p><br>
 					<p class="formText"> 1. Site Fire Prevention Plan / Evacuation Plan (Communicated to All on Site): <span class="input" id="scoreA.5-1"></span></p>
 					<p class="formText nonCompliance" id="A.5compliance1"></p>
 					<p class="formText"> 2. Fire Extinguishers (Adequate Number, Type &amp Maintained): <span class="input" id="scoreA.5-2"></span></p>
@@ -198,7 +193,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.5notes"></span></p><br>
 				</div>			
 				<div class="A_6" id="A.6" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>A.6 Traffic Control </strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.6 Traffic Control </strong></p><br>
 					<p class="formText"> 1. Traffic Control Manager/Competent Person (Certified): <span class="input" id="scoreA.6-1"></span></p>
 					<p class="formText nonCompliance" id="A.6compliance1"></p>
 					<p class="formText"> 2. On-Site Traffic Control Plan (Approved by Jurisdiction): <span class="input" id="scoreA.6-2"></span></p>
@@ -215,7 +210,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.6notes"></span></p><br>
 				</div>	
 				<div class="A_7" id="A.7" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>A.7 Hazardous Substances </strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.7 Hazardous Substances </strong></p><br>
 					<p class="formText"> 1. Employee Training / Certifications (Records on Site): <span class="input" id="scoreA.7-1"></span></p>
 					<p class="formText nonCompliance" id="A.7compliance1"></p>
 					<p class="formText"> 2. Haz-Com 30 Hour Competent Person on site: <span class="input" id="scoreA.7-2"></span></p>
@@ -234,7 +229,7 @@
 					<p class="formText"> Notes: <span class="input" id="A.7notes"></span></p><br>
 				</div>	
 				<div class="A_8" id="A.8" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;"><strong>A.8 Licensing / Certifications / Reporting </strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>A.8 Licensing / Certifications / Reporting </strong></p><br>
 					<p class="formText"> 1. Call Before You Dig in Place / Renewed Every 30 Days: <span class="input" id="scoreA.8-1"></span></p>
 					<p class="formText nonCompliance" id="A.8compliance1"></p>
 					<p class="formText"> 2. Employee OSHA 10 Hour Certifications Up to Date: <span class="input" id="scoreA.8-2"></span></p>
@@ -248,9 +243,9 @@
 					<p class="formText"> Total Score: <span class="input" id="A.8score"></span></p>
 					<p class="formText"> Notes: <span class="input" id="A.8notes"></span></p><br>
 				</div>
-				<p class="sectionTitle" style="font-size:6vw;"><strong>B. Fall Prevention</strong></p><br>
+				<p class="sectionTitle" style="font-size:18px;"><strong>B. Fall Prevention</strong></p><br>
 				<div class="B_1" id="B.1" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;"><strong>B.1 General Fall Protection </strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>B.1 General Fall Protection </strong></p><br>
 					<p class="formText"> 1. Employee Training/Certification: <span class="input" id="scoreB.1-1"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance1"></p>
 					<p class="formText"> 2. Holes/Openings Covered or Barricaded (capacity 2x Intended load, secure, marked Hole or Cover): <span class="input" id="scoreB.1-2"></span></p>
@@ -275,7 +270,7 @@
 					<p class="formText"> Notes: <span class="input" id="B.1notes"></span></p><br>
 				</div>
 				<div class="B_2" id="B.2" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;"><strong>B.2 Scaffolding </strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>B.2 Scaffolding </strong></p><br>
 					<p class="formText"> 1. Employee Scaffold Training: <span class="input" id="scoreB.2-1"></span></p>
 					<p class="formText nonCompliance" id="B.2compliance1"></p>
 					<p class="formText"> 2. Overhead Protection (Access Under Deck Barricaded, Extended Toe Boards, Mesh): <span class="input" id="scoreB.2-2"></span></p>
@@ -300,7 +295,7 @@
 					<p class="formText"> Notes: <span class="input" id="B.2notes"></span></p><br>
 				</div>
 				<div class="B_3" id="B.3" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;"><strong>B.3 Ladders/Stairways</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>B.3 Ladders/Stairways</strong></p><br>
 					<p class="formText"> 1. Inspected Daily (Only Heavy Duty Ladders Used): <span class="input" id="scoreB.3-1"></span></p>
 					<p class="formText nonCompliance" id="B.3compliance1"></p>
 					<p class="formText"> 2. Damaged Ladders Removed From Service Immediately: <span class="input" id="scoreB.3-2"></span></p>
@@ -322,9 +317,9 @@
 					<p class="formText"> Total Score: <span class="input" id="B.3score"></span></p>
 					<p class="formText"> Notes: <span class="input" id="B.3notes"></span></p><br>
 				</div>
-				<p class="sectionTitle" style="font-size:6vw;"><strong>C. Power Tools / Electrical </strong></p><br>
+				<p class="sectionTitle" style="font-size:18px;"><strong>C. Power Tools / Electrical </strong></p><br>
 				<div id="C.1" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>C.1 Hand &amp; Power Tools</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>C.1 Hand &amp; Power Tools</strong></p><br>
 					<p class="formText"> 1. Power Tools in Good Operating Condition, (Tagged and Removed From Service if Defective): <span class="input" id="scoreC.1-1"></span></p>
 					<p class="formText nonCompliance" id="C.1compliance1"></p>
 					<p class="formText"> 2. Tools Inspected Frequently (at Least Before Each Use): <span class="input" id="scoreC.1-2"></span></p>
@@ -353,7 +348,7 @@
 					<p class="formText"> Notes: <span class="input" id="C.1notes"></span></p><br>
 				</div>
 				<div id="C.2" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>C.2 Electrical</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>C.2 Electrical</strong></p><br>
 					<p class="formText"> 1. Breakers Labeled, High Voltage Signs Posted and Adequate Access - 36&#34 Clear Around Electrical Panel: Left, Right, Top and Bottom Under Panel and in Front of: <span class="input" id="scoreC.2-1"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance1"></p>
 					<p class="formText"> 2. All Electrical Receptacles GFCI Protected: <span class="input" id="scoreC.2-2"></span></p>
@@ -375,9 +370,9 @@
 					<p class="formText"> Total Score: <span class="input" id="C.2score"></span></p>
 					<p class="formText"> Notes: <span class="input" id="C.2notes"></span></p><br>
 				</div>
-				<p class="sectionTitle" style="font-size:6vw;"><strong>D. Cranes / Hoists / Elevators</strong></p><br>
+				<p class="sectionTitle" style="font-size:18px;"><strong>D. Cranes / Hoists / Elevators</strong></p><br>
 				<div id="D.1" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>D.1 Hand &amp; Power Tools</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>D.1 Hand &amp; Power Tools</strong></p><br>
 					<p class="formText"> 1. Licensed/Qualified Operators (On File At Site): <span class="input" id="scoreD.1-1"></span></p>
 					<p class="formText nonCompliance" id="D.1compliance1"></p>
 					<p class="formText"> 2. Signal Person Training (On File At Site): <span class="input" id="scoreD.1-2"></span></p>
@@ -408,7 +403,7 @@
 					<p class="formText"> Notes: <span class="input" id="D.1notes"></span></p><br>
 				</div>
 				<div id="D.2" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>D.2 Heavy Equipment</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>D.2 Heavy Equipment</strong></p><br>
 					<p class="formText"> 1. Licensed/Qualified Operators (On File At Site): <span class="input" id="scoreD.2-1"></span></p>
 					<p class="formText nonCompliance" id="D.2compliance1"></p>
 					<p class="formText"> 2. Signal Person Qualified and Trained: <span class="input" id="scoreD.2-2"></span></p>
@@ -439,7 +434,7 @@
 					<p class="formText"> Notes: <span class="input" id="D.2notes"></span></p><br>
 				</div>
 				<div id="D.3" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>D.3 Trenching &amp; Excavation</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>D.3 Trenching &amp; Excavation</strong></p><br>
 					<p class="formText"> 1. Call Before You Dig - Utilities Located &amp; Marked: <span class="input" id="scoreD.3-1"></span></p>
 					<p class="formText nonCompliance" id="D.3compliance1"></p>
 					<p class="formText"> 2. Competent Person (Assigned &amp; Performing Inspections): <span class="input" id="scoreD.3-2"></span></p>
@@ -468,7 +463,7 @@
 					<p class="formText"> Notes: <span class="input" id="D.3notes"></span></p><br>
 				</div>
 				<div id="D.4" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>D.4 Demolition &amp; Blasting</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>D.4 Demolition &amp; Blasting</strong></p><br>
 					<p class="formText"> 1. Call Before You Dig - Utilities Located &amp; Marked: <span class="input" id="scoreD.4-1"></span></p>
 					<p class="formText nonCompliance" id="D.4compliance1"></p>
 					<p class="formText"> 2. Demolition Plan in Place (On File at Site): <span class="input" id="scoreD.4-2"></span></p>
@@ -502,9 +497,9 @@
 					<p class="formText"> Total Score: <span class="input" id="D.4score"></span></p>
 					<p class="formText"> Notes: <span class="input" id="D.4notes"></span></p><br>
 				</div>
-				<p class="sectionTitle" style="font-size:6vw;"><strong>E. Specialty Trades / Operations</strong></p><br>
+				<p class="sectionTitle" style="font-size:18px;"><strong>E. Specialty Trades / Operations</strong></p><br>
 				<div id="E.1" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>E.1 Steel Erection</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>E.1 Steel Erection</strong></p><br>
 					<p class="formText"> 1. Fall Protection (including 100% above 6 feet): <span class="input" id="scoreE.1-1"></span></p>
 					<p class="formText nonCompliance" id="E.1compliance1"></p>
 					<p class="formText"> 2. Access/Egress to Work Locations: <span class="input" id="scoreE.1-2"></span></p>
@@ -525,7 +520,7 @@
 					<p class="formText"> Notes: <span class="input" id="E.1notes"></span></p><br>
 				</div>	
 				<div id="E.2" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;" style:"font-size:4.5vw;"><strong>E.2 Concrete &amp; Masonry</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>E.2 Concrete &amp; Masonry</strong></p><br>
 					<p class="formText"> 1. Formwork Shoring and Bracing: <span class="input" id="scoreE.2-1"></span></p>
 					<p class="formText nonCompliance" id="E.2compliance1"></p>
 					<p class="formText"> 2. Access to Pour Areas and Proper Access Up Shoring: <span class="input" id="scoreE.2-2"></span></p>
@@ -546,7 +541,7 @@
 					<p class="formText"> Notes: <span class="input" id="E.2notes"></span></p><br>
 				</div>	
 				<div id="E.3" style="visibility:hidden;display:none;">
-					<p class="subCatTitle" style:"font-size:4.5vw;"><strong>E.3 Welding, Cutting, Hot Work</strong></p><br>
+					<p class="subCatTitle" style:"font-size:14px;"><strong>E.3 Welding, Cutting, Hot Work</strong></p><br>
 					<p class="formText"> 1. Performed by Qualified Workers: <span class="input" id="scoreE.3-1"></span></p>
 					<p class="formText nonCompliance" id="E.3compliance1"></p>
 					<p class="formText"> 2. Proper Work Area (All Fire Hazards Removed or Properly Protected): <span class="input" id="scoreE.3-2"></span></p>
