@@ -935,6 +935,7 @@
 	    	}
 	    }
 	  	function goBack(){
+	  		doubleCheck();
 	  		localStorageSubCatForms('checks');
     		window.location.href="pageOne.html";
 		}
