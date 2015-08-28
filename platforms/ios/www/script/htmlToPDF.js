@@ -1287,17 +1287,23 @@ function generatePDF(){
             success,
             error
         );
-         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-		 function onFileSystemSuccess(fileSystem) {
-		          fileSystem.root.getFile(
-		               "completedForm.pdf",
-		              {create : true},
-		              function(entry) {
-						alert("toURL()"+entry.toURL());		
-						localStorage.setItem('pdfURL', entry.toURL());              
-		          	}, fail);
-		      }
-		console.log("here");    
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+        console.log("Root = " + fs.root.fullPath);
+        var directoryReader = fs.root.createReader();
+        directoryReader.readEntries(function(entries) {
+        	var i;
+        	for (i=0; i<entries.length; i++) {
+        		if(entries[i].name=="completedForm"){
+        			alert("Got HERE");
+					localStorage.setItem('pdfURL', entries[i].toURL()); 
+        		}
+        	}
+        }, function (error) {
+        	alert(error.code);
+        })
+        }, function (error) {
+        	alert(error.code);
+        }); 
 		/*   
 		var elementHandler = {
 			/*

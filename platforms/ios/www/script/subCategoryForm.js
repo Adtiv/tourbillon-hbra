@@ -1732,11 +1732,7 @@
 					for (i = 0; i < checkboxes.length; i++) {
         				checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === 'true' ? true:false;
     				}
-    				/*
-    				if(checked[0]==1){
-    					alert("gets");
-    					document.getElementById('jobsite').checked=true;
-    				}
+
     				/*
     				alert(storedCheckedForms);
     				if(storedCheckedForms==null){

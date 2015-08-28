@@ -58,6 +58,10 @@ function storeLocalContent(next){
 	window.localStorage.setItem('weatherCom', comWeather);
 
 	if(next=="next"){
+		if(localStorage.getItem("s")!=null){
+			var x = "checks";
+			localStorage.setItem("s", x);
+		}
 		window.location.href = "pageTwo.html";
 	}
 }
