@@ -1293,7 +1293,7 @@ function generatePDF(){
         directoryReader.readEntries(function(entries) {
         	var i;
         	for (i=0; i<entries.length; i++) {
-        		if(entries[i].name=="completedForm"){
+        		if(entries[i].name=="completedForm.pdf"){
         			alert("Got HERE");
 					localStorage.setItem('pdfURL', entries[i].toURL()); 
         		}
