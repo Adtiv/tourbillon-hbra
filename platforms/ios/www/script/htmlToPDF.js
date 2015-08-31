@@ -1285,6 +1285,8 @@ function generatePDF(){
             alert('Error: ' + status);
         }
         var source = $("#testDiv").html();
+        document.getElementById('testDiv').style.display="none";
+        document.getElementById('pdfComplete').style.visibility="visible";
         window.html2pdf.create(
             source,
             "~/Documents/completedForm.pdf", // on iOS,

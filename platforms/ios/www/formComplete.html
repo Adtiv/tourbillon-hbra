@@ -14,7 +14,7 @@
 			margin:0;
 			padding:0;
 			font-family: Arial, helvetica, sans-serif;
-			word-break: break-all;
+			
 		}
 		div{
 			page-break-before: always;
@@ -53,9 +53,11 @@
 	</style>
 </head>
 <body>
+	<div id="statusBar"></div>
+	<br><br><br><br><br><br>
+	<p id="pdfComplete" style="font-size:3.5vw; font-weight:bold; text-align:center; visibility:hidden;">Congratulations! Your Site Safety Evaluation Form is Complete.</p>
 	<div id = "testDiv">
 		<header></header>
-		<div id="statusBar"></div>
 		<div class="center pageOne container page"><br>
 				<p id="completeFormTitle" style="font-size:28px; text-align:center;"><strong>Residential Construction-Site Safety Inspection/Evaluation</strong></p><br>
 				<p class="formText">Company Inspected: <span class="formText input" id="company" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span> Trade: <span class="formText input" id="trade" style="font-weight: bold; text-decoration: underline;"></span> Job Name: <span class="formText input" id="jobName" style="font-weight: bold; text-decoration: underline;"></span> Job # <span class="formText input" id="jobNum" style="font-weight: bold; text-decoration: underline;"></span> Inspection By: <span class="formText input" id="inspBy" style="font-weight: bold; text-decoration: underline;"></span> Title: <span class="formText input" id="title" style="font-weight: bold; text-decoration: underline;"></span> Emp. #: <span class="formText input" id="empNum" style="font-weight: bold; text-decoration: underline;"></span> Insp. Date: <span class="formText input" id="inspDate" style="font-weight: bold; text-decoration: underline;"></span> Time: <span class="formText input" id="beginTime" style="font-weight: bold; text-decoration: underline;"></span> to <span class="formText input" id="endtime" style="font-weight: bold; text-decoration: underline;"></span> On-Site Safety Representative: <span class="formText input" id="repFirst" style="font-weight: bold; text-decoration: underline;"></span> or Competent Person: <span class="formText input" id="repLast" style="font-weight: bold; text-decoration: underline;"></span> Emp. #: <span class="formText input" id="employeeNum" style="font-weight: bold; text-decoration: underline;"></span> Weather or Special Conditions: <span class="formText input" id="weatherCom" style="font-weight: bold; text-decoration: underline;"></span></p>
@@ -571,8 +573,11 @@
 			</footer>
 		-->
 	</div>
-		<button onclick="viewDocument()">viewPDF</button>
-		<button onclick="back()">back</button>
+		<br><br><br><br><br>
+		<div style="text-align:center;">
+			<button onclick="viewDocument()">viewPDF</button>
+			<button onclick="back()">back</button>
+		</div>	
 </body>
 <script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/ >
