@@ -1247,17 +1247,6 @@ function compileStoredVariables(){
 		}
 	}
 }
-function checkPageSize(doc){
-	console.log("doc"+doc);
-	var pageHeight= doc.internal.pageSize.height;
-	// Before adding new content
-	var y = 500 // Height position of new content
-	if (y >= pageHeight)
-	{
-	  doc.addPage();
-	  y = 0 // Restart height position
-	}
-}
 function generatePDF(){
 		console.log('gets');
 		compileStoredVariables();
@@ -1273,7 +1262,23 @@ function generatePDF(){
 		*/
 		var success = function(status) {
             alert('Message: ' + status);
-
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+	        console.log("Root = " + fs.root.fullPath);
+	        var directoryReader = fs.root.createReader();
+	        directoryReader.readEntries(function(entries) {
+	        	var i;
+	        	for (i=0; i<entries.length; i++) {
+	        		if(entries[i].name=="completedForm.pdf"){
+	        			alert("Got HERE");
+						localStorage.setItem('pdfURL', entries[i].toURL()); 
+	        		}
+	        	}
+	        }, function (error) {
+	        	alert(error.code);
+	        })
+	        }, function (error) {
+	        	alert(error.code);
+	        }); 
         }
 
         var error = function(status) {
@@ -1287,23 +1292,6 @@ function generatePDF(){
             success,
             error
         );
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-        console.log("Root = " + fs.root.fullPath);
-        var directoryReader = fs.root.createReader();
-        directoryReader.readEntries(function(entries) {
-        	var i;
-        	for (i=0; i<entries.length; i++) {
-        		if(entries[i].name=="completedForm.pdf"){
-        			alert("Got HERE");
-					localStorage.setItem('pdfURL', entries[i].toURL()); 
-        		}
-        	}
-        }, function (error) {
-        	alert(error.code);
-        })
-        }, function (error) {
-        	alert(error.code);
-        }); 
 		/*   
 		var elementHandler = {
 			/*
