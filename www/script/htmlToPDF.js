@@ -1247,6 +1247,16 @@ function compileStoredVariables(){
 		}
 	}
 }
+    //Email plugin functions:
+    function email(){
+    	alert("updated");
+    	var pdfPath = localStorage.getItem('pdfURL');
+    	alert(pdfPath);
+		cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form',
+		    attachments: pdfPath //=> Android
+		});
+	}
 function generatePDF(){
 		console.log('gets');
 		compileStoredVariables();

@@ -1467,6 +1467,7 @@
 			pageCount=0;
 			localStorage.setItem("pageCount", pageCount);
 			if(page=="checks"){
+				doubleCheck();
 				localStorageSubCatForms('checks');
 			}
 			else if(page=="A_1"){
