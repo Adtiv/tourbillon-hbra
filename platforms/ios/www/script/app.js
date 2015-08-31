@@ -61,6 +61,7 @@ function storeLocalContent(next){
 		if(localStorage.getItem("s")!=null){
 			var x = "checks";
 			localStorage.setItem("s", x);
+			localStorage.setItem("pageCount", 0);
 		}
 		window.location.href = "pageTwo.html";
 	}
