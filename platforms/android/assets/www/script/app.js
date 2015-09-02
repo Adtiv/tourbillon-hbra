@@ -132,20 +132,6 @@ function storeLocalContent(next){
         	alert(error.code);
         });
 	}
-	//test email functions
-    //Email plugin functions:
-    function email(){
-    	alert("updated");
-    	alert("test1");
-    	var pdfPath = localStorage.getItem('pdfURL');
-    	alert("test2");
-    	alert(pdfPath);
-    	alert("test3");
-		cordova.plugins.email.open({
-			subject: 'Site Safety Evaluation Form',
-		    attachments: pdfPath //=> Android
-		});
-	}
 
 
 

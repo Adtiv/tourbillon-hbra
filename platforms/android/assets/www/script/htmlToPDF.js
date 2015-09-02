@@ -2,7 +2,6 @@
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
-	alert(JSON.parse(localStorage["checkedForms"]));
 	generatePDF();
 	alert("Updated?");
 }, false);

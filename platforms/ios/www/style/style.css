@@ -445,10 +445,17 @@ margin-bottom: 4%;
 }
 .cameraIcon{
 	float:left;
+	margin-right: 3%;
 }
 .imgIcon{
 	display:inline-block;
 	position:relative;
+}
+.cameraLibIcon{
+	margin-right: 20%;
+}
+.test{
+	visibility: hidden;
 }
 #buttonWrapper{
 	font-size:large;
@@ -561,4 +568,9 @@ margin-bottom: 4%;
 	float: right;
 	right:0;
 }
-
+.division{
+	 height: 12px; 
+	 border: 0; 
+	 box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 3.5);
+	 margin-top: 10%;
+}
