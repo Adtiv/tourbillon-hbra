@@ -1295,6 +1295,7 @@ function generatePDF(){
         }
         var source = $("#testDiv").html();
         document.getElementById('testDiv').style.display="none";
+        document.getElementById('loading').style.display="none";
         document.getElementById('pdfComplete').style.visibility="visible";
         window.html2pdf.create(
             source,

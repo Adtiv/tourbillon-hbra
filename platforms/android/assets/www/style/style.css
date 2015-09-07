@@ -366,11 +366,12 @@ margin-bottom: 4%;
 	display:inline-block;
 }
 #refresh{
-	width:5.8vw;
-	height: 4.5vw;
+	width:8vw;
+	height: 6.5vw;
 	float:right;
 	display:inline-block;
 	padding-right:5%;
+	margin-top: 1%;
 }
 .goBack{
 	width:7.8vw;

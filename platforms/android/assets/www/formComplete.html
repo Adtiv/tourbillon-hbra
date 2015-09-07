@@ -27,7 +27,7 @@
 			padding-left:5%;
 			padding-right:5%;
 			padding-top:8%;
-			max-width:600px;
+			max-width:400px;
 			background:white;
 		}
 		.formText{
@@ -56,6 +56,7 @@
 	<div id="statusBar"></div>
 	<br><br><br><br><br><br>
 	<p id="pdfComplete" style="font-size:3.5vw; font-weight:bold; text-align:center; visibility:hidden;">Congratulations! Your Site Safety Evaluation Form is Complete.</p>
+	<div id="loading" style="text-align:center;margin-bottom:200%">Loading.....</div>
 	<div id = "testDiv">
 		<header></header>
 		<div class="center pageOne container page"><br>
@@ -85,13 +86,13 @@
 					<p class="formText"> 9. On-site Copy of Company Safety &amp Health Program Or GC's is adopted and followed: <span class="input" id="scoreA.1-9"></span></p>
 					<p class="formText nonCompliance" id="A.1compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 10. Access to Employee Training Records including Tool Box Talk Safety Meetings: <span class="input" id="scoreA.1-10"></span></p>
-					<p class="formText nonCompliance" id="A.1compliance10 style="font-style: italic;margin-left: 10%;word-break: break-all;""></p>
+					<p class="formText nonCompliance" id="A.1compliance10" style= "font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 11. Contractor conducts New Employee Safety Orientation: <span class="input" id="scoreA.1-11"></span></p>
-					<p class="formText nonCompliance" id="A.1compliance11 style="font-style: italic;margin-left: 10%;word-break: break-all;""></p>
+					<p class="formText nonCompliance" id="A.1compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 12. Contractor has Site Specific Safety Plan (fall protection and other): <span class="input" id="scoreA.1-12"></span></p>
-					<p class="formText nonCompliance" id="A.1compliance12 style="font-style: italic;margin-left: 10%;word-break: break-all;""></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.1score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.1notes"></span></p><br>
+					<p class="formText nonCompliance" id="A.1compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.1score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.1notes"></span></p><br>
 				</div>
 				<div class="A_2" id="A.2" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.2 Jobsite (Trailer or Vehicle)</strong></p><br>
@@ -115,8 +116,8 @@
 					<p class="formText nonCompliance" id="A.2compliance9"></p>
 					<p class="formText"> 10. Fall Prevention - Guardrails installed where fall exposures are present to the public: <span class="input" id="scoreA.2-10"></span></p>
 					<p class="formText nonCompliance" id="A.2compliance10"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.2score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.2notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.2score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.2notes"></span></p><br>
 				</div>		
 				<div class="A_3" id="A.3" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.3 Personal Protective Equipment (PPE)</strong></p><br>
@@ -140,8 +141,8 @@
 					<p class="formText nonCompliance" id="A.3compliance9"></p>
 					<p class="formText"> 10. Proper PPE / Respirators Worn (As required for task): <span class="input" id="scoreA.3-10"></span></p>
 					<p class="formText nonCompliance" id="A.3compliance10"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.3score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.3notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.3score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.3notes"></span></p><br>
 				</div>			
 				<div class="A_4" id="A.4" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.4 Housekeeping</strong></p><br>
@@ -163,8 +164,8 @@
 					<p class="formText nonCompliance" id="A.4compliance8"></p>
 					<p class="formText"> 9. Air Quality Control-Proper Ventilation: <span class="input" id="scoreA.4-9"></span></p>
 					<p class="formText nonCompliance" id="A.4compliance9"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.4score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.4notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.4score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.4notes"></span></p><br>
 				</div>	
 				<div class="A_5" id="A.5" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.5 Fire Protection / Prevention </strong></p><br>
@@ -186,8 +187,8 @@
 					<p class="formText nonCompliance" id="A.5compliance8"></p>
 					<p class="formText"> 9. Proper PPE Worn: <span class="input" id="scoreA.5-9"></span></p>
 					<p class="formText nonCompliance" id="A.5compliance9"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.5score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.5notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.5score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.5notes"></span></p><br>
 				</div>			
 				<div class="A_6" id="A.6" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.6 Traffic Control </strong></p><br>
@@ -203,8 +204,8 @@
 					<p class="formText nonCompliance" id="A.6compliance5"></p>
 					<p class="formText"> 6. Proper / Safe public and Private Property Vehicle Parking (Dumpsters, Trailers, Etc.) (Required Permits): <span class="input" id="scoreA.6-6"></span></p>
 					<p class="formText nonCompliance" id="A.6compliance6"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.6score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.6notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.6score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.6notes"></span></p><br>
 				</div>	
 				<div class="A_7" id="A.7" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.7 Hazardous Substances </strong></p><br>
@@ -222,8 +223,8 @@
 					<p class="formText nonCompliance" id="A.7compliance6"></p>
 					<p class="formText"> 7. Proper PPE Worn: <span class="input" id="scoreA.7-7"></span></p>
 					<p class="formText nonCompliance" id="A.7compliance7"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.7score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.7notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.7score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.7notes"></span></p><br>
 				</div>	
 				<div class="A_8" id="A.8" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>A.8 Licensing / Certifications / Reporting </strong></p><br>
@@ -237,8 +238,8 @@
 					<p class="formText nonCompliance" id="A.8compliance4"></p>
 					<p class="formText"> 5. Scaffold Inspections / Certifications Up to Date: <span class="input" id="scoreA.8-5"></span></p>
 					<p class="formText nonCompliance" id="A.8compliance5"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="A.8score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="A.8notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="A.8score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="A.8notes"></span></p><br>
 				</div>
 				<p class="sectionTitle" style="font-size:18px;"><strong>B. Fall Prevention</strong></p><br>
 				<div class="B_1" id="B.1" style="visibility:hidden;display:none;">
@@ -263,8 +264,8 @@
 					<p class="formText nonCompliance" id="B.1compliance9"></p>
 					<p class="formText"> 10. Contractor Fall Protection Plan (on File at Site) 100% Fall Protection Rule: <span class="input" id="scoreB.1-10"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance10"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="B.1score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="B.1notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="B.1score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="B.1notes"></span></p><br>
 				</div>
 				<div class="B_2" id="B.2" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>B.2 Scaffolding </strong></p><br>
@@ -288,8 +289,8 @@
 					<p class="formText nonCompliance" id="B.2compliance9"></p>
 					<p class="formText"> 10. Base Plates &amp; Mud Sills: <span class="input" id="scoreB.2-10"></span></p>
 					<p class="formText nonCompliance" id="B.2compliance10"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="B.2score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="B.2notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="B.2score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="B.2notes"></span></p><br>
 				</div>
 				<div class="B_3" id="B.3" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>B.3 Ladders/Stairways</strong></p><br>
@@ -311,8 +312,8 @@
 					<p class="formText nonCompliance" id="B.3compliance8"></p>
 					<p class="formText"> 9. Landings (Not Less Than 30" in Travel Direction Every 12 Vertical Ft.): <span class="input" id="scoreB.3-9"></span></p>
 					<p class="formText nonCompliance" id="B.3compliance9"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="B.3score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="B.3notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="B.3score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="B.3notes"></span></p><br>
 				</div>
 				<p class="sectionTitle" style="font-size:18px;"><strong>C. Power Tools / Electrical </strong></p><br>
 				<div id="C.1" style="visibility:hidden;display:none;">
@@ -341,8 +342,8 @@
 					<p class="formText nonCompliance" id="C.1compliance11"></p>
 					<p class="formText"> 12. Cutoffs/Kill Switches/Anti-Restart Functioning: <span class="input" id="scoreC.1-12"></span></p>
 					<p class="formText nonCompliance" id="C.1compliance12"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="C.1score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="C.1notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="C.1score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="C.1notes"></span></p><br>
 				</div>
 				<div id="C.2" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>C.2 Electrical</strong></p><br>
@@ -364,8 +365,8 @@
 					<p class="formText nonCompliance" id="C.2compliance8"></p>
 					<p class="formText"> 9. Proper PPE Worn: <span class="input" id="scoreC.2-9"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance9"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="C.2score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="C.2notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="C.2score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="C.2notes"></span></p><br>
 				</div>
 				<p class="sectionTitle" style="font-size:18px;"><strong>D. Cranes / Hoists / Elevators</strong></p><br>
 				<div id="D.1" style="visibility:hidden;display:none;">
@@ -396,8 +397,8 @@
 					<p class="formText nonCompliance" id="D.1compliance12"></p>
 					<p class="formText"> 13. Hoist Capacity Clearly Posted: <span class="input" id="scoreD.1-13"></span></p>
 					<p class="formText nonCompliance" id="D.1compliance13"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="D.1score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="D.1notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="D.1score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="D.1notes"></span></p><br>
 				</div>
 				<div id="D.2" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>D.2 Heavy Equipment</strong></p><br>
@@ -427,8 +428,8 @@
 					<p class="formText nonCompliance" id="D.2compliance12"></p>
 					<p class="formText"> 13. Proper Clearance From Powered Utility Lines (&gt; 10 feet): <span class="input" id="scoreD.2-13"></span></p>
 					<p class="formText nonCompliance" id="D.2compliance13"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="D.2score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="D.2notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="D.2score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="D.2notes"></span></p><br>
 				</div>
 				<div id="D.3" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>D.3 Trenching &amp; Excavation</strong></p><br>
@@ -456,8 +457,8 @@
 					<p class="formText nonCompliance" id="D.3compliance11"></p>
 					<p class="formText"> 12. Adjacent Structures Stabilized: <span class="input" id="scoreD.3-12"></span></p>
 					<p class="formText nonCompliance" id="D.3compliance12"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="D.3score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="D.3notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="D.3score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="D.3notes"></span></p><br>
 				</div>
 				<div id="D.4" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>D.4 Demolition &amp; Blasting</strong></p><br>
@@ -491,8 +492,8 @@
 					<p class="formText nonCompliance" id="D.4compliance14"></p>
 					<p class="formText"> 15. Hot Work/Fire Protection: <span class="input" id="scoreD.4-15"></span></p>
 					<p class="formText nonCompliance" id="D.4compliance15"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="D.4score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="D.4notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="D.4score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="D.4notes"></span></p><br>
 				</div>
 				<p class="sectionTitle" style="font-size:18px;"><strong>E. Specialty Trades / Operations</strong></p><br>
 				<div id="E.1" style="visibility:hidden;display:none;">
@@ -513,8 +514,8 @@
 					<p class="formText nonCompliance" id="E.1compliance7"></p>	
 					<p class="formText"> 8. Overhead Protection: <span class="input" id="scoreE.1-8"></span></p>
 					<p class="formText nonCompliance" id="E.1compliance8"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="E.1score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="E.1notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="E.1score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="E.1notes"></span></p><br>
 				</div>	
 				<div id="E.2" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>E.2 Concrete &amp; Masonry</strong></p><br>
@@ -534,8 +535,8 @@
 					<p class="formText nonCompliance" id="E.2compliance7"></p>	
 					<p class="formText"> 8. Brick/Block Walls Properly Supported (Where Applicable): <span class="input" id="scoreE.2-8"></span></p>
 					<p class="formText nonCompliance" id="E.2compliance8"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="E.2score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="E.2notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="E.2score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="E.2notes"></span></p><br>
 				</div>	
 				<div id="E.3" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style:"font-size:14px;"><strong>E.3 Welding, Cutting, Hot Work</strong></p><br>
@@ -563,8 +564,8 @@
 					<p class="formText nonCompliance" id="E.3compliance11"></p>
 					<p class="formText"> 12. Fully Charged Fire Extinguisher Available: <span class="input" id="scoreE.3-12"></span></p>
 					<p class="formText nonCompliance" id="E.3compliance12"></p><br>
-					<p class="formText"> Total Score: <span class="input" id="E.3score"></span></p>
-					<p class="formText"> Notes: <span class="input" id="E.3notes"></span></p><br>
+					<p class="formText" style="font-weight:bold;"> Total Score: <span class="input" id="E.3score"></span></p>
+					<p class="formText" style="font-weight:bold;"> Notes: <span class="input" id="E.3notes"></span></p><br>
 				</div>
 		</div>
 			<!--
