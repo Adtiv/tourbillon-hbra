@@ -1299,7 +1299,8 @@ function generatePDF(){
         document.getElementById('pdfComplete').style.visibility="visible";
         window.html2pdf.create(
             source,
-            "~/Documents/completedFormTest.pdf", // on iOS,
+            //~/Documents/
+            "completedFormTest.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
