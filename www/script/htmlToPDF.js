@@ -1277,7 +1277,7 @@ function generatePDF(){
 	        directoryReader.readEntries(function(entries) {
 	        	var i;
 	        	for (i=0; i<entries.length; i++) {
-	        		if(entries[i].name=="completedForm.pdf"){
+	        		if(entries[i].name=="completedFormTest.pdf"){
 	        			alert("Got HERE");
 						localStorage.setItem('pdfURL', entries[i].toURL()); 
 	        		}
@@ -1299,7 +1299,7 @@ function generatePDF(){
         document.getElementById('pdfComplete').style.visibility="visible";
         window.html2pdf.create(
             source,
-            "~/Documents/completedForm.pdf", // on iOS,
+            "~/Documents/completedFormTest.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
