@@ -1272,7 +1272,6 @@ function generatePDF(){
 		var success = function(status) {
             alert('Message: ' + status);
             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-	        console.log("Root = " + fs.root.fullPath);
 	        var directoryReader = fs.root.createReader();
 	        directoryReader.readEntries(function(entries) {
 	        	var i;
@@ -1289,7 +1288,20 @@ function generatePDF(){
 	        	alert(error.code);
 	        }); 
         }
-
+        var filePath;
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+        console.log("Root = " + fs.root.toURL());
+            filePath=fs.root.toURL() + "completedFormTest.pdf";
+            localStorage.setItem('fp', filePath);
+            console.log("fp"+filePath);
+	    }, function (error) {
+	      	alert(error.code);
+	    });  
+        //filePath();
+        var pdfPath= localStorage.getItem('fp');
+        console.log("fp??" + pdfPath);
+        //var path = filPath();
+        //console.log("pdfPath"+path);
         var error = function(status) {
             alert('Error: ' + status);
         }
@@ -1299,8 +1311,8 @@ function generatePDF(){
         document.getElementById('pdfComplete').style.visibility="visible";
         window.html2pdf.create(
             source,
-            //~/Documents/
-            "completedFormTest.pdf", // on iOS,
+            //
+            pdfPath, // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
