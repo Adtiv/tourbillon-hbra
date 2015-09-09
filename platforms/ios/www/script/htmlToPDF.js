@@ -1256,6 +1256,17 @@ function compileStoredVariables(){
 		    attachments: pdfPath //=> Android
 		});
 	}
+function createFilePath(){
+        var filePath;
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+        console.log("Root = " + fs.root.toURL());
+            filePath=fs.root.toURL() + "completedFormTest.pdf";
+            localStorage.setItem('fp', filePath);
+            console.log("fp"+filePath);
+	    }, function (error) {
+	      	alert(error.code);
+	    });  	
+}
 function generatePDF(){
 		console.log('gets');
 		compileStoredVariables();
@@ -1288,16 +1299,7 @@ function generatePDF(){
 	        	alert(error.code);
 	        }); 
         }
-        var filePath;
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-        console.log("Root = " + fs.root.toURL());
-            filePath=fs.root.toURL() + "completedFormTest.pdf";
-            localStorage.setItem('fp', filePath);
-            console.log("fp"+filePath);
-	    }, function (error) {
-	      	alert(error.code);
-	    });  
-        //filePath();
+        createFilePath();
         var pdfPath= localStorage.getItem('fp');
         console.log("fp??" + pdfPath);
         //var path = filPath();
