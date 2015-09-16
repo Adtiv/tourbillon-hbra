@@ -1249,7 +1249,8 @@ function compileStoredVariables(){
     //Email plugin functions:
     function email(){
     	alert("updated");
-    	var pdfPath = localStorage.getItem('pdfURL');
+    	//var pdfPath = localStorage.getItem('pdfURL');
+    	var pdfPath = '/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf';
     	alert(pdfPath);
 		cordova.plugins.email.open({
 			subject: 'Site Safety Evaluation Form',
@@ -1282,6 +1283,7 @@ function generatePDF(){
 		*/
 		var success = function(status) {
             alert('Message: ' + status);
+            /*
             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
 	        var directoryReader = fs.root.createReader();
 	        directoryReader.readEntries(function(entries) {
@@ -1298,10 +1300,11 @@ function generatePDF(){
 	        }, function (error) {
 	        	alert(error.code);
 	        }); 
+*/
         }
-        createFilePath();
-        var pdfPath= localStorage.getItem('fp');
-        console.log("fp??" + pdfPath);
+        //createFilePath();
+        //var pdfPath= localStorage.getItem('fp');
+        //console.log("fp??" + pdfPath);
         //var path = filPath();
         //console.log("pdfPath"+path);
         var error = function(status) {
@@ -1314,7 +1317,7 @@ function generatePDF(){
         window.html2pdf.create(
             source,
             //
-            pdfPath, // on iOS,
+            "completedFormTest.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
@@ -1578,6 +1581,6 @@ function generatePDF(){
 	function viewDocument()
 	{
 		var pdfPath = localStorage.getItem('pdfURL');
-		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+		window.open('/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
 	//window.onload=generatePDF; 
