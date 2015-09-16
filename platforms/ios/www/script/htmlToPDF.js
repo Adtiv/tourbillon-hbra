@@ -1250,7 +1250,7 @@ function compileStoredVariables(){
     function email(){
     	alert("updated");
     	//var pdfPath = localStorage.getItem('pdfURL');
-    	var pdfPath = '/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormtest.pdf';
+    	var pdfPath = '/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormTest.pdf';
     	alert(pdfPath);
 		cordova.plugins.email.open({
 			subject: 'Site Safety Evaluation Form',
