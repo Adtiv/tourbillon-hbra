@@ -1250,7 +1250,7 @@ function compileStoredVariables(){
     function email(){
     	alert("updated");
     	//var pdfPath = localStorage.getItem('pdfURL');
-    	var pdfPath = '/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/CompletedFormtest.pdf';
+    	var pdfPath = '/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormtest.pdf';
     	alert(pdfPath);
 		cordova.plugins.email.open({
 			subject: 'Site Safety Evaluation Form',
@@ -1581,6 +1581,6 @@ function generatePDF(){
 	function viewDocument()
 	{
 		var pdfPath = localStorage.getItem('pdfURL');
-		window.open('/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+		window.open('/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormTest.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
 	//window.onload=generatePDF; 
