@@ -261,7 +261,7 @@ public class Html2pdf extends CordovaPlugin
 	                        	ViewGroup vg = (ViewGroup)(page.getParent());
 	                        	vg.removeView(page);
 	                        }
-	                        
+	                        String androidPath;
 		                    // add file to media scanner
 		                    MediaScannerConnection.scanFile(
 	                    		self.cordova.getActivity(),
@@ -271,6 +271,7 @@ public class Html2pdf extends CordovaPlugin
 	                    		   @Override
 	                    		   public void onScanCompleted(String path, Uri uri) {
 	                    		      Log.v(LOG_TAG, "file '" + path + "' was scanned seccessfully: " + uri);
+	                    		      androidPath=uri;
 	                    		   }
 	                    		}
                     		);
@@ -293,7 +294,7 @@ public class Html2pdf extends CordovaPlugin
 		                    if( success )
 		                    {
 		                    	// send success result to cordova
-				                result = new PluginResult(PluginResult.Status.OK);
+				                result = new PluginResult(PluginResult.Status.OK, androidPath);
 				                result.setKeepCallback(false); 
 			                    self.callbackContext.sendPluginResult(result);
 		                    }
