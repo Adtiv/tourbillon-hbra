@@ -271,7 +271,7 @@ public class Html2pdf extends CordovaPlugin
 	                    		   @Override
 	                    		   public void onScanCompleted(String path, Uri uri) {
 	                    		      Log.v(LOG_TAG, "file '" + path + "' was scanned seccessfully: " + uri);
-	                    		      androidPath=uri;
+	                    		      androidPath=path;
 	                    		   }
 	                    		}
                     		);
