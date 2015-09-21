@@ -1581,6 +1581,6 @@ function generatePDF(){
 	function viewDocument()
 	{
 		var pdfPath = localStorage.getItem('pdfURL');
-		window.open('/mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormTest.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+		window.open('file:///mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormTest.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
 	//window.onload=generatePDF; 

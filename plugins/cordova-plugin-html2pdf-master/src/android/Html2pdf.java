@@ -57,7 +57,7 @@ public class Html2pdf extends CordovaPlugin
 	
 	// set to true to see the webview (useful for debugging)
     private final boolean showWebViewForDebugging = false;
-
+    private String androidPath;
 	/**
 	 * Constructor.
 	 */
@@ -261,7 +261,6 @@ public class Html2pdf extends CordovaPlugin
 	                        	ViewGroup vg = (ViewGroup)(page.getParent());
 	                        	vg.removeView(page);
 	                        }
-	                        String androidPath;
 		                    // add file to media scanner
 		                    MediaScannerConnection.scanFile(
 	                    		self.cordova.getActivity(),
@@ -271,7 +270,6 @@ public class Html2pdf extends CordovaPlugin
 	                    		   @Override
 	                    		   public void onScanCompleted(String path, Uri uri) {
 	                    		      Log.v(LOG_TAG, "file '" + path + "' was scanned seccessfully: " + uri);
-	                    		      androidPath=path;
 	                    		   }
 	                    		}
                     		);
@@ -444,6 +442,7 @@ public class Html2pdf extends CordovaPlugin
             // create pdf
             Document document = new Document();
             File filePdf = new File(sdCard.getAbsolutePath() + "/" + this.tmpPdfName); // change the output name of the pdf here
+            
             // create dirs if necessary
             if( this.tmpPdfName.contains("/") )
             {
@@ -469,7 +468,7 @@ public class Html2pdf extends CordovaPlugin
             	file = new File(dir, "pdf-page-"+i+".png");
             	file.delete();
             }
-            
+            androidPath= sdCard.getAbsolutePath() + "/" + this.publicTmpDir + "/" + this.tmpPdfName;
             return filePdf;
             
         } catch (IOException e) {
