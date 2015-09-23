@@ -1,4 +1,3 @@
-
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
@@ -1264,13 +1263,13 @@ function createFilePath(){
             filePath=fs.root.toURL() + "completedFormTest.pdf";
             localStorage.setItem('fp', filePath);
             console.log("fp"+filePath);
-            return filePath;
 	    }, function (error) {
 	      	alert(error.code);
 	    });  	
 }
 function generatePDF(){
 		console.log('gets');
+		createFilePath();
 		var path = localStorage.getItem('fp');
         alert("Path:" + path);
 		compileStoredVariables();
