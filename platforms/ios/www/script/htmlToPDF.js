@@ -1264,12 +1264,15 @@ function createFilePath(){
             filePath=fs.root.toURL() + "completedFormTest.pdf";
             localStorage.setItem('fp', filePath);
             console.log("fp"+filePath);
+            return filePath;
 	    }, function (error) {
 	      	alert(error.code);
 	    });  	
 }
 function generatePDF(){
 		console.log('gets');
+		var path = localStorage.getItem('fp');
+        alert("Path:" + path);
 		compileStoredVariables();
 		/*
 		var doc = new jsPDF();
@@ -1301,11 +1304,6 @@ function generatePDF(){
 	        	alert(error.code);
 	        }); 
         }
-        //createFilePath();
-        //var pdfPath= localStorage.getItem('fp');
-        //console.log("fp??" + pdfPath);
-        //var path = filPath();
-        //console.log("pdfPath"+path);
         var error = function(status) {
             alert('Error: ' + status);
         }
