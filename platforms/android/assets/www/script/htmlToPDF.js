@@ -1283,7 +1283,7 @@ function generatePDF(){
 		*/
 		var success = function(status) {
             alert('Message: ' + status);
-            /*
+            
             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
 	        var directoryReader = fs.root.createReader();
 	        directoryReader.readEntries(function(entries) {
@@ -1300,7 +1300,6 @@ function generatePDF(){
 	        }, function (error) {
 	        	alert(error.code);
 	        }); 
-*/
         }
         //createFilePath();
         //var pdfPath= localStorage.getItem('fp');
