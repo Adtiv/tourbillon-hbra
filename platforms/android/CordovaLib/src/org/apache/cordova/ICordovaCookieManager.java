@@ -15,20 +15,19 @@
        KIND, either express or implied.  See the License for the
        specific language governing permissions and limitations
        under the License.
- */
+*/
 
-package com.phonegap.hbra;
+package org.apache.cordova;
 
-import android.os.Bundle;
-import org.apache.cordova.*;
+public interface ICordovaCookieManager {
 
-public class MainActivity extends CordovaActivity
-{
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
-    }
-}
+    public void setCookiesEnabled(boolean accept);
+
+    public void setCookie(final String url, final String value);
+
+    public String getCookie(final String url);
+
+    public void clearCookies();
+
+    public void flush();
+};
