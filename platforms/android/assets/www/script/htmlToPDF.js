@@ -1271,7 +1271,7 @@ function generatePDF(){
 		console.log('gets');
 		createFilePath();
 		var path = localStorage.getItem('fp');
-        alert("Path:" + path);
+        //alert("Path:" + path);
 		compileStoredVariables();
 		/*
 		var doc = new jsPDF();
@@ -1313,7 +1313,7 @@ function generatePDF(){
         window.html2pdf.create(
             source,
             //
-            "~/Documents/completedFormTest.pdf", // on iOS,
+            "completedFormTest.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
@@ -1577,6 +1577,6 @@ function generatePDF(){
 	function viewDocument()
 	{
 		var pdfPath = localStorage.getItem('pdfURL');
-		window.open('file:///mnt/sdcard/at.modalog.cordova.plugin.html2pdf/completedFormTest.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+		window.open('file:///mnt/sdcard/pdf/completedFormTest.pdf', '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
 	//window.onload=generatePDF; 

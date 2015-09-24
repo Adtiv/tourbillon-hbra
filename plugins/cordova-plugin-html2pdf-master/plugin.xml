@@ -30,7 +30,9 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/Html2pdf.java" target-dir="src/at/modalog/cordova/plugin/html2pdf" />
+        <source-file src="src/android/Html2pdf.java" target-dir="src/pdf" />
+        <!--<source-file src="src/android/Html2pdf.java" target-dir="src/at/modalog/cordova/plugin/html2pdf" />
+
     </platform>
     
     <!-- ios -->
