@@ -113,6 +113,7 @@
 	    var l18;
 	    var l19;
 	    var l20;
+	   	var l21;
 	    var getScore1;
 	    var getScore2;
 	    var getScore3;
@@ -133,6 +134,7 @@
 	    var getScore18;
 	    var getScore19;
 	    var getScore20;
+	    var getScore21;
 	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
@@ -153,6 +155,7 @@
 	    var storeScore18 = new Array(8);
 	    var storeScore19 = new Array(8);
 	    var storeScore20 = new Array(12);  
+	    var storeScore21 = new Array(10);  
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -174,6 +177,7 @@
 		    getScore18 = localStorage.getItem('l18');
 		    getScore19 = localStorage.getItem('l19');
 		    getScore20 = localStorage.getItem('l20');
+		    getScore21 = localStorage.getItem('l21');
 	    	var finalScore=0;
 	    	console.log('getScore1' + getScore1);
 	    	console.log('getScore2' + getScore2);
@@ -194,7 +198,8 @@
 		    console.log('getScore17' + getScore17);
 		    console.log('getScore18' + getScore18);  
 		    console.log('getScore19' + getScore19);
-		    console.log('getScore20' + getScore20);    	
+		    console.log('getScore20' + getScore20);  
+		    console.log('getScore21' + getScore21);    	
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
@@ -933,6 +938,43 @@
 		    		document.getElementById("E.3score").innerHTML=score;
 				}
 	    	}
+	    	else if(page=="E.4"){
+				if(getScore21==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[20]=scoreTrack;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=allScoresArray[20][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("E.4score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[20]=getScore21;
+					for(i=0; i<20; i=i+2){
+						if(allScoresArray[20][i]=="0"){
+							storeScore21[i/2]=0;
+						}
+						else if(allScoresArray[20][i]=="1"){
+							storeScore21[i/2]=1;
+						}
+						else if(allScoresArray[20][i]=="3"){
+							storeScore21[i/2]=3;
+						}
+						else if(allScoresArray[20][i]=="5"){
+							storeScore21[i/2]=5;
+						}
+					}
+		    		storeScore21[index]= score;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=storeScore21[i];
+			    	}
+			    	score = finalScore;
+			    	l21 =window.localStorage.setItem('l21', storeScore21);
+		    		document.getElementById("E.4score").innerHTML=score;
+				}
+	    	}
 	    }
 	  	function goBack(){
 	  		doubleCheck();
@@ -1003,6 +1045,9 @@
 			}
 			if(document.getElementById('weld').checked==true){
 				checkedForms[19]=1;
+			}
+			if(document.getElementById('custom').checked==true){
+				checkedForms[20]=1;
 			}
 		}
 		//to get the amount of checked checked forms
@@ -1249,6 +1294,17 @@
 				}
 				localStorageSubCatForms('E_3');
 			}
+			else if(storePage=="E_4"){
+				if(getScore21==null){
+					if(allScoresArray[20]!=null){
+						l21 =window.localStorage.setItem('l21', allScoresArray[20]);
+					}
+				}
+				else{
+					l21 =window.localStorage.setItem('l21', storeScore21);
+				}
+				localStorageSubCatForms('E_4');
+			}
 			else{
 				console.log("last");
 			}
@@ -1454,6 +1510,12 @@
 						s=window.localStorage.setItem("s", z);
 						zeroOutScore();
 						window.location.href="E.3.html";
+					}
+					else if(x==20){
+						z = "E_4";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="E.4.html";
 					}
 				}
 				//stores the x value
@@ -1689,6 +1751,17 @@
 					l20 =window.localStorage.setItem('l20', storeScore20);
 				}
 				localStorageSubCatForms('E_3');
+			}
+			else if(page=="E_4"){
+				if(getScore21==null){
+					if(allScoresArray[20]!=null){
+						l21 =window.localStorage.setItem('l21', allScoresArray[20]);
+					}
+				}
+				else{
+					l21 =window.localStorage.setItem('l21', storeScore21);
+				}
+				localStorageSubCatForms('E_4');
 			}
 			else{
 				/*
@@ -4723,6 +4796,189 @@
 						}
 				    });
 				}
+				else if(page=="E_4"){
+					//to see if your on the last form. Replaces next arrow with submit button.
+					if(pNum==fLen){
+						document.getElementById('checkNext').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('E.4notes').value = window.localStorage.getItem('E.4notes');
+					if(window.localStorage.getItem('E.4Header')!=null){
+						document.getElementById('E.4Header').innerHTML = window.localStorage.getItem('E.4Header');
+					}
+					if(window.localStorage.getItem('E.4TitleOne')!=null){
+						document.getElementById('E.4TitleOne').innerHTML = window.localStorage.getItem('E.4TitleOne');
+					}
+					if(window.localStorage.getItem('E.4TitleTwo')!=null){
+						document.getElementById('E.4TitleTwo').innerHTML = window.localStorage.getItem('E.4TitleTwo');
+					}
+					if(window.localStorage.getItem('E.4TitleThree')!=null){
+						document.getElementById('E.4TitleThree').innerHTML = window.localStorage.getItem('E.4TitleThree');					
+					}
+					if(window.localStorage.getItem('E.4TitleFour')!=null){
+						document.getElementById('E.4TitleFour').innerHTML = window.localStorage.getItem('E.4TitleFour');					
+					}
+					if(window.localStorage.getItem('E.4TitleFive')!=null){
+						document.getElementById('E.4TitleFive').innerHTML = window.localStorage.getItem('E.4TitleFive');					
+					}
+					if(window.localStorage.getItem('E.4TitleSix')!=null){
+						document.getElementById('E.4TitleSix').innerHTML = window.localStorage.getItem('E.4TitleSix');
+					}
+					if(window.localStorage.getItem('E.4TitleSeven')!=null){
+						document.getElementById('E.4TitleSeven').innerHTML = window.localStorage.getItem('E.4TitleSeven');					
+					}
+					if(window.localStorage.getItem('E.4TitleEight')!=null){
+						document.getElementById('E.4TitleEight').innerHTML = window.localStorage.getItem('E.4TitleEight');
+					}
+					if(window.localStorage.getItem('E.4TitleNine')!=null){
+						document.getElementById('E.4TitleNine').innerHTML = window.localStorage.getItem('E.4TitleNine');
+					}
+					if(window.localStorage.getItem('E.4TitleTen')!=null){
+						document.getElementById('E.4TitleTen').innerHTML = window.localStorage.getItem('E.4TitleTen');
+					}
+					var initGetScore21=localStorage.getItem('l21');
+					if(initGetScore21!=null){
+						document.getElementById('E.4score').innerHTML = window.localStorage.getItem('E.4score');
+					}
+					if(localStorage.getItem('E.4imagepath1')!=null){
+						var ip1 = localStorage.getItem('E.4imagepath1');
+						var photo1 = document.getElementById('E.4photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic1').innerHTML="E.4-1.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath2')!=null){
+						var ip2 = localStorage.getItem('E.4imagepath2');
+						var photo2 = document.getElementById('E.4photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic2').innerHTML="E.4-2.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath3')!=null){
+						var ip3 = localStorage.getItem('E.4imagepath3');
+						var photo3 = document.getElementById('E.4photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic3').innerHTML="E.4-3.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath4')!=null){
+						var ip4 = localStorage.getItem('E.4imagepath4');
+						var photo4 = document.getElementById('E.4photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic4').innerHTML="E.4-4.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath5')!=null){
+						var ip5 = localStorage.getItem('E.4imagepath5');
+						var photo5 = document.getElementById('E.4photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic5').innerHTML="E.4-5.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath6')!=null){
+						var ip6 = localStorage.getItem('E.4imagepath6');
+						var photo6 = document.getElementById('E.4photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic6').innerHTML="E.4-6.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath7')!=null){
+						var ip7 = localStorage.getItem('E.4imagepath7');
+						var photo7 = document.getElementById('E.4photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic7').innerHTML="E.4-7.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath8')!=null){
+						var ip8 = localStorage.getItem('E.4imagepath8');
+						var photo8 = document.getElementById('E.4photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic8').innerHTML="E.4-8.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath9')!=null){
+						var ip9 = localStorage.getItem('E.4imagepath9');
+						var photo9 = document.getElementById('E.4photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic9').innerHTML="E.4-9.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath10')!=null){
+						var ip10 = localStorage.getItem('E.4imagepath10');
+						var photo10 = document.getElementById('E.4photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic10').innerHTML="E.4-10.jpg";
+	                }
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('E.4compliance1').value = window.localStorage.getItem('E.4compliance1');
+								var showDiv=document.getElementById('E.4firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('E.4compliance2').value = window.localStorage.getItem('E.4compliance2');
+								var showDiv=document.getElementById('E.4secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('E.4compliance3').value = window.localStorage.getItem('E.4compliance3');
+								var showDiv=document.getElementById('E.4thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('E.4compliance4').value = window.localStorage.getItem('E.4compliance4');
+								var showDiv=document.getElementById('E.4fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('E.4compliance5').value = window.localStorage.getItem('E.4compliance5');
+								var showDiv=document.getElementById('E.4fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('E.4compliance6').value = window.localStorage.getItem('E.4compliance6');
+								var showDiv=document.getElementById('E.4sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('E.4compliance7').value = window.localStorage.getItem('E.4compliance7');
+								var showDiv=document.getElementById('E.4seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('E.4compliance8').value = window.localStorage.getItem('E.4compliance8');
+								var showDiv=document.getElementById('E.4eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('E.4compliance9').value = window.localStorage.getItem('E.4compliance9');
+								var showDiv=document.getElementById('E.4ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('E.4compliance10').value = window.localStorage.getItem('E.4compliance10');
+								var showDiv=document.getElementById('E.4tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
 				else{
 					console.log('..');
 				}
@@ -5378,6 +5634,60 @@
 				window.localStorage.setItem('E.3compliance11', E_3eleventhCompliance);
 				window.localStorage.setItem('E.3compliance12', E_3twelthCompliance);
 			}
+			else if(page=="E_4"){
+				var score21 = document.getElementById('E.4score').innerHTML;
+				var endNotes21 = document.getElementById('E.4notes').value;
+				var E_4firstCompliance = document.getElementById('E.4compliance1').value;
+				var E_4secondCompliance = document.getElementById('E.4compliance2').value;
+				var E_4thirdCompliance = document.getElementById('E.4compliance3').value;
+				var E_4fourthCompliance = document.getElementById('E.4compliance4').value;
+				var E_4fifthCompliance = document.getElementById('E.4compliance5').value;
+				var E_4sixthCompliance = document.getElementById('E.4compliance6').value;
+				var E_4seventhCompliance = document.getElementById('E.4compliance7').value;
+				var E_4eigthCompliance = document.getElementById('E.4compliance8').value;
+				var E_4ninthCompliance = document.getElementById('E.4compliance9').value;
+				var E_4tenthCompliance = document.getElementById('E.4compliance10').value;
+				var titleOne = document.getElementById('E.4TitleOne').innerHTML;
+				var titleTwo = document.getElementById('E.4TitleTwo').innerHTML;
+				var titleThree = document.getElementById('E.4TitleThree').innerHTML;
+				var titleFour = document.getElementById('E.4TitleFour').innerHTML;
+				var titleFive = document.getElementById('E.4TitleFive').innerHTML;
+				var titleSix = document.getElementById('E.4TitleSix').innerHTML;
+				var titleSeven = document.getElementById('E.4TitleSeven').innerHTML;
+				var titleEight = document.getElementById('E.4TitleEight').innerHTML;
+				var titleNine = document.getElementById('E.4TitleNine').innerHTML;
+				var titleTen = document.getElementById('E.4TitleTen').innerHTML;
+				var title = document.getElementById('E.4Header').innerHTML;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('E.4notes', endNotes21);
+				window.localStorage.setItem('E.4score', score21);
+				window.localStorage.setItem('E.4compliance1', E_4firstCompliance);
+				window.localStorage.setItem('E.4compliance2', E_4secondCompliance);
+				window.localStorage.setItem('E.4compliance3', E_4thirdCompliance);
+				window.localStorage.setItem('E.4compliance4', E_4fourthCompliance);
+				window.localStorage.setItem('E.4compliance5', E_4fifthCompliance);
+				window.localStorage.setItem('E.4compliance6', E_4sixthCompliance);
+				window.localStorage.setItem('E.4compliance7', E_4seventhCompliance);
+				window.localStorage.setItem('E.4compliance8', E_4eigthCompliance);
+				window.localStorage.setItem('E.4compliance9', E_4ninthCompliance);
+				window.localStorage.setItem('E.4compliance10', E_4tenthCompliance);
+				window.localStorage.setItem('E.4TitleOne', titleOne);
+				window.localStorage.setItem('E.4TitleTwo', titleTwo);
+				window.localStorage.setItem('E.4TitleThree', titleThree);
+				window.localStorage.setItem('E.4TitleFour', titleFour);
+				window.localStorage.setItem('E.4TitleFive', titleFive);
+				window.localStorage.setItem('E.4TitleSix', titleSix);
+				window.localStorage.setItem('E.4TitleSeven', titleSeven);
+				window.localStorage.setItem('E.4TitleEight', titleEight);
+				window.localStorage.setItem('E.4TitleNine', titleNine);
+				window.localStorage.setItem('E.4TitleTen', titleTen);				
+				window.localStorage.setItem('E.4Header', title);				
+			}
 			else{
 				console.log('..');
 			}
@@ -5521,6 +5831,11 @@
         var imageID = "E.3photo" + pCount;
       	var image = document.getElementById(imageID);	
       }
+      else if(pCount>199&&pCount<=209){
+      	pCount=pCount-199;
+        var imageID = "E.4photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
       image.style.display = 'inline-block';
       image.src = imageURI;	
       movePic(imageURI);
@@ -5640,6 +5955,10 @@
       if(x>187 && x<=199){
       	x=x-187;
       	var newFileName = n +"_E.3-" + x + ".jpg";
+      }
+      if(x>199 && x<=209){
+      	x=x-199;
+      	var newFileName = n +"_E.4-" + x + ".jpg";
       }
       var myFolderApp = "MyAppFolder";
 
@@ -5822,6 +6141,14 @@
 	      picNum = "E.3pic" + picCount;
           document.getElementById(picNum).innerHTML="E.3-"+picCount+".jpg"; 	
 	  }
+	  else if(picCount>199 && picCount <=209){
+	  	  picCount=picCount-199;
+	  	  pathNum = "E.4imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "E.4photo" + picCount; 
+	      picNum = "E.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.4-"+picCount+".jpg"; 	
+	  }
 	  var image = document.getElementById(photoNum);
       localStorage.setItem(pathNum, entry.toURL()); 
       image.src = localStorage.getItem(pathNum);
@@ -5950,6 +6277,11 @@
   		var photo="E.3photo";
   		var num=pNum-187;
   		var imageId =photo + num;
+  	} 
+  	else if(pNum>199 && pNum<=209){
+  		var photo="E.4photo";
+  		var num=pNum-199;
+  		var imageId =photo + num;
   	}         	             	        	             	
   	var image = document.getElementById(imageId);
 	if(image.style.height!='75vh'){
@@ -6027,6 +6359,9 @@
 	else if(globalPageIdentifier=="E_3"){
 		window.onload=initialize('E_3');
 	}
+	else if(globalPageIdentifier=="E_4"){
+		window.onload=initialize('E_4');
+	}
 	else{
 		window.onload=initialize('checks');
 	}
@@ -6035,4 +6370,13 @@
 
 	function exit(){
 		console.log('wait!!');
+	}
+	function setReset(){
+		console.log("SET REset");
+		if(document.getElementById('customHeaderInput').innerHTML!=null){
+				if(document.getElementById('setReset').innerHTML="set"){
+					document.getElementById('headingCustom').innerHTML= document.getElementById('customHeaderInput').innerHTML;
+					document.getElementById('customHeaderInput').style.visibility=hidden;
+			}
+		}
 	}

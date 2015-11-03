@@ -25,7 +25,7 @@
 	
 }
 
-function storeLocalContent(){
+function storeLocalContent(next){
 	var comp = document.getElementById('company').value;
 	var tradeType = document.getElementById('trade').value;
 	var nameJob = document.getElementById('jobName').value;
@@ -57,16 +57,32 @@ function storeLocalContent(){
 	window.localStorage.setItem('employeeNum', employeeNum);
 	window.localStorage.setItem('weatherCom', comWeather);
 
-	window.location.href = "pageTwo.html";
-
+	if(next=="next"){
+		if(localStorage.getItem("s")!=null){
+			var x = "checks";
+			localStorage.setItem("s", x);
+			localStorage.setItem("pageCount", 0);
+		}
+		window.location.href = "pageTwo.html";
+	}
 }
 	document.addEventListener('deviceready', function () {
+		FastClick.attach(document.body);
 		console.log("deviceReady");	
 	    // cordova.plugins.email is now available
 	}, false);
+	function popup(){
+		document.getElementById('popup').style.visibility='visible';
+		document.getElementById('popup').style.position='fixed';
+		document.getElementById('popup').style.top='1';
+	}
+	function no(){
+		document.getElementById('popup').style.visibility='hidden';
+	}
 	function clearStorage(){
 		localStorage.clear();
 		ClearDirectory();
+		window.location.href="index.html"
 	}
 	function ClearDirectory() {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
@@ -82,93 +98,40 @@ function storeLocalContent(){
                   console.log("Remove Recursively Succeeded");
               }, fail);
           }, fail);
+          fileSystem.root.getFile(
+               "completedForm.pdf",
+              {create : true},
+              function(entry) {
+              entry.remove(function() {
+                  console.log("Remove Succeeded");
+              }, fail);
+          }, fail);
       }
   }
   	function generatePDF(){
-		console.log("generating pdf...");
-		var doc = new jsPDF();
-		 
-		doc.text(20, 20, 'HELLO!');
-		 
-		doc.setFont("courier");
-		doc.setFontType("normal");
-		doc.text(20, 30, 'This is a PDF document generated using JSPDF.');
-		doc.text(20, 50, 'YES, Inside of PhoneGap!');
-		 
-		var pdfOutput = doc.output();
-		console.log( pdfOutput );
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-	    console.log(fileSystem.name);
-	   console.log(fileSystem.root.name);
-	   console.log(fileSystem.root.fullPath);
-	   fileSystem.root.getFile("test.pdf", {create: true}, function(entry) {
-	      var fileEntry = entry;
-	      console.log(entry);
-	      console.log("entry.toURL()"entry.toURL())
-	      entry.createWriter(function(writer) {
-	         writer.onwrite = function(evt) {
-	         console.log("write success");
-	      };
-	      console.log("writing to file");
-	         writer.write( pdfOutput );
-	      }, function(error) {
-	         console.log(error);
-	      });
-	   }, function(error){
-		      console.log(error);
-		   });
-		},
-		function(event){
-		 console.log( evt.target.error.code );
-		});
+  		window.location.href = "formComplete.html"; 
 	}
-	function viewPDF(){
-		console.log("get");
-		SitewaertsDocumentViewer.viewDocument(
-    	url, mimeType, options, onShow, onClose, onMissingApp, onError);
-		console.log("worked?");
-    }	
-    function onShow(){
-	  window.console.log('document shown');
-	  //e.g. track document usage
+	function viewDocument()
+	{
+		var pdfPath = localStorage.getItem('pdfURL');
+		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
-	function onClose(){
-	  window.console.log('document closed');
-	  //e.g. remove temp files
+	function View(){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+        console.log("Root = " + fs.root.fullPath);
+        var directoryReader = fs.root.createReader();
+        directoryReader.readEntries(function(entries) {
+        	var i;
+        	for (i=0; i<entries.length; i++) {
+        		alert(entries[i].name);
+        	}
+        }, function (error) {
+        	alert(error.code);
+        })
+        }, function (error) {
+        	alert(error.code);
+        });
 	}
-	function onMissingApp(id, installer){
-	    if(confirm("Do you want to install the free PDF Viewer App "
-	            + appId + " for Android?"))
-	    {
-	        installer();
-	    }
-	}
-	function onError(){
-	  window.console.log(error);
-	  alert("Sorry! Cannot view document.");
-	}
-	/*
-	//test email functions
-    //Email plugin functions:
-    function email(){
-    	console.log('gets');
-    	open();
-    	console.log('getsHere');
-    }
-    cordova.plugins.email.isAvailable(
-    function (isAvailable) {
-	        // alert('Service is not available') unless isAvailable;
-	    }
-	);
-	cordova.plugins.email.open({
-	    to:      'aditocco@ufl.edu',
-	    cc:      'datocco13@gmail.com',
-	    bcc:     'datocco13@gmail.com',
-	    subject: 'Greetings',
-	    body:    'Worked!'
-	});
-*/
-
 
 
 

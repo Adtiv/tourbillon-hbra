@@ -113,6 +113,7 @@
 	    var l18;
 	    var l19;
 	    var l20;
+	   	var l21;
 	    var getScore1;
 	    var getScore2;
 	    var getScore3;
@@ -133,6 +134,7 @@
 	    var getScore18;
 	    var getScore19;
 	    var getScore20;
+	    var getScore21;
 	    var storeScore1 = new Array(12);
 	    var storeScore2 = new Array(10);
 	    var storeScore3 = new Array(10);
@@ -153,6 +155,7 @@
 	    var storeScore18 = new Array(8);
 	    var storeScore19 = new Array(8);
 	    var storeScore20 = new Array(12);  
+	    var storeScore21 = new Array(10);  
 	    function scoreTracker(index, page){
 	    	getScore1 = localStorage.getItem('l');
 		    getScore2 = localStorage.getItem('l2');
@@ -174,6 +177,7 @@
 		    getScore18 = localStorage.getItem('l18');
 		    getScore19 = localStorage.getItem('l19');
 		    getScore20 = localStorage.getItem('l20');
+		    getScore21 = localStorage.getItem('l21');
 	    	var finalScore=0;
 	    	console.log('getScore1' + getScore1);
 	    	console.log('getScore2' + getScore2);
@@ -194,7 +198,8 @@
 		    console.log('getScore17' + getScore17);
 		    console.log('getScore18' + getScore18);  
 		    console.log('getScore19' + getScore19);
-		    console.log('getScore20' + getScore20);    	
+		    console.log('getScore20' + getScore20);  
+		    console.log('getScore21' + getScore21);    	
 	    	if(page=="A.1"){
 	    		if(getScore1==null){
 		    		scoreTrack[index]= score;
@@ -933,235 +938,116 @@
 		    		document.getElementById("E.3score").innerHTML=score;
 				}
 	    	}
+	    	else if(page=="E.4"){
+				if(getScore21==null){
+	    			console.log('First');
+		    		scoreTrack[index]= score;
+			    	allScoresArray[20]=scoreTrack;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=allScoresArray[20][i];
+			    	}
+			    	score = finalScore;
+		    		document.getElementById("E.4score").innerHTML=score;
+				}
+				else{
+					console.log('second');
+					allScoresArray[20]=getScore21;
+					for(i=0; i<20; i=i+2){
+						if(allScoresArray[20][i]=="0"){
+							storeScore21[i/2]=0;
+						}
+						else if(allScoresArray[20][i]=="1"){
+							storeScore21[i/2]=1;
+						}
+						else if(allScoresArray[20][i]=="3"){
+							storeScore21[i/2]=3;
+						}
+						else if(allScoresArray[20][i]=="5"){
+							storeScore21[i/2]=5;
+						}
+					}
+		    		storeScore21[index]= score;
+			    	for(i=0; i<10; i++){
+			    		finalScore+=storeScore21[i];
+			    	}
+			    	score = finalScore;
+			    	l21 =window.localStorage.setItem('l21', storeScore21);
+		    		document.getElementById("E.4score").innerHTML=score;
+				}
+	    	}
 	    }
 	  	function goBack(){
+	  		doubleCheck();
 	  		localStorageSubCatForms('checks');
     		window.location.href="pageOne.html";
 		}
 		//Creates an array with 1 as a checked form 0 unchecked
 		function isChecked(id){
-			var input = document.getElementById(id);
-			var isChecked = input.checked;
-			isChecked = (isChecked)? true : false;
-			if(id=="jobsite"){
+			console.log('checked:' + id);
+		}
+		function doubleCheck(){
+			if(document.getElementById('jobsite').checked==true){
 				checkedForms[0]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[0]=1;
-				}
-				else{
-					checkedForms[0]=0;
-				}
-				*/
 			}
-			else if(id=="facility"){
+			if(document.getElementById('facility').checked==true){
 				checkedForms[1]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[1]=1;
-				}
-				else{
-					checkedForms[1]=0;
-				}
-				*/
 			}
-			else if(id=="ppe"){
+			if(document.getElementById('ppe').checked==true){
 				checkedForms[2]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[2]=1;
-				}
-				else{
-					checkedForms[2]=0;
-				}
-				*/
 			}
-			else if(id=="housekeeping"){
+			if(document.getElementById('housekeeping').checked==true){
 				checkedForms[3]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[3]=1;
-				}
-				else{
-					checkedForms[3]=0;
-				}
-				*/
 			}
-			else if(id=="fireProtection"){
+			if(document.getElementById('fireProtection').checked==true){
 				checkedForms[4]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[4]=1;
-				}
-				else{
-					checkedForms[4]=0;
-				}
-				*/
 			}
-			else if(id=="traffic"){
+			if(document.getElementById('traffic').checked==true){
 				checkedForms[5]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[5]=1;
-				}
-				else{
-					checkedForms[5]=0;
-				}
-				*/
 			}
-			else if(id=="hazardSubs"){
+			if(document.getElementById('hazardSubs').checked==true){
 				checkedForms[6]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[6]=1;
-				}
-				else{
-					checkedForms[6]=0;
-				}
-				*/
 			}
-			else if(id=="licensing"){
+			if(document.getElementById('licensing').checked==true){
 				checkedForms[7]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[7]=1;
-				}
-				else{
-					checkedForms[7]=0;
-				}
-				*/
 			}
-			else if(id=="generalFall"){
+			if(document.getElementById('generalFall').checked==true){
 				checkedForms[8]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[8]=1;
-				}
-				else{
-					checkedForms[8]=0;
-				}
-				*/
 			}
-			else if(id=="scaffold"){
+			if(document.getElementById('scaffold').checked==true){
 				checkedForms[9]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[9]=1;
-				}
-				else{
-					checkedForms[9]=0;
-				}
-				*/
 			}
-			else if(id=="ladder"){
+			if(document.getElementById('ladder').checked==true){
 				checkedForms[10]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[10]=1;
-				}
-				else{
-					checkedForms[10]=0;
-				}
-				*/
 			}
-			else if(id=="tool"){
+			if(document.getElementById('tool').checked==true){
 				checkedForms[11]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[11]=1;
-				}
-				else{
-					checkedForms[11]=0;
-				}
-				*/
 			}
-			else if(id=="electric"){
+			if(document.getElementById('electric').checked==true){
 				checkedForms[12]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[12]=1;
-				}
-				else{
-					checkedForms[12]=0;
-				}
-				*/
 			}
-			else if(id=="crane"){
+			if(document.getElementById('crane').checked==true){
 				checkedForms[13]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[13]=1;
-				}
-				else{
-					checkedForms[13]=0;
-				}
-				*/
 			}
-			else if(id=="heavyEq"){
+			if(document.getElementById('heavyEq').checked==true){
 				checkedForms[14]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[14]=1;
-				}
-				else{
-					checkedForms[14]=0;
-				}
-				*/
 			}
-			else if(id=="trench"){
+			if(document.getElementById('trench').checked==true){
 				checkedForms[15]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[15]=1;
-				}
-				else{
-					checkedForms[15]=0;
-				}
-				*/
 			}
-			else if(id=="demo"){
+			if(document.getElementById('demo').checked==true){
 				checkedForms[16]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[16]=1;
-				}
-				else{
-					checkedForms[16]=0;
-				}
-				*/
 			}
-			else if(id=="sErection"){
+			if(document.getElementById('sErection').checked==true){
 				checkedForms[17]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[17]=1;
-				}
-				else{
-					checkedForms[17]=0;
-				}
-				*/
 			}
-			else if(id=="conc"){
+			if(document.getElementById('conc').checked==true){
 				checkedForms[18]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[18]=1;
-				}
-				else{
-					checkedForms[18]=0;
-				}
-				*/
 			}
-			else{
+			if(document.getElementById('weld').checked==true){
 				checkedForms[19]=1;
-				/*
-				if(isChecked==true){
-					checkedForms[19]=1;
-				}
-				else{
-					checkedForms[19]=0;
-				}
-				*/
+			}
+			if(document.getElementById('custom').checked==true){
+				checkedForms[20]=1;
 			}
 		}
 		//to get the amount of checked checked forms
@@ -1183,6 +1069,7 @@
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
 			if(storePage=="checks"){
+				doubleCheck();
 				localStorageSubCatForms('checks');
 			}
 			else if(storePage=="A_1"){
@@ -1407,6 +1294,17 @@
 				}
 				localStorageSubCatForms('E_3');
 			}
+			else if(storePage=="E_4"){
+				if(getScore21==null){
+					if(allScoresArray[20]!=null){
+						l21 =window.localStorage.setItem('l21', allScoresArray[20]);
+					}
+				}
+				else{
+					l21 =window.localStorage.setItem('l21', storeScore21);
+				}
+				localStorageSubCatForms('E_4');
+			}
 			else{
 				console.log("last");
 			}
@@ -1429,25 +1327,14 @@
 			else{
 				pageCount=parseInt(pCount);
 			}
-			///
-			var temp=window.localStorage.getItem("forms");
 			var formLen;
-			console.log("temp" +temp);
-			if(temp==null){
-				checked= JSON.parse(localStorage["checkedForms"]);
-				formLen = formLength(checked);
-				setLen = localStorage.setItem('setLen', formLen);
-			}
-			else{
-				checked= JSON.parse(localStorage["storedCheckedForms"]);
-				formLen = formLength(checked);
-				setLen = localStorage.setItem('setLen', formLen);
-			}
+			checked= JSON.parse(localStorage["checkedForms"]);
+			formLen = formLength(checked);
+			setLen = localStorage.setItem('setLen', formLen);
 			console.log("checked: " + checked);
 			///
 			//checked= JSON.parse(localStorage["checkedForms"]);
 			var x = localStorage.getItem("y");
-			var hidebutton = document.getElementById(btnID);
 			//Back button 
 			if(page=="lastPage"){
 				if(x!=0){
@@ -1624,6 +1511,12 @@
 						zeroOutScore();
 						window.location.href="E.3.html";
 					}
+					else if(x==20){
+						z = "E_4";
+						s=window.localStorage.setItem("s", z);
+						zeroOutScore();
+						window.location.href="E.4.html";
+					}
 				}
 				//stores the x value
 				y = localStorage.setItem("y", x);
@@ -1636,6 +1529,7 @@
 			pageCount=0;
 			localStorage.setItem("pageCount", pageCount);
 			if(page=="checks"){
+				doubleCheck();
 				localStorageSubCatForms('checks');
 			}
 			else if(page=="A_1"){
@@ -1858,9 +1752,32 @@
 				}
 				localStorageSubCatForms('E_3');
 			}
+			else if(page=="E_4"){
+				if(getScore21==null){
+					if(allScoresArray[20]!=null){
+						l21 =window.localStorage.setItem('l21', allScoresArray[20]);
+					}
+				}
+				else{
+					l21 =window.localStorage.setItem('l21', storeScore21);
+				}
+				localStorageSubCatForms('E_4');
+			}
 			else{
+				/*
+				window.plugins.nativepagetransitions.flip({
+				    // the defaults for direction, duration, etc are all fine
+				    "href" : "index.html"
+				});
+				*/
 				window.location.href="index.html";
 			}
+			/*
+			window.plugins.nativepagetransitions.flip({
+			    // the defaults for direction, duration, etc are all fine
+			    "href" : "index.html"
+			});
+			*/
 			window.location.href="index.html";
 		}
 		//Initializes the localstorage based on the page
@@ -1889,13 +1806,19 @@
 					for (i = 0; i < checkboxes.length; i++) {
         				checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === 'true' ? true:false;
     				}
+
+    				/*
+    				alert(storedCheckedForms);
+    				if(storedCheckedForms==null){
+    					document.getElementById('checkNext').style.visibility="hidden";
+    				}
+    				*/
     				console.log("Initializes!");
 				}
 				else if(page=="A_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.1notes').value = window.localStorage.getItem('A.1notes');
@@ -2071,8 +1994,8 @@
 				}
 				else if(page=="A_2"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_2arrow').style.visibility="hidden";
+						//document.getElementById('btnNext').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.2notes').value = window.localStorage.getItem('A.2notes');
@@ -2080,6 +2003,77 @@
 					if(initGetScore2!=null){
 						document.getElementById('A.2score').innerHTML = window.localStorage.getItem('A.2score');
 					}
+					
+	                if(localStorage.getItem('A.2imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.2imagepath1');
+						var photo1 = document.getElementById('A.2photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic1').innerHTML="A.2-1.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.2imagepath2');
+						var photo2 = document.getElementById('A.2photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic2').innerHTML="A.2-2.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.2imagepath3');
+						var photo3 = document.getElementById('A.2photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic3').innerHTML="A.2-3.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.2imagepath4');
+						var photo4 = document.getElementById('A.2photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic4').innerHTML="A.2-4.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.2imagepath5');
+						var photo5 = document.getElementById('A.2photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic5').innerHTML="A.2-5.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.2imagepath6');
+						var photo6 = document.getElementById('A.2photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic6').innerHTML="A.2-6.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath7')!=null){
+						var ip7 = localStorage.getItem('A.2imagepath7');
+						var photo7 = document.getElementById('A.2photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic7').innerHTML="A.2-7.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath8')!=null){
+						var ip8 = localStorage.getItem('A.2imagepath8');
+						var photo8 = document.getElementById('A.2photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic8').innerHTML="A.2-8.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath9')!=null){
+						var ip9 = localStorage.getItem('A.2imagepath9');
+						var photo9 = document.getElementById('A.2photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic9').innerHTML="A.2-9.jpg";
+	                }
+	                if(localStorage.getItem('A.2imagepath10')!=null){
+						var ip10 = localStorage.getItem('A.2imagepath10');
+						var photo10 = document.getElementById('A.2photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('A.2pic10').innerHTML="A.2-10.jpg";
+	                }					
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2151,8 +2145,7 @@
 				}
 				else if(page=="A_3"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.3notes').value = window.localStorage.getItem('A.3notes');
@@ -2160,6 +2153,77 @@
 					if(initGetScore3!=null){
 						document.getElementById('A.3score').innerHTML = window.localStorage.getItem('A.3score');
 					}
+					if(localStorage.getItem('A.3imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.3imagepath1');
+						var photo1 = document.getElementById('A.3photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic1').innerHTML="A.3-1.jpg";
+	                }
+
+	                if(localStorage.getItem('A.3imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.3imagepath2');
+						var photo2 = document.getElementById('A.3photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic2').innerHTML="A.3-2.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.3imagepath3');
+						var photo3 = document.getElementById('A.3photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic3').innerHTML="A.3-3.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.3imagepath4');
+						var photo4 = document.getElementById('A.3photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic4').innerHTML="A.3-4.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.3imagepath5');
+						var photo5 = document.getElementById('A.3photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic5').innerHTML="A.3-5.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.3imagepath6');
+						var photo6 = document.getElementById('A.3photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic6').innerHTML="A.3-6.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath7')!=null){
+						var ip7 = localStorage.getItem('A.3imagepath7');
+						var photo7 = document.getElementById('A.3photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic7').innerHTML="A.3-7.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath8')!=null){
+						var ip8 = localStorage.getItem('A.3imagepath8');
+						var photo8 = document.getElementById('A.3photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic8').innerHTML="A.3-8.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath9')!=null){
+						var ip9 = localStorage.getItem('A.3imagepath9');
+						var photo9 = document.getElementById('A.3photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic9').innerHTML="A.3-9.jpg";
+	                }
+	                if(localStorage.getItem('A.3imagepath10')!=null){
+						var ip10 = localStorage.getItem('A.3imagepath10');
+						var photo10 = document.getElementById('A.3photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('A.3pic10').innerHTML="A.3-10.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2231,8 +2295,7 @@
 				}
 				else if(page=="A_4"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_4arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.4notes').value = window.localStorage.getItem('A.4notes');
@@ -2240,6 +2303,69 @@
 					if(initGetScore4!=null){
 						document.getElementById('A.4score').innerHTML = window.localStorage.getItem('A.4score');
 					}
+					if(localStorage.getItem('A.4imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.4imagepath1');
+						var photo1 = document.getElementById('A.4photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic1').innerHTML="A.4-1.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.4imagepath2');
+						var photo2 = document.getElementById('A.4photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic2').innerHTML="A.4-2.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.4imagepath3');
+						var photo3 = document.getElementById('A.4photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic3').innerHTML="A.4-3.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.4imagepath4');
+						var photo4 = document.getElementById('A.4photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic4').innerHTML="A.4-4.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.4imagepath5');
+						var photo5 = document.getElementById('A.4photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic5').innerHTML="A.4-5.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.4imagepath6');
+						var photo6 = document.getElementById('A.4photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic6').innerHTML="A.4-6.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath7')!=null){
+						var ip7 = localStorage.getItem('A.4imagepath7');
+						var photo7 = document.getElementById('A.4photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic7').innerHTML="A.4-7.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath8')!=null){
+						var ip8 = localStorage.getItem('A.4imagepath8');
+						var photo8 = document.getElementById('A.4photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic8').innerHTML="A.4-8.jpg";
+	                }
+	                if(localStorage.getItem('A.4imagepath9')!=null){
+						var ip9 = localStorage.getItem('A.4imagepath9');
+						var photo9 = document.getElementById('A.4photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('A.4pic9').innerHTML="A.4-9.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2305,8 +2431,7 @@
 				}
 				else if(page=="A_5"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_5arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.5notes').value = window.localStorage.getItem('A.5notes');
@@ -2314,6 +2439,69 @@
 					if(initGetScore5!=null){
 						document.getElementById('A.5score').innerHTML = window.localStorage.getItem('A.5score');
 					}
+					if(localStorage.getItem('A.5imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.5imagepath1');
+						var photo1 = document.getElementById('A.5photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic1').innerHTML="A.5-1.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.5imagepath2');
+						var photo2 = document.getElementById('A.5photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic2').innerHTML="A.5-2.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.5imagepath3');
+						var photo3 = document.getElementById('A.5photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic3').innerHTML="A.5-3.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.5imagepath4');
+						var photo4 = document.getElementById('A.5photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic4').innerHTML="A.5-4.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.5imagepath5');
+						var photo5 = document.getElementById('A.5photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic5').innerHTML="A.5-5.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.5imagepath6');
+						var photo6 = document.getElementById('A.5photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic6').innerHTML="A.5-6.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath7')!=null){
+						var ip7 = localStorage.getItem('A.5imagepath7');
+						var photo7 = document.getElementById('A.5photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic7').innerHTML="A.5-7.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath8')!=null){
+						var ip8 = localStorage.getItem('A.5imagepath8');
+						var photo8 = document.getElementById('A.5photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic8').innerHTML="A.5-8.jpg";
+	                }
+	                if(localStorage.getItem('A.5imagepath9')!=null){
+						var ip9 = localStorage.getItem('A.5imagepath9');
+						var photo9 = document.getElementById('A.5photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('A.5pic9').innerHTML="A.5-9.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2379,8 +2567,7 @@
 				}
 				else if(page=="A_6"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_6arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.6notes').value = window.localStorage.getItem('A.6notes');
@@ -2388,6 +2575,48 @@
 					if(initGetScore6!=null){
 						document.getElementById('A.6score').innerHTML = window.localStorage.getItem('A.6score');
 					}
+					if(localStorage.getItem('A.6imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.6imagepath1');
+						var photo1 = document.getElementById('A.6photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.6pic1').innerHTML="A.6-1.jpg";
+	                }
+	                if(localStorage.getItem('A.6imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.6imagepath2');
+						var photo2 = document.getElementById('A.6photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.6pic2').innerHTML="A.6-2.jpg";
+	                }
+	                if(localStorage.getItem('A.6imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.6imagepath3');
+						var photo3 = document.getElementById('A.6photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.6pic3').innerHTML="A.6-3.jpg";
+	                }
+	                if(localStorage.getItem('A.6imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.6imagepath4');
+						var photo4 = document.getElementById('A.6photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.6pic4').innerHTML="A.6-4.jpg";
+	                }
+	                if(localStorage.getItem('A.6imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.6imagepath5');
+						var photo5 = document.getElementById('A.6photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.6pic5').innerHTML="A.6-5.jpg";
+	                }
+	                if(localStorage.getItem('A.6imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.6imagepath6');
+						var photo6 = document.getElementById('A.6photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.6pic6').innerHTML="A.6-6.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2435,8 +2664,7 @@
 				}
 				else if(page=="A_7"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_7arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.7notes').value = window.localStorage.getItem('A.7notes');
@@ -2444,6 +2672,55 @@
 					if(initGetScore7!=null){
 						document.getElementById('A.7score').innerHTML = window.localStorage.getItem('A.7score');
 					}
+					if(localStorage.getItem('A.7imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.7imagepath1');
+						var photo1 = document.getElementById('A.7photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic1').innerHTML="A.7-1.jpg";
+	                }
+	                if(localStorage.getItem('A.7imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.7imagepath2');
+						var photo2 = document.getElementById('A.7photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic2').innerHTML="A.7-2.jpg";
+	                }
+	                if(localStorage.getItem('A.7imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.7imagepath3');
+						var photo3 = document.getElementById('A.7photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic3').innerHTML="A.7-3.jpg";
+	                }
+	                if(localStorage.getItem('A.7imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.7imagepath4');
+						var photo4 = document.getElementById('A.7photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic4').innerHTML="A.7-4.jpg";
+	                }
+	                if(localStorage.getItem('A.7imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.7imagepath5');
+						var photo5 = document.getElementById('A.7photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic5').innerHTML="A.7-5.jpg";
+	                }
+	                if(localStorage.getItem('A.7imagepath6')!=null){
+						var ip6 = localStorage.getItem('A.7imagepath6');
+						var photo6 = document.getElementById('A.7photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic6').innerHTML="A.7-6.jpg";
+	                }
+	                if(localStorage.getItem('A.7imagepath7')!=null){
+						var ip7 = localStorage.getItem('A.7imagepath7');
+						var photo7 = document.getElementById('A.7photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('A.7pic7').innerHTML="A.7-7.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2497,8 +2774,7 @@
 				}
 				else if(page=="A_8"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('A_8arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('A.8notes').value = window.localStorage.getItem('A.8notes');
@@ -2506,6 +2782,41 @@
 					if(initGetScore8!=null){
 						document.getElementById('A.8score').innerHTML = window.localStorage.getItem('A.8score');
 					}
+					if(localStorage.getItem('A.8imagepath1')!=null){
+						var ip1 = localStorage.getItem('A.8imagepath1');
+						var photo1 = document.getElementById('A.8photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('A.8pic1').innerHTML="A.8-1.jpg";
+	                }
+	                if(localStorage.getItem('A.8imagepath2')!=null){
+						var ip2 = localStorage.getItem('A.8imagepath2');
+						var photo2 = document.getElementById('A.8photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('A.8pic2').innerHTML="A.8-2.jpg";
+	                }
+	                if(localStorage.getItem('A.8imagepath3')!=null){
+						var ip3 = localStorage.getItem('A.8imagepath3');
+						var photo3 = document.getElementById('A.8photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('A.8pic3').innerHTML="A.8-3.jpg";
+	                }
+	                if(localStorage.getItem('A.8imagepath4')!=null){
+						var ip4 = localStorage.getItem('A.8imagepath4');
+						var photo4 = document.getElementById('A.8photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('A.8pic4').innerHTML="A.8-4.jpg";
+	                }
+	                if(localStorage.getItem('A.8imagepath5')!=null){
+						var ip5 = localStorage.getItem('A.8imagepath5');
+						var photo5 = document.getElementById('A.8photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('A.8pic5').innerHTML="A.8-5.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2547,8 +2858,7 @@
 				}
 				else if(page=="B_1"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('B_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('B.1notes').value = window.localStorage.getItem('B.1notes');
@@ -2556,6 +2866,76 @@
 					if(initGetScore9!=null){
 						document.getElementById('B.1score').innerHTML = window.localStorage.getItem('B.1score');
 					}
+					if(localStorage.getItem('B.1imagepath1')!=null){
+						var ip1 = localStorage.getItem('B.1imagepath1');
+						var photo1 = document.getElementById('B.1photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic1').innerHTML="B.1-1.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath2')!=null){
+						var ip2 = localStorage.getItem('B.1imagepath2');
+						var photo2 = document.getElementById('B.1photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic2').innerHTML="B.1-2.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath3')!=null){
+						var ip3 = localStorage.getItem('B.1imagepath3');
+						var photo3 = document.getElementById('B.1photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic3').innerHTML="B.1-3.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath4')!=null){
+						var ip4 = localStorage.getItem('B.1imagepath4');
+						var photo4 = document.getElementById('B.1photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic4').innerHTML="B.1-4.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath5')!=null){
+						var ip5 = localStorage.getItem('B.1imagepath5');
+						var photo5 = document.getElementById('B.1photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic5').innerHTML="B.1-5.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath6')!=null){
+						var ip6 = localStorage.getItem('B.1imagepath6');
+						var photo6 = document.getElementById('B.1photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic6').innerHTML="B.1-6.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath7')!=null){
+						var ip7 = localStorage.getItem('B.1imagepath7');
+						var photo7 = document.getElementById('B.1photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic7').innerHTML="B.1-7.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath8')!=null){
+						var ip8 = localStorage.getItem('B.1imagepath8');
+						var photo8 = document.getElementById('B.1photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic8').innerHTML="B.1-8.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath9')!=null){
+						var ip9 = localStorage.getItem('B.1imagepath9');
+						var photo9 = document.getElementById('B.1photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic9').innerHTML="B.1-9.jpg";
+	                }
+	                if(localStorage.getItem('B.1imagepath10')!=null){
+						var ip10 = localStorage.getItem('B.1imagepath10');
+						var photo10 = document.getElementById('B.1photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('B.1pic10').innerHTML="B.1-10.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2627,8 +3007,7 @@
 				}
 				else if(page=="B_2"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('B_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('B.2notes').value = window.localStorage.getItem('B.2notes');
@@ -2636,6 +3015,76 @@
 					if(initGetScore10!=null){
 						document.getElementById('B.2score').innerHTML = window.localStorage.getItem('B.2score');
 					}
+					if(localStorage.getItem('B.2imagepath1')!=null){
+						var ip1 = localStorage.getItem('B.2imagepath1');
+						var photo1 = document.getElementById('B.2photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic1').innerHTML="B.2-1.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath2')!=null){
+						var ip2 = localStorage.getItem('B.2imagepath2');
+						var photo2 = document.getElementById('B.2photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic2').innerHTML="B.2-2.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath3')!=null){
+						var ip3 = localStorage.getItem('B.2imagepath3');
+						var photo3 = document.getElementById('B.2photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic3').innerHTML="B.2-3.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath4')!=null){
+						var ip4 = localStorage.getItem('B.2imagepath4');
+						var photo4 = document.getElementById('B.2photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic4').innerHTML="B.2-4.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath5')!=null){
+						var ip5 = localStorage.getItem('B.2imagepath5');
+						var photo5 = document.getElementById('B.2photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic5').innerHTML="B.2-5.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath6')!=null){
+						var ip6 = localStorage.getItem('B.2imagepath6');
+						var photo6 = document.getElementById('B.2photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic6').innerHTML="B.2-6.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath7')!=null){
+						var ip7 = localStorage.getItem('B.2imagepath7');
+						var photo7 = document.getElementById('B.2photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic7').innerHTML="B.2-7.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath8')!=null){
+						var ip8 = localStorage.getItem('B.2imagepath8');
+						var photo8 = document.getElementById('B.2photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic8').innerHTML="B.2-8.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath9')!=null){
+						var ip9 = localStorage.getItem('B.2imagepath9');
+						var photo9 = document.getElementById('B.2photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic9').innerHTML="B.2-9.jpg";
+	                }
+	                if(localStorage.getItem('B.2imagepath10')!=null){
+						var ip10 = localStorage.getItem('B.2imagepath10');
+						var photo10 = document.getElementById('B.2photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('B.2pic10').innerHTML="B.2-10.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2707,8 +3156,7 @@
 				}
 				else if(page=="B_3"){
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('B_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('B.3notes').value = window.localStorage.getItem('B.3notes');
@@ -2716,6 +3164,69 @@
 					if(initGetScore11!=null){
 						document.getElementById('B.3score').innerHTML = window.localStorage.getItem('B.3score');
 					}
+					if(localStorage.getItem('B.3imagepath1')!=null){
+						var ip1 = localStorage.getItem('B.3imagepath1');
+						var photo1 = document.getElementById('B.3photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic1').innerHTML="B.3-1.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath2')!=null){
+						var ip2 = localStorage.getItem('B.3imagepath2');
+						var photo2 = document.getElementById('B.3photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic2').innerHTML="B.3-2.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath3')!=null){
+						var ip3 = localStorage.getItem('B.3imagepath3');
+						var photo3 = document.getElementById('B.3photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic3').innerHTML="B.3-3.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath4')!=null){
+						var ip4 = localStorage.getItem('B.3imagepath4');
+						var photo4 = document.getElementById('B.3photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic4').innerHTML="B.3-4.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath5')!=null){
+						var ip5 = localStorage.getItem('B.3imagepath5');
+						var photo5 = document.getElementById('B.3photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic5').innerHTML="B.3-5.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath6')!=null){
+						var ip6 = localStorage.getItem('B.3imagepath6');
+						var photo6 = document.getElementById('B.3photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic6').innerHTML="B.3-6.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath7')!=null){
+						var ip7 = localStorage.getItem('B.3imagepath7');
+						var photo7 = document.getElementById('B.3photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic7').innerHTML="B.3-7.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath8')!=null){
+						var ip8 = localStorage.getItem('B.3imagepath8');
+						var photo8 = document.getElementById('B.3photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic8').innerHTML="B.3-8.jpg";
+	                }
+	                if(localStorage.getItem('B.3imagepath9')!=null){
+						var ip9 = localStorage.getItem('B.3imagepath9');
+						var photo9 = document.getElementById('B.3photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('B.3pic9').innerHTML="B.3-9.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2782,8 +3293,7 @@
 				else if(page=="C_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('C_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('C.1notes').value = window.localStorage.getItem('C.1notes');
@@ -2791,6 +3301,90 @@
 					if(initGetScore12!=null){
 						document.getElementById('C.1score').innerHTML = window.localStorage.getItem('C.1score');
 					}
+					if(localStorage.getItem('C.1imagepath1')!=null){
+						var ip1 = localStorage.getItem('C.1imagepath1');
+						var photo1 = document.getElementById('C.1photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic1').innerHTML="C.1-1.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath2')!=null){
+						var ip2 = localStorage.getItem('C.1imagepath2');
+						var photo2 = document.getElementById('C.1photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic2').innerHTML="C.1-2.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath3')!=null){
+						var ip3 = localStorage.getItem('C.1imagepath3');
+						var photo3 = document.getElementById('C.1photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic3').innerHTML="C.1-3.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath4')!=null){
+						var ip4 = localStorage.getItem('C.1imagepath4');
+						var photo4 = document.getElementById('C.1photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic4').innerHTML="C.1-4.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath5')!=null){
+						var ip5 = localStorage.getItem('C.1imagepath5');
+						var photo5 = document.getElementById('C.1photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic5').innerHTML="C.1-5.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath6')!=null){
+						var ip6 = localStorage.getItem('C.1imagepath6');
+						var photo6 = document.getElementById('C.1photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic6').innerHTML="C.1-6.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath7')!=null){
+						var ip7 = localStorage.getItem('C.1imagepath7');
+						var photo7 = document.getElementById('C.1photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic7').innerHTML="C.1-7.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath8')!=null){
+						var ip8 = localStorage.getItem('C.1imagepath8');
+						var photo8 = document.getElementById('C.1photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic8').innerHTML="C.1-8.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath9')!=null){
+						var ip9 = localStorage.getItem('C.1imagepath9');
+						var photo9 = document.getElementById('C.1photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic9').innerHTML="C.1-9.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath10')!=null){
+						var ip10 = localStorage.getItem('C.1imagepath10');
+						var photo10 = document.getElementById('C.1photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic10').innerHTML="C.1-10.jpg";
+	                }
+	                if(localStorage.getItem('C.1imagepath11')!=null){
+						var ip11 = localStorage.getItem('C.1imagepath11');
+						var photo11 = document.getElementById('C.1photo11');
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic11').innerHTML="C.1-11.jpg";
+	                }	
+	                if(localStorage.getItem('C.1imagepath12')!=null){
+						var ip12 = localStorage.getItem('C.1imagepath12');
+						var photo12 = document.getElementById('C.1photo12');
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById('C.1pic12').innerHTML="C.1-12.jpg";
+	                }		
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2875,8 +3469,7 @@
 				else if(page=="C_2"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('C_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('C.2notes').value = window.localStorage.getItem('C.2notes');
@@ -2884,6 +3477,69 @@
 					if(initGetScore13!=null){
 						document.getElementById('C.2score').innerHTML = window.localStorage.getItem('C.2score');
 					}
+					if(localStorage.getItem('C.2imagepath1')!=null){
+						var ip1 = localStorage.getItem('C.2imagepath1');
+						var photo1 = document.getElementById('C.2photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic1').innerHTML="C.2-1.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath2')!=null){
+						var ip2 = localStorage.getItem('C.2imagepath2');
+						var photo2 = document.getElementById('C.2photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic2').innerHTML="C.2-2.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath3')!=null){
+						var ip3 = localStorage.getItem('C.2imagepath3');
+						var photo3 = document.getElementById('C.2photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic3').innerHTML="C.2-3.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath4')!=null){
+						var ip4 = localStorage.getItem('C.2imagepath4');
+						var photo4 = document.getElementById('C.2photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic4').innerHTML="C.2-4.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath5')!=null){
+						var ip5 = localStorage.getItem('C.2imagepath5');
+						var photo5 = document.getElementById('C.2photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic5').innerHTML="C.2-5.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath6')!=null){
+						var ip6 = localStorage.getItem('C.2imagepath6');
+						var photo6 = document.getElementById('C.2photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic6').innerHTML="C.2-6.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath7')!=null){
+						var ip7 = localStorage.getItem('C.2imagepath7');
+						var photo7 = document.getElementById('C.2photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic7').innerHTML="C.2-7.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath8')!=null){
+						var ip8 = localStorage.getItem('C.2imagepath8');
+						var photo8 = document.getElementById('C.2photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic8').innerHTML="C.2-8.jpg";
+	                }
+	                if(localStorage.getItem('C.2imagepath9')!=null){
+						var ip9 = localStorage.getItem('C.2imagepath9');
+						var photo9 = document.getElementById('C.2photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('C.2pic9').innerHTML="C.2-9.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -2950,8 +3606,7 @@
 				else if(page=="D_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.1notes').value = window.localStorage.getItem('D.1notes');
@@ -2959,6 +3614,97 @@
 					if(initGetScore14!=null){
 						document.getElementById('D.1score').innerHTML = window.localStorage.getItem('D.1score');
 					}
+					if(localStorage.getItem('D.1imagepath1')!=null){
+						var ip1 = localStorage.getItem('D.1imagepath1');
+						var photo1 = document.getElementById('D.1photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic1').innerHTML="D.1-1.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath2')!=null){
+						var ip2 = localStorage.getItem('D.1imagepath2');
+						var photo2 = document.getElementById('D.1photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic2').innerHTML="D.1-2.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath3')!=null){
+						var ip3 = localStorage.getItem('D.1imagepath3');
+						var photo3 = document.getElementById('D.1photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic3').innerHTML="D.1-3.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath4')!=null){
+						var ip4 = localStorage.getItem('D.1imagepath4');
+						var photo4 = document.getElementById('D.1photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic4').innerHTML="D.1-4.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath5')!=null){
+						var ip5 = localStorage.getItem('D.1imagepath5');
+						var photo5 = document.getElementById('D.1photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic5').innerHTML="D.1-5.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath6')!=null){
+						var ip6 = localStorage.getItem('D.1imagepath6');
+						var photo6 = document.getElementById('D.1photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic6').innerHTML="D.1-6.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath7')!=null){
+						var ip7 = localStorage.getItem('D.1imagepath7');
+						var photo7 = document.getElementById('D.1photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic7').innerHTML="D.1-7.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath8')!=null){
+						var ip8 = localStorage.getItem('D.1imagepath8');
+						var photo8 = document.getElementById('D.1photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic8').innerHTML="D.1-8.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath9')!=null){
+						var ip9 = localStorage.getItem('D.1imagepath9');
+						var photo9 = document.getElementById('D.1photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic9').innerHTML="D.1-9.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath10')!=null){
+						var ip10 = localStorage.getItem('D.1imagepath10');
+						var photo10 = document.getElementById('D.1photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic10').innerHTML="D.1-10.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath11')!=null){
+						var ip11 = localStorage.getItem('D.1imagepath11');
+						var photo11 = document.getElementById('D.1photo11');
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic11').innerHTML="D.1-11.jpg";
+	                }	
+	                if(localStorage.getItem('D.1imagepath12')!=null){
+						var ip12 = localStorage.getItem('D.1imagepath12');
+						var photo12 = document.getElementById('D.1photo12');
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic12').innerHTML="D.1-12.jpg";
+	                }
+	                if(localStorage.getItem('D.1imagepath13')!=null){
+						var ip13 = localStorage.getItem('D.1imagepath13');
+						var photo13 = document.getElementById('D.1photo13');
+	                  	photo13.src = ip13; 
+	                  	photo13.style.display = 'inline-block';
+	                  	document.getElementById('D.1pic13').innerHTML="D.1-13.jpg";
+	                }		
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3049,8 +3795,7 @@
 				else if(page=="D_2"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.2notes').value = window.localStorage.getItem('D.2notes');
@@ -3058,6 +3803,97 @@
 					if(initGetScore15!=null){
 						document.getElementById('D.2score').innerHTML = window.localStorage.getItem('D.2score');
 					}
+					if(localStorage.getItem('D.2imagepath1')!=null){
+						var ip1 = localStorage.getItem('D.2imagepath1');
+						var photo1 = document.getElementById('D.2photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic1').innerHTML="D.2-1.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath2')!=null){
+						var ip2 = localStorage.getItem('D.2imagepath2');
+						var photo2 = document.getElementById('D.2photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic2').innerHTML="D.2-2.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath3')!=null){
+						var ip3 = localStorage.getItem('D.2imagepath3');
+						var photo3 = document.getElementById('D.2photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic3').innerHTML="D.2-3.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath4')!=null){
+						var ip4 = localStorage.getItem('D.2imagepath4');
+						var photo4 = document.getElementById('D.2photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic4').innerHTML="D.2-4.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath5')!=null){
+						var ip5 = localStorage.getItem('D.2imagepath5');
+						var photo5 = document.getElementById('D.2photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic5').innerHTML="D.2-5.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath6')!=null){
+						var ip6 = localStorage.getItem('D.2imagepath6');
+						var photo6 = document.getElementById('D.2photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic6').innerHTML="D.2-6.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath7')!=null){
+						var ip7 = localStorage.getItem('D.2imagepath7');
+						var photo7 = document.getElementById('D.2photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic7').innerHTML="D.2-7.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath8')!=null){
+						var ip8 = localStorage.getItem('D.2imagepath8');
+						var photo8 = document.getElementById('D.2photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic8').innerHTML="D.2-8.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath9')!=null){
+						var ip9 = localStorage.getItem('D.2imagepath9');
+						var photo9 = document.getElementById('D.2photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic9').innerHTML="D.2-9.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath10')!=null){
+						var ip10 = localStorage.getItem('D.2imagepath10');
+						var photo10 = document.getElementById('D.2photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic10').innerHTML="D.2-10.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath11')!=null){
+						var ip11 = localStorage.getItem('D.2imagepath11');
+						var photo11 = document.getElementById('D.2photo11');
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic11').innerHTML="D.2-11.jpg";
+	                }	
+	                if(localStorage.getItem('D.2imagepath12')!=null){
+						var ip12 = localStorage.getItem('D.2imagepath12');
+						var photo12 = document.getElementById('D.2photo12');
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic12').innerHTML="D.2-12.jpg";
+	                }
+	                if(localStorage.getItem('D.2imagepath13')!=null){
+						var ip13 = localStorage.getItem('D.2imagepath13');
+						var photo13 = document.getElementById('D.2photo13');
+	                  	photo13.src = ip13; 
+	                  	photo13.style.display = 'inline-block';
+	                  	document.getElementById('D.2pic13').innerHTML="D.2-13.jpg";
+	                }	
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3148,8 +3984,7 @@
 				else if(page=="D_3"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.3notes').value = window.localStorage.getItem('D.3notes');
@@ -3157,6 +3992,90 @@
 					if(initGetScore16!=null){
 						document.getElementById('D.3score').innerHTML = window.localStorage.getItem('D.3score');
 					}
+					if(localStorage.getItem('D.3imagepath1')!=null){
+						var ip1 = localStorage.getItem('D.3imagepath1');
+						var photo1 = document.getElementById('D.3photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic1').innerHTML="D.3-1.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath2')!=null){
+						var ip2 = localStorage.getItem('D.3imagepath2');
+						var photo2 = document.getElementById('D.3photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic2').innerHTML="D.3-2.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath3')!=null){
+						var ip3 = localStorage.getItem('D.3imagepath3');
+						var photo3 = document.getElementById('D.3photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic3').innerHTML="D.3-3.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath4')!=null){
+						var ip4 = localStorage.getItem('D.3imagepath4');
+						var photo4 = document.getElementById('D.3photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic4').innerHTML="D.3-4.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath5')!=null){
+						var ip5 = localStorage.getItem('D.3imagepath5');
+						var photo5 = document.getElementById('D.3photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic5').innerHTML="D.3-5.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath6')!=null){
+						var ip6 = localStorage.getItem('D.3imagepath6');
+						var photo6 = document.getElementById('D.3photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic6').innerHTML="D.3-6.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath7')!=null){
+						var ip7 = localStorage.getItem('D.3imagepath7');
+						var photo7 = document.getElementById('D.3photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic7').innerHTML="D.3-7.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath8')!=null){
+						var ip8 = localStorage.getItem('D.3imagepath8');
+						var photo8 = document.getElementById('D.3photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic8').innerHTML="D.3-8.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath9')!=null){
+						var ip9 = localStorage.getItem('D.3imagepath9');
+						var photo9 = document.getElementById('D.3photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic9').innerHTML="D.3-9.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath10')!=null){
+						var ip10 = localStorage.getItem('D.3imagepath10');
+						var photo10 = document.getElementById('D.3photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic10').innerHTML="D.3-10.jpg";
+	                }
+	                if(localStorage.getItem('D.3imagepath11')!=null){
+						var ip11 = localStorage.getItem('D.3imagepath11');
+						var photo11 = document.getElementById('D.3photo11');
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic11').innerHTML="D.3-11.jpg";
+	                }	
+	                if(localStorage.getItem('D.3imagepath12')!=null){
+						var ip12 = localStorage.getItem('D.3imagepath12');
+						var photo12 = document.getElementById('D.3photo12');
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById('D.3pic12').innerHTML="D.3-12.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3241,8 +4160,7 @@
 				else if(page=="D_4"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('D_4arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('D.4notes').value = window.localStorage.getItem('D.4notes');
@@ -3250,6 +4168,111 @@
 					if(initGetScore17!=null){
 						document.getElementById('D.4score').innerHTML = window.localStorage.getItem('D.4score');
 					}
+					if(localStorage.getItem('D.4imagepath1')!=null){
+						var ip1 = localStorage.getItem('D.4imagepath1');
+						var photo1 = document.getElementById('D.4photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic1').innerHTML="D.4-1.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath2')!=null){
+						var ip2 = localStorage.getItem('D.4imagepath2');
+						var photo2 = document.getElementById('D.4photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic2').innerHTML="D.4-2.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath3')!=null){
+						var ip3 = localStorage.getItem('D.4imagepath3');
+						var photo3 = document.getElementById('D.4photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic3').innerHTML="D.4-3.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath4')!=null){
+						var ip4 = localStorage.getItem('D.4imagepath4');
+						var photo4 = document.getElementById('D.4photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic4').innerHTML="D.4-4.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath5')!=null){
+						var ip5 = localStorage.getItem('D.4imagepath5');
+						var photo5 = document.getElementById('D.4photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic5').innerHTML="D.4-5.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath6')!=null){
+						var ip6 = localStorage.getItem('D.4imagepath6');
+						var photo6 = document.getElementById('D.4photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic6').innerHTML="D.4-6.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath7')!=null){
+						var ip7 = localStorage.getItem('D.4imagepath7');
+						var photo7 = document.getElementById('D.4photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic7').innerHTML="D.4-7.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath8')!=null){
+						var ip8 = localStorage.getItem('D.4imagepath8');
+						var photo8 = document.getElementById('D.4photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic8').innerHTML="D.4-8.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath9')!=null){
+						var ip9 = localStorage.getItem('D.4imagepath9');
+						var photo9 = document.getElementById('D.4photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic9').innerHTML="D.4-9.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath10')!=null){
+						var ip10 = localStorage.getItem('D.4imagepath10');
+						var photo10 = document.getElementById('D.4photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic10').innerHTML="D.4-10.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath11')!=null){
+						var ip11 = localStorage.getItem('D.4imagepath11');
+						var photo11 = document.getElementById('D.4photo11');
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic11').innerHTML="D.4-11.jpg";
+	                }	
+	                if(localStorage.getItem('D.4imagepath12')!=null){
+						var ip12 = localStorage.getItem('D.4imagepath12');
+						var photo12 = document.getElementById('D.4photo12');
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic12').innerHTML="D.4-12.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath13')!=null){
+						var ip13 = localStorage.getItem('D.4imagepath13');
+						var photo13 = document.getElementById('D.4photo13');
+	                  	photo13.src = ip13; 
+	                  	photo13.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic13').innerHTML="D.4-13.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath14')!=null){
+						var ip14 = localStorage.getItem('D.4imagepath14');
+						var photo14 = document.getElementById('D.4photo14');
+	                  	photo14.src = ip14; 
+	                  	photo14.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic14').innerHTML="D.4-14.jpg";
+	                }
+	                if(localStorage.getItem('D.4imagepath15')!=null){
+						var ip15 = localStorage.getItem('D.4imagepath15');
+						var photo15 = document.getElementById('D.4photo15');
+	                  	photo15.src = ip15; 
+	                  	photo15.style.display = 'inline-block';
+	                  	document.getElementById('D.4pic15').innerHTML="D.4-15.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3352,8 +4375,7 @@
 				else if(page=="E_1"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('E_1arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('E.1notes').value = window.localStorage.getItem('E.1notes');
@@ -3361,6 +4383,62 @@
 					if(initGetScore18!=null){
 						document.getElementById('E.1score').innerHTML = window.localStorage.getItem('E.1score');
 					}
+					if(localStorage.getItem('E.1imagepath1')!=null){
+						var ip1 = localStorage.getItem('E.1imagepath1');
+						var photo1 = document.getElementById('E.1photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic1').innerHTML="E.1-1.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath2')!=null){
+						var ip2 = localStorage.getItem('E.1imagepath2');
+						var photo2 = document.getElementById('E.1photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic2').innerHTML="E.1-2.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath3')!=null){
+						var ip3 = localStorage.getItem('E.1imagepath3');
+						var photo3 = document.getElementById('E.1photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic3').innerHTML="E.1-3.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath4')!=null){
+						var ip4 = localStorage.getItem('E.1imagepath4');
+						var photo4 = document.getElementById('E.1photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic4').innerHTML="E.1-4.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath5')!=null){
+						var ip5 = localStorage.getItem('E.1imagepath5');
+						var photo5 = document.getElementById('E.1photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic5').innerHTML="E.1-5.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath6')!=null){
+						var ip6 = localStorage.getItem('E.1imagepath6');
+						var photo6 = document.getElementById('E.1photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic6').innerHTML="E.1-6.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath7')!=null){
+						var ip7 = localStorage.getItem('E.1imagepath7');
+						var photo7 = document.getElementById('E.1photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic7').innerHTML="E.1-7.jpg";
+	                }
+	                if(localStorage.getItem('E.1imagepath8')!=null){
+						var ip8 = localStorage.getItem('E.1imagepath8');
+						var photo8 = document.getElementById('E.1photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('E.1pic8').innerHTML="E.1-8.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3421,8 +4499,7 @@
 				else if(page=="E_2"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('E_2arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('E.2notes').value = window.localStorage.getItem('E.2notes');
@@ -3430,6 +4507,62 @@
 					if(initGetScore19!=null){
 						document.getElementById('E.2score').innerHTML = window.localStorage.getItem('E.2score');
 					}
+					if(localStorage.getItem('E.2imagepath1')!=null){
+						var ip1 = localStorage.getItem('E.2imagepath1');
+						var photo1 = document.getElementById('E.2photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic1').innerHTML="E.2-1.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath2')!=null){
+						var ip2 = localStorage.getItem('E.2imagepath2');
+						var photo2 = document.getElementById('E.2photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic2').innerHTML="E.2-2.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath3')!=null){
+						var ip3 = localStorage.getItem('E.2imagepath3');
+						var photo3 = document.getElementById('E.2photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic3').innerHTML="E.2-3.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath4')!=null){
+						var ip4 = localStorage.getItem('E.2imagepath4');
+						var photo4 = document.getElementById('E.2photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic4').innerHTML="E.2-4.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath5')!=null){
+						var ip5 = localStorage.getItem('E.2imagepath5');
+						var photo5 = document.getElementById('E.2photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic5').innerHTML="E.2-5.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath6')!=null){
+						var ip6 = localStorage.getItem('E.2imagepath6');
+						var photo6 = document.getElementById('E.2photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic6').innerHTML="E.2-6.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath7')!=null){
+						var ip7 = localStorage.getItem('E.2imagepath7');
+						var photo7 = document.getElementById('E.2photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic7').innerHTML="E.2-7.jpg";
+	                }
+	                if(localStorage.getItem('E.2imagepath8')!=null){
+						var ip8 = localStorage.getItem('E.2imagepath8');
+						var photo8 = document.getElementById('E.2photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('E.2pic8').innerHTML="E.2-8.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3490,8 +4623,7 @@
 				else if(page=="E_3"){
 					//to see if your on the last form. Replaces next arrow with submit button.
 					if(pNum==fLen){
-						document.getElementById('btnNext').style.visibility="hidden";
-						document.getElementById('E_3arrow').style.visibility="hidden";
+						document.getElementById('checkNext').style.visibility="hidden";
 						document.getElementById('btnSubmit').style.visibility="visible";
 					}
 					document.getElementById('E.3notes').value = window.localStorage.getItem('E.3notes');
@@ -3499,6 +4631,90 @@
 					if(initGetScore20!=null){
 						document.getElementById('E.3score').innerHTML = window.localStorage.getItem('E.3score');
 					}
+					if(localStorage.getItem('E.3imagepath1')!=null){
+						var ip1 = localStorage.getItem('E.3imagepath1');
+						var photo1 = document.getElementById('E.3photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic1').innerHTML="E.3-1.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath2')!=null){
+						var ip2 = localStorage.getItem('E.3imagepath2');
+						var photo2 = document.getElementById('E.3photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic2').innerHTML="E.3-2.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath3')!=null){
+						var ip3 = localStorage.getItem('E.3imagepath3');
+						var photo3 = document.getElementById('E.3photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic3').innerHTML="E.3-3.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath4')!=null){
+						var ip4 = localStorage.getItem('E.3imagepath4');
+						var photo4 = document.getElementById('E.3photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic4').innerHTML="E.3-4.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath5')!=null){
+						var ip5 = localStorage.getItem('E.3imagepath5');
+						var photo5 = document.getElementById('E.3photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic5').innerHTML="E.3-5.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath6')!=null){
+						var ip6 = localStorage.getItem('E.3imagepath6');
+						var photo6 = document.getElementById('E.3photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic6').innerHTML="E.3-6.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath7')!=null){
+						var ip7 = localStorage.getItem('E.3imagepath7');
+						var photo7 = document.getElementById('E.3photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic7').innerHTML="E.3-7.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath8')!=null){
+						var ip8 = localStorage.getItem('E.3imagepath8');
+						var photo8 = document.getElementById('E.3photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic8').innerHTML="E.3-8.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath9')!=null){
+						var ip9 = localStorage.getItem('E.3imagepath9');
+						var photo9 = document.getElementById('E.3photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic9').innerHTML="E.3-9.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath10')!=null){
+						var ip10 = localStorage.getItem('E.3imagepath10');
+						var photo10 = document.getElementById('E.3photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic10').innerHTML="E.3-10.jpg";
+	                }
+	                if(localStorage.getItem('E.3imagepath11')!=null){
+						var ip11 = localStorage.getItem('E.3imagepath11');
+						var photo11 = document.getElementById('E.3photo11');
+	                  	photo11.src = ip11; 
+	                  	photo11.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic11').innerHTML="E.3-11.jpg";
+	                }	
+	                if(localStorage.getItem('E.3imagepath12')!=null){
+						var ip12 = localStorage.getItem('E.3imagepath12');
+						var photo12 = document.getElementById('E.3photo12');
+	                  	photo12.src = ip12; 
+	                  	photo12.style.display = 'inline-block';
+	                  	document.getElementById('E.3pic12').innerHTML="E.3-12.jpg";
+	                }
 					$('input[type=radio]').each(function()
 				    {
 				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
@@ -3580,6 +4796,156 @@
 						}
 				    });
 				}
+				else if(page=="E_4"){
+					//to see if your on the last form. Replaces next arrow with submit button.
+					if(pNum==fLen){
+						document.getElementById('checkNext').style.visibility="hidden";
+						document.getElementById('btnSubmit').style.visibility="visible";
+					}
+					document.getElementById('E.4notes').value = window.localStorage.getItem('E.4notes');
+					var initGetScore21=localStorage.getItem('l21');
+					if(initGetScore21!=null){
+						document.getElementById('E.3score').innerHTML = window.localStorage.getItem('E.4score');
+					}
+					if(localStorage.getItem('E.4imagepath1')!=null){
+						var ip1 = localStorage.getItem('E.4imagepath1');
+						var photo1 = document.getElementById('E.4photo1');
+	                  	photo1.src = ip1; 
+	                  	photo1.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic1').innerHTML="E.4-1.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath2')!=null){
+						var ip2 = localStorage.getItem('E.4imagepath2');
+						var photo2 = document.getElementById('E.4photo2');
+	                  	photo2.src = ip2; 
+	                  	photo2.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic2').innerHTML="E.4-2.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath3')!=null){
+						var ip3 = localStorage.getItem('E.4imagepath3');
+						var photo3 = document.getElementById('E.4photo3');
+	                  	photo3.src = ip3; 
+	                  	photo3.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic3').innerHTML="E.4-3.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath4')!=null){
+						var ip4 = localStorage.getItem('E.4imagepath4');
+						var photo4 = document.getElementById('E.4photo4');
+	                  	photo4.src = ip4; 
+	                  	photo4.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic4').innerHTML="E.4-4.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath5')!=null){
+						var ip5 = localStorage.getItem('E.4imagepath5');
+						var photo5 = document.getElementById('E.4photo5');
+	                  	photo5.src = ip5; 
+	                  	photo5.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic5').innerHTML="E.4-5.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath6')!=null){
+						var ip6 = localStorage.getItem('E.4imagepath6');
+						var photo6 = document.getElementById('E.4photo6');
+	                  	photo6.src = ip6; 
+	                  	photo6.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic6').innerHTML="E.4-6.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath7')!=null){
+						var ip7 = localStorage.getItem('E.4imagepath7');
+						var photo7 = document.getElementById('E.4photo7');
+	                  	photo7.src = ip7; 
+	                  	photo7.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic7').innerHTML="E.4-7.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath8')!=null){
+						var ip8 = localStorage.getItem('E.4imagepath8');
+						var photo8 = document.getElementById('E.4photo8');
+	                  	photo8.src = ip8; 
+	                  	photo8.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic8').innerHTML="E.4-8.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath9')!=null){
+						var ip9 = localStorage.getItem('E.4imagepath9');
+						var photo9 = document.getElementById('E.4photo9');
+	                  	photo9.src = ip9; 
+	                  	photo9.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic9').innerHTML="E.4-9.jpg";
+	                }
+	                if(localStorage.getItem('E.4imagepath10')!=null){
+						var ip10 = localStorage.getItem('E.4imagepath10');
+						var photo10 = document.getElementById('E.4photo10');
+	                  	photo10.src = ip10; 
+	                  	photo10.style.display = 'inline-block';
+	                  	document.getElementById('E.4pic10').innerHTML="E.4-10.jpg";
+	                }
+					$('input[type=radio]').each(function()
+				    {
+				        var state = JSON.parse( localStorage.getItem('radio_'  + $(this).attr('id')) );
+				        
+				        if (state) this.checked = state.checked;
+						if((this.value=='partiallyCompliant' || this.value=='nonCompliant') && state.checked){
+							if(this.name=='box1'){
+								document.getElementById('E.4compliance1').value = window.localStorage.getItem('E.4compliance1');
+								var showDiv=document.getElementById('E.4firstDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box2'){
+								document.getElementById('E.4compliance2').value = window.localStorage.getItem('E.4compliance2');
+								var showDiv=document.getElementById('E.4secondDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box3'){
+								document.getElementById('E.4compliance3').value = window.localStorage.getItem('E.4compliance3');
+								var showDiv=document.getElementById('E.4thirdDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box4'){
+								document.getElementById('E.4compliance4').value = window.localStorage.getItem('E.4compliance4');
+								var showDiv=document.getElementById('E.4fourthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box5'){
+								document.getElementById('E.4compliance5').value = window.localStorage.getItem('E.4compliance5');
+								var showDiv=document.getElementById('E.4fifthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box6'){
+								document.getElementById('E.4compliance6').value = window.localStorage.getItem('E.4compliance6');
+								var showDiv=document.getElementById('E.4sixthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box7'){
+								document.getElementById('E.4compliance7').value = window.localStorage.getItem('E.4compliance7');
+								var showDiv=document.getElementById('E.4seventhDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box8'){
+								document.getElementById('E.4compliance8').value = window.localStorage.getItem('E.4compliance8');
+								var showDiv=document.getElementById('E.4eigthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box9'){
+								document.getElementById('E.4compliance9').value = window.localStorage.getItem('E.4compliance9');
+								var showDiv=document.getElementById('E.4ninthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+							else if(this.name=='box10'){
+								document.getElementById('E.4compliance10').value = window.localStorage.getItem('E.4compliance10');
+								var showDiv=document.getElementById('E.4tenthDiv');
+								showDiv.style.visibility="visible";
+	        					showDiv.style.display="inline";
+							}
+						}
+				    });
+				}
 				else{
 					console.log('..');
 				}
@@ -3594,46 +4960,7 @@
 				    for (i = 0; i < checkboxes.length; i++) {
         				localStorage.setItem(checkboxes[i].value, checkboxes[i].checked); 
     			}
-    			var test2 = window.localStorage.getItem('test3');
-    			if(test2==null){
-    				localStorage["checkedForms"] = JSON.stringify(checkedForms);
-    				//var firstChecked = JSON.parse(localStorage["checkedForms"]);
-    				var test3 = false;
-    				window.localStorage.setItem('test3', test3);
-    				console.log("FIRST");
-    			}
-    			else{
-    				console.log("SECOND");
-    				
-    				var test1 = window.localStorage.getItem('test');
-    				if(test1==null){
-    					storedCheckedForms=JSON.parse(localStorage["checkedForms"]);
-    					var test = false;
-    					window.localStorage.setItem('forms', storedCheckedForms); 
-    					window.localStorage.setItem('test', test);
-    					console.log("storedChecked=first");
-    				}
-					else{
-						storedCheckedForms = JSON.parse(localStorage["storedCheckedForms"]);
-						console.log("storedChecked=second");
-					}
-	    			var x;
-	    			console.log("storedCheckedForms" + storedCheckedForms);
-	    			console.log("checkedForms" + checkedForms);
-	    			for(x = 0; x < checkedForms.length; x++){
-	    				if(checkedForms[x]==1 && storedCheckedForms[x]==0){
-	    					storedCheckedForms[x]=1;
-	    					console.log('HIT');
-	    				}
-	    				else if(checkedForms[x]==1 && storedCheckedForms[x]==1){
-	    					storedCheckedForms[x]=0;
-	    					console.log('HIT2');
-	    				}
-	    			}
-	    			localStorage["storedCheckedForms"] = JSON.stringify(storedCheckedForms);
-	    			console.log("storedCheckedForms" + storedCheckedForms);
-    			}
-
+    			localStorage["checkedForms"] = JSON.stringify(checkedForms);
     			console.log("Stores!");
 			}
 			else if(page=="A_1"){
@@ -4274,6 +5601,38 @@
 				window.localStorage.setItem('E.3compliance11', E_3eleventhCompliance);
 				window.localStorage.setItem('E.3compliance12', E_3twelthCompliance);
 			}
+			else if(page=="E_4"){
+				var score21 = document.getElementById('E.4score').innerHTML;
+				var endNotes21 = document.getElementById('E.4notes').value;
+				var E_4firstCompliance = document.getElementById('E.4compliance1').value;
+				var E_4secondCompliance = document.getElementById('E.4compliance2').value;
+				var E_4thirdCompliance = document.getElementById('E.4compliance3').value;
+				var E_4fourthCompliance = document.getElementById('E.4compliance4').value;
+				var E_4fifthCompliance = document.getElementById('E.4compliance5').value;
+				var E_4sixthCompliance = document.getElementById('E.4compliance6').value;
+				var E_4seventhCompliance = document.getElementById('E.4compliance7').value;
+				var E_4eigthCompliance = document.getElementById('E.4compliance8').value;
+				var E_4ninthCompliance = document.getElementById('E.4compliance9').value;
+				var E_4tenthCompliance = document.getElementById('E.4compliance10').value;
+					    $('input[type=radio]').each(function()
+					    {
+					        localStorage.setItem(
+					            'radio_' + $(this).attr('id'), JSON.stringify({checked: this.checked})
+					        );
+					    });
+				window.localStorage.setItem('E.4notes', endNotes21);
+				window.localStorage.setItem('E.4score', score21);
+				window.localStorage.setItem('E.4compliance1', E_4firstCompliance);
+				window.localStorage.setItem('E.4compliance2', E_4secondCompliance);
+				window.localStorage.setItem('E.4compliance3', E_4thirdCompliance);
+				window.localStorage.setItem('E.4compliance4', E_4fourthCompliance);
+				window.localStorage.setItem('E.4compliance5', E_4fifthCompliance);
+				window.localStorage.setItem('E.4compliance6', E_4sixthCompliance);
+				window.localStorage.setItem('E.4compliance7', E_4seventhCompliance);
+				window.localStorage.setItem('E.4compliance8', E_4eigthCompliance);
+				window.localStorage.setItem('E.4compliance9', E_4ninthCompliance);
+				window.localStorage.setItem('E.4compliance10', E_4tenthCompliance);
+			}
 			else{
 				console.log('..');
 			}
@@ -4292,6 +5651,21 @@
     function onDeviceReady(){
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        FastClick.attach(document.body);
+        	var btn = document.getElementById("btnNext");
+	        var span = document.querySelector( "span" );
+	        var delay;
+
+		    btn.addEventListener( "touchend", function() {
+		    	console.log("here1?");
+		        delay = Date.now();
+		        console.log(delay);
+		    });
+		    btn.addEventListener( "click", function() {
+		    	console.log("here?");
+		        //span.innerHTML = Date.now() - delay;
+		        console.log("Time in ms: " + (Date.now()-delay));
+		    });
         console.log(navigator.camera);
     }
 	// Called when a photo is successfully retrieved
@@ -4303,10 +5677,112 @@
       console.log("getsHERE");
       var pCount=localStorage.getItem('pictureCount');
       var photo = "photo";
-      var imageID = photo + pCount;
-      var image = document.getElementById(imageID);
+      if(pCount<=12){
+      	var imageID = "photo" + pCount;
+      	var image = document.getElementById(imageID);
+      }
+      else if(pCount>12&&pCount<=22){
+      	pCount=pCount-12;
+        var imageID = "A.2photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>22&&pCount<=32){
+      	pCount=pCount-22;
+        var imageID = "A.3photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>32&&pCount<=41){
+      	pCount=pCount-32;
+        var imageID = "A.4photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>41&&pCount<=50){
+      	pCount=pCount-41;
+        var imageID = "A.5photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>50&&pCount<=56){
+      	pCount=pCount-50;
+        var imageID = "A.6photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>56&&pCount<=63){
+      	pCount=pCount-56;
+        var imageID = "A.7photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>63&&pCount<=68){
+      	pCount=pCount-63;
+        var imageID = "A.8photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>68&&pCount<=78){
+      	pCount=pCount-68;
+        var imageID = "B.1photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>78&&pCount<=88){
+      	pCount=pCount-78;
+        var imageID = "B.2photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>88&&pCount<=97){
+      	pCount=pCount-88;
+        var imageID = "B.3photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>97&&pCount<=109){
+      	pCount=pCount-97;
+        var imageID = "C.1photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>109&&pCount<=118){
+      	pCount=pCount-109;
+        var imageID = "C.2photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>118&&pCount<=131){
+      	pCount=pCount-118;
+        var imageID = "D.1photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>131&&pCount<=144){
+      	pCount=pCount-131;
+        var imageID = "D.2photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>144&&pCount<=156){
+      	pCount=pCount-144;
+        var imageID = "D.3photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>156&&pCount<=171){
+      	pCount=pCount-156;
+        var imageID = "D.4photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>171&&pCount<=179){
+      	pCount=pCount-171;
+        var imageID = "E.1photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>179&&pCount<=187){
+      	pCount=pCount-179;
+        var imageID = "E.2photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>187&&pCount<=199){
+      	pCount=pCount-187;
+        var imageID = "E.3photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
+      else if(pCount>199&&pCount<=209){
+      	pCount=pCount-199;
+        var imageID = "E.4photo" + pCount;
+      	var image = document.getElementById(imageID);	
+      }
       image.style.display = 'inline-block';
-      image.src = imageURI;
+      image.src = imageURI;	
       movePic(imageURI);
     }
 
@@ -4349,6 +5825,86 @@
       if(x<=12){
       	var newFileName = n + "_A.1-" + x + ".jpg";
       }
+      if(x>12 && x<=22){
+      	x=x-12;
+      	var newFileName = n +"_A.2-" + x + ".jpg";
+      }
+      if(x>22 && x<=32){
+      	x=x-22;
+      	var newFileName = n +"_A.3-" + x + ".jpg";
+      }
+      if(x>32 && x<=41){
+      	x=x-32;
+      	var newFileName = n +"_A.4-" + x + ".jpg";
+      }
+      if(x>41 && x<=50){
+      	x=x-41;
+      	var newFileName = n +"_A.5-" + x + ".jpg";
+      }
+      if(x>50 && x<=56){
+      	x=x-50;
+      	var newFileName = n +"_A.6-" + x + ".jpg";
+      }
+      if(x>56 && x<=63){
+      	x=x-56;
+      	var newFileName = n +"_A.7-" + x + ".jpg";
+      }
+      if(x>63 && x<=68){
+      	x=x-63;
+      	var newFileName = n +"_A.8-" + x + ".jpg";
+      }
+      if(x>68 && x<=78){
+      	x=x-68;
+      	var newFileName = n +"_B.1-" + x + ".jpg";
+      }
+      if(x>78 && x<=88){
+      	x=x-78;
+      	var newFileName = n +"_B.2-" + x + ".jpg";
+      }
+      if(x>88 && x<=97){
+      	x=x-88;
+      	var newFileName = n +"_B.3-" + x + ".jpg";
+      }
+      if(x>97 && x<=109){
+      	x=x-97;
+      	var newFileName = n +"_C.1-" + x + ".jpg";
+      }
+      if(x>109 && x<=118){
+      	x=x-109;
+      	var newFileName = n +"_C.2-" + x + ".jpg";
+      }
+      if(x>118 && x<=131){
+      	x=x-118;
+      	var newFileName = n +"_D.1-" + x + ".jpg";
+      }
+      if(x>131 && x<=144){
+      	x=x-131;
+      	var newFileName = n +"_D.2-" + x + ".jpg";
+      }
+      if(x>144 && x<=156){
+      	x=x-144;
+      	var newFileName = n +"_D.3-" + x + ".jpg";
+      }
+      if(x>156 && x<=171){
+      	x=x-156;
+      	var newFileName = n +"_D.4-" + x + ".jpg";
+      }
+      if(x>171 && x<=179){
+      	x=x-171;
+      	var newFileName = n +"_E.1-" + x + ".jpg";
+      }
+      if(x>179 && x<=187){
+      	x=x-179;
+      	var newFileName = n +"_E.2-" + x + ".jpg";
+      }
+      if(x>187 && x<=199){
+      	x=x-187;
+      	var newFileName = n +"_E.3-" + x + ".jpg";
+      }
+      if(x>199 && x<=209){
+      	x=x-199;
+      	var newFileName = n +"_E.4-" + x + ".jpg";
+      }
       var myFolderApp = "MyAppFolder";
 
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
@@ -4369,23 +5925,178 @@
       //Store imagepath in session for future use
       // like to store it in database
       var picCount=localStorage.getItem('pictureCount');
-      var pathNum = "imagepath" + picCount; 
-      var photoNum = "photo" + picCount; 
-      var picNum = "pic" + picCount; 
-      localStorage.setItem(pathNum, entry.toURL());
-      var image = document.getElementById(photoNum);
+      var pathNum;
+      var photoNum;
+      var picNum;
+      if(picCount<=12){
+	      pathNum = "imagepath" + picCount;
+	      photoNum = "photo" + picCount; 
+	      picNum = "pic" + picCount; 
+          document.getElementById(picNum).innerHTML="A.1-"+picCount+".jpg";
+	  }
+	  else if(picCount>12 && picCount <=22){
+	  	  picCount=picCount-12;
+	  	  pathNum = "A.2imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.2photo" + picCount; 
+	      picNum = "A.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.2-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>22 && picCount <=32){
+	  	  picCount=picCount-22;
+	  	  pathNum = "A.3imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.3photo" + picCount; 
+	      picNum = "A.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.3-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>32 && picCount <=41){
+	  	  picCount=picCount-32;
+	  	  pathNum = "A.4imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.4photo" + picCount; 
+	      picNum = "A.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.4-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>41 && picCount <=50){
+	  	  picCount=picCount-41;
+	  	  pathNum = "A.5imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.5photo" + picCount; 
+	      picNum = "A.5pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.5-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>50 && picCount <=56){
+	  	  picCount=picCount-50;
+	  	  pathNum = "A.6imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.6photo" + picCount; 
+	      picNum = "A.6pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.6-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>56 && picCount <=63){
+	  	  picCount=picCount-56;
+	  	  pathNum = "A.7imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.7photo" + picCount; 
+	      picNum = "A.7pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.7-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>63 && picCount <=68){
+	  	  picCount=picCount-63;
+	  	  pathNum = "A.8imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "A.8photo" + picCount; 
+	      picNum = "A.8pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.8-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>68 && picCount <=78){
+	  	  picCount=picCount-68;
+	  	  pathNum = "B.1imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "B.1photo" + picCount; 
+	      picNum = "B.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="B.1-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>78 && picCount <=88){
+	  	  picCount=picCount-78;
+	  	  pathNum = "B.2imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "B.2photo" + picCount; 
+	      picNum = "B.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="B.2-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>88 && picCount <=97){
+	  	  picCount=picCount-88;
+	  	  pathNum = "B.3imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "B.3photo" + picCount; 
+	      picNum = "B.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="B.3-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>97 && picCount <=109){
+	  	  picCount=picCount-97;
+	  	  pathNum = "C.1imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "C.1photo" + picCount; 
+	      picNum = "C.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="C.1-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>109 && picCount <=118){
+	  	  picCount=picCount-109;
+	  	  pathNum = "C.2imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "C.2photo" + picCount; 
+	      picNum = "C.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="C.2-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>118 && picCount <=131){
+	  	  picCount=picCount-118;
+	  	  pathNum = "D.1imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "D.1photo" + picCount; 
+	      picNum = "D.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.1-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>131 && picCount <=144){
+	  	  picCount=picCount-131;
+	  	  pathNum = "D.2imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "D.2photo" + picCount; 
+	      picNum = "D.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.2-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>144 && picCount <=156){
+	  	  picCount=picCount-144;
+	  	  pathNum = "D.3imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "D.3photo" + picCount; 
+	      picNum = "D.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.3-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>156 && picCount <=171){
+	  	  picCount=picCount-156;
+	  	  pathNum = "D.4imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "D.4photo" + picCount; 
+	      picNum = "D.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.4-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>171 && picCount <=179){
+	  	  picCount=picCount-171;
+	  	  pathNum = "E.1imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "E.1photo" + picCount; 
+	      picNum = "E.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.1-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>179 && picCount <=187){
+	  	  picCount=picCount-179;
+	  	  pathNum = "E.2imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "E.2photo" + picCount; 
+	      picNum = "E.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.2-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>187 && picCount <=199){
+	  	  picCount=picCount-187;
+	  	  pathNum = "E.3imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "E.3photo" + picCount; 
+	      picNum = "E.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.3-"+picCount+".jpg"; 	
+	  }
+	  else if(picCount>199 && picCount <=209){
+	  	  picCount=picCount-199;
+	  	  pathNum = "E.4imagepath" + picCount; 
+	  	  console.log(pathNum);
+	      photoNum = "E.4photo" + picCount; 
+	      picNum = "E.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.4-"+picCount+".jpg"; 	
+	  }
+	  var image = document.getElementById(photoNum);
+      localStorage.setItem(pathNum, entry.toURL()); 
       image.src = localStorage.getItem(pathNum);
-      document.getElementById(picNum).innerHTML="A.1-"+picCount+".jpg";
-      /*
-      if(picCount==1){
-        localStorage.setItem('imagepath1', entry.toURL());
-        var photo1 = document.getElementById('photo1');
-        photo1.src = localStorage.getItem('imagepath1');
-        document.getElementById("pic1").innerHTML="A.1-1.jpg";
-        console.log("entry.toURL()" + entry.toURL());
-        console.log("entry.fullPath" + entry.fullPath);
-      }
-      */   
   }
   // Get a directory reader
   //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
@@ -4413,13 +6124,114 @@
     alert('Failed because: ' + message);
   }
   function openImage(pNum){
-  	var photo="photo";
-  	var num = pNum;
-  	var imageId = photo + num;
+  	if(pNum<=12){
+  		var photo="photo";
+  		var imageId = photo + pNum;
+  	}
+  	else if(pNum>12 && pNum<=22){
+  		var photo="A.2photo";
+  		var num=pNum-12;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>22 && pNum<=32){
+  		var photo="A.3photo";
+  		var num=pNum-22;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>32 && pNum<=41){
+  		var photo="A.4photo";
+  		var num=pNum-32;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>41 && pNum<=50){
+  		var photo="A.5photo";
+  		var num=pNum-41;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>50 && pNum<=56){
+  		var photo="A.6photo";
+  		var num=pNum-50;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>56 && pNum<=63){
+  		var photo="A.7photo";
+  		var num=pNum-56;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>63 && pNum<=68){
+  		var photo="A.8photo";
+  		var num=pNum-63;
+  		var imageId =photo + num;
+  	}    	
+  	else if(pNum>68 && pNum<=78){
+  		var photo="B.1photo";
+  		var num=pNum-68;
+  		var imageId =photo + num;
+  	}    
+  	else if(pNum>78 && pNum<=88){
+  		var photo="B.2photo";
+  		var num=pNum-78;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>88 && pNum<=97){
+  		var photo="B.3photo";
+  		var num=pNum-88;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>97 && pNum<=109){
+  		var photo="C.1photo";
+  		var num=pNum-97;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>109 && pNum<=118){
+  		var photo="C.2photo";
+  		var num=pNum-109;
+  		var imageId =photo + num;
+  	} 
+  	else if(pNum>118 && pNum<=131){
+  		var photo="D.1photo";
+  		var num=pNum-118;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>131 && pNum<=144){
+  		var photo="D.2photo";
+  		var num=pNum-131;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>144 && pNum<=156){
+  		var photo="D.3photo";
+  		var num=pNum-144;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>156 && pNum<=171){
+  		var photo="D.4photo";
+  		var num=pNum-156;
+  		var imageId =photo + num;
+  	}            
+  	else if(pNum>171 && pNum<=179){
+  		var photo="E.1photo";
+  		var num=pNum-171;
+  		var imageId =photo + num;
+  	}                      
+  	else if(pNum>179 && pNum<=187){
+  		var photo="E.2photo";
+  		var num=pNum-179;
+  		var imageId =photo + num;
+  	}
+  	else if(pNum>187 && pNum<=199){
+  		var photo="E.3photo";
+  		var num=pNum-187;
+  		var imageId =photo + num;
+  	} 
+  	else if(pNum>199 && pNum<=209){
+  		var photo="E.4photo";
+  		var num=pNum-199;
+  		var imageId =photo + num;
+  	}         	             	        	             	
   	var image = document.getElementById(imageId);
 	if(image.style.height!='75vh'){
       image.style.height = '75vh';
-      image.style.width = '86vw';
+      image.style.width = '95%';
     }
     else{
     	image.style.height = '7%'; 
@@ -4491,6 +6303,9 @@
 	}
 	else if(globalPageIdentifier=="E_3"){
 		window.onload=initialize('E_3');
+	}
+	else if(globalPageIdentifier=="E_4"){
+		window.onload=initialize('E_4');
 	}
 	else{
 		window.onload=initialize('checks');

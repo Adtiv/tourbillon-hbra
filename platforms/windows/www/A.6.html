@@ -4,13 +4,14 @@
 	
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
+	<script type='application/javascript' src='script/fastclick-master/lib/fastclick.js'></script>
 </head>
 <body>
 	<div class="englishHeader">
 		<div class="statusBarAfter"></div>
 		<btn class="goBackButton" onclick="homeScreen('A_6')">
 			<div class="goBack">
-				&lt
+				<img src="images/home.png" width="100%" height="100%">
 			</div>
 		</btn>
 		English
@@ -42,14 +43,21 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(51); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-						<button class="uploadPhotoButton">Choose File</button>
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 51); return false;">Photo Library</button>
 					</div>
+						<a href="#" onclick="openImage(51); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="A.6photo1" src="" />
+				        </a>
 					<div class="photoUploadText">
-						no file selected
+						<p id="A.6pic1">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
+								<hr class="division"><br>
 				<div class="complianceInputBox">
 					<h3> On-Site Traffic Control Plan (Approved by Jurisdiction )</h3><br/>
 
@@ -67,14 +75,21 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(52); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-						<button class="uploadPhotoButton">Choose File</button>
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 52); return false;">Photo Library</button>
 					</div>
+						<a href="#" onclick="openImage(52); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="A.6photo2" src="" />
+				        </a>
 					<div class="photoUploadText">
-						no file selected
+						<p id="A.6pic2">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
+								<hr class="division"><br>
 				<div class="complianceInputBox">
 					<h3>Off-Site Traffic Control Plan (Approved by Jurisdiction)</h3><br/>
 
@@ -92,14 +107,21 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(53); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-						<button class="uploadPhotoButton">Choose File</button>
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 53); return false;">Photo Library</button>
 					</div>
+						<a href="#" onclick="openImage(53); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="A.6photo3" src="" />
+				        </a>
 					<div class="photoUploadText">
-						no file selected
+						<p id="A.6pic3">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
+								<hr class="division"><br>
 				<div class="complianceInputBox">
 					<h3>Flaggers (Trained, Reflectorized Vests, Traffic Control Paddles, Boots, Hardhat, Communication)</h3><br/>
 
@@ -117,14 +139,21 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(54); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-						<button class="uploadPhotoButton">Choose File</button>
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 54); return false;">Photo Library</button>
 					</div>
+						<a href="#" onclick="openImage(54); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="A.6photo4" src="" />
+				        </a>
 					<div class="photoUploadText">
-						no file selected
+						<p id="A.6pic4">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
+								<hr class="division"><br>
 				<div class="complianceInputBox">
 					<h3>Barricades/Delineators/Signage (Installed Per Plan)</h3><br/>
 
@@ -142,14 +171,21 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(55); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-						<button class="uploadPhotoButton">Choose File</button>
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 55); return false;">Photo Library</button>
 					</div>
+						<a href="#" onclick="openImage(55); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="A.6photo5" src="" />
+				        </a>
 					<div class="photoUploadText">
-						no file selected
+						<p id="A.6pic5">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
+								<hr class="division"><br>
 				<div class="complianceInputBox">
 					<h3>Proper / Safe Public and Private Property Vehicle Parking (Dumpsters, Trailers, Etc.) (Required Permits)</h3><br/>
 
@@ -167,11 +203,17 @@
 				</div>
 				<div class="photoUploadDiv">
 					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(56); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
 					<div id="buttonWrapper">
-						<button class="uploadPhotoButton">Choose File</button>
+						<button class="uploadPhotoButton" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 56); return false;">Photo Library</button>
 					</div>
+						<a href="#" onclick="openImage(56); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="A.6photo6" src="" />
+				        </a>
 					<div class="photoUploadText">
-						no file selected
+						<p id="A.6pic6">no file selected</p>
 					</div>
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
@@ -181,22 +223,19 @@
 					</textarea>
 				</div>
 				<div class="scoreDiv">
-					<h3>Score</h3><br><p id="A.6score">0</p><br>
+					<h3>Score</h3><br><p class="score" id="A.6score">0</p><br>
 				</div>
 
-				<div class="after-form">
+			<div class="after-form">
 	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms('A_6')"/>
 	         		<div class="leftAfter-form">
-						<div class="arrowleft"></div><input type="button" id="btnBack" onclick="processFormOrder('lastPage', '0', 'btnBack', 'A_6')">
+						<btn onclick="processFormOrder('lastPage', '0', 'btnBack', 'A_6'); return false;"><img class="prev" src="images/go_next_blue.png"></btn>
 					</div>
 					<div class="rightAfter-form">
 						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatForms('A_6')"/>
-						<div class="position">
-							<div class="arrowNext" id="A_6arrow"></div>
-							<input type="button" id="btnNext" onclick="processFormOrder('A.6', '0', 'btnNext', 'A_6')"/>
-						</div>
+						<btn onclick="processFormOrder('A.6', '0', 'btnNext', 'A_6'); return false;"><img id="checkNext" class="next" src="images/go_next_blue.png"></btn>
+					</div>
 				</div>
-			</div>
 				<div class="footerStyled">
 					<br><br><br><br>
 				<div>

@@ -359,13 +359,11 @@
 						renderer.y += 10;
 					}, false);
 				}
-
 				if (cn.nodeType === 8 && cn.nodeName === "#comment") {
 					if (~cn.textContent.indexOf("ADD_PAGE")) {
 						renderer.pdf.addPage();
 						renderer.y = renderer.pdf.margins_doc.top;
 					}
-
 				} else if (cn.nodeType === 1 && !SkipNode[cn.nodeName]) {
 					/*** IMAGE RENDERING ***/
 					var cached_image;
@@ -790,15 +788,22 @@
 
 		maxLineHeight = 0;
 		defaultFontSize = 12;
-
+		// + this.pdf.internal.getFontSize()
+		var test1=this.pdf.internal.pageSize.height - this.pdf.margins_doc.bottom;
+		var test2=this.y + this.pdf.internal.getFontSize();
+		this.pdf.internal.write("pageSize: "+test1+" textheight: "+ test2);
 		if (this.pdf.internal.pageSize.height - this.pdf.margins_doc.bottom < this.y + this.pdf.internal.getFontSize()) {
+			text = "                    "+text; //"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t "
 			this.pdf.internal.write("ET", "Q");
+			
 			this.pdf.addPage();
 			this.y = this.pdf.margins_doc.top;
 			this.pdf.internal.write("q", "BT 0 g", this.pdf.internal.getCoordinateString(this.x), this.pdf.internal.getVerticalCoordinateString(this.y), style.color, "Td");
 			//move cursor by one line on new page
-			maxLineHeight = Math.max(maxLineHeight, style["line-height"], style["font-size"]);
+			maxLineHeight = Math.max(maxLineHeight, style["line-height"], style["font-size"])-67.8;
 			this.pdf.internal.write(0, (-1 * defaultFontSize * maxLineHeight).toFixed(2), "Td");
+			//this.pdf.pdfEscape(text);
+
 		}
 
 		font = this.pdf.internal.getFont(style["font-family"], style["font-style"]);
