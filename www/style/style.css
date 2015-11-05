@@ -599,3 +599,8 @@ margin-bottom: 4%;
     -webkit-user-select: auto !important;
     -webkit-user-select: none;
 }
+#instructions{
+	font-size: 3.5vw;
+	color:red;
+	font-weight: bold;
+}
