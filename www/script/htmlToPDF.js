@@ -1283,24 +1283,7 @@ function generatePDF(){
 		}
 		*/
 		var success = function(status) {
-            alert('Message: ' + status);
-            
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-	        var directoryReader = fs.root.createReader();
-	        directoryReader.readEntries(function(entries) {
-	        	var i;
-	        	for (i=0; i<entries.length; i++) {
-	        		if(entries[i].name=="completedFormTest.pdf"){
-	        			alert("Got HERE");
-						localStorage.setItem('pdfURL', entries[i].toURL()); 
-	        		}
-	        	}
-	        }, function (error) {
-	        	alert(error.code);
-	        })
-	        }, function (error) {
-	        	alert(error.code);
-	        }); 
+            alert('thisMessage: ' + status);
         }
         var error = function(status) {
             alert('Error: ' + status);
