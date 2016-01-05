@@ -9,6 +9,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
+        "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
+        "pluginId": "com.telerik.plugins.nativepagetransitions",
+        "clobbers": [
+            "window.plugins.nativepagetransitions"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
         "id": "cordova-plugin-statusbar.statusbar",
         "pluginId": "cordova-plugin-statusbar",
@@ -23,14 +31,6 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.email",
             "plugin.email"
-        ]
-    },
-    {
-        "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
-        "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
-        "pluginId": "com.telerik.plugins.nativepagetransitions",
-        "clobbers": [
-            "window.plugins.nativepagetransitions"
         ]
     },
     {
@@ -245,9 +245,9 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "at.modalog.cordova.plugin.html2pdf": "1.0.0",
+    "com.telerik.plugins.nativepagetransitions": "0.4.1",
     "cordova-plugin-statusbar": "1.0.1",
     "de.appplant.cordova.plugin.email-composer": "0.8.2",
-    "com.telerik.plugins.nativepagetransitions": "0.4.1",
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.file": "1.3.3",
     "org.apache.cordova.inappbrowser": "0.6.0"
