@@ -1268,7 +1268,6 @@ function createFilePath(){
 	    });  	
 }
 function generatePDF(){
-		console.log('gets');
 		createFilePath();
 		var path = localStorage.getItem('fp');
         //alert("Path:" + path);
@@ -1313,7 +1312,7 @@ function generatePDF(){
         window.html2pdf.create(
             source,
             //
-            "completedFormTest.pdf", // on iOS,
+            "~/Documents/completedFormTest.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
