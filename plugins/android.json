@@ -6,6 +6,28 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {},
+    "installed_plugins": {
+        "at.modalog.cordova.plugin.html2pdf": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        }
+    },
     "dependent_plugins": {}
 }
