@@ -30,7 +30,8 @@
     <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
     <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
     <!--<gap:plugin name="com.telerik.plugins.nativepagetransitions" version="0.2.2" />!-->
-    <gap:plugin name="at.modalog.cordova.plugin.html2pdf" version="1.0.79" />
+    <plugin name="at.modalog.cordova.plugin.html2pdf" spec="1.0.119" source="pgb" />
+    <!--<gap:plugin name="at.modalog.cordova.plugin.html2pdf" version="1.0.79" /> !-->
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
