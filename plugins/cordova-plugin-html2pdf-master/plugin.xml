@@ -32,7 +32,7 @@
 
         <!-- <source-file src="src/android/Html2pdf.java" target-dir="src/pdf" /> -->
         <source-file src="src/android/Html2pdf.java" target-dir="src/at/modalog/cordova/plugin/html2pdf" />
-
+        <source-file src="src/android/iText-4.2.0-com.itextpdf.jar" target-dir="libs/"/>
     </platform>
     
     <!-- ios -->
