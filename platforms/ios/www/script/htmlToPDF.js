@@ -2,7 +2,7 @@ document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
 	generatePDF();
-	alert("Updated?");
+	alert("Updated?..");
 }, false);
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
@@ -1268,8 +1268,7 @@ function createFilePath(){
 	    });  	
 }
 function generatePDF(){
-		console.log('gets');
-		createFilePath();
+		//createFilePath();
 		var path = localStorage.getItem('fp');
         //alert("Path:" + path);
 		compileStoredVariables();
@@ -1284,24 +1283,7 @@ function generatePDF(){
 		}
 		*/
 		var success = function(status) {
-            alert('Message: ' + status);
-            
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-	        var directoryReader = fs.root.createReader();
-	        directoryReader.readEntries(function(entries) {
-	        	var i;
-	        	for (i=0; i<entries.length; i++) {
-	        		if(entries[i].name=="completedFormTest.pdf"){
-	        			alert("Got HERE");
-						localStorage.setItem('pdfURL', entries[i].toURL()); 
-	        		}
-	        	}
-	        }, function (error) {
-	        	alert(error.code);
-	        })
-	        }, function (error) {
-	        	alert(error.code);
-	        }); 
+            alert('thissMessage: ' + status);
         }
         var error = function(status) {
             alert('Error: ' + status);
@@ -1313,7 +1295,7 @@ function generatePDF(){
         window.html2pdf.create(
             source,
             //
-            "completedFormTest.pdf", // on iOS,
+            "~/Documents/completedFormTest.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
