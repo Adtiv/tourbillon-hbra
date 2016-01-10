@@ -397,8 +397,8 @@ public class Html2pdf extends CordovaPlugin
     private File saveWebViewAsPdf(Bitmap screenshot) {
         try {
         	
-            File sdCard = Environment.getDataDirectory();
-            //File sdCard = Environment.getExternalStorageDirectory();
+            //File sdCard = Environment.getDataDirectory();
+            File sdCard = Environment.getExternalStorageDirectory();
             File dir = new File (sdCard.getAbsolutePath() + "/" + this.publicTmpDir + "/");
             dir.mkdirs();
             File file;
