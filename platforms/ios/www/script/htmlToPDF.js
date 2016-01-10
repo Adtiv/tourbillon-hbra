@@ -2,7 +2,7 @@ document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
 	generatePDF();
-	alert("Updated?..");
+	alert("Updated??????");
 }, false);
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
