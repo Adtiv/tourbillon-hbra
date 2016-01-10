@@ -1248,7 +1248,6 @@ function compileStoredVariables(){
 }
     //Email plugin functions:
     function email(){
-    	alert("updated");
     	//var pdfPath = localStorage.getItem('pdfURL');
     	var pdfPath = localStorage.getItem('fp');;
     	alert(pdfPath);
