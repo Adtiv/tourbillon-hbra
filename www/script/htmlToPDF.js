@@ -1283,7 +1283,7 @@ function generatePDF(){
 		}
 		*/
 		var success = function(status) {
-            alert('thissMessage: ' + status);
+            //alert('thisMessage: ' + status);
         }
         var error = function(status) {
             alert('Error: ' + status);
