@@ -1,6 +1,7 @@
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
+	alert("Is it updating??");
 	generatePDF();
 	alert("Updated??????");
 }, false);
