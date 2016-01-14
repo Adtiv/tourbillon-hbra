@@ -1260,7 +1260,7 @@ function createFilePath(){
         var filePath;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
         console.log("Root = " + fs.root.toURL());
-            filePath=fs.root.toURL() + "completedFormTest.pdf";
+            filePath=fs.root.toURL() + "Site_Safety_Evaluation_Form.pdf";
             localStorage.setItem('fp', filePath);
             console.log("fp"+filePath);
 	    }, function (error) {
@@ -1295,7 +1295,7 @@ function generatePDF(){
         window.html2pdf.create(
             source,
             //
-            "~/Documents/completedFormTest.pdf", // on iOS,
+            "~/Documents/Site_Safety_Evaluation_Form.pdf", // on iOS,
             // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
             success,
             error
