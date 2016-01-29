@@ -1,9 +1,9 @@
 document.addEventListener('deviceready', function () {
 	console.log("deviceReady");	
 	FastClick.attach(document.body);
-	alert("Is it updating??");
+	//alert("Is it updating??");
 	generatePDF();
-	alert("Updated??????");
+	//alert("Updated??????");
 }, false);
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
@@ -1246,321 +1246,59 @@ function compileStoredVariables(){
 		}
 	}
 }
-    //Email plugin functions:
-    function email(){
-    	//var pdfPath = localStorage.getItem('pdfURL');
-    	var pdfPath = localStorage.getItem('fp');;
-    	alert(pdfPath);
-		cordova.plugins.email.open({
-			subject: 'Site Safety Evaluation Form',
-		    attachments: pdfPath //=> Android
-		});
-	}
-function createFilePath(){
-        var filePath;
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-        console.log("Root = " + fs.root.toURL());
-            filePath=fs.root.toURL() + "Site_Safety_Evaluation_Form.pdf";
-            localStorage.setItem('fp', filePath);
-            console.log("fp"+filePath);
-	    }, function (error) {
-	      	alert(error.code);
-	    });  	
+//Email plugin functions:
+function email(){
+	window.alert("htmlToPDF - Entered Email");
+   	var pdfemailtext = localStorage.getItem("HbraPDF");
+   	//window.plugin.email.isAvailable(
+   	window.plugin.email.isServiceAvailable(
+    function (isAvailable) {
+        window.alert('Service available setting: ' + isAvailable);
+    }
+	);
+	cordova.plugins.email.open({
+		subject: 'Site Safety Evaluation Form',
+	    attachments: pdfemailtext
+	});
+	window.alert("htmlToPDF - Exiting Email");
 }
+//Should no longer need this function
+//function createFilePath(){
+//        var filePath;
+//        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+//        console.log("Root = " + fs.root.toURL());
+//            filePath=fs.root.toURL() + "Site_Safety_Evaluation_Form.pdf";
+//            localStorage.setItem('fp', filePath);
+//            console.log("fp"+filePath);
+//	    }, function (error) {
+//	      	alert(error.code);
+//	    });  	
+//}
 function generatePDF(){
-		//createFilePath();
-		var path = localStorage.getItem('fp');
-        //alert("Path:" + path);
 		compileStoredVariables();
-		/*
-		var doc = new jsPDF();
-		console.log(doc.internal.pageSize.height);
-		compileStoredVariables(doc);
-		/*
-		if(localStorage.getItem('storedCheckedForms')!=null){
-			checkedForms = JSON.parse(localStorage["storedCheckedForms"]);  
-			console.log("checkedForms"+checkedForms);
-		}
-		*/
-		var success = function(status) {
-            //alert('thisMessage: ' + status);
-        }
-        var error = function(status) {
-            alert('Error: ' + status);
-        }
-        var source = $("#testDiv").html();
+		var source = $("#testDiv").html();
         document.getElementById('testDiv').style.display="none";
         document.getElementById('loading').style.display="none";
         document.getElementById('pdfComplete').style.visibility="visible";
-        window.html2pdf.create(
-            source,
-            //
-            "~/Documents/Site_Safety_Evaluation_Form.pdf", // on iOS,
-            // "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
-            success,
-            error
-        );
-        createFilePath();
-        alert(path);
-		/*   
-		var elementHandler = {
-			/*
-			'#statusBar': function (element, renderer) {
-				return true;
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.fromHTML(source,15,15,{'width': 180});
+        var pdftext = pdf.output("datauristring");
+        if (Modernizr.localstorage) {
+		try{
+   			localStorage.setItem("HbraPDF", pdftext);
+   			//window.alert("htmlToPDF.js - Save in Local Storage Successful");
+		} catch(err) {
+  			window.alert("htmlToPDF.js - Save in Local Storage Failed, Error: " + err.message);
 			}
-			
-			'#A.1': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.1').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.2': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.2').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.3': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.3').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.4': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.4').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.5': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.5').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.6': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.6').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.7': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.7').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#A.8': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('A.8').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#B.1': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('B.1').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#B.2': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('B.2').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#B.3': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('B.3').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#C.1': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('C.1').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#C.2': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('C.2').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#D.1': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('D.1').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#D.2': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('D.2').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#D.3': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('D.3').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#D.4': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('D.4').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#E.1': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('E.1').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#E.2': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('E.2').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			},
-			'#E.3': function (element, renderer) {
-		  		//return false;
-		  		if(document.getElementById('E.3').style.visibility=="visible"){
-		  			return false;
-		  		}
-		  		else{
-		  			return true;
-		  		}
-			}
-
-		};
-
-		/*
-		console.log('1');
-		var source = $('.testDiv')[0];
-		console.log('1');
-		var options = {
-	         pagesplit: true
-	    };
-		doc.fromHTML(
-		    source,
-		    15,
-		    15,
-		    {
-		      'width': 180,'pagesplit': true,'elementHandlers': elementHandler
-		    });
-		console.log('1');
-		*/
-		/*
-		var doc = new jsPDF('p', 'mm', 'letter');	
-		doc.setFontSize(18);
-		doc.setFont('courier', 'bold');
-		doc.text(20, 20, 'Residential Construction - Site Safety Inspection / Evaluation');
-		doc.setFontType("normal");
-		doc.setFontSize(12);
-		doc.text(20, 30, 'Company Inspected: ');
-		doc.text(20, 50, 'This workplace safety inspection form will measure your level of compliance with OSHA regulations');
-		doc.text(20, 55, 'based on your current work business or activities. Note that the checklist may not be all inclusive');
-		doc.text(20, 60, 'of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.');
+		} else {
+    		window.alert("htmlToPDF - Local Storage NOT Supported");
+		}
 		
-
-		var pdfOutput = doc.output();
-		console.log( pdfOutput );
-		//doc.addHTML($(".testDiv"), options, function()
-		//{
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-	    console.log(fileSystem.name);
-	   console.log(fileSystem.root.name);
-	   console.log(fileSystem.root.fullPath);
-	   fileSystem.root.getFile("completedForm.pdf", {create: true}, function(entry) {
-	      var fileEntry = entry;
-	      console.log(entry);
-	      console.log("entry.toURL()" + entry.toURL());
-	      localStorage.setItem('pdfURL', entry.toURL());
-	      entry.createWriter(function(writer) {
-	         writer.onwrite = function(evt) {
-	         console.log("write success");
-	      };
-	      console.log("writing to file");
-	         var data = pdfOutput;
-			var buffer = new ArrayBuffer(data.length);
-			var array = new Uint8Array(buffer);
-			for (var i = 0; i < data.length; i++) {
-			  array[i] = data.charCodeAt(i);
-			}
-			writer.write(buffer);//writer.write( pdfOutput );
-	      }, function(error) {
-	         console.log(error);
-	      });
-	   }, function(error){
-		      console.log(error);
-		   });
-		},
-		function(event){
-		 console.log( evt.target.error.code );
-		});
-	*/
 	}
 	function viewDocument()
 	{
-		var pdfPath = localStorage.getItem('fp');
-		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-	}
+		//window.alert("htmlToPDF.js - Entered viewDocument");
+		var pdfviewtext = localStorage.getItem("HbraPDF");
+		window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+	}	
 	//window.onload=generatePDF; 
