@@ -1275,6 +1275,7 @@ function email(){
 //	    });  	
 //}
 function generatePDF(){
+	    //window.alert("htmlToPDF.js - generatePDF");
 		compileStoredVariables();
 		var source = $("#testDiv").html();
         document.getElementById('testDiv').style.display="none";
@@ -1286,7 +1287,7 @@ function generatePDF(){
         if (Modernizr.localstorage) {
 		try{
    			localStorage.setItem("HbraPDF", pdftext);
-   			//window.alert("htmlToPDF.js - Save in Local Storage Successful");
+   			window.alert("htmlToPDF.js - generatePDF - Save in Local Storage Successful");
 		} catch(err) {
   			window.alert("htmlToPDF.js - Save in Local Storage Failed, Error: " + err.message);
 			}

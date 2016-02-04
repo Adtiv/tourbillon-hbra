@@ -109,28 +109,20 @@ function storeLocalContent(next){
       }
   }
   	function generatePDF(){
+  		//window.alert('App.js - Entering genereatePDF');
   		window.location.href = "formComplete.html"; 
 	}
-	function viewDocument()
-	{
-		var pdfPath = localStorage.getItem('pdfURL');
-		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-	}
+// Should be obsolete function	
+//	function viewDocument()
+//	{
+//		window.alert('App.js - Bad-Entered viewDocument');
+//		var pdfPath = localStorage.getItem('pdfURL');
+//		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+//	}
 	function View(){
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-        console.log("Root = " + fs.root.fullPath);
-        var directoryReader = fs.root.createReader();
-        directoryReader.readEntries(function(entries) {
-        	var i;
-        	for (i=0; i<entries.length; i++) {
-        		alert(entries[i].name);
-        	}
-        }, function (error) {
-        	alert(error.code);
-        })
-        }, function (error) {
-        	alert(error.code);
-        });
+		//window.alert('App.js - View');
+		var pdfviewtext = localStorage.getItem("HbraPDF");
+		window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 	}
 
 
