@@ -109,7 +109,7 @@ function storeLocalContent(next){
       }
   }
   	function generatePDF(){
-  		//window.alert('App.js - Entering genereatePDF');
+  		window.alert('App.js - Brians Updated Change - Entering generatePDF');
   		window.location.href = "formComplete.html"; 
 	}
 // Should be obsolete function	
