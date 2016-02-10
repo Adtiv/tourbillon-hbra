@@ -1,10 +1,15 @@
-document.addEventListener('deviceready', function () {
-	console.log("deviceReady");	
+document.addEventListener('deviceready', listenInit(), false);
+function listenInit(){
+	window.alert("htmlToPDF.js - listenInit - Entered listenInit");
+	console.log("deviceReady");
+	window.alert("htmlToPDF.js - listenInit - Just before FastClick");	
 	FastClick.attach(document.body);
+	window.alert("htmlToPDF.js - listenInit - Just after Fastclick and before generatePDF");	
 	//alert("Is it updating??");
 	generatePDF();
+	window.alert("htmlToPDF.js - listenInit - Just after generatePDF");
 	//alert("Updated??????");
-}, false);
+}
 function compileStoredVariables(){
 	var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
 
@@ -1275,15 +1280,20 @@ function email(){
 //	    });  	
 //}
 function generatePDF(){
-	    //window.alert("htmlToPDF.js - generatePDF");
+	    window.alert("htmlToPDF.js - Entered generatePDF");
 		compileStoredVariables();
+		window.alert("htmlToPDF.js - compileStoredVariables complete");
 		var source = $("#testDiv").html();
         document.getElementById('testDiv').style.display="none";
         document.getElementById('loading').style.display="none";
         document.getElementById('pdfComplete').style.visibility="visible";
+        window.alert("htmlToPDF.js - Just before new jsPDF #1");
         var pdf = new jsPDF('p', 'pt', 'letter');
+        window.alert("htmlToPDF.js - jsPDF #2");
         pdf.fromHTML(source,15,15,{'width': 180});
+        window.alert("htmlToPDF.js - jsPDF #3");
         var pdftext = pdf.output("datauristring");
+        window.alert("htmlToPDF.js - jsPDF #4 and before Modinizr");
         if (Modernizr.localstorage) {
 		try{
    			localStorage.setItem("HbraPDF", pdftext);
