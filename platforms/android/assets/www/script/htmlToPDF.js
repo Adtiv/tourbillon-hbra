@@ -1293,18 +1293,13 @@ function generatePDF(){
         pdf.fromHTML(source,15,15,{'width': 180});
         window.alert("htmlToPDF.js - jsPDF #3");
         var pdftext = pdf.output("datauristring");
-        window.alert("htmlToPDF.js - jsPDF #4 and before Modinizr");
-        if (Modernizr.localstorage) {
-		try{
+        window.alert("htmlToPDF.js - jsPDF #4 and before Saving in Local Storage");
+        try{
    			localStorage.setItem("HbraPDF", pdftext);
    			window.alert("htmlToPDF.js - generatePDF - Save in Local Storage Successful");
 		} catch(err) {
   			window.alert("htmlToPDF.js - Save in Local Storage Failed, Error: " + err.message);
-			}
-		} else {
-    		window.alert("htmlToPDF - Local Storage NOT Supported");
-		}
-		
+			} 	
 	}
 	function viewDocument()
 	{
