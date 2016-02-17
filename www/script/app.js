@@ -122,22 +122,9 @@ function storeLocalContent(next){
 	function View()
 	{
 		window.alert('App.js - View');
-		var dPlatform = device.platform;
 		var pdfviewtext = localStorage.getItem("HbraPDF");
 		//window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-		if (dPlatform = "IOS")
-		{
-			window.alert("Device Plafform is IOS: " + dPlatform);
-			window.open(pdfviewtext, '_blank', 'location=no');
-		} else {
-			window.alert("Device Plafform is Android: " + dPlatform);
-			window.open(pdfviewtext, '_system', 'location=no');
-		}
+		cordova.InAppBrowser.open(pdfviewtext, '_blank', 'location=no');
 	}
-
-
-
-
-
 
 window.onload = init;
