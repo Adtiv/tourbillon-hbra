@@ -1,13 +1,13 @@
 document.addEventListener('deviceready', listenInit(), false);
 function listenInit(){
-	window.alert("htmlToPDF.js - listenInit - Entered listenInit");
+	//window.alert("htmlToPDF.js - listenInit - Entered listenInit");
 	console.log("deviceReady");
-	window.alert("htmlToPDF.js - listenInit - Just before FastClick");	
+	//window.alert("htmlToPDF.js - listenInit - Just before FastClick");	
 	FastClick.attach(document.body);
-	window.alert("htmlToPDF.js - listenInit - Just after Fastclick and before generatePDF");	
+	//window.alert("htmlToPDF.js - listenInit - Just after Fastclick and before generatePDF");	
 	//alert("Is it updating??");
 	generatePDF();
-	window.alert("htmlToPDF.js - listenInit - Just after generatePDF");
+	//window.alert("htmlToPDF.js - listenInit - Just after generatePDF");
 	//alert("Updated??????");
 }
 function compileStoredVariables(){
@@ -1280,31 +1280,40 @@ function email(){
 //	    });  	
 //}
 function generatePDF(){
-	    window.alert("htmlToPDF.js - Entered generatePDF");
+	    //window.alert("htmlToPDF.js - Entered generatePDF");
 		compileStoredVariables();
-		window.alert("htmlToPDF.js - compileStoredVariables complete");
+		//window.alert("htmlToPDF.js - compileStoredVariables complete");
 		var source = $("#testDiv").html();
         document.getElementById('testDiv').style.display="none";
         document.getElementById('loading').style.display="none";
         document.getElementById('pdfComplete').style.visibility="visible";
-        window.alert("htmlToPDF.js - Just before new jsPDF #1");
+        //window.alert("htmlToPDF.js - Just before new jsPDF #1");
         var pdf = new jsPDF('p', 'pt', 'letter');
-        window.alert("htmlToPDF.js - jsPDF #2");
+        //window.alert("htmlToPDF.js - jsPDF #2");
         pdf.fromHTML(source,15,15,{'width': 180});
-        window.alert("htmlToPDF.js - jsPDF #3");
+        //window.alert("htmlToPDF.js - jsPDF #3");
         var pdftext = pdf.output("datauristring");
-        window.alert("htmlToPDF.js - jsPDF #4 and before Saving in Local Storage");
+        //window.alert("htmlToPDF.js - jsPDF #4 and before Saving in Local Storage");
         try{
    			localStorage.setItem("HbraPDF", pdftext);
-   			window.alert("htmlToPDF.js - generatePDF - Save in Local Storage Successful");
+   			window.alert("htmlToPDF.js - generatePDF - Save in Local Storage is Successful");
 		} catch(err) {
   			window.alert("htmlToPDF.js - Save in Local Storage Failed, Error: " + err.message);
 			} 	
 	}
 	function viewDocument()
 	{
-		//window.alert("htmlToPDF.js - Entered viewDocument");
+		window.alert("htmlToPDF.js - Entered viewDocument");
+		var dPlatform = device.platform;
 		var pdfviewtext = localStorage.getItem("HbraPDF");
-		window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+		//window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+		if (dPlatform = "IOS")
+		{
+			window.alert("Device Plafform is IOS: " + dPlatform);
+			window.open(pdfviewtext, '_blank', 'location=no');
+		} else {
+			window.alert("Device Plafform is Android: " + dPlatform);
+			window.open(pdfviewtext, '_system', 'location=no');
+		}
 	}	
 	//window.onload=generatePDF; 
