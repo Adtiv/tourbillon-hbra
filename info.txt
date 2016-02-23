@@ -1,19 +1,11 @@
+Node version: v5.4.1
+
+Cordova version: 5.4.1
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.hbra" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="BackupWebStorage" value="cloud" />
-    <preference name="DisallowOverscroll" value="false" />
-    <preference name="EnableViewportScale" value="false" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
-    <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="SuppressesIncrementalRendering" value="false" />
-    <preference name="GapBetweenPages" value="0" />
-    <preference name="PageLength" value="0" />
-    <preference name="PaginationBreakingMode" value="page" />
-    <preference name="PaginationMode" value="unpaginated" />
-    <feature name="LocalStorage">
-        <param name="ios-package" value="CDVLocalStorage" />
-    </feature>
     <name>HBRA</name>
     <description>
         App for HBRA Inspections
@@ -22,8 +14,9 @@
         Anthony Ditocco 
     </author>
     <content src="index.html" />
+    
     <preference name="orientation" value="portrait" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="true"/>
     <preference name="permissions" value="none" />
     <preference name="target-device" value="universal" />
     <preference name="webviewbounce" value="true" />
@@ -37,11 +30,14 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
-    <gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.camera"/>
     <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" source="npm" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
+    <!--<gap:plugin name="com.telerik.plugins.nativepagetransitions" version="0.2.2" />!-->
+    <plugin name="at.modalog.cordova.plugin.html2pdf" spec="1.0.119" source="pgb" />
+    <!--<gap:plugin name="at.modalog.cordova.plugin.html2pdf" version="1.0.79" /> !-->
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
@@ -68,35 +64,43 @@
     <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
-    <Capabilities>
-        <Capability Name="ID_CAP_ISV_CAMERA" />
-        <Capability Name="ID_HW_FRONTCAMERA" />
-    </Capabilities>
-    <access origin="*" />
-    <feature name="Html2pdf">
-        <param name="ios-package" value="Html2pdf" />
-    </feature>
-    <feature name="NativePageTransitions">
-        <param name="ios-package" value="NativePageTransitions" />
-    </feature>
-    <feature name="StatusBar">
-        <param name="ios-package" value="CDVStatusBar" />
-        <param name="onload" value="true" />
-    </feature>
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarStyle" value="lightcontent" />
-    <feature name="EmailComposer">
-        <param name="ios-package" value="APPEmailComposer" />
+
+
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
     </feature>
-    <preference name="CameraUsesGeolocation" value="false" />
-    <feature name="File">
-        <param name="ios-package" value="CDVFile" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <!--<feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
+    </feature>!-->
+
+    <feature name="Camera" value="Camera"/>
+
+    <Capabilities>
+        <Capability Name="ID_CAP_ISV_CAMERA" />
+        <Capability Name="ID_HW_FRONTCAMERA" />
+    </Capabilities>
+
+    <feature name="http://tizen.org/api/application" required="true"/>
+    <feature name="http://tizen.org/api/application.launch" required="true"/>
+    <access origin="*" />
 </widget>
+
+
+Plugins: 
+
+at.modalog.cordova.plugin.html2pdf,com.telerik.plugins.nativepagetransitions,cordova-plugin-html2pdf-master,cordova-plugin-statusbar,de.appplant.cordova.plugin.email-composer,NativePageTransitions-master,org.apache.cordova.camera,org.apache.cordova.file,org.apache.cordova.inappbrowser
+
+Error retrieving Android platform information: Error: cmd: Command failed with exit code 1 Error output:
+'android' is not recognized as an internal or external command,
+operable program or batch file.
+
+Error retrieving iOS platform information: Error: cmd: Command failed with exit code 1 Error output:
+'xcodebuild' is not recognized as an internal or external command,
+operable program or batch file.
+

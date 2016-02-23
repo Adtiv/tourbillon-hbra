@@ -1253,8 +1253,10 @@ function compileStoredVariables(){
 }
 //Email plugin functions:
 function email(){
-	window.alert("htmlToPDF - Entered Email");
+	//window.alert("htmlToPDF - Entered Email");
    	var pdfemailtext = localStorage.getItem("HbraPDF");
+   	var pdfattachtext = "base64:Hbra.pdf//" + pdfemailtext.substring(28);
+   	window.alert("htmlToPDF - Entered Email - Attachment Data: " + pdfattachtext);
    	//window.plugin.email.isAvailable(
    	window.plugin.email.isServiceAvailable(
     function (isAvailable) {
@@ -1263,7 +1265,7 @@ function email(){
 	);
 	cordova.plugins.email.open({
 		subject: 'Site Safety Evaluation Form',
-	    attachments: pdfemailtext
+	    attachments: pdfattachtext
 	});
 	window.alert("htmlToPDF - Exiting Email");
 }
@@ -1296,7 +1298,7 @@ function generatePDF(){
         //window.alert("htmlToPDF.js - jsPDF #4 and before Saving in Local Storage");
         try{
    			localStorage.setItem("HbraPDF", pdftext);
-   			window.alert("htmlToPDF.js - generatePDF - Save in Local Storage is Successful");
+   			//window.alert("htmlToPDF.js - generatePDF - Save in Local Storage is Successful");
 		} catch(err) {
   			window.alert("htmlToPDF.js - Save in Local Storage Failed, Error: " + err.message);
 			} 	
