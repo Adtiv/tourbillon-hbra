@@ -1256,7 +1256,13 @@ function email(){
 	//window.alert("htmlToPDF - Entered Email");
    	var pdfemailtext = localStorage.getItem("HbraPDF");
    	var pdfattachtext = "base64:Hbra.pdf//" + pdfemailtext.substring(28);
-   	window.alert("htmlToPDF - Entered Email - Attachment Data: " + pdfattachtext);
+   	//window.alert("htmlToPDF - Entered Email - Attachment Data: " + pdfattachtext);
+   	//
+   	var sourcehtml = $("#testDiv").html();
+   	var sourcehtml64 = btoa(sourcehtml);
+   	var sourcehtml64 = "base64:Hbra.html//" + sourcehtml64;
+   	window.alert("htmlToPDF - Entered Email - Attachment html Data: " + sourcehtml64);
+   	//
    	//window.plugin.email.isAvailable(
    	window.plugin.email.isServiceAvailable(
     function (isAvailable) {
@@ -1264,8 +1270,9 @@ function email(){
     }
 	);
 	cordova.plugins.email.open({
-		subject: 'Site Safety Evaluation Form',
-	    attachments: pdfattachtext
+		subject: 'Site Safety Evaluation Form - html',
+	    //attachments: pdfattachtext
+	    attachments: sourcehtml64
 	});
 	window.alert("htmlToPDF - Exiting Email");
 }
