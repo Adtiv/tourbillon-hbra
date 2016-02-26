@@ -1255,7 +1255,8 @@ function compileStoredVariables(){
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
    	var pdfattach = localStorage.getItem("HbraPDF");
-   	var pdfattach64 = "base64:Hbra.pdf//" + pdfemailtext.substring(28);
+   	var n = pdfattach.indexOf(",");
+   	var pdfattach64 = "base64:Hbra.pdf//" + pdfattach.substring(n+1);
    	window.plugin.email.isServiceAvailable(
     function (isAvailable) {
         window.alert('Service available setting: ' + isAvailable);
