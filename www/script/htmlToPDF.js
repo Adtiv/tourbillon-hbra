@@ -1254,16 +1254,8 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-   	var pdfemailtext = localStorage.getItem("HbraPDF");
-   	var pdfattachtext = "base64:Hbra.pdf//" + pdfemailtext.substring(28);
-   	//window.alert("htmlToPDF - Entered Email - Attachment Data: " + pdfattachtext);
-   	//
-   	var sourcehtml = $("#testDiv").html();
-   	var sourcehtml64 = btoa(sourcehtml);
-   	var sourcehtml64 = "base64:Hbra.html//" + sourcehtml64;
-   	window.alert("htmlToPDF - Entered Email - Attachment html Data: " + sourcehtml64);
-   	//
-   	//window.plugin.email.isAvailable(
+   	var pdfattach = localStorage.getItem("HbraPDF");
+   	var pdfattach64 = "base64:Hbra.pdf//" + pdfemailtext.substring(28);
    	window.plugin.email.isServiceAvailable(
     function (isAvailable) {
         window.alert('Service available setting: ' + isAvailable);
@@ -1271,10 +1263,10 @@ function email(){
 	);
 	cordova.plugins.email.open({
 		subject: 'Site Safety Evaluation Form - html',
-	    //attachments: pdfattachtext
-	    attachments: sourcehtml64
+	    attachments: pdfattach64
+	    //attachments: sourcehtml64
 	});
-	window.alert("htmlToPDF - Exiting Email");
+	//window.alert("htmlToPDF - Exiting Email");
 }
 //Should no longer need this function
 //function createFilePath(){
@@ -1291,18 +1283,19 @@ function email(){
 function generatePDF(){
 	    //window.alert("htmlToPDF.js - Entered generatePDF");
 		compileStoredVariables();
-		//window.alert("htmlToPDF.js - compileStoredVariables complete");
 		var source = $("#testDiv").html();
-        document.getElementById('testDiv').style.display="none";
+		document.getElementById('testDiv').style.display="none";
         document.getElementById('loading').style.display="none";
         document.getElementById('pdfComplete').style.visibility="visible";
-        //window.alert("htmlToPDF.js - Just before new jsPDF #1");
+        var n = source.indexOf("<div");
+        var prefix = "<!DOCTYPE html><html><title>HBRA Application</title><body>";
+        var suffix = "</body></html>";
+        source = source.substring(n);
+        source = prefix.concat(source);
+        source = source.concat(suffix);
         var pdf = new jsPDF('p', 'pt', 'letter');
-        //window.alert("htmlToPDF.js - jsPDF #2");
-        pdf.fromHTML(source,15,15,{'width': 180});
-        //window.alert("htmlToPDF.js - jsPDF #3");
+        pdf.fromHTML(source,15,15,{'width': 550});
         var pdftext = pdf.output("datauristring");
-        //window.alert("htmlToPDF.js - jsPDF #4 and before Saving in Local Storage");
         try{
    			localStorage.setItem("HbraPDF", pdftext);
    			//window.alert("htmlToPDF.js - generatePDF - Save in Local Storage is Successful");
@@ -1312,9 +1305,9 @@ function generatePDF(){
 	}
 	function viewDocument()
 	{
-		window.alert("htmlToPDF.js - Entered viewDocument");
+		//window.alert("htmlToPDF.js - Entered viewDocument");
 		var pdfviewtext = localStorage.getItem("HbraPDF");
 		//window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-		cordova.InAppBrowser.open(pdfviewtext, '_blank', 'location=no');
+		window.open(pdfviewtext, '_blank', 'location=no');
 	}	
 	//window.onload=generatePDF; 

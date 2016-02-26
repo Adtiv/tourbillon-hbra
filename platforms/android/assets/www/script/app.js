@@ -121,10 +121,13 @@ function storeLocalContent(next){
 //	}
 	function View()
 	{
-		window.alert('App.js - View');
-		var pdfviewtext = localStorage.getItem("HbraPDF");
+		//window.alert('App.js - View with direct localstorage');
+		//var pdfviewtext = localStorage.getItem("HbraPDF");
 		//window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-		cordova.InAppBrowser.open(pdfviewtext, '_blank', 'location=no');
+		//cordova.InAppBrowser.open(pdfviewtext, '_blank', 'location=no');
+		//cordova.InAppBrowser.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
+		window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
+		//cordova.InAppBrowser.open(pdfviewtext, '_system', 'location=no');
 	}
 
 window.onload = init;
