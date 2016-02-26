@@ -1256,7 +1256,8 @@ function email(){
 	//window.alert("htmlToPDF - Entered Email");
    	var pdfattach = localStorage.getItem("HbraPDF");
    	var n = pdfattach.indexOf(",");
-   	var pdfattach64 = "base64:Hbra.pdf//" + pdfattach.substring(n+1);
+   	var pdfattach64 = "base64:Hbra.pdf//" + btoa(pdfattach.substring(n+1));
+   	//window.alert("Complete PDF attachment data: " + pdfattach64);
    	window.plugin.email.isServiceAvailable(
     function (isAvailable) {
         window.alert('Service available setting: ' + isAvailable);
@@ -1294,6 +1295,7 @@ function generatePDF(){
         source = source.substring(n);
         source = prefix.concat(source);
         source = source.concat(suffix);
+        //window.alert("Complete HTML Source: " + source);
         var pdf = new jsPDF('p', 'pt', 'letter');
         pdf.fromHTML(source,15,15,{'width': 550});
         var pdftext = pdf.output("datauristring");
