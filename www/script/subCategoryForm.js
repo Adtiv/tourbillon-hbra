@@ -1068,6 +1068,7 @@
 		//TO FIX:toggling between A.1 && other form screws up submit form button. 
 		function processFormOrder(page, bound, btnID, storePage){
 			//logic for storing local content on page
+			//window.alert("Entering subCategoryForm.js - processFormOrder");
 			if(storePage=="checks"){
 				doubleCheck();
 				localStorageSubCatForms('checks');
@@ -4984,10 +4985,19 @@
 				}
 			}
 		}
+
+		function localStorageSubCatFormsSave(page) {
+			localStorageSubCatForms(page);
+			window.alert("Saved");
+		}
+		function localStorageSubCatFormsSubmit(page) {
+			localStorageSubCatForms(page);
+			window.location.href = "formComplete.html";
+		}
 		//save to localStorage based on the page
 		var storedCheckedForms; 
 		function localStorageSubCatForms(page){
-			
+			//window.alert("Entering SubcategoryForm - localStorageSubCatForms: " + page + " Submit: " + submit);
 			if(page=="checks"){
 				var i, checkboxes = document.querySelectorAll('input[type=checkbox]');
 				    for (i = 0; i < checkboxes.length; i++) {
@@ -5691,7 +5701,17 @@
 			else{
 				console.log('..');
 			}
+			//window.alert("Finishing subCategoryForm.js - localStorageSubCatForms" + page + submit);
+			//if (submit == 'submit') {
+			//	window.location.href = "formComplete.html"; 
+			//}
+			
 		}
+	function goSubmit() {
+		window.alert("Got to goSubmit");
+		window.location.href = "formComplete.html";
+	}
+
 	function viewData(){
     	//shows all the key / value pairs
     	for (i = 0; i < localStorage.length; i++){

@@ -26,6 +26,7 @@ function init(){
 }
 
 function storeLocalContent(next){
+	if (next == "save") window.alert("Saved");
 	var comp = document.getElementById('company').value;
 	var tradeType = document.getElementById('trade').value;
 	var nameJob = document.getElementById('jobName').value;
@@ -110,7 +111,7 @@ function storeLocalContent(next){
   }
   	function generatePDF(){
   		//window.alert('App.js - Brians Updated Change - Entering generatePDF');
-  		window.location.href = "formComplete.html"; 
+  		window.location.href = "formComplete.html"; 		
 	}
 // Should be obsolete function	
 //	function viewDocument()
@@ -121,13 +122,11 @@ function storeLocalContent(next){
 //	}
 	function View()
 	{
-		//window.alert('App.js - View with direct localstorage');
-		//var pdfviewtext = localStorage.getItem("HbraPDF");
-		//window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-		//cordova.InAppBrowser.open(pdfviewtext, '_blank', 'location=no');
-		//cordova.InAppBrowser.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
-		window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
-		//cordova.InAppBrowser.open(pdfviewtext, '_system', 'location=no');
+		if (device.platform == "iOS") {
+				window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
+		} else {
+			window.alert("PDF View feature only supported on iOS");
+		}
 	}
 
 window.onload = init;

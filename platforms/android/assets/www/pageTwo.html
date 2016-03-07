@@ -61,7 +61,7 @@
 				<div class="form-label"><input type="checkbox" class="check" name="option21" id="custom" value="custom" onclick="isChecked('custom')">E.4) Custom Inspection</div><br><br>
 				<br><br>
             <div class="after-form">
-         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatForms('checks')"/>
+         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatFormsSave('checks')"/>
          		<div class="leftAfter-form">
          			<!--
 					<div class="arrowleft"></div><input type="button" id="btnBack" onclick="goBack()">
@@ -80,10 +80,11 @@
 				</div>
 
 			</div>
-			<button onclick="viewData()">View</button>
+			<!--button onclick="viewData()">View</button>-->
 			<!-- <input type="button" value="clear" id="btnClear" onclick="clearLocalContent()"/> -->
-	</div>
+		</div>
 </body>
 <script src="script/subCategoryForm.js" type="text/javascript"></script>
 <script type="text/javascript" src="cordova.js"></script>
+<script src="script/app.js" type="text/javascript"></script>
 </html>

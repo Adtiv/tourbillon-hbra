@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Local Data Test</title>
+	<link href="style/style.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/>
     <script type='application/javascript' src='script/fastclick-master/lib/fastclick.js'></script>
 	<script type="text/javascript">
@@ -575,12 +576,13 @@
 			</footer>
 		-->
 	</div>
-		<br><br><br><br><br>
-		<div style="text-align:center;">
-			<button onclick="viewDocument()">viewPDF</button>
-			<button onclick="email()">EMAIL</button>
-			<button onclick="back()">back</button>
-		</div>	
+		<br><br><br>
+		<!--div style="text-align:center;"-->
+	<div class="finalButtons">
+    	   	<button id="btnVDoc" onclick="viewDocument()">viewPDF</button>
+       		<button id="btnEmail" onclick="email()">EMAIL</button>
+       		<button id="btnBack" onclick="back()">back</button>
+   	</div>
 <script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
 <script src="vendor/jquery.js"></script>
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>

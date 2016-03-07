@@ -1255,11 +1255,9 @@ function compileStoredVariables(){
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
 	//html processing
-	var htmlattach = localStorage.getItem("HbraHTML");
-    //window.alert("Complete HTML Data from localstorage: " + htmlattach);
-    var htmlattach64 = "base64:Hbra.html//" + btoa(htmlattach);
-    //window.alert("Complete HTML Attach Data64: " + htmlattach64);
-	//End of html processing
+	//var htmlattach = localStorage.getItem("HbraHTML");
+    //var htmlattach64 = "base64:Hbra.html//" + btoa(htmlattach);
+    //End of html processing
    	var pdfattach = localStorage.getItem("HbraPDF");
    	//window.alert("Complete PDF attachment data from localstorage: " + pdfattach);
    	var n = pdfattach.indexOf(",");
@@ -1272,8 +1270,8 @@ function email(){
 	);
 	cordova.plugins.email.open({
 		subject: 'Site Safety Evaluation Form - html',
-	    attachments: [pdfattach64,htmlattach64]
-	    //attachments: pdfattach64
+	    //attachments: [pdfattach64,htmlattach64]
+	    attachments: pdfattach64
 	});
 	//window.alert("htmlToPDF - Exiting Email");
 }
@@ -1297,7 +1295,7 @@ function generatePDF(){
         document.getElementById('loading').style.display="none";
         document.getElementById('pdfComplete').style.visibility="visible";
         var n = sourcehtml.indexOf("<div");
-        var prefix = '<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><title>HBRA Application</title></head><body>';
+        var prefix = '<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><title>HBRA Application</title></head><body>'; 
         var suffix = "</body></html>";
         sourcehtml = sourcehtml.substring(n);
         sourcehtml = prefix.concat(sourcehtml);
@@ -1321,10 +1319,11 @@ function generatePDF(){
 			} 	
 	}
 	function viewDocument()
-	{
-		//window.alert("htmlToPDF.js - Entered viewDocument");
-		var pdfviewtext = localStorage.getItem("HbraPDF");
-		//window.open(pdfviewtext, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-		window.open(pdfviewtext, '_blank', 'location=no');
+	{	
+		if (device.platform == "iOS") {
+				window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
+		} else {
+			window.alert("PDF View feature only supported on iOS");
+		}
 	}	
 	//window.onload=generatePDF; 
