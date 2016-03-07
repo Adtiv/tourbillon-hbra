@@ -13,6 +13,9 @@
         "com.telerik.plugins.nativepagetransitions": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
@@ -26,9 +29,6 @@
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },

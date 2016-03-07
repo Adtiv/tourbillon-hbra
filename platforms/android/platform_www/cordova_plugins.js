@@ -17,6 +17,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "pluginId": "cordova-plugin-device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
         "id": "cordova-plugin-statusbar.statusbar",
         "pluginId": "cordova-plugin-statusbar",
@@ -239,14 +247,6 @@ module.exports = [
         "clobbers": [
             "window.open"
         ]
-    },
-    {
-        "file": "plugins/cordova-plugin-device/www/device.js",
-        "id": "cordova-plugin-device.device",
-        "pluginId": "cordova-plugin-device",
-        "clobbers": [
-            "device"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -254,12 +254,12 @@ module.exports.metadata =
 {
     "at.modalog.cordova.plugin.html2pdf": "1.0.0",
     "com.telerik.plugins.nativepagetransitions": "0.4.1",
+    "cordova-plugin-device": "1.1.1",
     "cordova-plugin-statusbar": "1.0.1",
     "de.appplant.cordova.plugin.email-composer": "0.8.2",
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.file": "1.3.3",
-    "org.apache.cordova.inappbrowser": "0.6.0",
-    "cordova-plugin-device": "1.1.1"
+    "org.apache.cordova.inappbrowser": "0.6.0"
 }
 // BOTTOM OF METADATA
 });
