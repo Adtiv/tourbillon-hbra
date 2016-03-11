@@ -56,8 +56,9 @@
 </head>
 <body>
 	<div id="statusBar"></div>
-	<br><br><br><br><br><br>
-	<p id="pdfComplete" style="font-size:3.5vw; font-weight:bold; text-align:center; visibility:hidden;">Congratulations! Your Site Safety Evaluation Form is Complete.</p>
+	<div><img src="images/Previous.png" style="width:5vw;height:5vw;"></div>
+	
+	<div id="pdfComplete" style="font-size:4.5vw; font-weight:bold; text-align:center; visibility:hidden;"><br><div id="sponsorBox"><br><br><p id="sponsor">Please Support our Safety App Sponsors!</p><div id="topAd"><img src="images/NAHB logo.jpg" id="topAdImage"></div><div class="ad" id="bottomAdd"><img src="images/HBRAlogo_01.jpg" class="adImage"></div><div class="ad" id="bottomAd"><img src="images/logo.jpg" class="adImage"></div><br></div><br>Congratulations! Your Site Safety Evaluation Form is Complete.<br> </div>
 	<div id="loading" style="text-align:center;margin-bottom:200%">Loading.....</div>
 	<div id = "testDiv" style="margin-right:3%; margin-left:3%">
 		<header></header>
@@ -579,9 +580,15 @@
 		<br><br><br>
 		<!--div style="text-align:center;"-->
 	<div class="finalButtons">
+		<!--
     	   	<button id="btnVDoc" onclick="viewDocument()">viewPDF</button>
        		<button id="btnEmail" onclick="email()">EMAIL</button>
        		<button id="btnBack" onclick="back()">back</button>
+       	-->
+       		<btn onclick="viewDocument()"><div class="bottomButtons"><b>View PDF</b></div></btn>
+       		<btn onclick="email()"><div class="bottomButtons"id="button2"><b>Email</b></div></btn>
+			<btn onclick="back()"><div class="bottomButtons"id="button3"><b>Back</b></div></btn>
+
    	</div>
 <script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
 <script src="vendor/jquery.js"></script>

@@ -212,35 +212,52 @@ zoom: 1;
 #btnVDoc {
 	visibility: visible;
 	border: 2px solid;
-    border-radius: 25px;
-	width:75px;
+	width:33%;
 	text-align: center;
-	margin-left: 10%;
+
 }
 
 #btnEmail {
 	visibility: visible;
 	background-color:lightgreen;
 	border: 2px solid;
-    border-radius: 25px;
-	width:100px;
+	width:33%;
 	text-align: center;
-	/*margin-left: 5%;*/
 }
 
 #btnBack{
 	visibility: visible;
 	border: 2px solid;
-    border-radius: 25px;
-	width:75px;
+	width:33%;
 	text-align: center;
-	/*margin-left: 5%;*/
 }
-
-
+.bottomButtons{
+	padding-top:5%;
+	padding-bottom:5%;
+	margin-left: 1%;
+	width:30%;
+	display:inline-block;
+	text-align:center;
+	border: 2px solid;
+	font-size: 5vw;
+	border-radius:5px;
+	background-color: lightgray;
+	text-decoration: underline;
+	box-shadow: 4px 4px 2px #888888;
+}
+.bottomButtons:hover{
+	background-color: lightgreen;
+}
+#button3{
+	margin-left: 1%;
+}
+#button2{
+	margin-left: 1%;
+}
 .finalButtons {
-  display: flex;
-  justify-content: space-between;
+  width:100%;
+  position:fixed;
+  bottom:0;
 }
 
 #ui-datepicker-div{
