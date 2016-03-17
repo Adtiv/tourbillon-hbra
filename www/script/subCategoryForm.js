@@ -1909,7 +1909,6 @@
 	                  	document.getElementById("pic12").innerHTML="A.1-12.jpg";
 	                }
 					var initGetScore1=localStorage.getItem('l');
-					alert(initGetScore1);
 					if(initGetScore1!=null){
 						document.getElementById('A.1score').innerHTML = window.localStorage.getItem('A.1score');
 					}
@@ -6348,7 +6347,6 @@
 			
 		}
 	function goSubmit() {
-		window.alert("Got to goSubmit");
 		window.location.href = "formComplete.html";
 	}
 

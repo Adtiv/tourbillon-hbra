@@ -4987,12 +4987,651 @@
 		}
 
 		function localStorageSubCatFormsSave(page) {
-			localStorageSubCatForms(page);
-			window.alert("Saved");
+			var z;
+			var s;
+			if(page=="checks"){
+				doubleCheck();
+				localStorageSubCatForms('checks');
+			}
+			else if(page=="A_1"){
+				if(getScore1==null){
+					if(allScoresArray[0]!=null){
+						l =window.localStorage.setItem('l', allScoresArray[0]);
+					}
+				}
+				else{
+					l =window.localStorage.setItem('l', storeScore1);
+				}
+				pageCount=1;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_1";
+				s=window.localStorage.setItem("s", z);				
+				localStorageSubCatForms('A_1');
+			}
+			else if(page=="A_2"){
+				if(getScore2==null){
+					if(allScoresArray[1]!=null){
+						l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+					}
+				}
+				else{
+					l2 =window.localStorage.setItem('l2', storeScore2);
+				}
+				pageCount=2;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_2');
+			}
+			else if(page=="A_3"){
+				if(getScore3==null){
+					if(allScoresArray[2]!=null){
+						l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+					}
+				}
+				else{
+					l3 =window.localStorage.setItem('l3', storeScore3);
+				}
+				pageCount=3;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_3');
+			}
+			else if(page=="A_4"){
+				if(getScore4==null){
+					if(allScoresArray[3]!=null){
+						l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+					}
+				}
+				else{
+					l4 =window.localStorage.setItem('l4', storeScore4);
+				}
+				pageCount=4;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_4";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_4');
+			}
+			else if(page=="A_5"){
+				if(getScore5==null){
+					if(allScoresArray[4]!=null){
+						l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+					}
+				}
+				else{
+					l5 =window.localStorage.setItem('l5', storeScore5);
+				}
+				pageCount=5;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_5";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_5');
+			}
+			else if(page=="A_6"){
+				if(getScore6==null){
+					if(allScoresArray[5]!=null){
+						l6 =window.localStorage.setItem('l6', allScoresArray[5]);
+					}
+				}
+				else{
+					l6 =window.localStorage.setItem('l6', storeScore6);
+				}
+				pageCount=6;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_6";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_6');
+			}
+			else if(page=="A_7"){
+				if(getScore7==null){
+					if(allScoresArray[6]!=null){
+						l7 =window.localStorage.setItem('l7', allScoresArray[6]);
+					}
+				}
+				else{
+					l7 =window.localStorage.setItem('l7', storeScore7);
+				}
+				pageCount=7;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_7";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_7');
+			}
+			else if(page=="A_8"){
+				if(getScore8==null){
+					if(allScoresArray[7]!=null){
+						l8 =window.localStorage.setItem('l8', allScoresArray[7]);
+					}
+				}
+				else{
+					l8 =window.localStorage.setItem('l8', storeScore8);
+				}
+				pageCount=8;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_8";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_8');
+			}
+			else if(page=="B_1"){
+				if(getScore9==null){
+					if(allScoresArray[8]!=null){
+						l9 =window.localStorage.setItem('l9', allScoresArray[8]);
+					}
+				}
+				else{
+					l9 =window.localStorage.setItem('l9', storeScore9);
+				}
+				pageCount=9;
+				localStorage.setItem("pageCount", pageCount);
+				z = "B_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('B_1');
+			}
+			else if(page=="B_2"){
+				if(getScore10==null){
+					if(allScoresArray[9]!=null){
+						l10 =window.localStorage.setItem('l10', allScoresArray[9]);
+					}
+				}
+				else{
+					l10 =window.localStorage.setItem('l10', storeScore10);
+				}
+				pageCount=10;
+				localStorage.setItem("pageCount", pageCount);
+				z = "B_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('B_2');
+			}
+			else if(page=="B_3"){
+				if(getScore11==null){
+					if(allScoresArray[10]!=null){
+						l11 =window.localStorage.setItem('l11', allScoresArray[10]);
+					}
+				}
+				else{
+					l11 =window.localStorage.setItem('l11', storeScore11);
+				}
+				pageCount=11;
+				localStorage.setItem("pageCount", pageCount);
+				z = "B_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('B_3');
+			}
+			else if(page=="C_1"){
+				if(getScore12==null){
+					if(allScoresArray[11]!=null){
+						l12 =window.localStorage.setItem('l12', allScoresArray[11]);
+					}
+				}
+				else{
+					l12 =window.localStorage.setItem('l12', storeScore12);
+				}
+				pageCount=12;
+				localStorage.setItem("pageCount", pageCount);
+				z = "C_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('C_1');
+			}
+			else if(page=="C_2"){
+				if(getScore13==null){
+					if(allScoresArray[12]!=null){
+						l13 =window.localStorage.setItem('l13', allScoresArray[12]);
+					}
+				}
+				else{
+					l13 =window.localStorage.setItem('l13', storeScore13);
+				}
+				pageCount=13;
+				localStorage.setItem("pageCount", pageCount);
+				z = "C_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('C_2');
+			}
+			else if(page=="D_1"){
+				if(getScore14==null){
+					if(allScoresArray[13]!=null){
+						l14 =window.localStorage.setItem('l14', allScoresArray[13]);
+					}
+				}
+				else{
+					l14 =window.localStorage.setItem('l14', storeScore14);
+				}
+				pageCount=14;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_1');
+			}
+			else if(page=="D_2"){
+				if(getScore15==null){
+					if(allScoresArray[14]!=null){
+						l15 =window.localStorage.setItem('l15', allScoresArray[14]);
+					}
+				}
+				else{
+					l15 =window.localStorage.setItem('l15', storeScore15);
+				}
+				pageCount=15;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_2');
+			}
+			else if(page=="D_3"){
+				if(getScore16==null){
+					if(allScoresArray[15]!=null){
+						l16 =window.localStorage.setItem('l16', allScoresArray[15]);
+					}
+				}
+				else{
+					l16 =window.localStorage.setItem('l16', storeScore16);
+				}
+				pageCount=16;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_3');
+			}
+			else if(page=="D_4"){
+				if(getScore17==null){
+					if(allScoresArray[16]!=null){
+						l17 =window.localStorage.setItem('l17', allScoresArray[16]);
+					}
+				}
+				else{
+					l17 =window.localStorage.setItem('l17', storeScore17);
+				}
+				pageCount=17;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_4";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_4');
+			}
+			else if(page=="E_1"){
+				if(getScore18==null){
+					if(allScoresArray[17]!=null){
+						l18 =window.localStorage.setItem('l18', allScoresArray[17]);
+					}
+				}
+				else{
+					l18 =window.localStorage.setItem('l18', storeScore18);
+				}
+				pageCount=18;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_1');
+			}
+			else if(page=="E_2"){
+				if(getScore19==null){
+					if(allScoresArray[18]!=null){
+						l19 =window.localStorage.setItem('l19', allScoresArray[18]);
+					}
+				}
+				else{
+					l19 =window.localStorage.setItem('l19', storeScore19);
+				}
+				pageCount=19;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_2');
+			}
+			else if(page=="E_3"){
+				if(getScore20==null){
+					if(allScoresArray[19]!=null){
+						l20 =window.localStorage.setItem('l20', allScoresArray[19]);
+					}
+				}
+				else{
+					l20 =window.localStorage.setItem('l20', storeScore20);
+				}
+				pageCount=20;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_3');
+			}
+			else if(page=="E_4"){
+				if(getScore21==null){
+					if(allScoresArray[20]!=null){
+						l21 =window.localStorage.setItem('l21', allScoresArray[20]);
+					}
+				}
+				else{
+					l21 =window.localStorage.setItem('l21', storeScore21);
+				}
+				pageCount=21;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_4";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_4');
+			}
 		}
 		function localStorageSubCatFormsSubmit(page) {
-			localStorageSubCatForms(page);
-			window.location.href = "formComplete.html";
+			var z;
+			var s;
+			if(page=="checks"){
+				doubleCheck();
+				localStorageSubCatForms('checks');
+			}
+			else if(page=="A_1"){
+				if(getScore1==null){
+					if(allScoresArray[0]!=null){
+						l =window.localStorage.setItem('l', allScoresArray[0]);
+					}
+				}
+				else{
+					l =window.localStorage.setItem('l', storeScore1);
+				}
+				pageCount=1;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_1";
+				s=window.localStorage.setItem("s", z);				
+				localStorageSubCatForms('A_1');
+			}
+			else if(page=="A_2"){
+				if(getScore2==null){
+					if(allScoresArray[1]!=null){
+						l2 =window.localStorage.setItem('l2', allScoresArray[1]);
+					}
+				}
+				else{
+					l2 =window.localStorage.setItem('l2', storeScore2);
+				}
+				pageCount=2;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_2');
+			}
+			else if(page=="A_3"){
+				if(getScore3==null){
+					if(allScoresArray[2]!=null){
+						l3 =window.localStorage.setItem('l3', allScoresArray[2]);
+					}
+				}
+				else{
+					l3 =window.localStorage.setItem('l3', storeScore3);
+				}
+				pageCount=3;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_3');
+			}
+			else if(page=="A_4"){
+				if(getScore4==null){
+					if(allScoresArray[3]!=null){
+						l4 =window.localStorage.setItem('l4', allScoresArray[3]);
+					}
+				}
+				else{
+					l4 =window.localStorage.setItem('l4', storeScore4);
+				}
+				pageCount=4;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_4";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_4');
+			}
+			else if(page=="A_5"){
+				if(getScore5==null){
+					if(allScoresArray[4]!=null){
+						l5 =window.localStorage.setItem('l5', allScoresArray[4]);
+					}
+				}
+				else{
+					l5 =window.localStorage.setItem('l5', storeScore5);
+				}
+				pageCount=5;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_5";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_5');
+			}
+			else if(page=="A_6"){
+				if(getScore6==null){
+					if(allScoresArray[5]!=null){
+						l6 =window.localStorage.setItem('l6', allScoresArray[5]);
+					}
+				}
+				else{
+					l6 =window.localStorage.setItem('l6', storeScore6);
+				}
+				pageCount=6;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_6";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_6');
+			}
+			else if(page=="A_7"){
+				if(getScore7==null){
+					if(allScoresArray[6]!=null){
+						l7 =window.localStorage.setItem('l7', allScoresArray[6]);
+					}
+				}
+				else{
+					l7 =window.localStorage.setItem('l7', storeScore7);
+				}
+				pageCount=7;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_7";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_7');
+			}
+			else if(page=="A_8"){
+				if(getScore8==null){
+					if(allScoresArray[7]!=null){
+						l8 =window.localStorage.setItem('l8', allScoresArray[7]);
+					}
+				}
+				else{
+					l8 =window.localStorage.setItem('l8', storeScore8);
+				}
+				pageCount=8;
+				localStorage.setItem("pageCount", pageCount);
+				z = "A_8";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('A_8');
+			}
+			else if(page=="B_1"){
+				if(getScore9==null){
+					if(allScoresArray[8]!=null){
+						l9 =window.localStorage.setItem('l9', allScoresArray[8]);
+					}
+				}
+				else{
+					l9 =window.localStorage.setItem('l9', storeScore9);
+				}
+				pageCount=9;
+				localStorage.setItem("pageCount", pageCount);
+				z = "B_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('B_1');
+			}
+			else if(page=="B_2"){
+				if(getScore10==null){
+					if(allScoresArray[9]!=null){
+						l10 =window.localStorage.setItem('l10', allScoresArray[9]);
+					}
+				}
+				else{
+					l10 =window.localStorage.setItem('l10', storeScore10);
+				}
+				pageCount=10;
+				localStorage.setItem("pageCount", pageCount);
+				z = "B_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('B_2');
+			}
+			else if(page=="B_3"){
+				if(getScore11==null){
+					if(allScoresArray[10]!=null){
+						l11 =window.localStorage.setItem('l11', allScoresArray[10]);
+					}
+				}
+				else{
+					l11 =window.localStorage.setItem('l11', storeScore11);
+				}
+				pageCount=11;
+				localStorage.setItem("pageCount", pageCount);
+				z = "B_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('B_3');
+			}
+			else if(page=="C_1"){
+				if(getScore12==null){
+					if(allScoresArray[11]!=null){
+						l12 =window.localStorage.setItem('l12', allScoresArray[11]);
+					}
+				}
+				else{
+					l12 =window.localStorage.setItem('l12', storeScore12);
+				}
+				pageCount=12;
+				localStorage.setItem("pageCount", pageCount);
+				z = "C_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('C_1');
+			}
+			else if(page=="C_2"){
+				if(getScore13==null){
+					if(allScoresArray[12]!=null){
+						l13 =window.localStorage.setItem('l13', allScoresArray[12]);
+					}
+				}
+				else{
+					l13 =window.localStorage.setItem('l13', storeScore13);
+				}
+				pageCount=13;
+				localStorage.setItem("pageCount", pageCount);
+				z = "C_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('C_2');
+			}
+			else if(page=="D_1"){
+				if(getScore14==null){
+					if(allScoresArray[13]!=null){
+						l14 =window.localStorage.setItem('l14', allScoresArray[13]);
+					}
+				}
+				else{
+					l14 =window.localStorage.setItem('l14', storeScore14);
+				}
+				pageCount=14;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_1');
+			}
+			else if(page=="D_2"){
+				if(getScore15==null){
+					if(allScoresArray[14]!=null){
+						l15 =window.localStorage.setItem('l15', allScoresArray[14]);
+					}
+				}
+				else{
+					l15 =window.localStorage.setItem('l15', storeScore15);
+				}
+				pageCount=15;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_2');
+			}
+			else if(page=="D_3"){
+				if(getScore16==null){
+					if(allScoresArray[15]!=null){
+						l16 =window.localStorage.setItem('l16', allScoresArray[15]);
+					}
+				}
+				else{
+					l16 =window.localStorage.setItem('l16', storeScore16);
+				}
+				pageCount=16;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_3');
+			}
+			else if(page=="D_4"){
+				if(getScore17==null){
+					if(allScoresArray[16]!=null){
+						l17 =window.localStorage.setItem('l17', allScoresArray[16]);
+					}
+				}
+				else{
+					l17 =window.localStorage.setItem('l17', storeScore17);
+				}
+				pageCount=17;
+				localStorage.setItem("pageCount", pageCount);
+				z = "D_4";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('D_4');
+			}
+			else if(page=="E_1"){
+				if(getScore18==null){
+					if(allScoresArray[17]!=null){
+						l18 =window.localStorage.setItem('l18', allScoresArray[17]);
+					}
+				}
+				else{
+					l18 =window.localStorage.setItem('l18', storeScore18);
+				}
+				pageCount=18;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_1";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_1');
+			}
+			else if(page=="E_2"){
+				if(getScore19==null){
+					if(allScoresArray[18]!=null){
+						l19 =window.localStorage.setItem('l19', allScoresArray[18]);
+					}
+				}
+				else{
+					l19 =window.localStorage.setItem('l19', storeScore19);
+				}
+				pageCount=19;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_2";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_2');
+			}
+			else if(page=="E_3"){
+				if(getScore20==null){
+					if(allScoresArray[19]!=null){
+						l20 =window.localStorage.setItem('l20', allScoresArray[19]);
+					}
+				}
+				else{
+					l20 =window.localStorage.setItem('l20', storeScore20);
+				}
+				pageCount=20;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_3";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_3');
+			}
+			else if(page=="E_4"){
+				if(getScore21==null){
+					if(allScoresArray[20]!=null){
+						l21 =window.localStorage.setItem('l21', allScoresArray[20]);
+					}
+				}
+				else{
+					l21 =window.localStorage.setItem('l21', storeScore21);
+				}
+				pageCount=21;
+				localStorage.setItem("pageCount", pageCount);
+				z = "E_4";
+				s=window.localStorage.setItem("s", z);	
+				localStorageSubCatForms('E_4');
+			}
+			window.location.href="formComplete.html";
 		}
 		//save to localStorage based on the page
 		var storedCheckedForms; 
@@ -5708,7 +6347,6 @@
 			
 		}
 	function goSubmit() {
-		window.alert("Got to goSubmit");
 		window.location.href = "formComplete.html";
 	}
 
