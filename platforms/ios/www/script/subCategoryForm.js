@@ -5042,7 +5042,7 @@
 				window.localStorage.setItem('A.1compliance10', A_1tenthCompliance);
 				window.localStorage.setItem('A.1compliance11', A_1eleventhCompliance);
 				window.localStorage.setItem('A.1compliance12', A_1twelthCompliance);
-				alert("SAVED IN LOCAL STORAGE");
+				window.alert("SAVED IN LOCAL STORAGE");
 			}
 			else if(page=="A_2"){
 				var score2 = document.getElementById('A.2score').innerHTML;
@@ -5075,7 +5075,7 @@
 				window.localStorage.setItem('A.2compliance8', A_2eigthCompliance);
 				window.localStorage.setItem('A.2compliance9', A_2ninthCompliance);
 				window.localStorage.setItem('A.2compliance10', A_2tenthCompliance);
-				alert("SAVED IN LOCAL STORAGE");
+				window.alert("SAVED IN LOCAL STORAGE");
 
 			}
 			else if(page=="A_3"){
