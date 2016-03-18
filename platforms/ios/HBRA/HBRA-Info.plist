@@ -192,6 +192,10 @@
     <array>
       <string>UIInterfaceOrientationPortrait</string>
     </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>mailto</string>
+    </array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
   </dict>

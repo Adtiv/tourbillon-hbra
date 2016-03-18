@@ -1254,29 +1254,24 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-	//html processing
-	//var htmlattach = localStorage.getItem("HbraHTML");
-    //var htmlattach64 = "base64:Hbra.html//" + btoa(htmlattach);
-    //End of html processing
-    if(localStorage.getItem('imagepath1')!=null){
+	if(localStorage.getItem('imagepath1')!=null){
     	alert('picAttatchment');
    		var picAttach = localStorage.getItem('imagepath1');
     }
-   	var pdfattach = localStorage.getItem("HbraPDF");
-   	//window.alert("Complete PDF attachment data from localstorage: " + pdfattach);
-   	var n = pdfattach.indexOf(",");
-   	var pdfattach64 = "base64:Hbra.pdf//" + pdfattach.substring(n+1);
-   	//window.alert("Complete PDF attachment Data64: " + pdfattach64);
-   	window.plugin.email.isServiceAvailable(
-    function (isAvailable) {
-        window.alert('Service available setting: ' + isAvailable);
-    }
-	);
-	cordova.plugins.email.open({
+   	var pdfAttach = localStorage.getItem("HbraPDF");
+   	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
+   	var n = pdfAttach.indexOf(",");
+   	var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
+   	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
+   	var callback = function(result) { window.alert('Service available setting: ' + result); };
+   	window.alert("Just before email available check");
+	cordova.plugins.email.isAvailable(callback);
+	if(callback){
+		cordova.plugins.email.open({
 		subject: 'Site Safety Evaluation Form - html',
-	    //attachments: [pdfattach64,htmlattach64]
-	    attachments: [pdfattach64,picAttach] 
+	    attachments: [pdfAttach64,picAttach] 
 	});
+	} 
 	//window.alert("htmlToPDF - Exiting Email");
 }
 //Should no longer need this function

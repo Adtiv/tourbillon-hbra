@@ -16,10 +16,10 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
-        "cordova-plugin-statusbar": {
+        "cordova-plugin-email-composer": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
-        "de.appplant.cordova.plugin.email-composer": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
         "org.apache.cordova.camera": {
