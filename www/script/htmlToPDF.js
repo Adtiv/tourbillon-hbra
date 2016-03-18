@@ -1290,6 +1290,15 @@ function email(){
 function generatePDF(){
 	    //window.alert("htmlToPDF.js - Entered generatePDF");
 		compileStoredVariables();
+		// Remove any DIVs from the dom whihc have been marked ar display:non so that they do not show up on the PDF 
+		var parent = document.getElementById("testDiv2");   // Find the DIV containing the elements possible marked as display:none
+		var ce = $("#testDiv2").children();  	// Get its children
+		for(var i=0; i<ce.length; i++) {		// Loop thru all of the children
+			if (ce[i].nodeName == "DIV" & ce[i].style.display == "none" ) {   
+            parent.removeChild(ce[i]);			// Remove if child DIV is display:none
+   			}
+       	}
+       	// End of Logic for removing DIV elements which should not display on the PDF
 		var sourcehtml = $("#testDiv").html();
 		document.getElementById('testDiv').style.display="none";
         document.getElementById('loading').style.display="none";
