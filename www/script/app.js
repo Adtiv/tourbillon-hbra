@@ -22,7 +22,6 @@ function init(){
 		document.getElementById('weatherCom').value = window.localStorage.getItem('weatherCom');
 
 	}
-	
 }
 
 function storeLocalContent(next){
