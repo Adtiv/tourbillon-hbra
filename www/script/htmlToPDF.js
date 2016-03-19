@@ -1254,24 +1254,34 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-	if(localStorage.getItem('imagepath1')!=null){
-    	alert('picAttatchment');
-   		var picAttach = localStorage.getItem('imagepath1');
-    }
+	//if(localStorage.getItem('imagepath1')!=null){
+    //	alert('picAttatchment');
+   	//	var picAttach = localStorage.getItem('imagepath1');
+    //}
    	var pdfAttach = localStorage.getItem("HbraPDF");
    	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
    	var n = pdfAttach.indexOf(",");
    	var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
    	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
-   	var callback = function(result) { window.alert('Service available setting: ' + result); };
-   	//window.alert("Just before email available check");
+   	var callback = function(result) { window.alert('Service available setting is: ' + result); };
+   	window.alert("Just before email available check");
 	cordova.plugins.email.isAvailable(callback);
 	if(callback){
-		cordova.plugins.email.open({
-		subject: 'Site Safety Evaluation Form - html',
-	    attachments: [pdfAttach64,picAttach] 
-	});
-	} 
+		if(localStorage.getItem('imagepath1')!=null){
+    		window.alert('picAttachment - Yes');
+   			var picAttach = localStorage.getItem('imagepath1');
+    		cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form - html',
+	   	 	attachments: [pdfAttach64,picAttach] 
+			});
+		} else {
+			window.alert('picAttachment - No');
+   			cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form - html',
+	   	 	attachments: pdfAttach64
+			});
+		}
+	}
 	//window.alert("htmlToPDF - Exiting Email");
 }
 //Should no longer need this function

@@ -1254,25 +1254,34 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-	//html processing
-	//var htmlattach = localStorage.getItem("HbraHTML");
-    //var htmlattach64 = "base64:Hbra.html//" + btoa(htmlattach);
-    //End of html processing
-   	var pdfattach = localStorage.getItem("HbraPDF");
-   	//window.alert("Complete PDF attachment data from localstorage: " + pdfattach);
-   	var n = pdfattach.indexOf(",");
-   	var pdfattach64 = "base64:Hbra.pdf//" + pdfattach.substring(n+1);
-   	//window.alert("Complete PDF attachment Data64: " + pdfattach64);
-   	window.plugin.email.isServiceAvailable(
-    function (isAvailable) {
-        window.alert('Service available setting: ' + isAvailable);
-    }
-	);
-	cordova.plugins.email.open({
-		subject: 'Site Safety Evaluation Form - html',
-	    //attachments: [pdfattach64,htmlattach64]
-	    attachments: pdfattach64
-	});
+	//if(localStorage.getItem('imagepath1')!=null){
+    //	alert('picAttatchment');
+   	//	var picAttach = localStorage.getItem('imagepath1');
+    //}
+   	var pdfAttach = localStorage.getItem("HbraPDF");
+   	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
+   	var n = pdfAttach.indexOf(",");
+   	var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
+   	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
+   	var callback = function(result) { window.alert('Service available setting is: ' + result); };
+   	window.alert("Just before email available check");
+	cordova.plugins.email.isAvailable(callback);
+	if(callback){
+		if(localStorage.getItem('imagepath1')!=null){
+    		window.alert('picAttachment - Yes');
+   			var picAttach = localStorage.getItem('imagepath1');
+    		cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form - html',
+	   	 	attachments: [pdfAttach64,picAttach] 
+			});
+		} else {
+			window.alert('picAttachment - No');
+   			cordova.plugins.email.open({
+			subject: 'Site Safety Evaluation Form - html',
+	   	 	attachments: pdfAttach64
+			});
+		}
+	}
 	//window.alert("htmlToPDF - Exiting Email");
 }
 //Should no longer need this function
@@ -1290,6 +1299,15 @@ function email(){
 function generatePDF(){
 	    //window.alert("htmlToPDF.js - Entered generatePDF");
 		compileStoredVariables();
+		// Remove any DIVs from the dom whihc have been marked ar display:non so that they do not show up on the PDF 
+		var parent = document.getElementById("testDiv2");   // Find the DIV containing the elements possible marked as display:none
+		var ce = $("#testDiv2").children();  	// Get its children
+		for(var i=0; i<ce.length; i++) {		// Loop thru all of the children
+			if (ce[i].nodeName == "DIV" & ce[i].style.display == "none" ) {   
+            parent.removeChild(ce[i]);			// Remove if child DIV is display:none
+            }
+       	}
+       	// End of Logic for removing DIV elements which should not display on the PDF
 		var sourcehtml = $("#testDiv").html();
 		document.getElementById('testDiv').style.display="none";
         document.getElementById('loading').style.display="none";
