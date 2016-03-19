@@ -1264,7 +1264,7 @@ function email(){
    	var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
    	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
    	var callback = function(result) { window.alert('Service available setting: ' + result); };
-   	window.alert("Just before email available check");
+   	//window.alert("Just before email available check");
 	cordova.plugins.email.isAvailable(callback);
 	if(callback){
 		cordova.plugins.email.open({
@@ -1295,7 +1295,7 @@ function generatePDF(){
 		for(var i=0; i<ce.length; i++) {		// Loop thru all of the children
 			if (ce[i].nodeName == "DIV" & ce[i].style.display == "none" ) {   
             parent.removeChild(ce[i]);			// Remove if child DIV is display:none
-   			}
+            }
        	}
        	// End of Logic for removing DIV elements which should not display on the PDF
 		var sourcehtml = $("#testDiv").html();
