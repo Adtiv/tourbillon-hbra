@@ -411,7 +411,7 @@ margin-bottom: 4%;
 	top:0;
 	text-align: center;
 	position:fixed;
-	-webkit-transform: translateZ(0);
+	/*-webkit-transform: translateZ(0);*/
 	width:100%;
 	font-weight: bolder;
 	color:white;

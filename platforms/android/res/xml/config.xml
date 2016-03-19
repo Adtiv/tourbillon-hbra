@@ -1,6 +1,33 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.hbra" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <feature name="Html2pdf">
+        <param name="android-package" value="at.modalog.cordova.plugin.html2pdf.Html2pdf" />
+    </feature>
+    <feature name="NativePageTransitions">
+        <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="EmailComposer">
+        <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
     <name>HBRA</name>
     <description>
         App for HBRA Inspections
@@ -61,31 +88,4 @@
         <Capability Name="ID_HW_FRONTCAMERA" />
     </Capabilities>
     <access origin="*" />
-    <feature name="Html2pdf">
-        <param name="android-package" value="at.modalog.cordova.plugin.html2pdf.Html2pdf" />
-    </feature>
-    <feature name="NativePageTransitions">
-        <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="StatusBar">
-        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="EmailComposer">
-        <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
-    </feature>
-    <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-    </feature>
-    <feature name="File">
-        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="InAppBrowser">
-        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-    </feature>
 </widget>
