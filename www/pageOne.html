@@ -40,8 +40,7 @@
 			<div class="label">Start Date &amp; Time:</div> <input type="text" name="datetimepicker" id="datetimepicker" class="input beginTime"/><br/><br/>
 			<div class="label">End Date &amp; Time:</div> <input type="text" name="datetimepicker2" id="datetimepicker2" class="input endTime"/><br/><br/>
 			<div class="on-site">On-Site Safety Rep or Competent Person:</div><br/>
-				<div class="underling"><input type="text" name="repFirst" id="repFirst" class="input"/><div class="on-site-label">First Name:</div></div><br/><br/>
-				<div class="underling"><input type="text" name="repFirst" id="repLast" class="input"/><div class="on-site-label">Last Name:</div></div><br/><br/>
+				<div class="underling"><input type="text" name="repName" id="repName" class="input"/><div class="on-site-label">First and Last Name:</div></div><br/><br/>
 			<div class="label">Employee #:</div><input type="text" name="employeeNum" id="employeeNum" class="input"></input><br/><br/>
 			<div class="label">Weather or Special Conditions:</div><textarea type="text" name="weatherCom" id="weatherCom" class="textArea"></textarea>
 			<br/><br/><br/><br/>
@@ -55,7 +54,7 @@
 		</form>
 		<!--<button style="background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
 		<!--<button id="btnSubmit" style="visibility:visible;background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
-		<button id="btnSubmitfirst" onclick="generatePDF()">Submit Form</button>
+		<button id="btnSubmitfirst" onclick="{storeLocalContent();generatePDF();}">Submit Form</button>
 		<button style="width:300px" onclick="View()">View Current PDF</button>
 		<!--<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>-->
     </div>
@@ -77,7 +76,7 @@
 <script type="text/javascript" src="script/jsPDF-master/plugins/standard_fonts_metrics.js"></script>
 <script type="text/javascript" src="script/jsPDF-master/plugins/addhtml.js"></script>-->
 <script>
-	jQuery('#datetimepicker').datetimepicker();
-	jQuery('#datetimepicker2').datetimepicker();
+	jQuery('#datetimepicker').datetimepicker({ampm: true});
+	jQuery('#datetimepicker2').datetimepicker({ampm: true});
 </script>
 </html>

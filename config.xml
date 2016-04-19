@@ -23,13 +23,15 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
-    <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
+    <!--<gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />-->
+    <gap:plugin name="cordova-plugin-email-composer" source="npm" />
     <gap:plugin name="org.apache.cordova.camera"/>
     <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
     <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
     <gap:plugin name="org.apache.cordova.device" source="npm"/>
+    <gap:plugin name="org.apache.cordova.dialogs"/>
     <!--<gap:plugin name="com.telerik.plugins.nativepagetransitions" version="0.2.2" />!-->
     <plugin name="at.modalog.cordova.plugin.html2pdf" spec="1.0.119" source="pgb" />
     <!--<gap:plugin name="at.modalog.cordova.plugin.html2pdf" version="1.0.79" /> !-->

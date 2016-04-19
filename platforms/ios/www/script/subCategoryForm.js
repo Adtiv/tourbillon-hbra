@@ -5307,6 +5307,12 @@
 				s=window.localStorage.setItem("s", z);	
 				localStorageSubCatForms('E_4');
 			}
+			navigator.notification.alert(
+    			'Press OK',  // message
+    			null,	  // no callback	
+    	   	 	'Saved',  // title
+    	   	 	'OK'      // buttonName
+				);
 		}
 		function localStorageSubCatFormsSubmit(page) {
 			var z;

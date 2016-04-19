@@ -30,10 +30,18 @@ function compileStoredVariables(){
 		if(localStorage.getItem('jobNum')!=null){
 			document.getElementById('jobNum').innerHTML = localStorage.getItem('jobNum');
 		}
+		if(localStorage.getItem('beginTime')!=null){
+			document.getElementById('beginTime').innerHTML = localStorage.getItem('beginTime');
+		}
+		if(localStorage.getItem('endTime')!=null){
+			document.getElementById('endTime').innerHTML = localStorage.getItem('endTime');
+		}
 		if(localStorage.getItem('inspBy')!=null){
 			document.getElementById('inspBy').innerHTML = localStorage.getItem('inspBy');
 		}
-		//document.getElementById('email').innerHTML = localStorage.getItem('email');
+		if(localStorage.getItem('email')!=null){
+			document.getElementById('email').innerHTML = localStorage.getItem('email');
+		}
 		if(localStorage.getItem('title')!=null){	
 			document.getElementById('title').innerHTML = localStorage.getItem('title');
 		}
@@ -42,11 +50,8 @@ function compileStoredVariables(){
 		}
 		//document.getElementsByClassName('beginTime').innerHTML = localStorage.getItem('beginTime');
 		//document.getElementsByClassName('endtime').innerHTML = localStorage.getItem('endTime');
-		if(localStorage.getItem('repFirst')!=null){
-			document.getElementById('repFirst').innerHTML = localStorage.getItem('repFirst');
-		}
-		if(localStorage.getItem('repLast')!=null){
-			document.getElementById('repLast').innerHTML = localStorage.getItem('repLast');
+		if(localStorage.getItem('repName')!=null){
+			document.getElementById('repName').innerHTML = localStorage.getItem('repName');
 		}
 		if(localStorage.getItem('employeeNum')!=null){
 			document.getElementById('employeeNum').innerHTML = localStorage.getItem('employeeNum');
@@ -75,6 +80,7 @@ function compileStoredVariables(){
 					if((storedScore1[0]==1 || storedScore1[0]==3) && localStorage.getItem('A.1compliance1')!=""){ //&& localStorage.getItem('A.1compliance1')!=""){
 						document.getElementById('A.1compliance1').innerHTML = "-"+localStorage.getItem('A.1compliance1');
 						console.log("gets to compliance");
+						window.alert("A1 Note is: " + localStorage.getItem('A.1compliance1'));
 					}
 					document.getElementById('scoreA.1-2').innerHTML = storedScore1[2];
 					if((storedScore1[2]==1 || storedScore1[2]==3) && localStorage.getItem('A.1compliance2')!=""){
@@ -1264,18 +1270,18 @@ function email(){
    	var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
    	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
    	var callback = function(result) { window.alert('Service available setting is: ' + result); };
-   	window.alert("Just before email available check");
+   	//window.alert("Just before email available check");
 	cordova.plugins.email.isAvailable(callback);
 	if(callback){
 		if(localStorage.getItem('imagepath1')!=null){
-    		window.alert('picAttachment - Yes');
+    		//window.alert('picAttachment - Yes');
    			var picAttach = localStorage.getItem('imagepath1');
     		cordova.plugins.email.open({
 			subject: 'Site Safety Evaluation Form - html',
 	   	 	attachments: [pdfAttach64,picAttach] 
 			});
 		} else {
-			window.alert('picAttachment - No');
+			//window.alert('picAttachment - No');
    			cordova.plugins.email.open({
 			subject: 'Site Safety Evaluation Form - html',
 	   	 	attachments: pdfAttach64

@@ -14,10 +14,9 @@ function init(){
 		document.getElementById('email').value = window.localStorage.getItem('email');
 		document.getElementById('title').value = window.localStorage.getItem('title');
 		document.getElementById('empNum').value = window.localStorage.getItem('empNum');
-		document.getElementsByClassName('beginTime').value = window.localStorage.getItem('beginTime');
-		document.getElementsByClassName('endtime').value = window.localStorage.getItem('endTime');
-		document.getElementById('repFirst').value = window.localStorage.getItem('repFirst');
-		document.getElementById('repLast').value = window.localStorage.getItem('repLast');
+		document.getElementById('datetimepicker').value = window.localStorage.getItem('beginTime');
+		document.getElementById('datetimepicker2').value = window.localStorage.getItem('endTime');
+		document.getElementById('repName').value = window.localStorage.getItem('repName');
 		document.getElementById('employeeNum').value = window.localStorage.getItem('employeeNum');
 		document.getElementById('weatherCom').value = window.localStorage.getItem('weatherCom');
 
@@ -26,7 +25,14 @@ function init(){
 }
 
 function storeLocalContent(next){
-	if (next == "save") window.alert("Saved");
+	if (next == "save") {
+		navigator.notification.alert(
+    			'Press OK',  // message
+    			null,	  // no callback	
+    	   	 	'Saved',  // title
+    	   	 	'OK'      // buttonName
+				);
+			}
 	var comp = document.getElementById('company').value;
 	var tradeType = document.getElementById('trade').value;
 	var nameJob = document.getElementById('jobName').value;
@@ -35,13 +41,11 @@ function storeLocalContent(next){
 	var emailAddress = document.getElementById('email').value
 	var jobTitle = document.getElementById('title').value;
 	var numEmp = document.getElementById('empNum').value;
-	var timeBegin = document.getElementsByClassName('beginTime').value;
-	var timeEnd = document.getElementsByClassName('endTime').value;
-	var firstRep = document.getElementById('repFirst').value;
-	var lastRep = document.getElementById('repLast').value;
+	var timeBegin = document.getElementById('datetimepicker').value;
+	var timeEnd = document.getElementById('datetimepicker2').value;
+	var nameRep = document.getElementById('repName').value;
 	var employeeNum = document.getElementById('employeeNum').value;
 	var comWeather = document.getElementById('weatherCom').value;
-
 
 	window.localStorage.setItem('company', comp);
 	window.localStorage.setItem('trade', tradeType);
@@ -53,8 +57,7 @@ function storeLocalContent(next){
 	window.localStorage.setItem('empNum', numEmp);
 	window.localStorage.setItem('beginTime', timeBegin);
 	window.localStorage.setItem('endTime', timeEnd);
-	window.localStorage.setItem('repFirst', firstRep);
-	window.localStorage.setItem('repLast', lastRep);
+	window.localStorage.setItem('repName', nameRep);
 	window.localStorage.setItem('employeeNum', employeeNum);
 	window.localStorage.setItem('weatherCom', comWeather);
 
