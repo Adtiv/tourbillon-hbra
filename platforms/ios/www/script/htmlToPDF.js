@@ -1260,8 +1260,8 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-	window.alert("updateAttachments");
-	var attachmentsArray = [];
+	console.log("updateAttachments");
+	var attachmentsArray = new Array();
 	if(localStorage.getItem('imagepath1')!=null){
    		var picAttach = localStorage.getItem('imagepath1');
    		attachmentsArray.push(picAttach);
@@ -1358,7 +1358,7 @@ function email(){
    		var picAttach = localStorage.getItem('A.2imagepath10');
    		attachmentsArray.push(picAttach);
     }
-   	window.alert(attachmentsArray);
+   	console.log(attachmentsArray);
    	var pdfAttach = localStorage.getItem("HbraPDF");
    	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
    	var n = pdfAttach.indexOf(",");
