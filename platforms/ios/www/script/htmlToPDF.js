@@ -1266,95 +1266,95 @@ function email(){
    		var picAttach = localStorage.getItem('imagepath1');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath2')!=null){
+    if(localStorage.getItem('imagepath2')!=null){
    		var picAttach = localStorage.getItem('imagepath2');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath3')!=null){
+    if(localStorage.getItem('imagepath3')!=null){
    		var picAttach = localStorage.getItem('imagepath3');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath4')!=null){
+    if(localStorage.getItem('imagepath4')!=null){
    		var picAttach = localStorage.getItem('imagepath4');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath5')!=null){
+    if(localStorage.getItem('imagepath5')!=null){
    		var picAttach = localStorage.getItem('imagepath5');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath5')!=null){
+    if(localStorage.getItem('imagepath5')!=null){
    		var picAttach = localStorage.getItem('imagepath5');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath6')!=null){
+    if(localStorage.getItem('imagepath6')!=null){
    		var picAttach = localStorage.getItem('imagepath6');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath7')!=null){
+    if(localStorage.getItem('imagepath7')!=null){
    		var picAttach = localStorage.getItem('imagepath7');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath8')!=null){
+    if(localStorage.getItem('imagepath8')!=null){
    		var picAttach = localStorage.getItem('imagepath8');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath9')!=null){
+    if(localStorage.getItem('imagepath9')!=null){
    		var picAttach = localStorage.getItem('imagepath9');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath10')!=null){
+    if(localStorage.getItem('imagepath10')!=null){
    		var picAttach = localStorage.getItem('imagepath10');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath11')!=null){
+    if(localStorage.getItem('imagepath11')!=null){
    		var picAttach = localStorage.getItem('imagepath11');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('imagepath12')!=null){
+    if(localStorage.getItem('imagepath12')!=null){
    		var picAttach = localStorage.getItem('imagepath12');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath1')!=null){
+    if(localStorage.getItem('A.2imagepath1')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath1');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath2')!=null){
+    if(localStorage.getItem('A.2imagepath2')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath2');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath3')!=null){
+    if(localStorage.getItem('A.2imagepath3')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath3');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath4')!=null){
+    if(localStorage.getItem('A.2imagepath4')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath4');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath5')!=null){
+    if(localStorage.getItem('A.2imagepath5')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath5');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath5')!=null){
+    if(localStorage.getItem('A.2imagepath5')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath5');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath6')!=null){
+    if(localStorage.getItem('A.2imagepath6')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath6');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath7')!=null){
+    if(localStorage.getItem('A.2imagepath7')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath7');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath8')!=null){
+    if(localStorage.getItem('A.2imagepath8')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath8');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath9')!=null){
+    if(localStorage.getItem('A.2imagepath9')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath9');
    		attachmentsArray.push(picAttach);
     }
-    else if(localStorage.getItem('A.2imagepath10')!=null){
+    if(localStorage.getItem('A.2imagepath10')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath10');
    		attachmentsArray.push(picAttach);
     }
