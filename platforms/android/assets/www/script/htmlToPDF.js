@@ -1260,10 +1260,105 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-	//if(localStorage.getItem('imagepath1')!=null){
-    //	alert('picAttatchment');
-   	//	var picAttach = localStorage.getItem('imagepath1');
-    //}
+	window.alert("updateAttatchments");
+	var attachmentsArray = [];
+	if(localStorage.getItem('imagepath1')!=null){
+   		var picAttach = localStorage.getItem('imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath2')!=null){
+   		var picAttach = localStorage.getItem('imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath3')!=null){
+   		var picAttach = localStorage.getItem('imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath4')!=null){
+   		var picAttach = localStorage.getItem('imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath5')!=null){
+   		var picAttach = localStorage.getItem('imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath5')!=null){
+   		var picAttach = localStorage.getItem('imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath6')!=null){
+   		var picAttach = localStorage.getItem('imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath7')!=null){
+   		var picAttach = localStorage.getItem('imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath8')!=null){
+   		var picAttach = localStorage.getItem('imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath9')!=null){
+   		var picAttach = localStorage.getItem('imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath10')!=null){
+   		var picAttach = localStorage.getItem('imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath11')!=null){
+   		var picAttach = localStorage.getItem('imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('imagepath12')!=null){
+   		var picAttach = localStorage.getItem('imagepath12');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath6')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath7')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath8')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath9')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    else if(localStorage.getItem('A.2imagepath10')!=null){
+   		var picAttach = localStorage.getItem('A.2imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+   	alert(attatchmentsArray);
    	var pdfAttach = localStorage.getItem("HbraPDF");
    	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
    	var n = pdfAttach.indexOf(",");
@@ -1271,22 +1366,13 @@ function email(){
    	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
    	var callback = function(result) { window.alert('Service available setting is: ' + result); };
    	//window.alert("Just before email available check");
+   	attatchmentsArray.push(pdfAttach64);
 	cordova.plugins.email.isAvailable(callback);
 	if(callback){
-		if(localStorage.getItem('imagepath1')!=null){
-    		//window.alert('picAttachment - Yes');
-   			var picAttach = localStorage.getItem('imagepath1');
-    		cordova.plugins.email.open({
-			subject: 'Site Safety Evaluation Form - html',
-	   	 	attachments: [pdfAttach64,picAttach] 
-			});
-		} else {
-			//window.alert('picAttachment - No');
-   			cordova.plugins.email.open({
-			subject: 'Site Safety Evaluation Form - html',
-	   	 	attachments: pdfAttach64
-			});
-		}
+		cordova.plugins.email.open({
+		subject: 'Site Safety Evaluation Form - html',
+   	 	attachments: attatchmentsArray
+		});
 	}
 	//window.alert("htmlToPDF - Exiting Email");
 }

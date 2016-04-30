@@ -1260,7 +1260,7 @@ function compileStoredVariables(){
 //Email plugin functions:
 function email(){
 	//window.alert("htmlToPDF - Entered Email");
-	alert("updateAttatchments");
+	window.alert("updateAttachments");
 	var attachmentsArray = [];
 	if(localStorage.getItem('imagepath1')!=null){
    		var picAttach = localStorage.getItem('imagepath1');
@@ -1358,6 +1358,7 @@ function email(){
    		var picAttach = localStorage.getItem('A.2imagepath10');
    		attachmentsArray.push(picAttach);
     }
+   	window.alert(attachmentsArray);
    	var pdfAttach = localStorage.getItem("HbraPDF");
    	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
    	var n = pdfAttach.indexOf(",");
@@ -1365,12 +1366,12 @@ function email(){
    	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
    	var callback = function(result) { window.alert('Service available setting is: ' + result); };
    	//window.alert("Just before email available check");
-   	attatchmentsArray.push(pdfAttach64);
+   	attachmentsArray.push(pdfAttach64);
 	cordova.plugins.email.isAvailable(callback);
 	if(callback){
 		cordova.plugins.email.open({
 		subject: 'Site Safety Evaluation Form - html',
-   	 	attachments: attatchmentsArray
+   	 	attachments: attachmentsArray
 		});
 	}
 	//window.alert("htmlToPDF - Exiting Email");
