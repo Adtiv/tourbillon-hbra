@@ -1282,10 +1282,6 @@ function email(){
    		var picAttach = localStorage.getItem('imagepath5');
    		attachmentsArray.push(picAttach);
     }
-    if(localStorage.getItem('imagepath5')!=null){
-   		var picAttach = localStorage.getItem('imagepath5');
-   		attachmentsArray.push(picAttach);
-    }
     if(localStorage.getItem('imagepath6')!=null){
    		var picAttach = localStorage.getItem('imagepath6');
    		attachmentsArray.push(picAttach);
@@ -1334,10 +1330,6 @@ function email(){
    		var picAttach = localStorage.getItem('A.2imagepath5');
    		attachmentsArray.push(picAttach);
     }
-    if(localStorage.getItem('A.2imagepath5')!=null){
-   		var picAttach = localStorage.getItem('A.2imagepath5');
-   		attachmentsArray.push(picAttach);
-    }
     if(localStorage.getItem('A.2imagepath6')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath6');
    		attachmentsArray.push(picAttach);
@@ -1356,6 +1348,754 @@ function email(){
     }
     if(localStorage.getItem('A.2imagepath10')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath6')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath7')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath8')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath9')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.3imagepath10')!=null){
+   		var picAttach = localStorage.getItem('A.3imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath6')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath7')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath8')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.4imagepath9')!=null){
+   		var picAttach = localStorage.getItem('A.4imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath6')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath7')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath8')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.5imagepath9')!=null){
+   		var picAttach = localStorage.getItem('A.5imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.6imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.6imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.6imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.6imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.6imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.6imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.6imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.6imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.6imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.6imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.6imagepath6')!=null){
+   		var picAttach = localStorage.getItem('A.6imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath6')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.7imagepath7')!=null){
+   		var picAttach = localStorage.getItem('A.7imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.8imagepath1')!=null){
+   		var picAttach = localStorage.getItem('A.8imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.8imagepath2')!=null){
+   		var picAttach = localStorage.getItem('A.8imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.8imagepath3')!=null){
+   		var picAttach = localStorage.getItem('A.8imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.8imagepath4')!=null){
+   		var picAttach = localStorage.getItem('A.8imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('A.8imagepath5')!=null){
+   		var picAttach = localStorage.getItem('A.8imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath1')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath2')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath3')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath4')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath5')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath6')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath7')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath8')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath9')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.1imagepath10')!=null){
+   		var picAttach = localStorage.getItem('B.1imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath1')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath2')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath3')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath4')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath5')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath6')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath7')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath8')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath9')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.2imagepath10')!=null){
+   		var picAttach = localStorage.getItem('B.2imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath1')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath2')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath3')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath4')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath5')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath6')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath7')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath8')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('B.3imagepath9')!=null){
+   		var picAttach = localStorage.getItem('B.3imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath1')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath2')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath3')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath4')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath5')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath6')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath7')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath8')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath9')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath10')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath11')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.1imagepath12')!=null){
+   		var picAttach = localStorage.getItem('C.1imagepath12');
+   		attachmentsArray.push(picAttach);
+    }    
+    if(localStorage.getItem('C.2imagepath1')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath2')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath3')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath4')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath5')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath6')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath7')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath8')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('C.2imagepath9')!=null){
+   		var picAttach = localStorage.getItem('C.2imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath1')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath2')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath3')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath4')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath5')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath6')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath7')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath8')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath9')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath10')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath11')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.1imagepath12')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath12');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.1imagepath13')!=null){
+   		var picAttach = localStorage.getItem('D.1imagepath13');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.2imagepath1')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath2')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath3')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath4')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath5')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath6')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath7')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath8')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath9')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath10')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath11')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.2imagepath12')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath12');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.2imagepath13')!=null){
+   		var picAttach = localStorage.getItem('D.2imagepath13');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.3imagepath1')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath2')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath3')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath4')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath5')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath6')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath7')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath8')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath9')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath10')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath11')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.3imagepath12')!=null){
+   		var picAttach = localStorage.getItem('D.3imagepath12');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.4imagepath1')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath2')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath3')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath4')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath5')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath6')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath7')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath8')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath9')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath10')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath11')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('D.4imagepath12')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath12');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.4imagepath13')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath13');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.4imagepath14')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath14');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('D.4imagepath15')!=null){
+   		var picAttach = localStorage.getItem('D.4imagepath15');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('E.1imagepath1')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath2')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath3')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath4')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath5')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath6')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath7')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.1imagepath8')!=null){
+   		var picAttach = localStorage.getItem('E.1imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath1')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath2')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath3')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath4')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath5')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath6')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath7')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.2imagepath8')!=null){
+   		var picAttach = localStorage.getItem('E.2imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath1')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath2')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath3')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath4')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath5')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath6')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath7')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath8')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath9')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath10')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath10');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath11')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath11');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.3imagepath12')!=null){
+   		var picAttach = localStorage.getItem('E.3imagepath12');
+   		attachmentsArray.push(picAttach);
+    } 
+    if(localStorage.getItem('E.4imagepath1')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath1');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath2')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath2');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath3')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath3');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath4')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath4');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath5')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath5');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath6')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath6');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath7')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath7');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath8')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath8');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath9')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath9');
+   		attachmentsArray.push(picAttach);
+    }
+    if(localStorage.getItem('E.4imagepath10')!=null){
+   		var picAttach = localStorage.getItem('E.4imagepath10');
    		attachmentsArray.push(picAttach);
     }
    	console.log(attachmentsArray);
