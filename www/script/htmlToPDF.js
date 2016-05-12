@@ -101,6 +101,7 @@ function compileStoredVariables(){
 function loadFormData() {
 	  // Logic to populate form with scores, notes, and final notes 
     //window.alert("Made it to loadFormData");
+    var complianceSummaryArray = new Array();
 	  for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
        if (CHECKED_FORMS_ARRAY[i] != "0") {
         //window.alert("Index: " + i + "FormID: " + CHECKED_FORMS_ARRAY[i] + " Compliance Entry Length: " + COMPLIANCE_RESPONSE_ARRAY[i].length);
@@ -109,16 +110,19 @@ function loadFormData() {
 			  showDiv.style.display="inline";
 			  for (j=0; j<COMPLIANCE_RESPONSE_ARRAY[i].length; j++){
 				   var scoreID = "score" + CHECKED_FORMS_ARRAY[i] + "-" + (j+1);		//example: scoreA.1-3
-				   document.getElementById(scoreID).innerHTML = COMPLIANCE_RESPONSE_ARRAY[i][j];
+           document.getElementById(scoreID).innerHTML = COMPLIANCE_RESPONSE_ARRAY[i][j];
 				   var noteID = CHECKED_FORMS_ARRAY[i] + "compliance" + (j+1);		//example: A.1compliance3
 				   if (COMPLIANCE_RESPONSE_ARRAY[i][j]==1 || COMPLIANCE_RESPONSE_ARRAY[i][j]==3) {
 						    document.getElementById(noteID).innerHTML = NOTES_ARRAY[i][j];
+                var nonCompliantQuestion = CHECKED_FORMS_ARRAY[i] + "-" + (j+1) + ",   ";    //example: scoreA.1-3
+                complianceSummaryArray.push(nonCompliantQuestion);
 				    }
 			   } 
 			  var finalNotesID = CHECKED_FORMS_ARRAY[i] + "notes";	// example: A.1notes 
 			  document.getElementById(finalNotesID).innerHTML = FINAL_NOTES_ARRAY[i];
 		   }
    }
+   console.log(complianceSummaryArray);
 } 
 
 function fillInE4Headers() {
