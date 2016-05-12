@@ -116,7 +116,7 @@ function loadFormData() {
 				   if (COMPLIANCE_RESPONSE_ARRAY[i][j]==1 || COMPLIANCE_RESPONSE_ARRAY[i][j]==3) {
 						    document.getElementById(noteID).innerHTML = NOTES_ARRAY[i][j];
                 var nonCompliantQuestion = CHECKED_FORMS_ARRAY[i] + "-" + (j+1) + ",   ";
-                nonComplianQuestions+=nonCompliantQuestion;
+                nonCompliantQuestions+=nonCompliantQuestion;
                 complianceSummaryArray.push(nonCompliantQuestion);
 				    }
 			   } 
