@@ -106,6 +106,7 @@ function loadFormData() {
     var non=0;
     var partial=0;
     var compliant=0;
+    var totalNA=0;
     var totalQ=0;
 	  for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
        if (CHECKED_FORMS_ARRAY[i] != "0") {
@@ -117,6 +118,9 @@ function loadFormData() {
            totalQ++;
            if(COMPLIANCE_RESPONSE_ARRAY[i][j]==5){
               compliant++;
+           }
+           if(COMPLIANCE_RESPONSE_ARRAY[i][j]==0){
+              totalNA++;
            }
 				   var scoreID = "score" + CHECKED_FORMS_ARRAY[i] + "-" + (j+1);		//example: scoreA.1-3
            document.getElementById(scoreID).innerHTML = COMPLIANCE_RESPONSE_ARRAY[i][j];
@@ -143,9 +147,8 @@ function loadFormData() {
    document.getElementById('totalNon').innerHTML= non.toString();
    document.getElementById('totalPartial').innerHTML=partial.toString();
    document.getElementById('totalCompliant').innerHTML=compliant.toString();
-   document.getElementById('totalQuestions').innerHTML=totalQ.toString();
-
-} 
+   document.getElementById('totalNA').innerHTML=totalNA.toString();
+   document.getElementById('totalQuestions').innerHTML=totalQ.toString();} 
 
 function fillInE4Headers() {
     if(window.localStorage.getItem('E.4Header')!==null){
