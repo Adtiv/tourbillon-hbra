@@ -101,6 +101,7 @@ function compileStoredVariables(){
 function loadFormData() {
 	  // Logic to populate form with scores, notes, and final notes 
     //window.alert("Made it to loadFormData");
+    var nonCompliantQuestions;
     var complianceSummaryArray = new Array();
 	  for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
        if (CHECKED_FORMS_ARRAY[i] != "0") {
@@ -114,7 +115,8 @@ function loadFormData() {
 				   var noteID = CHECKED_FORMS_ARRAY[i] + "compliance" + (j+1);		//example: A.1compliance3
 				   if (COMPLIANCE_RESPONSE_ARRAY[i][j]==1 || COMPLIANCE_RESPONSE_ARRAY[i][j]==3) {
 						    document.getElementById(noteID).innerHTML = NOTES_ARRAY[i][j];
-                var nonCompliantQuestion = CHECKED_FORMS_ARRAY[i] + "-" + (j+1) + ",   ";    //example: scoreA.1-3
+                var nonCompliantQuestion = CHECKED_FORMS_ARRAY[i] + "-" + (j+1) + ",   ";
+                nonComplianQuestions+=nonCompliantQuestion;
                 complianceSummaryArray.push(nonCompliantQuestion);
 				    }
 			   } 
@@ -122,7 +124,7 @@ function loadFormData() {
 			  document.getElementById(finalNotesID).innerHTML = FINAL_NOTES_ARRAY[i];
 		   }
    }
-   window.alert(complianceSummaryArray);
+   window.alert(nonCompliantQuestions);
 } 
 
 function fillInE4Headers() {
