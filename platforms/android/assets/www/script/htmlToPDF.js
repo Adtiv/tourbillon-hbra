@@ -101,8 +101,12 @@ function compileStoredVariables(){
 function loadFormData() {
 	  // Logic to populate form with scores, notes, and final notes 
     //window.alert("Made it to loadFormData");
-    var nonCompliantQuestions;
+    var nonCompliantQuestions = "";
     var complianceSummaryArray = new Array();
+    var non=0;
+    var partial=0;
+    var compliant=0;
+    var totalQ=0;
 	  for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
        if (CHECKED_FORMS_ARRAY[i] != "0") {
         //window.alert("Index: " + i + "FormID: " + CHECKED_FORMS_ARRAY[i] + " Compliance Entry Length: " + COMPLIANCE_RESPONSE_ARRAY[i].length);
@@ -110,10 +114,20 @@ function loadFormData() {
 			  showDiv.style.visibility="visible";
 			  showDiv.style.display="inline";
 			  for (j=0; j<COMPLIANCE_RESPONSE_ARRAY[i].length; j++){
+           totalQ++;
+           if(COMPLIANCE_RESPONSE_ARRAY[i][j]==5){
+              compliant++;
+           }
 				   var scoreID = "score" + CHECKED_FORMS_ARRAY[i] + "-" + (j+1);		//example: scoreA.1-3
            document.getElementById(scoreID).innerHTML = COMPLIANCE_RESPONSE_ARRAY[i][j];
 				   var noteID = CHECKED_FORMS_ARRAY[i] + "compliance" + (j+1);		//example: A.1compliance3
 				   if (COMPLIANCE_RESPONSE_ARRAY[i][j]==1 || COMPLIANCE_RESPONSE_ARRAY[i][j]==3) {
+                if(COMPLIANCE_RESPONSE_ARRAY[i][j]==1){
+                  non++;
+                }
+                if(COMPLIANCE_RESPONSE_ARRAY[i][j]==3){
+                  partial++;
+                }
 						    document.getElementById(noteID).innerHTML = NOTES_ARRAY[i][j];
                 var nonCompliantQuestion = CHECKED_FORMS_ARRAY[i] + "-" + (j+1) + ",   ";
                 nonCompliantQuestions+=nonCompliantQuestion;
@@ -125,6 +139,12 @@ function loadFormData() {
 		   }
    }
    window.alert(nonCompliantQuestions);
+   document.getElementById('listOfNonCompliance').innerHTML=nonCompliantQuestions;
+   document.getElementById('totalNon').innerHTML= non.toString();
+   document.getElementById('totalPartial').innerHTML=partial.toString();
+   document.getElementById('totalCompliant').innerHTML=compliant.toString();
+   document.getElementById('totalQuestions').innerHTML=totalQ.toString();
+
 } 
 
 function fillInE4Headers() {
