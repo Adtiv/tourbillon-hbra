@@ -67,7 +67,13 @@ function initialize() {
 }
 
 function goBack(){	
+			localStorageCheckFormsSave('back');
     		window.location.href="pageOne.html";
+		}
+
+function homeScreen(){
+		localStorageCheckFormsSave('home');
+			window.location.href="index.html";
 		}
 
 function isChecked(id) {
@@ -96,10 +102,16 @@ function localStorageCheckFormsSubmit(page) {
 
 function localStorageCheckFormsSave(page) {
 		//window.alert("CHECKED_FORMS_ARRAY from save: " + CHECKED_FORMS_ARRAY);
-		localStorage.setItem("HBRA_Checked_Forms",JSON.stringify(CHECKED_FORMS_ARRAY))
-		localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY));
-		localStorage.setItem('HBRA_Saved_Notes',JSON.stringify(NOTES_ARRAY));
-		localStorage.setItem('HBRA_Saved_Final_Notes',JSON.stringify(FINAL_NOTES_ARRAY));		
+		localStorage.setItem("HBRA_Checked_Forms",JSON.stringify(CHECKED_FORMS_ARRAY));
+		if (localStorage.getItem("HBRA_Saved_Scores") === null) {
+	 		localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY));
+		} 
+		if (localStorage.getItem("HBRA_Saved_Notes") === null) {
+	 		localStorage.setItem("HBRA_Saved_Notes",JSON.stringify(NOTES_ARRAY));
+		} 
+		if (localStorage.getItem("HBRA_Saved_Final_Notes") === null) {
+	 		localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(FINAL_NOTES_ARRAY));
+		} 
 		if (page == "save") {
 			navigator.notification.alert(
    				'Press OK',  // message

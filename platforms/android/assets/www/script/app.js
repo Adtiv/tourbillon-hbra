@@ -128,7 +128,12 @@ function storeLocalContent(next){
 		if (device.platform == "iOS") {
 				window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
 		} else {
-			window.alert("PDF View feature only supported on iOS");
+			navigator.notification.alert(
+            'Press OK',  // message
+            null,   // no callback  
+              'PDF View feature only supported on iOS',  // title
+              'OK'      // buttonName
+          );
 		}
 	}
 

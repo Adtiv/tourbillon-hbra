@@ -7,7 +7,12 @@
 	var FORMS_ID = null;
 	var COMPLIANCE_RESPONSE_ARRAY;
 	var NOTES_ARRAY;
-	var FINAL_NOTES_ARRAY;  	   	 
+	var FINAL_NOTES_ARRAY;  
+
+	function homeScreen(page){
+			 localStorageSubCatFormsSave(page);
+			 window.location.href="index.html";
+		}	   	 
 
 	initialize();
 
@@ -26,6 +31,8 @@
 	  	 	}
 	   	} 
 	   	initializeMainButtons();
+	   	initializeComplianceArray();
+	   	initializeNotesArrays();
 	   	initializeE4Headers();
 	   	var page = FORMS_ID;
 	   	page = page.replace(".", "_"); 
@@ -43,6 +50,26 @@
 				document.getElementById('checkNext').style.visibility="hidden";
 				document.getElementById('btnSubmit').style.visibility="visible";
 			}
+	}
+	function initializeComplianceArray() {
+		if (localStorage.getItem("HBRA_Saved_Scores") !== null) {
+	 		COMPLIANCE_RESPONSE_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
+		} else {
+        	window.alert("HBRA_Saved_Scores Does NOT Exist, Processing Will Fail");
+		}
+	}
+
+	function initializeNotesArrays() {
+		if (localStorage.getItem("HBRA_Saved_Notes") !== null) {
+	 		NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Notes"));
+		} else {
+        	window.alert("HBRA_Saved_Notes Does NOT Exist, Processing Will Fail");
+		}
+		if (localStorage.getItem("HBRA_Saved_Final_Notes") !== null) {
+	 		FINAL_NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Final_Notes"));
+		} else {
+        	window.alert("HBRA_Saved_Final_Notes Does NOT Exist, Processing Will Fail");
+		}
 	}
 
 	function initializeE4Headers() {
@@ -93,6 +120,7 @@
 				}
 			}
 			if (btnID == "btnBack") {
+				localStorageSubCatFormsSave(page);
 				start = currentFormIndex - 1;
 				for (i=start; i>=0; i--) {
 					if (CHECKED_FORMS_ARRAY[i] != '0') {

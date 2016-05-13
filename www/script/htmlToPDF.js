@@ -142,7 +142,7 @@ function loadFormData() {
 			  document.getElementById(finalNotesID).innerHTML = FINAL_NOTES_ARRAY[i];
 		   }
    }
-   window.alert(nonCompliantQuestions);
+   //window.alert(nonCompliantQuestions);
    document.getElementById('listOfNonCompliance').innerHTML=nonCompliantQuestions;
    document.getElementById('totalNon').innerHTML= non.toString();
    document.getElementById('totalPartial').innerHTML=partial.toString();
@@ -1102,7 +1102,13 @@ function generatePDF(){
 		if (device.platform == "iOS") {
 				window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
 		} else {
-			window.alert("PDF View feature only supported on iOS");
+      navigator.notification.alert(
+            'Press OK',  // message
+            null,   // no callback  
+              'PDF View feature only supported on iOS',  // title
+              'OK'      // buttonName
+          );
+			//window.alert("PDF View feature only supported on iOS");
 		}
 	}	
 	//window.onload=generatePDF; 

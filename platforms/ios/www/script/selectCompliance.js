@@ -1,13 +1,8 @@
 	initialize();
 
 	function initialize() {  	
- 	if (localStorage.getItem("HBRA_Saved_Scores") !== null) {
-	 	COMPLIANCE_RESPONSE_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
 		$('input[type=radio]').each(function() {initializeButtons(this)});
-	} else {
-        window.alert("HBRA_Saved_Scores Does NOT Exist, Processing Will Fail");
-	}
-	calcScores();
+	   calcScores();
 	} 
 
 	function initializeButtons(thisOne) {
