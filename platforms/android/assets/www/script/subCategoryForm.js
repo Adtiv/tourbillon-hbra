@@ -8,7 +8,7 @@
 			}
 			var pNum = localStorage.getItem("pageCount");			
 			console.log("pNum" + pNum);
-			if(window.localStorage.length !== 0){			
+			if(window.localStorage.length !== 0){
 				if(page=="A_1"){
 					if(localStorage.getItem('imagepath1')!==null){
 						var ip1 = localStorage.getItem('imagepath1');
@@ -1546,7 +1546,6 @@
         	var btn = document.getElementById("btnNext");
 	        var span = document.querySelector( "span" );
 	        var delay;
-
 		    btn.addEventListener( "touchend", function() {
 		    	console.log("here1?");
 		        delay = Date.now();
