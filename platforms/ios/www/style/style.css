@@ -8,6 +8,7 @@
 body{
 	font-size:13pt;
 	background:white;
+	webkit-transform: translate3d(0,0,0);
 }
 
 .container{
