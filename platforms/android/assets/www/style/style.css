@@ -9,12 +9,9 @@ body{
 	font-size:13pt;
 	background:white;
 }
+/*
 div{
 	-webkit-transform: translate3d(0, 0, 0);
-}
-/*
-*:not(html) {
-    -webkit-transform: translate3d(0, 0, 0);
 }
 */
 .container{
@@ -24,15 +21,11 @@ div{
 	max-width:600px;
 	background:white;
 }
-
-
-
 .container h1{
 	font-size: 26pt;
 	color: #333333;
 	margin-left: -1%;
 }
-
 .center{
 	margin:0 auto;
 }
@@ -426,6 +419,7 @@ margin-bottom: 4%;
 	font-size: 6.5vw;
 	padding-top:6%;
 	padding-bottom: 1%;
+	-webkit-transform: translate3d(0, 0, 0);
 }
 .printer{
 	width:5.8vw;
