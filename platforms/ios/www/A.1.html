@@ -10,17 +10,17 @@
 <body>
 	<div class="englishHeader">
 		<div class="statusBarAfter"></div>
-		<button class="goBackButton" onclick="homeScreen('A_1')">
+		<btn class="goBackButton" onclick="homeScreen('A_1')">
 			<div class="goBack">
 				<img src="images/home.png" width="100%" height="100%">
 			</div>
-		</button>
+		</btn>
 		English
-		<button class="printerBtn" onclick="">
+		<btn class="printerBtn" onclick="">
 			<div class="printer">
 				<img src="images/printer.png" width="100%" height="100%">
 			</div>
-		</button>
+		</btn>
 	</div>
 		<form>
 			<div class="center container" id="A.1">
@@ -442,7 +442,7 @@
 						<btn onclick="processFormOrder('A.1', '1', 'btnBack', 'A_1'); return false;"><img class="prev" src="images/go_next_blue.png"></btn>
 					</div>
 					<div class="rightAfter-form">
-						<button onclick="processFormOrder('A.1', '0', 'btnNext', 'A_1'); return false;"><img id="checkNext" class="next" src="images/go_next_blue.png"></button>
+						<btn onclick="processFormOrder('A.1', '0', 'btnNext', 'A_1'); return false;"><img id="checkNext" class="next" src="images/go_next_blue.png"></btn>
 						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatFormsSubmit('A_1')"/>
 					</div>
 				</div>
