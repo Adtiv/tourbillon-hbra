@@ -8,8 +8,9 @@
 body{
 	font-size:13pt;
 	background:white;
+}
+div{
 	-webkit-transform: translate3d(0, 0, 0);
-
 }
 /*
 *:not(html) {
