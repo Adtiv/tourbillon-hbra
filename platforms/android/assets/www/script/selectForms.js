@@ -1,5 +1,6 @@
 var CHECKED_FORMS_ARRAY = null;
 var INIT_CHECKED_FORMS_ARRAY = new Array(21).fill("0");
+var COMPLIANCE_RESPONSE_ARRAY = null;
 var INIT_COMPLIANCE_RESPONSE_ARRAY = [
 	   	 	new Array(12).fill(0), 				// A.1 - 12 Questions
 	   	 	new Array(10).fill(0),				// A.2 - 10 Questions
@@ -24,7 +25,8 @@ var INIT_COMPLIANCE_RESPONSE_ARRAY = [
 	   	 	new Array(10).fill(0), 				// E.4 - 10 Questions
 	   	 	]; 
 
-	var INIT_NOTES_ARRAY = [
+var NOTES_ARRAY = null;
+var INIT_NOTES_ARRAY = [
 	   	 	new Array(12).fill(null), 				// A.1 - 12 Questions
 	   	 	new Array(10).fill(null),				// A.2 - 10 Questions
 	   	 	new Array(10).fill(null),				// A.3 - 10 Questions
@@ -48,7 +50,8 @@ var INIT_COMPLIANCE_RESPONSE_ARRAY = [
 	   	 	new Array(10).fill(null), 				// E.4 - 10 Questions
 	   	 	]; 
 
-	var INIT_FINAL_NOTES_ARRAY = new Array(21).fill(null);  	   	 
+var FINAL_NOTES_ARRAY = null;
+var INIT_FINAL_NOTES_ARRAY = new Array(21).fill(null);  	   	 
 
 initialize();
 
@@ -88,6 +91,7 @@ function homeScreen(){
 		}
 
 function isChecked(id) {
+		try {
 		var bn = document.getElementById(id).name;
 		var bi = bn.substring(6) - 1;
 		if(document.getElementById(id).checked===true) {
@@ -95,10 +99,14 @@ function isChecked(id) {
 		} else {
 			CHECKED_FORMS_ARRAY[bi]="0";
 		}
+		} catch (e) {
+			window.alert("Error in selectForms.js function: isChecked: " + e.message);
+		}
 	}
 
 function localStorageCheckFormsSubmit(page) {
 			//window.alert("Init for localStorageCheckFormsSubmit, page: " + page);
+			try {
 			localStorageCheckFormsSave(page);
 			var destination = "";
 			for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
@@ -109,22 +117,53 @@ function localStorageCheckFormsSubmit(page) {
 			}
 			//window.alert("Destination for localStorageCheckFormsSubmit: " + destination);
 			window.location.href=destination;
+			} catch (e) {
+			window.alert("Error in selectForms.js function: localStorageCheckFormsSubmit: " + e.message);
+		}
 		}	
 
 function localStorageCheckFormsSave(page) {
 		//window.alert("CHECKED_FORMS_ARRAY from save: " + CHECKED_FORMS_ARRAY);
 		try {
+		//
+		//
+		// Prep Checked Forms Array: 	
 		localStorage.setItem("HBRA_Checked_Forms",JSON.stringify(CHECKED_FORMS_ARRAY));
-		//window.alert("Checked Array in Select: " + CHECKED_FORMS_ARRAY);
-		if (localStorage.getItem("HBRA_Saved_Scores") === null) {
-	 		localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(INIT_COMPLIANCE_RESPONSE_ARRAY));
-		} 
-		if (localStorage.getItem("HBRA_Saved_Notes") === null) {
-	 		localStorage.setItem("HBRA_Saved_Notes",JSON.stringify(INIT_NOTES_ARRAY));
-		} 
-		if (localStorage.getItem("HBRA_Saved_Final_Notes") === null) {
-	 		localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(INIT_FINAL_NOTES_ARRAY));
-		} 
+		//
+		// Prep Compliance Scores Array:
+		if (localStorage.getItem("HBRA_Saved_Scores") !== null) {
+	 		COMPLIANCE_RESPONSE_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
+	 		if (COMPLIANCE_RESPONSE_ARRAY === null) {   // the value could be null even if is exists
+	 			COMPLIANCE_RESPONSE_ARRAY = INIT_COMPLIANCE_RESPONSE_ARRAY;
+	 		}
+	 	} else {
+	 		COMPLIANCE_RESPONSE_ARRAY = INIT_COMPLIANCE_RESPONSE_ARRAY;
+	 	}
+	 	localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY));
+	 	//
+	 	// Prep Notes Array:
+		if (localStorage.getItem("HBRA_Saved_Notes") !== null) {
+	 		NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Notes"));
+	 		if (NOTES_ARRAY === null) {   // the value could be null even if is exists
+	 			NOTES_ARRAY = INIT_NOTES_ARRAY;
+	 		}
+	 	} else {
+	 		NOTES_ARRAY = INIT_NOTES_ARRAY;
+	 	}
+	 	localStorage.setItem("HBRA_Saved_Notes",JSON.stringify(NOTES_ARRAY));
+	 	//
+	 	// Prep Final Notes Array:
+	 	if (localStorage.getItem("HBRA_Saved_Final_Notes") !== null) {
+	 		FINAL_NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Final_Notes"));
+	 		if (FINAL_NOTES_ARRAY === null) {   // the value could be null even if is exists
+	 			FINAL_NOTES_ARRAY = INIT_FINAL_NOTES_ARRAY;
+	 		}
+	 	} else {
+	 		FINAL_NOTES_ARRAY = INIT_FINAL_NOTES_ARRAY;
+	 	}
+	 	localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(FINAL_NOTES_ARRAY));
+	 	//
+	 	//
 		UpdateInspection();	//  save to the database
 		} catch (e) {
 			window.alert("Error in selectForms.js function: localStorageCheckFormsSave: " + e.message);
