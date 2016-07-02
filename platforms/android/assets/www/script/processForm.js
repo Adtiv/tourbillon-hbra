@@ -17,6 +17,7 @@
 	initialize();
 
 	function initialize() {
+		try {
 		if (localStorage.getItem("HBRA_Checked_Forms") !== null) {
 			CHECKED_FORMS_ARRAY = JSON.parse(localStorage.getItem("HBRA_Checked_Forms"));
 		} else {
@@ -30,6 +31,10 @@
 	  	 		FORMS_ID = CHECKED_FORMS_ARRAY[i];
 	  	 	}
 	   	} 
+	   	} catch (e) {
+	   		window.alert("Error in processForm - initialize: part1 " + e.message);
+	   	}
+		try {
 	   	initializeMainButtons();
 	   	initializeComplianceArray();
 	   	initializeNotesArrays();
@@ -37,9 +42,13 @@
 	   	var page = FORMS_ID;
 	   	page = page.replace(".", "_"); 
 	   	subCatInitialize(page);
+	   	} catch (e) {
+	   		window.alert("Error in processForm - initialize part2: " + e.message);
+	   	}
 	}
 
 	function initializeMainButtons() {
+			try {
 			var lastFormIndex = 0;
 			for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
 			if (CHECKED_FORMS_ARRAY[i]!='0') {
@@ -50,16 +59,24 @@
 				document.getElementById('checkNext').style.visibility="hidden";
 				document.getElementById('btnSubmit').style.visibility="visible";
 			}
+			} catch (e) {
+	   			window.alert("Error in processForm - initializeMainButton: " + e.message);
+	   		}
 	}
 	function initializeComplianceArray() {
+		try {
 		if (localStorage.getItem("HBRA_Saved_Scores") !== null) {
 	 		COMPLIANCE_RESPONSE_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
 		} else {
         	window.alert("HBRA_Saved_Scores Does NOT Exist, Processing Will Fail");
 		}
+		} catch (e) {
+	   			window.alert("Error in processForm - initializeComplianceArray: " + e.message);
+	   	}
 	}
 
 	function initializeNotesArrays() {
+		try {
 		if (localStorage.getItem("HBRA_Saved_Notes") !== null) {
 	 		NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Notes"));
 		} else {
@@ -70,9 +87,13 @@
 		} else {
         	window.alert("HBRA_Saved_Final_Notes Does NOT Exist, Processing Will Fail");
 		}
+		} catch (e) {
+	   			window.alert("Error in processForm - initializeNotesArrays: " + e.message);
+	   		}
 	}
 
 	function initializeE4Headers() {
+			try {
 			if(window.localStorage.getItem('E.4Header')!==null){
 				document.getElementById('E.4Header').innerHTML = window.localStorage.getItem('E.4Header');
 				}
@@ -106,9 +127,13 @@
 			if(window.localStorage.getItem('E.4TitleTen')!==null){
 				document.getElementById('E.4TitleTen').innerHTML = window.localStorage.getItem('E.4TitleTen');
 				}
+			} catch (e) {
+	   			window.alert("Error in processForm - initializeE4Headers: " + e.message);
+	   		}
 			}
 
 	function processFormOrder(page, bound, btnID, storePage){
+			try {
 			var destination = "pageTwo";
 			var currentFormIndex = 0;
 			var start = 0;
@@ -140,14 +165,23 @@
 			}
 			destination = destination + ".html"
 			window.location.href=destination;
+			} catch (e) {
+	   			window.alert("Error in processForm - processFormOrder: " + e.message);
+	   		}
 			}
 
+
 		function localStorageSubCatFormsSubmit(page) {
+			try {
 			localStorageSubCatFormsSave(page);
 			window.location.href="formComplete.html";
+			} catch (e) {
+	   			window.alert("Error in processForm - localStorageSubCatFormsSubmit: " + e.message);
+	   		}
 		}	
 
 		function localStorageSubCatFormsSave(page) {
+			try {
 			localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY));
 			localStorageNotesSave();
 			if (FORMS_ID == "E.4"){
@@ -161,10 +195,14 @@
     	   	 		'Saved',  // title
     	   	 		'OK'      // buttonName
 					);
-				}	
+				}
+			} catch (e) {
+	   			window.alert("Error in processForm - localStorageSubCatFormsSave: " + e.message);
+	   		}	
 			} 	
 
 		function localStorageNotesSave() {
+			try {
 			//window.alert("Notes Array: " + NOTES_ARRAY[FORMS_INDEX]);
 			for (i=0; i<NOTES_ARRAY[FORMS_INDEX].length; i++) {
 				var noteId = FORMS_ID + "compliance" + (i+1);
@@ -177,11 +215,15 @@
 			var finalNoteId = FORMS_ID + "notes";
 			FINAL_NOTES_ARRAY[FORMS_INDEX] = document.getElementById(finalNoteId).value;
 			//window.alert("FINAL_NOTES_ARRAY Length at Save: " + FINAL_NOTES_ARRAY.length + "  FINAL_NOTES_ARRAY Content: " + FINAL_NOTES_ARRAY);
-			localStorage.setItem('HBRA_Saved_Final_Notes',JSON.stringify(FINAL_NOTES_ARRAY));			
+			localStorage.setItem('HBRA_Saved_Final_Notes',JSON.stringify(FINAL_NOTES_ARRAY));
+			} catch (e) {
+	   			window.alert("Error in processForm - localStorageNotesSave: " + e.message);
+	   		}			
 		}
 		
 
 		function localStorageE4Save() {		
+				try {
 				var title = document.getElementById('E.4Header').innerHTML;	
 				var titleOne = document.getElementById('E.4TitleOne').innerHTML;
 				var titleTwo = document.getElementById('E.4TitleTwo').innerHTML;
@@ -203,6 +245,8 @@
 				window.localStorage.setItem('E.4TitleSeven', titleSeven);
 				window.localStorage.setItem('E.4TitleEight', titleEight);
 				window.localStorage.setItem('E.4TitleNine', titleNine);
-				window.localStorage.setItem('E.4TitleTen', titleTen);				
-								
+				window.localStorage.setItem('E.4TitleTen', titleTen);
+				} catch (e) {
+	   			window.alert("Error in processForm - localStorageE4Save: " + e.message);
+	   		}										
 		}
