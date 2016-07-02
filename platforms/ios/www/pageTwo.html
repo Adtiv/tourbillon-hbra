@@ -55,6 +55,7 @@
 				<div class="form-label"><input type="checkbox" class="check" name="option20" id="E.3" value="welding" onclick="isChecked('E.3')">E.3) Welding / Cutting / Hot Work</div>
 				<div class="form-label"><input type="checkbox" class="check" name="option21" id="E.4" value="custom" onclick="isChecked('E.4')">E.4) Custom Inspection</div><br><br>
 				<br><br>
+			</form>
             <div class="after-form">
          		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageCheckFormsSave('save')"/>
          		<div class="leftAfter-form">
@@ -78,8 +79,9 @@
 			<!--button onclick="viewData()">View</button>-->
 			<!-- <input type="button" value="clear" id="btnClear" onclick="clearLocalContent()"/> -->
 		</div>
-</body>
+<script src="script/cordova.js" type="text/javascript"></script>
+<script src="script/inspectionDbHandler.js" type="text/javascript"></script>
 <script src="script/selectForms.js" type="text/javascript"></script>
-<script type="text/javascript" src="cordova.js"></script>
 <script src="script/app.js" type="text/javascript"></script>
+</body>
 </html>

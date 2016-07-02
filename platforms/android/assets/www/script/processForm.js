@@ -139,15 +139,12 @@
 				}
 			}
 			destination = destination + ".html"
-			//window.location.href=destination;
-			UpdateInspection(destination);
+			window.location.href=destination;
 			}
 
 		function localStorageSubCatFormsSubmit(page) {
 			localStorageSubCatFormsSave(page);
-			//window.location.href="formComplete.html";
-			destination = "formComplete.html";
-			UpdateInspection(destination);
+			window.location.href="formComplete.html";
 		}	
 
 		function localStorageSubCatFormsSave(page) {
@@ -176,7 +173,7 @@
 			}
 			//window.alert("NOTES_ARRAY Length at Save: " + NOTES_ARRAY.length + "  NOTES_ARRAY Content: " + NOTES_ARRAY);			
 			localStorage.setItem('HBRA_Saved_Notes',JSON.stringify(NOTES_ARRAY));
-			//window.alert("Notes Array Saved2" + NOTES_ARRAY);
+			//
 			var finalNoteId = FORMS_ID + "notes";
 			FINAL_NOTES_ARRAY[FORMS_INDEX] = document.getElementById(finalNoteId).value;
 			//window.alert("FINAL_NOTES_ARRAY Length at Save: " + FINAL_NOTES_ARRAY.length + "  FINAL_NOTES_ARRAY Content: " + FINAL_NOTES_ARRAY);

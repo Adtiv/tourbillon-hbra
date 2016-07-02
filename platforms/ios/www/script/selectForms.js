@@ -1,5 +1,6 @@
-var CHECKED_FORMS_ARRAY = new Array(21).fill("0");
-var COMPLIANCE_RESPONSE_ARRAY = [
+var CHECKED_FORMS_ARRAY = null;
+var INIT_CHECKED_FORMS_ARRAY = new Array(21).fill("0");
+var INIT_COMPLIANCE_RESPONSE_ARRAY = [
 	   	 	new Array(12).fill(0), 				// A.1 - 12 Questions
 	   	 	new Array(10).fill(0),				// A.2 - 10 Questions
 	   	 	new Array(10).fill(0),				// A.3 - 10 Questions
@@ -23,7 +24,7 @@ var COMPLIANCE_RESPONSE_ARRAY = [
 	   	 	new Array(10).fill(0), 				// E.4 - 10 Questions
 	   	 	]; 
 
-	var NOTES_ARRAY = [
+	var INIT_NOTES_ARRAY = [
 	   	 	new Array(12).fill(null), 				// A.1 - 12 Questions
 	   	 	new Array(10).fill(null),				// A.2 - 10 Questions
 	   	 	new Array(10).fill(null),				// A.3 - 10 Questions
@@ -47,14 +48,18 @@ var COMPLIANCE_RESPONSE_ARRAY = [
 	   	 	new Array(10).fill(null), 				// E.4 - 10 Questions
 	   	 	]; 
 
-	var FINAL_NOTES_ARRAY = new Array(21).fill(null);  	   	 
+	var INIT_FINAL_NOTES_ARRAY = new Array(21).fill(null);  	   	 
 
 initialize();
 
 function initialize() {
 	//window.alert("Init for SelectForms");
+	try {
 	if (localStorage.getItem("HBRA_Checked_Forms") !== null) {
 	 	CHECKED_FORMS_ARRAY = JSON.parse(localStorage.getItem("HBRA_Checked_Forms"));
+	 	if (CHECKED_FORMS_ARRAY === null) {
+	 		CHECKED_FORMS_ARRAY = INIT_CHECKED_FORMS_ARRAY;
+	 	} else {
 	 	var loopLimit = document.getElementsByClassName('check').length;
 		for (i=0; i<loopLimit; i++) {
 			if (CHECKED_FORMS_ARRAY[i]!='0') {
@@ -63,6 +68,12 @@ function initialize() {
 				document.getElementsByClassName('check')[i].checked=false;
 			}
 		}
+		}
+	} else {
+		CHECKED_FORMS_ARRAY = INIT_CHECKED_FORMS_ARRAY;
+	}
+	} catch (e) {
+		window.alert("Error in selectForm.js - initialize: " + e.message);
 	}
 }
 
@@ -102,16 +113,22 @@ function localStorageCheckFormsSubmit(page) {
 
 function localStorageCheckFormsSave(page) {
 		//window.alert("CHECKED_FORMS_ARRAY from save: " + CHECKED_FORMS_ARRAY);
+		try {
 		localStorage.setItem("HBRA_Checked_Forms",JSON.stringify(CHECKED_FORMS_ARRAY));
+		//window.alert("Checked Array in Select: " + CHECKED_FORMS_ARRAY);
 		if (localStorage.getItem("HBRA_Saved_Scores") === null) {
-	 		localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY));
+	 		localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(INIT_COMPLIANCE_RESPONSE_ARRAY));
 		} 
 		if (localStorage.getItem("HBRA_Saved_Notes") === null) {
-	 		localStorage.setItem("HBRA_Saved_Notes",JSON.stringify(NOTES_ARRAY));
+	 		localStorage.setItem("HBRA_Saved_Notes",JSON.stringify(INIT_NOTES_ARRAY));
 		} 
 		if (localStorage.getItem("HBRA_Saved_Final_Notes") === null) {
-	 		localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(FINAL_NOTES_ARRAY));
+	 		localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(INIT_FINAL_NOTES_ARRAY));
 		} 
+		UpdateInspection();	//  save to the database
+		} catch (e) {
+			window.alert("Error in selectForms.js function: localStorageCheckFormsSave: " + e.message);
+		}
 		if (page == "save") {
 			navigator.notification.alert(
    				'Press OK',  // message
