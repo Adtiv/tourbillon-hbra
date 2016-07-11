@@ -67,6 +67,60 @@ var INIT_COMPLIANCE_RESPONSE_ARRAY = [
 //*********************************************************************
 //*********************************************************************
 //*********************************************************************
+window.onload = function initInspection(){
+  var selectBox = document.getElementById("selectInspection");
+  if(window.localStorage.getItem('HBRA_InspectionId')===null){
+    window.localStorage.setItem('HBRA_InspectionId',1);
+  }
+  else{
+    if(window.localStorage.getItem('HBRA_InspectionId')==1){
+      selectBox.options[0].selected=true;
+    }
+    else if(window.localStorage.getItem('HBRA_InspectionId')==2){
+      selectBox.options[1].selected=true;
+    }
+    else if(window.localStorage.getItem('HBRA_InspectionId')==3){
+      selectBox.options[2].selected=true;
+    }  
+    else if(window.localStorage.getItem('HBRA_InspectionId')==4){
+      selectBox.options[3].selected=true;
+    }
+    else if(window.localStorage.getItem('HBRA_InspectionId')==5){
+      selectBox.options[4].selected=true;
+    }
+    else if(window.localStorage.getItem('HBRA_InspectionId')==6){
+      selectBox.options[5].selected=true;
+    }
+  }
+  console.log(window.localStorage.getItem('HBRA_InspectionId'));
+  SelectInspection();
+  UpdateInspection();
+}
+function chooseSelection(){
+  var selectBox = document.getElementById("selectInspection");
+  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+  if(selectedValue=="Inspection1"){
+    window.localStorage.setItem('HBRA_InspectionId',1);
+  }
+  else if(selectedValue=="Inspection2"){
+    window.localStorage.setItem('HBRA_InspectionId',2);
+  }
+  else if(selectedValue=="Inspection3"){
+    window.localStorage.setItem('HBRA_InspectionId',3);
+  }
+  else if(selectedValue=="Inspection4"){
+    window.localStorage.setItem('HBRA_InspectionId',4);
+  }
+  else if(selectedValue=="Inspection5"){
+    window.localStorage.setItem('HBRA_InspectionId',5);
+  }
+  else if(selectedValue=="Inspection6"){
+    window.localStorage.setItem('HBRA_InspectionId',6);
+  }
+  console.log(window.localStorage.getItem('HBRA_InspectionId'));
+  SelectInspection();
+  UpdateInspection();
+}
 function UpdateInspection(destpage) {
 //window.alert('Made it to Update Inspection: ' + destpage);
 if (window.localStorage.getItem('HBRA_InspectionId') === null) {

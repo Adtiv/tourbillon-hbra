@@ -29,6 +29,17 @@
 			<div id="popup">Are you sure you want to reset?(THIS WILL DELETE ALL SAVED ANSWERS AND PHOTOS.)<br><div class="btnCtrl"><button class="popupBtn" id="yes" onclick="clearStorage()">YES</button></div><div class="btnCtrl"><button class="popupBtn" id="no" onclick="no()">NO</button></div></div>
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
 		<form action="server/emailForm.php" method="post">
+			<div class="label" style="text-align:center;">Please Choose Your Inspection:</div> 
+			<div style="text-align:center;">
+				<select id="selectInspection"onchange="chooseSelection();">
+				  <option value="Inspection1">Inpsection 1</option>
+				  <option value="Inspection2">Inspection 2</option>
+				  <option value="Inspection3">Inspection 3</option>
+				  <option value="Inspection4">Inspection 4</option>
+				  <option value="Inspection5">Inspection 5</option>
+				  <option value="Inspection6">Inspection 6</option>
+				</select>
+			</div><br/>
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
 			<div class="label">Job Name:</div> <input type="text" name="jobName" id="jobName" class="input"/><br/><br/>
