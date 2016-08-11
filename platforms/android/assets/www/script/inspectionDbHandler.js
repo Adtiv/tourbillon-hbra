@@ -71,6 +71,7 @@ window.onload = function initInspection(){
   var selectBox = document.getElementById("selectInspection");
   if(window.localStorage.getItem('HBRA_InspectionId')===null){
     window.localStorage.setItem('HBRA_InspectionId',1);
+    SelectInspection();
   }
   else{
     if(window.localStorage.getItem('HBRA_InspectionId')==1){
@@ -93,8 +94,8 @@ window.onload = function initInspection(){
     }
   }
   console.log(window.localStorage.getItem('HBRA_InspectionId'));
-  SelectInspection();
-  UpdateInspection();
+  //SelectInspection();
+  //UpdateInspection();
 }
 function chooseSelection(){
   var selectBox = document.getElementById("selectInspection");
@@ -119,7 +120,7 @@ function chooseSelection(){
   }
   console.log(window.localStorage.getItem('HBRA_InspectionId'));
   SelectInspection();
-  UpdateInspection();
+  //UpdateInspection();
 }
 function UpdateInspection(destpage) {
 //window.alert('Made it to Update Inspection: ' + destpage);
