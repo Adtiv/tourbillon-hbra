@@ -1,8 +1,57 @@
-//Arrays
 var CHECKED_FORMS_ARRAY = null;
+var INIT_CHECKED_FORMS_ARRAY = new Array(21).fill("0");
 var COMPLIANCE_RESPONSE_ARRAY = null;
+var INIT_COMPLIANCE_RESPONSE_ARRAY = [
+	   	 	new Array(12).fill(0), 				// A.1 - 12 Questions
+	   	 	new Array(10).fill(0),				// A.2 - 10 Questions
+	   	 	new Array(10).fill(0),				// A.3 - 10 Questions
+	   	 	new Array(9).fill(0),				// A.4 - 9 Questions
+	   	 	new Array(9).fill(0),				// A.5 - 9 Questions
+	   	 	new Array(6).fill(0),				// A.6 - 6 Questions
+	   	 	new Array(7).fill(0),				// A.7 - 7 Questions
+	   	 	new Array(5).fill(0),				// A.8 - 5 Questions
+	   	 	new Array(10).fill(0),				// B.1 - 10 Questions
+	   	 	new Array(10).fill(0),				// B.2 - 10 Questions
+	   	 	new Array(9).fill(0),				// B.3 - 9 Questions
+	   	 	new Array(12).fill(0),				// C.1 - 12 Questions
+	   	 	new Array(9).fill(0),				// C.2 - 9 Questions
+	   	 	new Array(13).fill(0), 				// D.1 - 13 Questions
+	   	 	new Array(13).fill(0), 				// D.2 - 13 Questions
+	   	 	new Array(12).fill(0), 				// D.3 - 12 Questions
+	   	 	new Array(15).fill(0), 				// D.4 - 15 Questions
+	   	 	new Array(8).fill(0), 				// E.1 - 8 Questions
+	   	 	new Array(8).fill(0), 				// E.2 - 8 Questions
+	   	 	new Array(12).fill(0), 				// E.3 - 12 Questions
+	   	 	new Array(10).fill(0), 				// E.4 - 10 Questions
+	   	 	]; 
+
 var NOTES_ARRAY = null;
-var FINAL_NOTES_ARRAY = null;	
+var INIT_NOTES_ARRAY = [
+	   	 	new Array(12).fill(null), 				// A.1 - 12 Questions
+	   	 	new Array(10).fill(null),				// A.2 - 10 Questions
+	   	 	new Array(10).fill(null),				// A.3 - 10 Questions
+	   	 	new Array(9).fill(null),				// A.4 - 9 Questions
+	   	 	new Array(9).fill(null),				// A.5 - 9 Questions
+	   	 	new Array(6).fill(null),				// A.6 - 6 Questions
+	   	 	new Array(7).fill(null),				// A.7 - 7 Questions
+	   	 	new Array(5).fill(null),				// A.8 - 5 Questions
+	   	 	new Array(10).fill(null),				// B.1 - 10 Questions
+	   	 	new Array(10).fill(null),				// B.2 - 10 Questions
+	   	 	new Array(9).fill(null),				// B.3 - 9 Questions
+	   	 	new Array(12).fill(null),				// C.1 - 12 Questions
+	   	 	new Array(9).fill(null),				// C.2 - 9 Questions
+	   	 	new Array(13).fill(null), 				// D.1 - 13 Questions
+	   	 	new Array(13).fill(null), 				// D.2 - 13 Questions
+	   	 	new Array(12).fill(null), 				// D.3 - 12 Questions
+	   	 	new Array(15).fill(null), 				// D.4 - 15 Questions
+	   	 	new Array(8).fill(null), 				// E.1 - 8 Questions
+	   	 	new Array(8).fill(null), 				// E.2 - 8 Questions
+	   	 	new Array(12).fill(null), 				// E.3 - 12 Questions
+	   	 	new Array(10).fill(null), 				// E.4 - 10 Questions
+	   	 	]; 
+
+var FINAL_NOTES_ARRAY = null;
+var INIT_FINAL_NOTES_ARRAY = new Array(21).fill(null);  	   	 
 
 initialize();
 
@@ -12,7 +61,7 @@ function initialize() {
 	if (localStorage.getItem("HBRA_Checked_Forms") !== null) {
 	 	CHECKED_FORMS_ARRAY = JSON.parse(localStorage.getItem("HBRA_Checked_Forms"));
 	 	if (CHECKED_FORMS_ARRAY === null) {
-	 		initFormsArray();
+	 		CHECKED_FORMS_ARRAY = INIT_CHECKED_FORMS_ARRAY;
 	 	} else {
 	 	var loopLimit = document.getElementsByClassName('check').length;
 		for (i=0; i<loopLimit; i++) {
@@ -24,7 +73,7 @@ function initialize() {
 		}
 		}
 	} else {
-		initFormsArray();
+		CHECKED_FORMS_ARRAY = INIT_CHECKED_FORMS_ARRAY;
 	}
 	} catch (e) {
 		window.alert("Error in selectForm.js - initialize: " + e.message);
@@ -42,7 +91,6 @@ function homeScreen(){
 		}
 
 function isChecked(id) {
-		//windows.alert("Forms array: " + CHECKED_FORMS_ARRAY + " id: " + id);
 		try {
 		var bn = document.getElementById(id).name;
 		var bi = bn.substring(6) - 1;
@@ -76,7 +124,6 @@ function localStorageCheckFormsSubmit(page) {
 
 function localStorageCheckFormsSave(page) {
 		//window.alert("CHECKED_FORMS_ARRAY from save: " + CHECKED_FORMS_ARRAY);
-		//window.alert("Step 1"); //for debugging only
 		try {
 		//
 		//
@@ -84,48 +131,43 @@ function localStorageCheckFormsSave(page) {
 		localStorage.setItem("HBRA_Checked_Forms",JSON.stringify(CHECKED_FORMS_ARRAY));
 		//
 		// Prep Compliance Scores Array:
-		//window.alert("Step 2");  //for debugging only
 		if (localStorage.getItem("HBRA_Saved_Scores") !== null) {
 	 		COMPLIANCE_RESPONSE_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
 	 		if (COMPLIANCE_RESPONSE_ARRAY === null) {   // the value could be null even if is exists
-	 			initComplianceResponseArray();
+	 			COMPLIANCE_RESPONSE_ARRAY = INIT_COMPLIANCE_RESPONSE_ARRAY;
 	 		}
 	 	} else {
-	 		initComplianceResponseArray();
+	 		COMPLIANCE_RESPONSE_ARRAY = INIT_COMPLIANCE_RESPONSE_ARRAY;
 	 	}
 	 	localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY));
 	 	//
 	 	// Prep Notes Array:
-	 	//window.alert("Step 3");  //for debugging only
 		if (localStorage.getItem("HBRA_Saved_Notes") !== null) {
 	 		NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Notes"));
 	 		if (NOTES_ARRAY === null) {   // the value could be null even if is exists
-	 			initNotesArray();
+	 			NOTES_ARRAY = INIT_NOTES_ARRAY;
 	 		}
 	 	} else {
-	 		initNotesArray();
+	 		NOTES_ARRAY = INIT_NOTES_ARRAY;
 	 	}
 	 	localStorage.setItem("HBRA_Saved_Notes",JSON.stringify(NOTES_ARRAY));
 	 	//
 	 	// Prep Final Notes Array:
-	 	//window.alert("Step 4");  //for debugging only
 	 	if (localStorage.getItem("HBRA_Saved_Final_Notes") !== null) {
 	 		FINAL_NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Final_Notes"));
 	 		if (FINAL_NOTES_ARRAY === null) {   // the value could be null even if is exists
-	 			initFinalNotesArray();
+	 			FINAL_NOTES_ARRAY = INIT_FINAL_NOTES_ARRAY;
 	 		}
 	 	} else {
-	 		initFinalNotesArray();
+	 		FINAL_NOTES_ARRAY = INIT_FINAL_NOTES_ARRAY;
 	 	}
 	 	localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(FINAL_NOTES_ARRAY));
 	 	//
 	 	//
-	 	//window.alert("Step 5");  //for debugging only
 		UpdateInspection();	//  save to the database
 		} catch (e) {
 			window.alert("Error in selectForms.js function: localStorageCheckFormsSave: " + e.message);
 		}
-		//window.alert("Step 6 - page: " + page);  //for debugging only
 		if (page == "save") {
 			navigator.notification.alert(
    				'Press OK',  // message
@@ -134,38 +176,4 @@ function localStorageCheckFormsSave(page) {
    	   	 		'OK'      // buttonName
 				);
 			}
-		} 	
-
-//used to intitialize Arrays
-var FORMS_COUNT = 21; //fill "0"
-var RESPONSE_COUNTS = [12,10,10,9,9,6,7,5,10,10,9,12,9,13,13,12,15,8,8,12,10]; //fill 0
-var NOTE_COUNTS = [12,10,10,9,9,6,7,5,10,10,9,12,9,13,13,12,15,8,8,12,10]; //fill null
-var FINAL_NOTES_COUNT = 21; //fill null
-//function to intitialize the CHECKED_FORMS_ARRAY
-function initFormsArray()	{
-	for (i=0; i<FORMS_COUNT; i++) {
-		CHECKED_FORMS_ARRAY [i] = "0";
-	}		
-}
-//function to intitialize the COMPLIANCE_RESPONSE_ARRAY
-function initComplianceResponseArray() {
-	for (i=0; i<RESPONSE_COUNTS.length; i++) {
-		for (j=0; j<RESPONSE_COUNTS[i]; j++) {
-			COMPLIANCE_RESPONSE_ARRAY[i][j] = 0;
-		}
-	}
-} 
-//function to intitialize the NOTES_ARRAY
-function initNotesArray() {
-	for (i=0; i<NOTE_COUNTS.length; i++) {
-		for (j=0; j<NOTE_COUNTS[i]; j++) {
-			NOTES_ARRAY[i][j] = null;
-		}
-	}
-} 
-//function to intitialize the FINAL_NOTES_ARRAY
-function initFinalNotesArray() {
-	for (i=0; i<FINAL_NOTE_COUNTS; i++) {
-		FINAL_NOTES_ARRAY[i] = null;
-	}
-} 
+		} 		

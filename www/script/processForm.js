@@ -38,9 +38,7 @@
 	   	initializeMainButtons();
 	   	initializeComplianceArray();
 	   	initializeNotesArrays();
-	   	if (FORMS_ID == "E.4") {
-	   		initializeE4Headers();	
-	   	}	   	
+	   	initializeE4Headers();
 	   	var page = FORMS_ID;
 	   	page = page.replace(".", "_"); 
 	   	subCatInitialize(page);
@@ -96,7 +94,6 @@
 
 	function initializeE4Headers() {
 			try {
-			//window.alert("Forms id: " + FORMS_ID);   //for debugging only
 			if(window.localStorage.getItem('E.4Header')!==null){
 				document.getElementById('E.4Header').innerHTML = window.localStorage.getItem('E.4Header');
 				}
