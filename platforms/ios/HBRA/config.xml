@@ -51,6 +51,7 @@
         Anthony Ditocco 
     </author>
     <content src="index.html" />
+    <preference name="phonegap-version" value="cli-6.0.0" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
     <preference name="permissions" value="none" />
