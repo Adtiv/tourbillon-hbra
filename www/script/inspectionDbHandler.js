@@ -1,56 +1,6 @@
 //*** GLobal Variables************************************************
+//window.alert("DB Loaded");
 var DB = null;
-var INIT_CHECKED_FORMS_ARRAY = new Array(21).fill("0");
-var INIT_COMPLIANCE_RESPONSE_ARRAY = [
-        new Array(12).fill(0),        // A.1 - 12 Questions
-        new Array(10).fill(0),        // A.2 - 10 Questions
-        new Array(10).fill(0),        // A.3 - 10 Questions
-        new Array(9).fill(0),       // A.4 - 9 Questions
-        new Array(9).fill(0),       // A.5 - 9 Questions
-        new Array(6).fill(0),       // A.6 - 6 Questions
-        new Array(7).fill(0),       // A.7 - 7 Questions
-        new Array(5).fill(0),       // A.8 - 5 Questions
-        new Array(10).fill(0),        // B.1 - 10 Questions
-        new Array(10).fill(0),        // B.2 - 10 Questions
-        new Array(9).fill(0),       // B.3 - 9 Questions
-        new Array(12).fill(0),        // C.1 - 12 Questions
-        new Array(9).fill(0),       // C.2 - 9 Questions
-        new Array(13).fill(0),        // D.1 - 13 Questions
-        new Array(13).fill(0),        // D.2 - 13 Questions
-        new Array(12).fill(0),        // D.3 - 12 Questions
-        new Array(15).fill(0),        // D.4 - 15 Questions
-        new Array(8).fill(0),         // E.1 - 8 Questions
-        new Array(8).fill(0),         // E.2 - 8 Questions
-        new Array(12).fill(0),        // E.3 - 12 Questions
-        new Array(10).fill(0),        // E.4 - 10 Questions
-        ]; 
-
-  var INIT_NOTES_ARRAY = [
-        new Array(12).fill(null),         // A.1 - 12 Questions
-        new Array(10).fill(null),       // A.2 - 10 Questions
-        new Array(10).fill(null),       // A.3 - 10 Questions
-        new Array(9).fill(null),        // A.4 - 9 Questions
-        new Array(9).fill(null),        // A.5 - 9 Questions
-        new Array(6).fill(null),        // A.6 - 6 Questions
-        new Array(7).fill(null),        // A.7 - 7 Questions
-        new Array(5).fill(null),        // A.8 - 5 Questions
-        new Array(10).fill(null),       // B.1 - 10 Questions
-        new Array(10).fill(null),       // B.2 - 10 Questions
-        new Array(9).fill(null),        // B.3 - 9 Questions
-        new Array(12).fill(null),       // C.1 - 12 Questions
-        new Array(9).fill(null),        // C.2 - 9 Questions
-        new Array(13).fill(null),         // D.1 - 13 Questions
-        new Array(13).fill(null),         // D.2 - 13 Questions
-        new Array(12).fill(null),         // D.3 - 12 Questions
-        new Array(15).fill(null),         // D.4 - 15 Questions
-        new Array(8).fill(null),        // E.1 - 8 Questions
-        new Array(8).fill(null),        // E.2 - 8 Questions
-        new Array(12).fill(null),         // E.3 - 12 Questions
-        new Array(10).fill(null),         // E.4 - 10 Questions
-        ]; 
-
-  var INIT_FINAL_NOTES_ARRAY = new Array(21).fill(null);        
-
 //*********************************************************************
 //*********************************************************************
 //*********************************************************************
@@ -67,61 +17,6 @@ var INIT_COMPLIANCE_RESPONSE_ARRAY = [
 //*********************************************************************
 //*********************************************************************
 //*********************************************************************
-window.onload = function initInspection(){
-  var selectBox = document.getElementById("selectInspection");
-  if(window.localStorage.getItem('HBRA_InspectionId')===null){
-    window.localStorage.setItem('HBRA_InspectionId',1);
-    SelectInspection();
-  }
-  else{
-    if(window.localStorage.getItem('HBRA_InspectionId')==1){
-      selectBox.options[0].selected=true;
-    }
-    else if(window.localStorage.getItem('HBRA_InspectionId')==2){
-      selectBox.options[1].selected=true;
-    }
-    else if(window.localStorage.getItem('HBRA_InspectionId')==3){
-      selectBox.options[2].selected=true;
-    }  
-    else if(window.localStorage.getItem('HBRA_InspectionId')==4){
-      selectBox.options[3].selected=true;
-    }
-    else if(window.localStorage.getItem('HBRA_InspectionId')==5){
-      selectBox.options[4].selected=true;
-    }
-    else if(window.localStorage.getItem('HBRA_InspectionId')==6){
-      selectBox.options[5].selected=true;
-    }
-  }
-  console.log(window.localStorage.getItem('HBRA_InspectionId'));
-  //SelectInspection();
-  //UpdateInspection();
-}
-function chooseSelection(){
-  var selectBox = document.getElementById("selectInspection");
-  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-  if(selectedValue=="Inspection1"){
-    window.localStorage.setItem('HBRA_InspectionId',1);
-  }
-  else if(selectedValue=="Inspection2"){
-    window.localStorage.setItem('HBRA_InspectionId',2);
-  }
-  else if(selectedValue=="Inspection3"){
-    window.localStorage.setItem('HBRA_InspectionId',3);
-  }
-  else if(selectedValue=="Inspection4"){
-    window.localStorage.setItem('HBRA_InspectionId',4);
-  }
-  else if(selectedValue=="Inspection5"){
-    window.localStorage.setItem('HBRA_InspectionId',5);
-  }
-  else if(selectedValue=="Inspection6"){
-    window.localStorage.setItem('HBRA_InspectionId',6);
-  }
-  console.log(window.localStorage.getItem('HBRA_InspectionId'));
-  SelectInspection();
-  //UpdateInspection();
-}
 function UpdateInspection(destpage) {
 //window.alert('Made it to Update Inspection: ' + destpage);
 if (window.localStorage.getItem('HBRA_InspectionId') === null) {
