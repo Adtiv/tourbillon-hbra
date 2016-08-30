@@ -5,9 +5,7 @@ var NOTES_ARRAY = null;
 var FINAL_NOTES_ARRAY = null;
 //window.alert("Select Form Loaded");
 
-initialize();
-
-function initialize() {
+function initSelectForms() {
 	//window.alert("Init for SelectForms");
 	try {
 	if (localStorage.getItem("HBRA_Checked_Forms") !== null) {
@@ -174,3 +172,5 @@ function initFinalNotesArray() {
 		FINAL_NOTES_ARRAY[i] = null;
 	}
 } 
+
+window.onload = initSelectForms();
