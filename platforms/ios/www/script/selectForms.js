@@ -1,9 +1,11 @@
 //Arrays
-var CHECKED_FORMS_ARRAY = null;
-var COMPLIANCE_RESPONSE_ARRAY = null;
-var NOTES_ARRAY = null;
-var FINAL_NOTES_ARRAY = null;
+var CHECKED_FORMS_ARRAY = [];
+var COMPLIANCE_RESPONSE_ARRAY = [[]];
+var NOTES_ARRAY = [[]];
+var FINAL_NOTES_ARRAY = [];
 //window.alert("Select Form Loaded");
+
+initSelectForms();
 
 function initSelectForms() {
 	//window.alert("Init for SelectForms");
@@ -172,5 +174,3 @@ function initFinalNotesArray() {
 		FINAL_NOTES_ARRAY[i] = null;
 	}
 } 
-
-window.onload = initSelectForms();
