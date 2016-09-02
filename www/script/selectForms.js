@@ -3,12 +3,12 @@ var CHECKED_FORMS_ARRAY = [];
 var COMPLIANCE_RESPONSE_ARRAY = [[]];
 var NOTES_ARRAY = [[]];
 var FINAL_NOTES_ARRAY = [];
-//window.alert("Select Form Loaded");
+window.alert("Select Form Loaded");
 
 initSelectForms();
 
 function initSelectForms() {
-	//window.alert("Init for SelectForms");
+	window.alert("Init for SelectForms");
 	try {
 	if (localStorage.getItem("HBRA_Checked_Forms") !== null) {
 	 	CHECKED_FORMS_ARRAY = JSON.parse(localStorage.getItem("HBRA_Checked_Forms"));
@@ -76,7 +76,7 @@ function localStorageCheckFormsSubmit(page) {
 		}	
 
 function localStorageCheckFormsSave(page) {
-		//window.alert("CHECKED_FORMS_ARRAY from save: " + CHECKED_FORMS_ARRAY);
+		window.alert("CHECKED_FORMS_ARRAY from save: " + CHECKED_FORMS_ARRAY);
 		//window.alert("Step 1"); //for debugging only
 		try {
 		//
@@ -148,12 +148,14 @@ var NOTE_COUNTS = [12,10,10,9,9,6,7,5,10,10,9,12,9,13,13,12,15,8,8,12,10]; //fil
 var FINAL_NOTES_COUNT = 21; //fill null
 //function to intitialize the CHECKED_FORMS_ARRAY
 function initFormsArray()	{
+	window.alert("Made it to initFormsArray");
 	for (i=0; i<FORMS_COUNT; i++) {
 		CHECKED_FORMS_ARRAY [i] = "0";
 	}		
 }
 //function to intitialize the COMPLIANCE_RESPONSE_ARRAY
 function initComplianceResponseArray() {
+	window.alert("Made it to initComplianceResponseArray");
 	for (i=0; i<RESPONSE_COUNTS.length; i++) {
 		for (j=0; j<RESPONSE_COUNTS[i]; j++) {
 			COMPLIANCE_RESPONSE_ARRAY[i][j] = 0;
@@ -162,6 +164,7 @@ function initComplianceResponseArray() {
 } 
 //function to intitialize the NOTES_ARRAY
 function initNotesArray() {
+	window.alert("Made it to initNotesArray");
 	for (i=0; i<NOTE_COUNTS.length; i++) {
 		for (j=0; j<NOTE_COUNTS[i]; j++) {
 			NOTES_ARRAY[i][j] = null;
@@ -170,6 +173,7 @@ function initNotesArray() {
 } 
 //function to intitialize the FINAL_NOTES_ARRAY
 function initFinalNotesArray() {
+	window.alert("Made it to initFinalNotesArray");
 	for (i=0; i<FINAL_NOTE_COUNTS; i++) {
 		FINAL_NOTES_ARRAY[i] = null;
 	}
