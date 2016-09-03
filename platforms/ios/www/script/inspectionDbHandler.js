@@ -71,12 +71,8 @@ var sqlString = 'INSERT INTO Inspections_Table (DB_Id , DB_FormChecks, DB_Scores
 tx.executeSql(sqlString,
   [idNo, CHECKED_FORMS_ARRAY_db, COMPLIANCE_RESPONSE_ARRAY_db, NOTES_ARRAY_db, FINAL_NOTES_ARRAY_db, PHOTOS_db, E4HEADER_db, E4TITLES_db],
   function(){
-    if ((destpage != null) && (destpage != 'msg')) {
-     //window.alert("Record Inserted into DB, switching page");
-     window.location.href=destpage;
-    }
-  }
-    );
+    //window.alert("Callback invoked, destpage: " + destpage);
+  });
 if (destpage == 'msg') {
   window.alert("Record Inserted into DB");
 }
@@ -100,6 +96,7 @@ DB.transaction(updateFunc);
 //*********************************************************************
 function SelectInspection(msgflag) {
 //window.alert("Got to Select");
+try {
 CreateInspectionsDB();
 var resultProcess = function (tx, results) {
     if(results.rows.length === 0) {
@@ -108,6 +105,7 @@ var resultProcess = function (tx, results) {
       }
       ClearInspectionLocalStorage();
     }
+    //window.alert("Rows Count: " + results.rows.length);
     for (i=0; i < results.rows.length; i++)
         {
           var row = results.rows.item(i);
@@ -150,6 +148,9 @@ tx.executeSql('SELECT * FROM Inspections_Table WHERE DB_Id=' + idNo, [], resultP
 }
 //********************End of selectFunc************************
 DB.transaction(selectFunc);
+} catch (e) {
+  window.alert("Error inspectionDbHandler.js - SelectInspection: " + e.message);
+}
 }
 //*********************************************************************
 //*********************************************************************

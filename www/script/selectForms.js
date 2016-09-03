@@ -29,13 +29,14 @@ function initSelectForms() {
 }
 
 function goBack(){	
+			//window.alert("Goback");
 			localStorageCheckFormsSave('back');
-    		window.location.href="pageOne.html";
+			setTimeout(function(){ window.location.href="pageOne.html" }, 100); //slight delay to let DB update occur
 		}
 
 function homeScreen(){
 		localStorageCheckFormsSave('home');
-			window.location.href="index.html";
+		setTimeout(function(){ window.location.href="index.html" }, 100); //slight delay to let DB update occur
 		}
 
 function isChecked(id) {
@@ -119,7 +120,7 @@ function localStorageCheckFormsSubmit(page) {
 				}
 			}
 			//window.alert("Destination for localStorageCheckFormsSubmit: " + destination);
-			window.location.href=destination;
+			setTimeout(function(){ window.location.href=destination }, 100); //slight delay to let DB update occur 
 			} catch (e) {
 			window.alert("Error in selectForms.js function: localStorageCheckFormsSubmit: " + e.message);
 		}
@@ -127,6 +128,7 @@ function localStorageCheckFormsSubmit(page) {
 
 function localStorageCheckFormsSave(page) {
 		//window.alert("CHECKED_FORMS_ARRAY at save: " + CHECKED_FORMS_ARRAY);
+		//window.alert("Entered localStorageCheckFormsSave: " + page);
 		try {
 
 		// Save the checked forms array in Local Storage
@@ -148,9 +150,11 @@ function localStorageCheckFormsSave(page) {
 		localStorage.setItem("HBRA_Saved_Final_Notes",JSON.stringify(FINAL_NOTES_ARRAY));
 		//window.alert("FINAL_NOTES_ARRAY has been saved to local storage: " + FINAL_NOTES_ARRAY +
 		//				 " Length: " + FINAL_NOTES_ARRAY.length);
-
+		
 	 	// Save inspection in the database
 		UpdateInspection();	//  save to the database
+		//window.alert("Just retuned from DB handler");
+
 
 		} catch (e) {
 			window.alert("Error in selectForms.js function: localStorageCheckFormsSave: " + e.message);
@@ -165,7 +169,7 @@ function localStorageCheckFormsSave(page) {
    	   	 		'Saved',  // title
    	   	 		'OK'      // buttonName
 				);
-			}
+			} 
 		} catch (e) {
 			window.alert("Error upon notification: " + e.message);
 		}
