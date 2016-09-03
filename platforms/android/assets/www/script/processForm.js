@@ -2,27 +2,29 @@
 	var pageCount;
 	var globalPageIdentifier="page";
 	var setLen;
-	var CHECKED_FORMS_ARRAY;
 	var FORMS_INDEX = null;
 	var FORMS_ID = null;
-	var COMPLIANCE_RESPONSE_ARRAY;
-	var NOTES_ARRAY;
-	var FINAL_NOTES_ARRAY;  
+	//Arrays
+	var CHECKED_FORMS_ARRAY = [];
+	var COMPLIANCE_RESPONSE_ARRAY = [];
+	var NOTES_ARRAY = [];
+	var FINAL_NOTES_ARRAY = [];  
+
+	//window.alert("Process Form Loaded");
+
 
 	function homeScreen(page){
 			 localStorageSubCatFormsSave(page);
 			 window.location.href="index.html";
 		}	   	 
 
-	initialize();
+	initProcessForm();
 
-	function initialize() {
+	function initProcessForm() {
+		//window.alert("Entered InitProcessForm");
 		try {
-		if (localStorage.getItem("HBRA_Checked_Forms") !== null) {
-			CHECKED_FORMS_ARRAY = JSON.parse(localStorage.getItem("HBRA_Checked_Forms"));
-		} else {
-			window.alert("HBRA_Checked_Forms Does NOT Exist, Processing Will Fail");
-		}
+
+		initArraysFromLocalStorage();
 
 		var formNameList = document.getElementsByClassName("center container"); 
 		for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
@@ -32,12 +34,12 @@
 	  	 	}
 	   	} 
 	   	} catch (e) {
-	   		window.alert("Error in processForm - initialize: part1 " + e.message);
+	   		window.alert("Error in processForm - initialize: Part1: " + e.message);
 	   	}
 		try {
+
 	   	initializeMainButtons();
-	   	initializeComplianceArray();
-	   	initializeNotesArrays();
+
 	   	if (FORMS_ID == "E.4") {
 	   		initializeE4Headers();	
 	   	}	   	
@@ -45,7 +47,7 @@
 	   	page = page.replace(".", "_"); 
 	   	subCatInitialize(page);
 	   	} catch (e) {
-	   		window.alert("Error in processForm - initialize part2: " + e.message);
+	   		window.alert("Error in processForm - initProcessForm: Part2: " + e.message);
 	   	}
 	}
 
@@ -65,33 +67,55 @@
 	   			window.alert("Error in processForm - initializeMainButton: " + e.message);
 	   		}
 	}
-	function initializeComplianceArray() {
-		try {
-		if (localStorage.getItem("HBRA_Saved_Scores") !== null) {
-	 		COMPLIANCE_RESPONSE_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
-		} else {
-        	window.alert("HBRA_Saved_Scores Does NOT Exist, Processing Will Fail");
-		}
-		} catch (e) {
-	   			window.alert("Error in processForm - initializeComplianceArray: " + e.message);
-	   	}
-	}
 
-	function initializeNotesArrays() {
+	function initArraysFromLocalStorage() {
 		try {
-		if (localStorage.getItem("HBRA_Saved_Notes") !== null) {
-	 		NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Notes"));
+
+
+		var formsARRAY = JSON.parse(localStorage.getItem("HBRA_Checked_Forms"));
+		if (formsARRAY)	{
+			// use the Local Storage saved checked forms if it exists
+			CHECKED_FORMS_ARRAY = formsARRAY;
+			//window.alert("CHECKED_FORMS_ARRAY has been successfully loaded from Local Storage: " 
+			//				+ CHECKED_FORMS_ARRAY + " Length: "	+ CHECKED_FORMS_ARRAY.length);
 		} else {
-        	window.alert("HBRA_Saved_Notes Does NOT Exist, Processing Will Fail");
+			window.alert("HBRA_Checked_Forms Does NOT Exist, Processing Will Fail");
 		}
-		if (localStorage.getItem("HBRA_Saved_Final_Notes") !== null) {
-	 		FINAL_NOTES_ARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Final_Notes"));
+
+		var scoresARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Scores"));
+		if (scoresARRAY)	{
+			// verify if a saved scores array exists in Local Storage
+			COMPLIANCE_RESPONSE_ARRAY = scoresARRAY;
+			//window.alert("COMPLIANCE_RESPONSE_ARRAY has been successfully loaded from Local Storage: "
+			//			 + COMPLIANCE_RESPONSE_ARRAY + " Length: " + COMPLIANCE_RESPONSE_ARRAY.length);
 		} else {
-        	window.alert("HBRA_Saved_Final_Notes Does NOT Exist, Processing Will Fail");
+			window.alert("HBRA_Saved_Scores Does NOT Exist, Processing Will Fail"); 
 		}
+
+		var notesARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Notes"));
+		if (notesARRAY)	{
+			// verify if a saved notes array exists in Local Storage
+			NOTES_ARRAY = notesARRAY;
+			//window.alert("NOTES_ARRAY has been successfully loaded from Local Storage: "
+			//				 + NOTES_ARRAY + " Length: " + NOTES_ARRAY.length);
+		} else {
+			window.alert("HBRA_Saved_Notes Does NOT Exist, Processing Will Fail");
+		}
+
+		var fnotesARRAY = JSON.parse(localStorage.getItem("HBRA_Saved_Final_Notes"));
+		if (fnotesARRAY)	{
+			// verify if a saved final notes array exists in Local Storage
+			FINAL_NOTES_ARRAY = fnotesARRAY;
+			//window.alert("FINAL_NOTES_ARRAY has been successfully loaded from Local Storage: " 
+			//				+ FINAL_NOTES_ARRAY + " Length: " + FINAL_NOTES_ARRAY.length);
+		} else {
+			window.alert("HBRA_Saved_Final_Notes Does NOT Exist, Processing Will Fail");
+		}
+
 		} catch (e) {
-	   			window.alert("Error in processForm - initializeNotesArrays: " + e.message);
+	   			window.alert("Error in processForm - initArraysFromLocalStorage: " + e.message);
 	   		}
+
 	}
 
 	function initializeE4Headers() {
