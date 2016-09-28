@@ -55,6 +55,26 @@ function chooseSelection(){
   SelectInspection();
   //UpdateInspection();
 }
+
+function chooseDeleteInspection(){
+  //window.alert("chooseDeleteInspection");
+  var delMsg = "Deleting Inspection " + window.localStorage.getItem('HBRA_InspectionId');
+  navigator.notification.confirm("Press 'Delete'", confirmCallback, delMsg, ['Delete','Cancel']);
+  //window.alert("chooseDeleteInspection Completed");
+}
+
+function confirmCallback(buttonIndex) {
+    //window.alert('You selected button ' + buttonIndex);
+    try {
+    if (buttonIndex == 1) {
+      ClearInspectionLocalStorage();
+      DeleteInspection('msg');
+    }
+    } catch (e) {
+      window.alert("Error in confirmCallback: " + e.message);
+    }
+}
+
 function init(){
 	//window.alert("init");
 	initInspection();

@@ -51,6 +51,14 @@ form{
     font-size: 4vw;
 }
 
+.inpectdiv {
+    margin-bottom: 5%;
+	font-size: 64vw;
+	background: none !important;
+	color: #333333 !important;
+	text-shadow: none !important;
+}
+
 .label {
     margin-bottom: 5%;
 	font-size: 4vw;
@@ -667,4 +675,13 @@ margin-bottom: 4%;
 	font-size: 3.5vw;
 	color:red;
 	font-weight: bold;
+}
+#selectInspection {
+	font-size: 6vw;
+}
+#deleteInspectionBtn {
+    margin: 10px 0 0 0;
+    background-color: #f14a4a;
+    border-radius: 25px;
+    float: right;
 }

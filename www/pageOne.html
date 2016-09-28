@@ -40,6 +40,7 @@
 				  <option value="Inspection5">Inspection 5</option>
 				  <option value="Inspection6">Inspection 6</option>
 				</select>
+				<button id="deleteInspectionBtn" type="button" onclick="chooseDeleteInspection();">Delete</button>
 			</div><br/>
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
@@ -67,12 +68,11 @@
 		<!--<button style="background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
 		<!--<button id="btnSubmit" style="visibility:visible;background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
 		<button id="btnSubmitfirst" onclick="{storeLocalContent();generatePDF();}">Submit Form</button>
-		<button style="width:300px" onclick="View()">View Current PDF</button>
-		<!--<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>-->
+		<!--button style="width:300px" onclick="View()">View Current PDF</button>
 		<button style="width:150px" onclick="SelectInspection('msg')">Select Inspection</button>
 		<button style="width:150px" onclick="UpdateInspection('msg')">Update Inspection</button>
 		<button style="width:150px" onclick="DeleteInspection('msg')">Delete Inspection</button>
-		<button style="width:150px" onclick="DeleteInspectionsDB('msg')">Delete Whole Table</button>
+		<button style="width:150px" onclick="DeleteInspectionsDB('msg')">Delete Whole Table</button-->
     </div>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css">
 <script type="text/javascript" src="vendor/jquery.js"></script>
