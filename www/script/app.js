@@ -1,8 +1,10 @@
+	onload = function setInspectionId(){
+		document.getElementById('inspectNumber').innerHTML="#"+window.localStorage.getItem('HBRA_InspectionId');
+	}
 	//window.alert("App.js - Loaded");
 	try {
 	document.addEventListener('deviceready', function () {
 		FastClick.attach(document.body);
-		console.log("deviceReady");	
 		//window.alert("App.js - Listener Added");
 	    // cordova.plugins.email is now available
 	}, false);
