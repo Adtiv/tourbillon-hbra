@@ -685,3 +685,16 @@ margin-bottom: 4%;
     border-radius: 25px;
     float: right;
 }
+#addInspectionBtn {
+    margin: 10px 0 0 0;
+    background-color:lightgreen;
+    border-radius: 25px;
+    float: left;
+}
+#btnSetdefaults {
+	visibility: visible;
+	background-color:bisque;
+	border: 2px solid;
+    border-radius: 25px;
+	width:300px;
+}

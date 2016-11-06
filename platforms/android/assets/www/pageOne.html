@@ -19,7 +19,7 @@
 				<img src="images/home.png" width="100%" height="100%">
 			</div>
 		</btn>
-		English
+		<span id="inspectNumber_P1"style="margin-left:-10%"></span>		
 		<btn onclick="popup()">
 			<div id="refresh">
 				<img id="refreshBtn" src="images/trash_full.png" width="100%" height="100%">	
@@ -31,20 +31,15 @@
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
 		<form action="server/emailForm.php" method="post">
 			<div class="label" style="text-align:center;">Please Choose Your Inspection:</div> 
-			<div style="text-align:center;">
-				<select id="selectInspection"onchange="chooseSelection();">
-				  <option value="Inspection1">Inpsection 1</option>
-				  <option value="Inspection2">Inspection 2</option>
-				  <option value="Inspection3">Inspection 3</option>
-				  <option value="Inspection4">Inspection 4</option>
-				  <option value="Inspection5">Inspection 5</option>
-				  <option value="Inspection6">Inspection 6</option>
+			<div id="selDiv" style="text-align:center;">
+				<button id="addInspectionBtn" type="button" onclick="chooseAddInspection();">Add</button>
+				<select id="selectInspection" onchange="chooseSelection();">
 				</select>
 				<button id="deleteInspectionBtn" type="button" onclick="chooseDeleteInspection();">Delete</button>
 			</div><br/>
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
-			<div class="label">Job Name:</div> <input type="text" name="jobName" id="jobName" class="input"/><br/><br/>
+			<div class="label">Job Name:</div> <input type="text" name="jobName" id="jobName" class="input" disabled/><br/><br/>
 			<div class="label">Job #:</div> <input type="text" name="jobNum" id="jobNum" class="input"/><br/><br/>
 			<div class="label">Inspection by:</div> <input type="text" name="inspBy" id="inspBy" class="input"/> <br/><br/>
 			<div class="label">Email Address:</div> <input type="text" name="email" id="email" class="input"/> <br/><br/>
@@ -54,8 +49,8 @@
 			<div class="label">End Date &amp; Time:</div> <input type="text" name="datetimepicker2" id="datetimepicker2" class="input endTime"/><br/><br/>
 			<div class="on-site">On-Site Safety Rep or Competent Person:</div><br/>
 				<div class="underling"><input type="text" name="repName" id="repName" class="input"/><div class="on-site-label">First and Last Name:</div></div><br/><br/>
-			<div class="label">Employee #:</div><input type="text" name="employeeNum" id="employeeNum" class="input"></input><br/><br/>
-			<div class="label">Weather or Special Conditions:</div><textarea type="text" name="weatherCom" id="weatherCom" class="textArea"></textarea>
+			<div class="label">Employee #:</div><input type="text" name="employeeNum" id="employeeNum" class="input"/><br/><br/>
+			<div class="label">Weather or Special Conditions:</div><textarea name="weatherCom" id="weatherCom" class="textArea"></textarea>
 			<br/><br/><br/><br/>
 			<div class="after-form">
 				<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent('save')"/>
@@ -71,16 +66,18 @@
 		<!--button style="width:300px" onclick="View()">View Current PDF</button>
 		<button style="width:150px" onclick="SelectInspection('msg')">Select Inspection</button>
 		<button style="width:150px" onclick="UpdateInspection('msg')">Update Inspection</button>
-		<button style="width:150px" onclick="DeleteInspection('msg')">Delete Inspection</button>
-		<button style="width:150px" onclick="DeleteInspectionsDB('msg')">Delete Whole Table</button-->
+		<button style="width:150px" onclick="DeleteInspection('msg')">Delete Inspection</button-->
+		<!--button style="width:150px" onclick="DeleteInspectionsDB('msg');setupRefresh()">Delete Whole Table</button-->
+		<!--button style="width:150px" onclick="ListInspections('msg');setupRefresh()">List All Inspections</button-->
+		<button id="btnSetdefaults" onclick="SetDefaults()">Set These as Defaults</button>
     </div>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css">
 <script type="text/javascript" src="vendor/jquery.js"></script>
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
 <script src="vendor/dateTimePicker/jquery.datetimepicker.js"></script>
 <script src="script/app.js" type="text/javascript"></script>
-<script src="script/setup.js" type="text/javascript"></script>
 <script src="script/inspectionDbHandler.js" type="text/javascript"></script>
+<script src="script/setup.js" type="text/javascript"></script>
 <script type="text/javascript" src="script/jsPDF-1.0.272/dist/jspdf.debug.js"></script>
 <script>
 	jQuery('#datetimepicker').datetimepicker({ampm: true});
