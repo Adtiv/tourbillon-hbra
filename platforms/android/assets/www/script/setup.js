@@ -152,8 +152,17 @@ function confirmDelClear(){
 //************************************************************************
 function chooseAddInspection(){
   //window.alert("chooseAddInspection");
-  navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Exit'],"Job");
-  //window.alert("chooseAddInspection Completed");
+  if (window.localStorage.getItem('default_company') !== null) {
+    navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Cancel'],"Job"); 
+      } else {
+        navigator.notification.alert(
+          'Press OK',  // message
+          null,   // no callback  
+          'Defaults must first be set',  // title
+          'OK'  // buttonName    
+          );
+      }
+    //window.alert("chooseAddInspection Completed");
 }
 
 function confirmAddCallback(results) {
@@ -161,8 +170,9 @@ function confirmAddCallback(results) {
     try {
      //window.alert("Button Index Depressed: " + results.buttonIndex + " Inspection Name: " + results.input1);
      if (results.buttonIndex == 1) {
-      setupNewInspection(results.input1);
-     }
+      var id = results.input1.replace(/'/g, '"');  // replace single quite with double to avoid database issues
+      setupNewInspection(id);
+     } 
     } catch (e) {
       window.alert("Error in confirmAddCallback: " + e.message);
     }
@@ -173,6 +183,7 @@ function confirmAddCallback(results) {
 //************************************************************************
 function setupNewInspection(inspID) {
   try {
+
   //window.alert("Entering setupNewInspection");
   window.localStorage.setItem('HBRA_InspectionId', inspID);  //same as Job name
   if (window.localStorage.getItem('default_company') !== null) {
@@ -396,7 +407,7 @@ function SetDefaults() {
             'Press OK',  // message
             null,   // no callback  
               'Defaults Set',  // title
-              'OK'      // buttonName
+              'OK'    // buttonName  
           );
     }
 

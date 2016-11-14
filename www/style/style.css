@@ -679,22 +679,13 @@ margin-bottom: 4%;
 #selectInspection {
 	font-size: 6vw;
 }
-#deleteInspectionBtn {
-    margin: 10px 0 0 0;
-    background-color: #f14a4a;
-    border-radius: 25px;
-    float: right;
-}
-#addInspectionBtn {
-    margin: 10px 0 0 0;
-    background-color:lightgreen;
-    border-radius: 25px;
-    float: left;
-}
 #btnSetdefaults {
 	visibility: visible;
 	background-color:bisque;
 	border: 2px solid;
     border-radius: 25px;
 	width:300px;
+}
+a:hover {
+    text-decoration: underline;
 }

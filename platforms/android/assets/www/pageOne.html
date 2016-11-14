@@ -30,12 +30,16 @@
 			<div id="popup">Are you sure you want to reset?(THIS WILL DELETE ALL SAVED ANSWERS AND PHOTOS.)<br><div class="btnCtrl"><button class="popupBtn" id="yes" onclick="clearStorage()">YES</button></div><div class="btnCtrl"><button class="popupBtn" id="no" onclick="no()">NO</button></div></div>
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
 		<form action="server/emailForm.php" method="post">
-			<div class="label" style="text-align:center;">Please Choose Your Inspection:</div> 
+			<div class="label" style="text-align:center;">
+				Please choose your inspection or click
+				<a onclick="chooseAddInspection();"><font color=green><strong>ADD</strong></font></a>
+				to create a new inspection or
+				<a onclick="chooseDeleteInspection();"><font color=red><strong>DELETE</strong></font></a>
+				to remove one:
+			</div> 
 			<div id="selDiv" style="text-align:center;">
-				<button id="addInspectionBtn" type="button" onclick="chooseAddInspection();">Add</button>
 				<select id="selectInspection" onchange="chooseSelection();">
 				</select>
-				<button id="deleteInspectionBtn" type="button" onclick="chooseDeleteInspection();">Delete</button>
 			</div><br/>
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
