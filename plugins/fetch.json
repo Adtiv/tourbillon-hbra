@@ -1,56 +1,40 @@
 {
-    "de.appplant.cordova.plugin.email-composer": {
-        "source": {
-            "type": "registry",
-            "id": "de.appplant.cordova.plugin.email-composer@0.8.2"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.camera": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.camera"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.file": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.file"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-statusbar": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-statusbar"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "de.sitewaerts.cordova.documentviewer": {
-        "source": {
-            "type": "registry",
-            "id": "de.sitewaerts.cordova.documentviewer"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.inappbrowser": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.inappbrowser"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-camera": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-camera"
+            "id": "cordova-plugin-camera@~2.3.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-compat": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-compat"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device@~1.1.3"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-email-composer": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-email-composer@~0.8.3"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-dialogs": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-dialogs@~1.3.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -58,7 +42,7 @@
     "cordova-plugin-file": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-file"
+            "id": "cordova-plugin-file@~4.3.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -66,15 +50,23 @@
     "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-inappbrowser"
+            "id": "cordova-plugin-inappbrowser@~1.3.0"
         },
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-device": {
+    "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-device@~1.1.1"
+            "id": "cordova-plugin-splashscreen@~4.0.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-statusbar@~2.1.3"
         },
         "is_top_level": true,
         "variables": {}

@@ -7,28 +7,33 @@
         "files": {}
     },
     "installed_plugins": {
-        "at.modalog.cordova.plugin.html2pdf": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
-        "com.telerik.plugins.nativepagetransitions": {
+        "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "cordova-plugin-email-composer": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "de.appplant.cordova.plugin.email-composer": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "org.apache.cordova.file": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
-        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },
