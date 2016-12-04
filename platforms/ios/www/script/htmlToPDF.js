@@ -23,46 +23,46 @@ function compileStoredVariables(){
 		return;
 	}
 	if(localStorage.length!=0){
-		if(localStorage.getItem('company')!=null){
-			document.getElementById('company').innerHTML=localStorage.getItem('company');
+		if(localStorage.getItem('HBRA_company')!=null){
+			document.getElementById('company').innerHTML=localStorage.getItem('HBRA_company');
 		}
-		if(localStorage.getItem('trade')!=null){
-			document.getElementById('trade').innerHTML= localStorage.getItem('trade');
+		if(localStorage.getItem('HBRA_trade')!=null){
+			document.getElementById('trade').innerHTML= localStorage.getItem('HBRA_trade');
 		}
-		if(localStorage.getItem('jobName')!=null){
-			document.getElementById('jobName').innerHTML = localStorage.getItem('jobName');
+		if(localStorage.getItem('HBRA_jobName')!=null){
+			document.getElementById('jobName').innerHTML = localStorage.getItem('HBRA_jobName');
 		}
-		if(localStorage.getItem('jobNum')!=null){
-			document.getElementById('jobNum').innerHTML = localStorage.getItem('jobNum');
+		if(localStorage.getItem('HBRA_jobNum')!=null){
+			document.getElementById('jobNum').innerHTML = localStorage.getItem('HBRA_jobNum');
 		}
-		if(localStorage.getItem('beginTime')!=null){
-			document.getElementById('beginTime').innerHTML = localStorage.getItem('beginTime');
+		if(localStorage.getItem('HBRA_beginTime')!=null){
+			document.getElementById('beginTime').innerHTML = localStorage.getItem('HBRA_beginTime');
 		}
-		if(localStorage.getItem('endTime')!=null){
-			document.getElementById('endTime').innerHTML = localStorage.getItem('endTime');
+		//if(localStorage.getItem('endTime')!=null){
+		//	document.getElementById('endTime').innerHTML = localStorage.getItem('endTime');
+		//}
+		if(localStorage.getItem('HBRA_inspBy')!=null){
+			document.getElementById('inspBy').innerHTML = localStorage.getItem('HBRA_inspBy');
 		}
-		if(localStorage.getItem('inspBy')!=null){
-			document.getElementById('inspBy').innerHTML = localStorage.getItem('inspBy');
+		if(localStorage.getItem('HBRA_email')!=null){
+			document.getElementById('email').innerHTML = localStorage.getItem('HBRA_email');
 		}
-		if(localStorage.getItem('email')!=null){
-			document.getElementById('email').innerHTML = localStorage.getItem('email');
+		if(localStorage.getItem('HBRA_title')!=null){	
+			document.getElementById('title').innerHTML = localStorage.getItem('HBRA_title');
 		}
-		if(localStorage.getItem('title')!=null){	
-			document.getElementById('title').innerHTML = localStorage.getItem('title');
-		}
-		if(localStorage.getItem('empNum')!=null){
-			document.getElementById('empNum').innerHTML = localStorage.getItem('empNum');
+		if(localStorage.getItem('HBRA_empNum')!=null){
+			document.getElementById('empNum').innerHTML = localStorage.getItem('HBRA_empNum');
 		}
 		//document.getElementsByClassName('beginTime').innerHTML = localStorage.getItem('beginTime');
 		//document.getElementsByClassName('endtime').innerHTML = localStorage.getItem('endTime');
-		if(localStorage.getItem('repName')!=null){
-			document.getElementById('repName').innerHTML = localStorage.getItem('repName');
+		if(localStorage.getItem('HBRA_repName')!=null){
+			document.getElementById('repName').innerHTML = localStorage.getItem('HBRA_repName');
 		}
-		if(localStorage.getItem('employeeNum')!=null){
-			document.getElementById('employeeNum').innerHTML = localStorage.getItem('employeeNum');
+		if(localStorage.getItem('HBRA_employeeNum')!=null){
+			document.getElementById('employeeNum').innerHTML = localStorage.getItem('HBRA_employeeNum');
 		}
-		if(localStorage.getItem('weatherCom')!=null){
-			document.getElementById('weatherCom').innerHTML = localStorage.getItem('weatherCom');
+		if(localStorage.getItem('HBRA_weatherCom')!=null){
+			document.getElementById('weatherCom').innerHTML = localStorage.getItem('HBRA_weatherCom');
 		}
   }
 	var arrayFailure = false;

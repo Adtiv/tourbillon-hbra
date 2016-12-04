@@ -1,48 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.hbra" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>HBRA</name>
-    <description>
-        App for HBRA Inspections
-    </description>
-    <author email="datocco13@gmail.com" href="http://example.com">
-        Anthony Ditocco 
-    </author>
-    <content src="index.html" />
-    <icon src="icon.png" />
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
-    <icon density="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
-    <icon density="hdpi" src="www/res/icon/android/icon-72-hdpi.png" />
-    <icon density="xhdpi" src="www/res/icon/android/icon-96-xhdpi.png" />
-    <splash density="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
-    <splash density="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
-    <splash density="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
-    <splash density="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
-    <allow-intent href="market:*" />
-    <preference name="loglevel" value="DEBUG" />
-    <preference name="phonegap-version" value="cli-6.4.2" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
-    <preference name="orientation" value="portrait" />
-    <preference name="fullscreen" value="true" />
-    <preference name="permissions" value="none" />
-    <preference name="target-device" value="universal" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="false" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="disable-cursor" value="false" />
-    <preference name="android-installLocation" value="auto" />
-    <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
@@ -71,4 +28,47 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <name>HBRA</name>
+    <description>
+        App for HBRA Inspections
+    </description>
+    <author email="datocco13@gmail.com" href="http://example.com">
+        Anthony Ditocco 
+    </author>
+    <content src="index.html" />
+    <icon src="icon.png" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
+    <icon density="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
+    <icon density="hdpi" src="www/res/icon/android/icon-72-hdpi.png" />
+    <icon density="xhdpi" src="www/res/icon/android/icon-96-xhdpi.png" />
+    <splash density="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
+    <splash density="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
+    <splash density="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
+    <splash density="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
+    <allow-intent href="market:*" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="phonegap-version" value="cli-6.3.0" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="orientation" value="portrait" />
+    <preference name="fullscreen" value="true" />
+    <preference name="permissions" value="none" />
+    <preference name="target-device" value="universal" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
 </widget>

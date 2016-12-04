@@ -12,9 +12,6 @@
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.phonegap.hbra"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
@@ -37,5 +34,9 @@
             "PACKAGE_NAME": "com.phonegap.hbra"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.phonegap.hbra"
+        }
+    }
 }

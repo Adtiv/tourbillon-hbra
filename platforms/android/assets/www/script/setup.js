@@ -68,7 +68,7 @@ function setupRefresh3(){
     document.getElementById('title').value = window.localStorage.getItem('HBRA_title');
     document.getElementById('empNum').value = window.localStorage.getItem('HBRA_empNum');
     document.getElementById('datetimepicker').value = window.localStorage.getItem('HBRA_beginTime');
-    document.getElementById('datetimepicker2').value = window.localStorage.getItem('HBRA_endTime');
+    //document.getElementById('datetimepicker2').value = window.localStorage.getItem('HBRA_endTime');
     document.getElementById('repName').value = window.localStorage.getItem('HBRA_repName');
     document.getElementById('employeeNum').value = window.localStorage.getItem('HBRA_employeeNum');
     document.getElementById('weatherCom').value = window.localStorage.getItem('HBRA_weatherCom');
@@ -90,7 +90,7 @@ function setupRefreshClear(){
     document.getElementById('title').value = "";
     document.getElementById('empNum').value = "";
     document.getElementById('datetimepicker').value = "";
-    document.getElementById('datetimepicker2').value = "";
+    //document.getElementById('datetimepicker2').value = "";
     document.getElementById('repName').value = "";
     document.getElementById('employeeNum').value = "";
     document.getElementById('weatherCom').value = "";
@@ -152,11 +152,23 @@ function confirmDelClear(){
 //************************************************************************
 function chooseAddInspection(){
   //window.alert("chooseAddInspection");
+  var jobcounter;
+  if (window.localStorage.getItem('HBRA_jobcounter') !== null) {
+    jobcounter = window.localStorage.getItem('HBRA_jobcounter');
+  } else {
+    jobcounter = 0;
+  }
+  jobcounter++;
+  window.localStorage.setItem('HBRA_jobcounter', jobcounter);
+  var jstr = "00000" + jobcounter;
+  jstr = jstr.substr(jstr.length-5);
+  jstr = "Job" + "_" + jstr;
+  defmsg = 'Inspection defaults must first be set. First enter them into the form, and then click the "Set These as Defaults" button at the bottom.';
   if (window.localStorage.getItem('default_company') !== null) {
-    navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Cancel'],"Job"); 
+    navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Cancel'],jstr); 
       } else {
         navigator.notification.alert(
-          'Press OK',  // message
+          defmsg,
           null,   // no callback  
           'Defaults must first be set',  // title
           'OK'  // buttonName    
@@ -213,9 +225,9 @@ function setupNewInspection(inspID) {
   if (window.localStorage.getItem('default_beginTime') !== null) {
     window.localStorage.setItem('HBRA_beginTime',window.localStorage.getItem('default_beginTime'));
   }
-  if (window.localStorage.getItem('default_endTime') !== null) {
-    window.localStorage.setItem('HBRA_endTime', window.localStorage.getItem('default_endTime'));
-  }
+  //if (window.localStorage.getItem('default_endTime') !== null) {
+  //  window.localStorage.setItem('HBRA_endTime', window.localStorage.getItem('default_endTime'));
+  //}
   if (window.localStorage.getItem('default_repName') !== null) {
     window.localStorage.setItem('HBRA_repName', window.localStorage.getItem('default_repName'));
   }
@@ -258,7 +270,7 @@ function storeLocalContent(next){
 	var jobTitle = document.getElementById('title').value;
 	var numEmp = document.getElementById('empNum').value;
 	var timeBegin = document.getElementById('datetimepicker').value;
-	var timeEnd = document.getElementById('datetimepicker2').value;
+	//var timeEnd = document.getElementById('datetimepicker2').value;
 	var nameRep = document.getElementById('repName').value;
 	var employeeNum = document.getElementById('employeeNum').value;
 	var comWeather = document.getElementById('weatherCom').value;
@@ -274,7 +286,7 @@ function storeLocalContent(next){
   window.localStorage.setItem('HBRA_title', jobTitle);
   window.localStorage.setItem('HBRA_empNum', numEmp);
   window.localStorage.setItem('HBRA_beginTime', timeBegin);
-  window.localStorage.setItem('HBRA_endTime', timeEnd);
+  //window.localStorage.setItem('HBRA_endTime', timeEnd);
   window.localStorage.setItem('HBRA_repName', nameRep);
   window.localStorage.setItem('HBRA_employeeNum', employeeNum);
   window.localStorage.setItem('HBRA_weatherCom', comWeather);
@@ -385,7 +397,7 @@ function SetDefaults() {
   var jobTitle = document.getElementById('title').value;
   var numEmp = document.getElementById('empNum').value;
   var timeBegin = document.getElementById('datetimepicker').value;
-  var timeEnd = document.getElementById('datetimepicker2').value;
+  //var timeEnd = document.getElementById('datetimepicker2').value;
   var nameRep = document.getElementById('repName').value;
   var employeeNum = document.getElementById('employeeNum').value;
   var comWeather = document.getElementById('weatherCom').value;
@@ -399,7 +411,7 @@ function SetDefaults() {
   window.localStorage.setItem('default_title', jobTitle);
   window.localStorage.setItem('default_empNum', numEmp);
   window.localStorage.setItem('default_beginTime', timeBegin);
-  window.localStorage.setItem('default_endTime', timeEnd);
+  //window.localStorage.setItem('default_endTime', timeEnd);
   window.localStorage.setItem('default_repName', nameRep);
   window.localStorage.setItem('default_employeeNum', employeeNum);
   window.localStorage.setItem('default_weatherCom', comWeather);

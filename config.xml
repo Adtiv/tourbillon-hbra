@@ -69,6 +69,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="ios" spec="~4.3.0" />
-    <engine name="android" spec="~6.1.0" />
+    <engine name="ios" spec="~4.2.0" />
+    <engine name="android" spec="~5.2.1" />
 </widget>
