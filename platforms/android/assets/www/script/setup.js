@@ -157,12 +157,13 @@ function chooseAddInspection(){
     jobcounter = window.localStorage.getItem('HBRA_jobcounter');
   } else {
     jobcounter = 0;
+    window.localStorage.setItem('HBRA_jobcounter',jobcounter);
   }
   jobcounter++;
-  window.localStorage.setItem('HBRA_jobcounter', jobcounter);
   var jstr = "00000" + jobcounter;
   jstr = jstr.substr(jstr.length-5);
   jstr = "Job" + "_" + jstr;
+  window.localStorage.setItem('HBRA_jobnext',jstr);
   defmsg = 'Inspection defaults must first be set. First enter them into the form, and then click the "Set These as Defaults" button at the bottom.';
   if (window.localStorage.getItem('default_company') !== null) {
     navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Cancel'],jstr); 
@@ -181,10 +182,16 @@ function confirmAddCallback(results) {
     //window.alert('You selected button ' + buttonIndex);
     try {
      //window.alert("Button Index Depressed: " + results.buttonIndex + " Inspection Name: " + results.input1);
-     if (results.buttonIndex == 1) {
-      var id = results.input1.replace(/'/g, '"');  // replace single quite with double to avoid database issues
-      setupNewInspection(id);
-     } 
+      if (results.buttonIndex == 1) {
+        var id = results.input1.replace(/'/g, '"');  // replace single quite with double to avoid database issues
+        if (id == window.localStorage.getItem('HBRA_jobnext')) {
+        var jobcounter2;
+        jobcounter2 = localStorage.getItem('HBRA_jobcounter');
+        jobcounter2++;
+        localStorage.setItem('HBRA_jobcounter',jobcounter2);
+        }  
+        setupNewInspection(id);
+      }  
     } catch (e) {
       window.alert("Error in confirmAddCallback: " + e.message);
     }
