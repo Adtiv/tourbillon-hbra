@@ -108,28 +108,32 @@ function loadFormData() {
     var compliant=0;
     var totalNA=0;
     var totalQ=0;
+    var formScoreTotal=0;
 	  for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
        if (CHECKED_FORMS_ARRAY[i] != "0") {
         //window.alert("Index: " + i + "FormID: " + CHECKED_FORMS_ARRAY[i] + " Compliance Entry Length: " + COMPLIANCE_RESPONSE_ARRAY[i].length);
         var showDiv=document.getElementById(CHECKED_FORMS_ARRAY[i]);
 			  showDiv.style.visibility="visible";
 			  showDiv.style.display="inline";
+        formScoreTotal = 0;
 			  for (j=0; j<COMPLIANCE_RESPONSE_ARRAY[i].length; j++){
+           var score = COMPLIANCE_RESPONSE_ARRAY[i][j];
+           formScoreTotal += score;
            totalQ++;
-           if(COMPLIANCE_RESPONSE_ARRAY[i][j]==5){
+           if(score==5){
               compliant++;
            }
-           if(COMPLIANCE_RESPONSE_ARRAY[i][j]==0){
+           if(score==0){
               totalNA++;
            }
 				   var scoreID = "score" + CHECKED_FORMS_ARRAY[i] + "-" + (j+1);		//example: scoreA.1-3
-           document.getElementById(scoreID).innerHTML = COMPLIANCE_RESPONSE_ARRAY[i][j];
+           document.getElementById(scoreID).innerHTML = "(" + score + ") " + scoretoText(score);
 				   var noteID = CHECKED_FORMS_ARRAY[i] + "compliance" + (j+1);		//example: A.1compliance3
-				   if (COMPLIANCE_RESPONSE_ARRAY[i][j]==1 || COMPLIANCE_RESPONSE_ARRAY[i][j]==3) {
-                if(COMPLIANCE_RESPONSE_ARRAY[i][j]==1){
+				   if (score==1 || score==3) {
+                if(score==1){
                   non++;
                 }
-                if(COMPLIANCE_RESPONSE_ARRAY[i][j]==3){
+                if(score==3){
                   partial++;
                 }
 						    document.getElementById(noteID).innerHTML = NOTES_ARRAY[i][j];
@@ -138,6 +142,8 @@ function loadFormData() {
                 complianceSummaryArray.push(nonCompliantQuestion);
 				    }
 			   } 
+        var formScore =  CHECKED_FORMS_ARRAY[i] + "score"; // example: A.1score
+        document.getElementById(formScore).innerHTML = formScoreTotal;
 			  var finalNotesID = CHECKED_FORMS_ARRAY[i] + "notes";	// example: A.1notes 
 			  document.getElementById(finalNotesID).innerHTML = FINAL_NOTES_ARRAY[i];
 		   }
@@ -148,7 +154,29 @@ function loadFormData() {
    document.getElementById('totalPartial').innerHTML=partial.toString();
    document.getElementById('totalCompliant').innerHTML=compliant.toString();
    document.getElementById('totalNA').innerHTML=totalNA.toString();
-   document.getElementById('totalQuestions').innerHTML=totalQ.toString();} 
+   document.getElementById('totalQuestions').innerHTML=totalQ.toString();
+ } 
+
+function scoretoText(num){
+  var scoreText;
+   switch(num) {
+    case 0:
+        scoreText = "N/A";
+        break;
+    case 1:
+        scoreText = "NON-COMPLIANT";
+        break;
+    case 3:
+        scoreText = "PARTIALLY-COMPLIANT";
+        break;
+    case 5:
+        scoreText = "COMPLIANT";
+        break; 
+    default:
+        scoreText = "INVALID";
+  }
+  return scoreText;
+}
 
 function fillInE4Headers() {
     if(window.localStorage.getItem('E.4Header')!==null){
@@ -1036,10 +1064,12 @@ function email(){
    	var callback = function(result) { window.alert('Service available setting is: ' + result); };
    	//window.alert("Just before email available check");
    	attachmentsArray.push(pdfAttach64);
+  var subject = 'Site Safety Evaluation Form - ' + window.localStorage.getItem('HBRA_InspectionId'); 
+  //window.alert("Subject: " + subject); 
 	cordova.plugins.email.isAvailable(callback);
 	if(callback){
 		cordova.plugins.email.open({
-		subject: 'Site Safety Evaluation Form - html',
+		subject: subject,
    	 	attachments: attachmentsArray
 		});
 	}
