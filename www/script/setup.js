@@ -48,6 +48,9 @@ function setupRefresh2(){
     } else {
       //window.alert("No Inspections left")
       document.getElementById('inspectNumber_P1').innerHTML='<font color=green>***Add Inspection***</font>';
+      var option = document.createElement("option");
+      option.text = 'First Set Defaults';
+      selectBox.appendChild(option);
       setupRefreshClear();
     }
    } catch (e) {
