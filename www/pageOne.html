@@ -31,14 +31,14 @@
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
 		<form action="server/emailForm.php" method="post">
 			<div class="label" style="text-align:center;">
-				<font size="+2">Please choose your inspection:</font> 
+				<font size="+2">Please choose, add(+) or remove(-) your inspection:</font> 
 			</div> 
 			<div id="selDiv" style="text-align:center;">
 				<a onclick="chooseDeleteInspection();"><font color=red size="+3"><strong>&ndash;</strong></font></a>
 				&nbsp;&nbsp;
 				<select id="selectInspection" onchange="chooseSelection();"></select>
 				&nbsp;&nbsp;
-				<a onclick="chooseAddInspection();"><font color=green size="+3"><strong>+</strong></font></a>
+				<a onclick="chooseAddInspection();"></font><font color=green size="+3"><strong>+</strong></font></a>
 			</div><br/>
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
