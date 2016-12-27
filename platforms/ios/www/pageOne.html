@@ -31,15 +31,14 @@
 			<p class="formTitle">Residential Construction Site Safety Inspection and Evaluation</p><br>
 		<form action="server/emailForm.php" method="post">
 			<div class="label" style="text-align:center;">
-				Please choose your inspection or click
-				<a onclick="chooseAddInspection();"><font color=green><strong>ADD</strong></font></a>
-				to create a new inspection or
-				<a onclick="chooseDeleteInspection();"><font color=red><strong>DELETE</strong></font></a>
-				to remove one:
+				<font size="+2">Please choose, add(+) or remove(-) your inspection:</font> 
 			</div> 
 			<div id="selDiv" style="text-align:center;">
-				<select id="selectInspection" onchange="chooseSelection();">
-				</select>
+				<a onclick="chooseDeleteInspection();"><font color=red size="+3"><strong>&ndash;</strong></font></a>
+				&nbsp;&nbsp;
+				<select id="selectInspection" onchange="chooseSelection();"></select>
+				&nbsp;&nbsp;
+				<a onclick="chooseAddInspection();"></font><font color=green size="+3"><strong>+</strong></font></a>
 			</div><br/>
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
@@ -55,25 +54,29 @@
 				<div class="underling"><input type="text" name="repName" id="repName" class="input"/><div class="on-site-label">First and Last Name:</div></div><br/><br/>
 			<div class="label">Employee #:</div><input type="text" name="employeeNum" id="employeeNum" class="input"/><br/><br/>
 			<div class="label">Weather or Special Conditions:</div><textarea name="weatherCom" id="weatherCom" class="textArea"></textarea>
-			<br/><br/><br/><br/>
+			</form>
+			<button id="btnSetdefaults" onclick="SetDefaults()">&#8613; Set The Above as Defaults &#8613;</button>
+			<br/><br/>
+			<br/><br/>
 			<div class="after-form">
 				<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent('save')"/>
+				<div class="leftAfter-form">
+				<br/>
+				<input type="button" id="btnSubmitfirst" value="Submit Form" onclick="{storeLocalContent();generatePDF();}"/>
+				</div>
+				<div class="leftAfter-form">
 				<btn onclick="storeLocalContent('next')"><img class="next" src="images/go_next_blue.png"></btn>
-			
-			<!--<input type="submit" name="submit" id="btnSubmit" value="Submit Form"/-->
-			<!--<input type="button" value="Clear Memory" class="btn" id="btnClear" onclick="clearLocalContent()"/-->
-			</div>
-		</form>
+				</div>
+			</div>	
 		<!--<button style="background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
 		<!--<button id="btnSubmit" style="visibility:visible;background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
-		<button id="btnSubmitfirst" onclick="{storeLocalContent();generatePDF();}">Submit Form</button>
+		<!--button id="btnSubmitfirst" onclick="{storeLocalContent();generatePDF();}">Submit Form</button-->
 		<!--button style="width:300px" onclick="View()">View Current PDF</button>
 		<button style="width:150px" onclick="SelectInspection('msg')">Select Inspection</button>
 		<button style="width:150px" onclick="UpdateInspection('msg')">Update Inspection</button>
 		<button style="width:150px" onclick="DeleteInspection('msg')">Delete Inspection</button-->
 		<!--button style="width:150px" onclick="DeleteInspectionsDB('msg');setupRefresh()">Delete Whole Table</button-->
 		<!--button style="width:150px" onclick="ListInspections('msg');setupRefresh()">List All Inspections</button-->
-		<button id="btnSetdefaults" onclick="SetDefaults()">Set These as Defaults</button>
     </div>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css">
 <script type="text/javascript" src="vendor/jquery.js"></script>

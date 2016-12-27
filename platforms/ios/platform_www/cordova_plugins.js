@@ -259,7 +259,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.3.0",
     "cordova-plugin-device": "1.1.3",
     "cordova-plugin-dialogs": "1.3.0",
@@ -267,7 +266,8 @@ module.exports.metadata =
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-inappbrowser": "1.3.0",
     "cordova-plugin-splashscreen": "4.0.0",
-    "cordova-plugin-statusbar": "2.1.3"
+    "cordova-plugin-statusbar": "2.1.3",
+    "cordova-plugin-compat": "1.1.0"
 };
 // BOTTOM OF METADATA
 });

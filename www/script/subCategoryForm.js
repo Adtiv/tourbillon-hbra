@@ -1,1521 +1,246 @@
 		//Initializes the localstorage based on the page
-		function subCatInitialize(page){
-			//window.alert("Entered subCatInitialize for page: " + page);
-			var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
-			if(!bSupportsLocal){
-				document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
-				return;
-			}
-			var pNum = localStorage.getItem("pageCount");			
-			console.log("pNum" + pNum);
-			if(window.localStorage.length !== 0){
-				if(page=="A_1"){
-					if(localStorage.getItem('imagepath1')!==null){
-						var ip1 = localStorage.getItem('imagepath1');
-						var photo1 = document.getElementById("photo1");
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById("pic1").innerHTML="A.1-1.jpg";
+
+		    function subCatInitialize(page){
+		      //window.alert("Entered subCatInitialize for page: " + page);
+		      var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
+		      if(!bSupportsLocal){
+		        document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
+		        return;
+		      }
+		      var pNum = localStorage.getItem("pageCount");     
+		      console.log("pNum" + pNum);
+		      var inspection = localStorage.getItem('HBRA_InspectionId');
+		      if(window.localStorage.length !== 0){
+		        if(page=="A_1"){
+		          for(var i=1;i<=12;i++){
+		            if(localStorage.getItem(inspection+'imagepath'+i)!==null){
+		                var ip = localStorage.getItem(inspection+'imagepath'+i);
+		                var photo = document.getElementById("photo"+i);
+	                    photo.src = ip; 
+	                    photo.style.display = 'inline-block';
+	                    document.getElementById("pic"+i).innerHTML="A.1-"+i+".jpg";
 	                }
-	                if(localStorage.getItem('imagepath2')!==null){
-						var ip2 = localStorage.getItem('imagepath2');
-						var photo2 = document.getElementById("photo2");
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById("pic2").innerHTML="A.1-2.jpg";
-	                }
-	                if(localStorage.getItem('imagepath3')!==null){
-						var ip3 = localStorage.getItem('imagepath3');
-						var photo3 = document.getElementById("photo3");
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById("pic3").innerHTML="A.1-3.jpg";
-	                }
-	                if(localStorage.getItem('imagepath4')!==null){
-						var ip4 = localStorage.getItem('imagepath4');
-						var photo4 = document.getElementById("photo4");
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById("pic4").innerHTML="A.1-4.jpg";
-	                }
-	                if(localStorage.getItem('imagepath5')!==null){
-						var ip5 = localStorage.getItem('imagepath5');
-						var photo5 = document.getElementById("photo5");
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById("pic5").innerHTML="A.1-5.jpg";
-	                }
-	                if(localStorage.getItem('imagepath6')!==null){
-						var ip6 = localStorage.getItem('imagepath6');
-						var photo6 = document.getElementById("photo6");
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById("pic6").innerHTML="A.1-6.jpg";
-	                }
-	                if(localStorage.getItem('imagepath7')!==null){
-						var ip7 = localStorage.getItem('imagepath7');
-						var photo7 = document.getElementById("photo7");
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById("pic7").innerHTML="A.1-7.jpg";
-	                }
-	                if(localStorage.getItem('imagepath8')!==null){
-						var ip8 = localStorage.getItem('imagepath8');
-						var photo8 = document.getElementById("photo8");
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById("pic8").innerHTML="A.1-8.jpg";
-	                }
-	                if(localStorage.getItem('imagepath9')!==null){
-						var ip9 = localStorage.getItem('imagepath9');
-						var photo9 = document.getElementById("photo9");
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById("pic9").innerHTML="A.1-9.jpg";
-	                }
-	                if(localStorage.getItem('imagepath10')!==null){
-						var ip10 = localStorage.getItem('imagepath10');
-						var photo10 = document.getElementById("photo10");
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById("pic10").innerHTML="A.1-10.jpg";
-	                }
-	                if(localStorage.getItem('imagepath11')!==null){
-						var ip11 = localStorage.getItem('imagepath11');
-						var photo11 = document.getElementById("photo11");
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById("pic11").innerHTML="A.1-11.jpg";
-	                }
-	                if(localStorage.getItem('imagepath12')!==null){
-						var ip12 = localStorage.getItem('imagepath12');
-						var photo12 = document.getElementById("photo12");
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById("pic12").innerHTML="A.1-12.jpg";
-	                }
-			
-				}
+		          }
+		        }
 				else if(page=="A_2"){		
-	                if(localStorage.getItem('A.2imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.2imagepath1');
-						var photo1 = document.getElementById('A.2photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic1').innerHTML="A.2-1.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.2imagepath2');
-						var photo2 = document.getElementById('A.2photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic2').innerHTML="A.2-2.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.2imagepath3');
-						var photo3 = document.getElementById('A.2photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic3').innerHTML="A.2-3.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.2imagepath4');
-						var photo4 = document.getElementById('A.2photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic4').innerHTML="A.2-4.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.2imagepath5');
-						var photo5 = document.getElementById('A.2photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic5').innerHTML="A.2-5.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath6')!==null){
-						var ip6 = localStorage.getItem('A.2imagepath6');
-						var photo6 = document.getElementById('A.2photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic6').innerHTML="A.2-6.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath7')!==null){
-						var ip7 = localStorage.getItem('A.2imagepath7');
-						var photo7 = document.getElementById('A.2photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic7').innerHTML="A.2-7.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath8')!==null){
-						var ip8 = localStorage.getItem('A.2imagepath8');
-						var photo8 = document.getElementById('A.2photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic8').innerHTML="A.2-8.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath9')!==null){
-						var ip9 = localStorage.getItem('A.2imagepath9');
-						var photo9 = document.getElementById('A.2photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic9').innerHTML="A.2-9.jpg";
-	                }
-	                if(localStorage.getItem('A.2imagepath10')!==null){
-						var ip10 = localStorage.getItem('A.2imagepath10');
-						var photo10 = document.getElementById('A.2photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('A.2pic10').innerHTML="A.2-10.jpg";
-	                }					
-				   
+					for(var i=1;i<=10;i++){
+			            if(localStorage.getItem(inspection+'A.2imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.2imagepath'+i);
+			              var photo = document.getElementById("A.2photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.2pic"+i).innerHTML="A.2-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="A_3"){	
-					if(localStorage.getItem('A.3imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.3imagepath1');
-						var photo1 = document.getElementById('A.3photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic1').innerHTML="A.3-1.jpg";
-	                }
-
-	                if(localStorage.getItem('A.3imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.3imagepath2');
-						var photo2 = document.getElementById('A.3photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic2').innerHTML="A.3-2.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.3imagepath3');
-						var photo3 = document.getElementById('A.3photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic3').innerHTML="A.3-3.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.3imagepath4');
-						var photo4 = document.getElementById('A.3photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic4').innerHTML="A.3-4.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.3imagepath5');
-						var photo5 = document.getElementById('A.3photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic5').innerHTML="A.3-5.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath6')!==null){
-						var ip6 = localStorage.getItem('A.3imagepath6');
-						var photo6 = document.getElementById('A.3photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic6').innerHTML="A.3-6.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath7')!==null){
-						var ip7 = localStorage.getItem('A.3imagepath7');
-						var photo7 = document.getElementById('A.3photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic7').innerHTML="A.3-7.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath8')!==null){
-						var ip8 = localStorage.getItem('A.3imagepath8');
-						var photo8 = document.getElementById('A.3photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic8').innerHTML="A.3-8.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath9')!==null){
-						var ip9 = localStorage.getItem('A.3imagepath9');
-						var photo9 = document.getElementById('A.3photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic9').innerHTML="A.3-9.jpg";
-	                }
-	                if(localStorage.getItem('A.3imagepath10')!==null){
-						var ip10 = localStorage.getItem('A.3imagepath10');
-						var photo10 = document.getElementById('A.3photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('A.3pic10').innerHTML="A.3-10.jpg";
-	                }
+					for(var i=1;i<=10;i++){
+			            if(localStorage.getItem(inspection+'A.3imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.3imagepath'+i);
+			              var photo = document.getElementById("A.3photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.3pic"+i).innerHTML="A.3-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="A_4"){
-					if(localStorage.getItem('A.4imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.4imagepath1');
-						var photo1 = document.getElementById('A.4photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic1').innerHTML="A.4-1.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.4imagepath2');
-						var photo2 = document.getElementById('A.4photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic2').innerHTML="A.4-2.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.4imagepath3');
-						var photo3 = document.getElementById('A.4photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic3').innerHTML="A.4-3.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.4imagepath4');
-						var photo4 = document.getElementById('A.4photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic4').innerHTML="A.4-4.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.4imagepath5');
-						var photo5 = document.getElementById('A.4photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic5').innerHTML="A.4-5.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath6')!==null){
-						var ip6 = localStorage.getItem('A.4imagepath6');
-						var photo6 = document.getElementById('A.4photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic6').innerHTML="A.4-6.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath7')!==null){
-						var ip7 = localStorage.getItem('A.4imagepath7');
-						var photo7 = document.getElementById('A.4photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic7').innerHTML="A.4-7.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath8')!==null){
-						var ip8 = localStorage.getItem('A.4imagepath8');
-						var photo8 = document.getElementById('A.4photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic8').innerHTML="A.4-8.jpg";
-	                }
-	                if(localStorage.getItem('A.4imagepath9')!==null){
-						var ip9 = localStorage.getItem('A.4imagepath9');
-						var photo9 = document.getElementById('A.4photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('A.4pic9').innerHTML="A.4-9.jpg";
-	                }
+					for(var i=1;i<=9;i++){
+			            if(localStorage.getItem(inspection+'A.4imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.4imagepath'+i);
+			              var photo = document.getElementById("A.4photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.4pic"+i).innerHTML="A.4-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="A_5"){
-					if(localStorage.getItem('A.5imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.5imagepath1');
-						var photo1 = document.getElementById('A.5photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic1').innerHTML="A.5-1.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.5imagepath2');
-						var photo2 = document.getElementById('A.5photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic2').innerHTML="A.5-2.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.5imagepath3');
-						var photo3 = document.getElementById('A.5photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic3').innerHTML="A.5-3.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.5imagepath4');
-						var photo4 = document.getElementById('A.5photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic4').innerHTML="A.5-4.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.5imagepath5');
-						var photo5 = document.getElementById('A.5photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic5').innerHTML="A.5-5.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath6')!==null){
-						var ip6 = localStorage.getItem('A.5imagepath6');
-						var photo6 = document.getElementById('A.5photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic6').innerHTML="A.5-6.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath7')!==null){
-						var ip7 = localStorage.getItem('A.5imagepath7');
-						var photo7 = document.getElementById('A.5photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic7').innerHTML="A.5-7.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath8')!==null){
-						var ip8 = localStorage.getItem('A.5imagepath8');
-						var photo8 = document.getElementById('A.5photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic8').innerHTML="A.5-8.jpg";
-	                }
-	                if(localStorage.getItem('A.5imagepath9')!==null){
-						var ip9 = localStorage.getItem('A.5imagepath9');
-						var photo9 = document.getElementById('A.5photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('A.5pic9').innerHTML="A.5-9.jpg";
-	                }
+					for(var i=1;i<=9;i++){
+			            if(localStorage.getItem(inspection+'A.5imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.5imagepath'+i);
+			              var photo = document.getElementById("A.5photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.5pic"+i).innerHTML="A.5-"+i+".jpg";
+	                    }
+			        }
 				}
 				else if(page=="A_6"){
-					if(localStorage.getItem('A.6imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.6imagepath1');
-						var photo1 = document.getElementById('A.6photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.6pic1').innerHTML="A.6-1.jpg";
-	                }
-	                if(localStorage.getItem('A.6imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.6imagepath2');
-						var photo2 = document.getElementById('A.6photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.6pic2').innerHTML="A.6-2.jpg";
-	                }
-	                if(localStorage.getItem('A.6imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.6imagepath3');
-						var photo3 = document.getElementById('A.6photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.6pic3').innerHTML="A.6-3.jpg";
-	                }
-	                if(localStorage.getItem('A.6imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.6imagepath4');
-						var photo4 = document.getElementById('A.6photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.6pic4').innerHTML="A.6-4.jpg";
-	                }
-	                if(localStorage.getItem('A.6imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.6imagepath5');
-						var photo5 = document.getElementById('A.6photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.6pic5').innerHTML="A.6-5.jpg";
-	                }
-	                if(localStorage.getItem('A.6imagepath6')!==null){
-						var ip6 = localStorage.getItem('A.6imagepath6');
-						var photo6 = document.getElementById('A.6photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('A.6pic6').innerHTML="A.6-6.jpg";
-	                }
+					for(var i=1;i<=6;i++){
+			            if(localStorage.getItem(inspection+'A.6imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.6imagepath'+i);
+			              var photo = document.getElementById("A.6photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.6pic"+i).innerHTML="A.6-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="A_7"){
-					if(localStorage.getItem('A.7imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.7imagepath1');
-						var photo1 = document.getElementById('A.7photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic1').innerHTML="A.7-1.jpg";
-	                }
-	                if(localStorage.getItem('A.7imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.7imagepath2');
-						var photo2 = document.getElementById('A.7photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic2').innerHTML="A.7-2.jpg";
-	                }
-	                if(localStorage.getItem('A.7imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.7imagepath3');
-						var photo3 = document.getElementById('A.7photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic3').innerHTML="A.7-3.jpg";
-	                }
-	                if(localStorage.getItem('A.7imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.7imagepath4');
-						var photo4 = document.getElementById('A.7photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic4').innerHTML="A.7-4.jpg";
-	                }
-	                if(localStorage.getItem('A.7imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.7imagepath5');
-						var photo5 = document.getElementById('A.7photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic5').innerHTML="A.7-5.jpg";
-	                }
-	                if(localStorage.getItem('A.7imagepath6')!==null){
-						var ip6 = localStorage.getItem('A.7imagepath6');
-						var photo6 = document.getElementById('A.7photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic6').innerHTML="A.7-6.jpg";
-	                }
-	                if(localStorage.getItem('A.7imagepath7')!==null){
-						var ip7 = localStorage.getItem('A.7imagepath7');
-						var photo7 = document.getElementById('A.7photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('A.7pic7').innerHTML="A.7-7.jpg";
-	                }
+					for(var i=1;i<=7;i++){
+			            if(localStorage.getItem(inspection+'A.7imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.7imagepath'+i);
+			              var photo = document.getElementById("A.7photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.7pic"+i).innerHTML="A.7-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="A_8"){
-					if(localStorage.getItem('A.8imagepath1')!==null){
-						var ip1 = localStorage.getItem('A.8imagepath1');
-						var photo1 = document.getElementById('A.8photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('A.8pic1').innerHTML="A.8-1.jpg";
-	                }
-	                if(localStorage.getItem('A.8imagepath2')!==null){
-						var ip2 = localStorage.getItem('A.8imagepath2');
-						var photo2 = document.getElementById('A.8photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('A.8pic2').innerHTML="A.8-2.jpg";
-	                }
-	                if(localStorage.getItem('A.8imagepath3')!==null){
-						var ip3 = localStorage.getItem('A.8imagepath3');
-						var photo3 = document.getElementById('A.8photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('A.8pic3').innerHTML="A.8-3.jpg";
-	                }
-	                if(localStorage.getItem('A.8imagepath4')!==null){
-						var ip4 = localStorage.getItem('A.8imagepath4');
-						var photo4 = document.getElementById('A.8photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('A.8pic4').innerHTML="A.8-4.jpg";
-	                }
-	                if(localStorage.getItem('A.8imagepath5')!==null){
-						var ip5 = localStorage.getItem('A.8imagepath5');
-						var photo5 = document.getElementById('A.8photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('A.8pic5').innerHTML="A.8-5.jpg";
-	                }
+					for(var i=1;i<=5;i++){
+			            if(localStorage.getItem(inspection+'A.8imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'A.8imagepath'+i);
+			              var photo = document.getElementById("A.8photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("A.8pic"+i).innerHTML="A.8-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="B_1"){
-					if(localStorage.getItem('B.1imagepath1')!==null){
-						var ip1 = localStorage.getItem('B.1imagepath1');
-						var photo1 = document.getElementById('B.1photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic1').innerHTML="B.1-1.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath2')!==null){
-						var ip2 = localStorage.getItem('B.1imagepath2');
-						var photo2 = document.getElementById('B.1photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic2').innerHTML="B.1-2.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath3')!==null){
-						var ip3 = localStorage.getItem('B.1imagepath3');
-						var photo3 = document.getElementById('B.1photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic3').innerHTML="B.1-3.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath4')!==null){
-						var ip4 = localStorage.getItem('B.1imagepath4');
-						var photo4 = document.getElementById('B.1photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic4').innerHTML="B.1-4.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath5')!==null){
-						var ip5 = localStorage.getItem('B.1imagepath5');
-						var photo5 = document.getElementById('B.1photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic5').innerHTML="B.1-5.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath6')!==null){
-						var ip6 = localStorage.getItem('B.1imagepath6');
-						var photo6 = document.getElementById('B.1photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic6').innerHTML="B.1-6.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath7')!==null){
-						var ip7 = localStorage.getItem('B.1imagepath7');
-						var photo7 = document.getElementById('B.1photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic7').innerHTML="B.1-7.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath8')!==null){
-						var ip8 = localStorage.getItem('B.1imagepath8');
-						var photo8 = document.getElementById('B.1photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic8').innerHTML="B.1-8.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath9')!==null){
-						var ip9 = localStorage.getItem('B.1imagepath9');
-						var photo9 = document.getElementById('B.1photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic9').innerHTML="B.1-9.jpg";
-	                }
-	                if(localStorage.getItem('B.1imagepath10')!==null){
-						var ip10 = localStorage.getItem('B.1imagepath10');
-						var photo10 = document.getElementById('B.1photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('B.1pic10').innerHTML="B.1-10.jpg";
-	                }
+					for(var i=1;i<=10;i++){
+			            if(localStorage.getItem(inspection+'B.1imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'B.1imagepath'+i);
+			              var photo = document.getElementById("B.1photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("B.1pic"+i).innerHTML="B.1-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="B_2"){
-					if(localStorage.getItem('B.2imagepath1')!==null){
-						var ip1 = localStorage.getItem('B.2imagepath1');
-						var photo1 = document.getElementById('B.2photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic1').innerHTML="B.2-1.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath2')!==null){
-						var ip2 = localStorage.getItem('B.2imagepath2');
-						var photo2 = document.getElementById('B.2photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic2').innerHTML="B.2-2.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath3')!==null){
-						var ip3 = localStorage.getItem('B.2imagepath3');
-						var photo3 = document.getElementById('B.2photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic3').innerHTML="B.2-3.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath4')!==null){
-						var ip4 = localStorage.getItem('B.2imagepath4');
-						var photo4 = document.getElementById('B.2photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic4').innerHTML="B.2-4.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath5')!==null){
-						var ip5 = localStorage.getItem('B.2imagepath5');
-						var photo5 = document.getElementById('B.2photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic5').innerHTML="B.2-5.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath6')!==null){
-						var ip6 = localStorage.getItem('B.2imagepath6');
-						var photo6 = document.getElementById('B.2photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic6').innerHTML="B.2-6.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath7')!==null){
-						var ip7 = localStorage.getItem('B.2imagepath7');
-						var photo7 = document.getElementById('B.2photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic7').innerHTML="B.2-7.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath8')!==null){
-						var ip8 = localStorage.getItem('B.2imagepath8');
-						var photo8 = document.getElementById('B.2photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic8').innerHTML="B.2-8.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath9')!==null){
-						var ip9 = localStorage.getItem('B.2imagepath9');
-						var photo9 = document.getElementById('B.2photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic9').innerHTML="B.2-9.jpg";
-	                }
-	                if(localStorage.getItem('B.2imagepath10')!==null){
-						var ip10 = localStorage.getItem('B.2imagepath10');
-						var photo10 = document.getElementById('B.2photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('B.2pic10').innerHTML="B.2-10.jpg";
-	                }
+					for(var i=1;i<=10;i++){
+			            if(localStorage.getItem(inspection+'B.2imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'B.2imagepath'+i);
+			              var photo = document.getElementById("B.2photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("B.2pic"+i).innerHTML="B.2-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="B_3"){
-					if(localStorage.getItem('B.3imagepath1')!==null){
-						var ip1 = localStorage.getItem('B.3imagepath1');
-						var photo1 = document.getElementById('B.3photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic1').innerHTML="B.3-1.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath2')!==null){
-						var ip2 = localStorage.getItem('B.3imagepath2');
-						var photo2 = document.getElementById('B.3photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic2').innerHTML="B.3-2.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath3')!==null){
-						var ip3 = localStorage.getItem('B.3imagepath3');
-						var photo3 = document.getElementById('B.3photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic3').innerHTML="B.3-3.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath4')!==null){
-						var ip4 = localStorage.getItem('B.3imagepath4');
-						var photo4 = document.getElementById('B.3photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic4').innerHTML="B.3-4.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath5')!==null){
-						var ip5 = localStorage.getItem('B.3imagepath5');
-						var photo5 = document.getElementById('B.3photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic5').innerHTML="B.3-5.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath6')!==null){
-						var ip6 = localStorage.getItem('B.3imagepath6');
-						var photo6 = document.getElementById('B.3photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic6').innerHTML="B.3-6.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath7')!==null){
-						var ip7 = localStorage.getItem('B.3imagepath7');
-						var photo7 = document.getElementById('B.3photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic7').innerHTML="B.3-7.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath8')!==null){
-						var ip8 = localStorage.getItem('B.3imagepath8');
-						var photo8 = document.getElementById('B.3photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic8').innerHTML="B.3-8.jpg";
-	                }
-	                if(localStorage.getItem('B.3imagepath9')!==null){
-						var ip9 = localStorage.getItem('B.3imagepath9');
-						var photo9 = document.getElementById('B.3photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('B.3pic9').innerHTML="B.3-9.jpg";
-	                }
+					for(var i=1;i<=9;i++){
+			            if(localStorage.getItem(inspection+'B.3imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'B.3imagepath'+i);
+			              var photo = document.getElementById("B.3photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("B.3pic"+i).innerHTML="B.3-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="C_1"){
-					if(localStorage.getItem('C.1imagepath1')!==null){
-						var ip1 = localStorage.getItem('C.1imagepath1');
-						var photo1 = document.getElementById('C.1photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic1').innerHTML="C.1-1.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath2')!==null){
-						var ip2 = localStorage.getItem('C.1imagepath2');
-						var photo2 = document.getElementById('C.1photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic2').innerHTML="C.1-2.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath3')!==null){
-						var ip3 = localStorage.getItem('C.1imagepath3');
-						var photo3 = document.getElementById('C.1photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic3').innerHTML="C.1-3.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath4')!==null){
-						var ip4 = localStorage.getItem('C.1imagepath4');
-						var photo4 = document.getElementById('C.1photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic4').innerHTML="C.1-4.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath5')!==null){
-						var ip5 = localStorage.getItem('C.1imagepath5');
-						var photo5 = document.getElementById('C.1photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic5').innerHTML="C.1-5.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath6')!==null){
-						var ip6 = localStorage.getItem('C.1imagepath6');
-						var photo6 = document.getElementById('C.1photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic6').innerHTML="C.1-6.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath7')!==null){
-						var ip7 = localStorage.getItem('C.1imagepath7');
-						var photo7 = document.getElementById('C.1photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic7').innerHTML="C.1-7.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath8')!==null){
-						var ip8 = localStorage.getItem('C.1imagepath8');
-						var photo8 = document.getElementById('C.1photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic8').innerHTML="C.1-8.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath9')!==null){
-						var ip9 = localStorage.getItem('C.1imagepath9');
-						var photo9 = document.getElementById('C.1photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic9').innerHTML="C.1-9.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath10')!==null){
-						var ip10 = localStorage.getItem('C.1imagepath10');
-						var photo10 = document.getElementById('C.1photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic10').innerHTML="C.1-10.jpg";
-	                }
-	                if(localStorage.getItem('C.1imagepath11')!==null){
-						var ip11 = localStorage.getItem('C.1imagepath11');
-						var photo11 = document.getElementById('C.1photo11');
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic11').innerHTML="C.1-11.jpg";
-	                }	
-	                if(localStorage.getItem('C.1imagepath12')!==null){
-						var ip12 = localStorage.getItem('C.1imagepath12');
-						var photo12 = document.getElementById('C.1photo12');
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById('C.1pic12').innerHTML="C.1-12.jpg";
-	                }		
+					for(var i=1;i<=12;i++){
+			            if(localStorage.getItem(inspection+'C.1imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'C.1imagepath'+i);
+			              var photo = document.getElementById("C.1photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("C.1pic"+i).innerHTML="C.1-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="C_2"){
-					if(localStorage.getItem('C.2imagepath1')!==null){
-						var ip1 = localStorage.getItem('C.2imagepath1');
-						var photo1 = document.getElementById('C.2photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic1').innerHTML="C.2-1.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath2')!==null){
-						var ip2 = localStorage.getItem('C.2imagepath2');
-						var photo2 = document.getElementById('C.2photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic2').innerHTML="C.2-2.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath3')!==null){
-						var ip3 = localStorage.getItem('C.2imagepath3');
-						var photo3 = document.getElementById('C.2photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic3').innerHTML="C.2-3.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath4')!==null){
-						var ip4 = localStorage.getItem('C.2imagepath4');
-						var photo4 = document.getElementById('C.2photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic4').innerHTML="C.2-4.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath5')!==null){
-						var ip5 = localStorage.getItem('C.2imagepath5');
-						var photo5 = document.getElementById('C.2photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic5').innerHTML="C.2-5.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath6')!==null){
-						var ip6 = localStorage.getItem('C.2imagepath6');
-						var photo6 = document.getElementById('C.2photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic6').innerHTML="C.2-6.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath7')!==null){
-						var ip7 = localStorage.getItem('C.2imagepath7');
-						var photo7 = document.getElementById('C.2photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic7').innerHTML="C.2-7.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath8')!==null){
-						var ip8 = localStorage.getItem('C.2imagepath8');
-						var photo8 = document.getElementById('C.2photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic8').innerHTML="C.2-8.jpg";
-	                }
-	                if(localStorage.getItem('C.2imagepath9')!==null){
-						var ip9 = localStorage.getItem('C.2imagepath9');
-						var photo9 = document.getElementById('C.2photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('C.2pic9').innerHTML="C.2-9.jpg";
-	                }
+					for(var i=1;i<=9;i++){
+			            if(localStorage.getItem(inspection+'C.2imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'C.2imagepath'+i);
+			              var photo = document.getElementById("C.2photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("C.2pic"+i).innerHTML="C.2-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="D_1"){
-					if(localStorage.getItem('D.1imagepath1')!==null){
-						var ip1 = localStorage.getItem('D.1imagepath1');
-						var photo1 = document.getElementById('D.1photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic1').innerHTML="D.1-1.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath2')!==null){
-						var ip2 = localStorage.getItem('D.1imagepath2');
-						var photo2 = document.getElementById('D.1photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic2').innerHTML="D.1-2.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath3')!==null){
-						var ip3 = localStorage.getItem('D.1imagepath3');
-						var photo3 = document.getElementById('D.1photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic3').innerHTML="D.1-3.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath4')!==null){
-						var ip4 = localStorage.getItem('D.1imagepath4');
-						var photo4 = document.getElementById('D.1photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic4').innerHTML="D.1-4.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath5')!==null){
-						var ip5 = localStorage.getItem('D.1imagepath5');
-						var photo5 = document.getElementById('D.1photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic5').innerHTML="D.1-5.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath6')!==null){
-						var ip6 = localStorage.getItem('D.1imagepath6');
-						var photo6 = document.getElementById('D.1photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic6').innerHTML="D.1-6.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath7')!==null){
-						var ip7 = localStorage.getItem('D.1imagepath7');
-						var photo7 = document.getElementById('D.1photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic7').innerHTML="D.1-7.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath8')!==null){
-						var ip8 = localStorage.getItem('D.1imagepath8');
-						var photo8 = document.getElementById('D.1photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic8').innerHTML="D.1-8.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath9')!==null){
-						var ip9 = localStorage.getItem('D.1imagepath9');
-						var photo9 = document.getElementById('D.1photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic9').innerHTML="D.1-9.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath10')!==null){
-						var ip10 = localStorage.getItem('D.1imagepath10');
-						var photo10 = document.getElementById('D.1photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic10').innerHTML="D.1-10.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath11')!==null){
-						var ip11 = localStorage.getItem('D.1imagepath11');
-						var photo11 = document.getElementById('D.1photo11');
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic11').innerHTML="D.1-11.jpg";
-	                }	
-	                if(localStorage.getItem('D.1imagepath12')!==null){
-						var ip12 = localStorage.getItem('D.1imagepath12');
-						var photo12 = document.getElementById('D.1photo12');
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic12').innerHTML="D.1-12.jpg";
-	                }
-	                if(localStorage.getItem('D.1imagepath13')!==null){
-						var ip13 = localStorage.getItem('D.1imagepath13');
-						var photo13 = document.getElementById('D.1photo13');
-	                  	photo13.src = ip13; 
-	                  	photo13.style.display = 'inline-block';
-	                  	document.getElementById('D.1pic13').innerHTML="D.1-13.jpg";
-	                }		
+					for(var i=1;i<=13;i++){
+			            if(localStorage.getItem(inspection+'D.1imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'D.1imagepath'+i);
+			              var photo = document.getElementById("D.1photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("D.1pic"+i).innerHTML="D.1-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="D_2"){
-					if(localStorage.getItem('D.2imagepath1')!==null){
-						var ip1 = localStorage.getItem('D.2imagepath1');
-						var photo1 = document.getElementById('D.2photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic1').innerHTML="D.2-1.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath2')!==null){
-						var ip2 = localStorage.getItem('D.2imagepath2');
-						var photo2 = document.getElementById('D.2photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic2').innerHTML="D.2-2.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath3')!==null){
-						var ip3 = localStorage.getItem('D.2imagepath3');
-						var photo3 = document.getElementById('D.2photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic3').innerHTML="D.2-3.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath4')!==null){
-						var ip4 = localStorage.getItem('D.2imagepath4');
-						var photo4 = document.getElementById('D.2photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic4').innerHTML="D.2-4.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath5')!==null){
-						var ip5 = localStorage.getItem('D.2imagepath5');
-						var photo5 = document.getElementById('D.2photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic5').innerHTML="D.2-5.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath6')!==null){
-						var ip6 = localStorage.getItem('D.2imagepath6');
-						var photo6 = document.getElementById('D.2photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic6').innerHTML="D.2-6.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath7')!==null){
-						var ip7 = localStorage.getItem('D.2imagepath7');
-						var photo7 = document.getElementById('D.2photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic7').innerHTML="D.2-7.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath8')!==null){
-						var ip8 = localStorage.getItem('D.2imagepath8');
-						var photo8 = document.getElementById('D.2photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic8').innerHTML="D.2-8.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath9')!==null){
-						var ip9 = localStorage.getItem('D.2imagepath9');
-						var photo9 = document.getElementById('D.2photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic9').innerHTML="D.2-9.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath10')!==null){
-						var ip10 = localStorage.getItem('D.2imagepath10');
-						var photo10 = document.getElementById('D.2photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic10').innerHTML="D.2-10.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath11')!==null){
-						var ip11 = localStorage.getItem('D.2imagepath11');
-						var photo11 = document.getElementById('D.2photo11');
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic11').innerHTML="D.2-11.jpg";
-	                }	
-	                if(localStorage.getItem('D.2imagepath12')!==null){
-						var ip12 = localStorage.getItem('D.2imagepath12');
-						var photo12 = document.getElementById('D.2photo12');
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic12').innerHTML="D.2-12.jpg";
-	                }
-	                if(localStorage.getItem('D.2imagepath13')!==null){
-						var ip13 = localStorage.getItem('D.2imagepath13');
-						var photo13 = document.getElementById('D.2photo13');
-	                  	photo13.src = ip13; 
-	                  	photo13.style.display = 'inline-block';
-	                  	document.getElementById('D.2pic13').innerHTML="D.2-13.jpg";
-	                }	
+					for(var i=1;i<=13;i++){
+			            if(localStorage.getItem(inspection+'D.2imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'D.2imagepath'+i);
+			              var photo = document.getElementById("D.2photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("D.2pic"+i).innerHTML="D.2-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="D_3"){
-					if(localStorage.getItem('D.3imagepath1')!==null){
-						var ip1 = localStorage.getItem('D.3imagepath1');
-						var photo1 = document.getElementById('D.3photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic1').innerHTML="D.3-1.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath2')!==null){
-						var ip2 = localStorage.getItem('D.3imagepath2');
-						var photo2 = document.getElementById('D.3photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic2').innerHTML="D.3-2.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath3')!==null){
-						var ip3 = localStorage.getItem('D.3imagepath3');
-						var photo3 = document.getElementById('D.3photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic3').innerHTML="D.3-3.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath4')!==null){
-						var ip4 = localStorage.getItem('D.3imagepath4');
-						var photo4 = document.getElementById('D.3photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic4').innerHTML="D.3-4.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath5')!==null){
-						var ip5 = localStorage.getItem('D.3imagepath5');
-						var photo5 = document.getElementById('D.3photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic5').innerHTML="D.3-5.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath6')!==null){
-						var ip6 = localStorage.getItem('D.3imagepath6');
-						var photo6 = document.getElementById('D.3photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic6').innerHTML="D.3-6.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath7')!==null){
-						var ip7 = localStorage.getItem('D.3imagepath7');
-						var photo7 = document.getElementById('D.3photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic7').innerHTML="D.3-7.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath8')!==null){
-						var ip8 = localStorage.getItem('D.3imagepath8');
-						var photo8 = document.getElementById('D.3photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic8').innerHTML="D.3-8.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath9')!==null){
-						var ip9 = localStorage.getItem('D.3imagepath9');
-						var photo9 = document.getElementById('D.3photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic9').innerHTML="D.3-9.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath10')!==null){
-						var ip10 = localStorage.getItem('D.3imagepath10');
-						var photo10 = document.getElementById('D.3photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic10').innerHTML="D.3-10.jpg";
-	                }
-	                if(localStorage.getItem('D.3imagepath11')!==null){
-						var ip11 = localStorage.getItem('D.3imagepath11');
-						var photo11 = document.getElementById('D.3photo11');
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic11').innerHTML="D.3-11.jpg";
-	                }	
-	                if(localStorage.getItem('D.3imagepath12')!==null){
-						var ip12 = localStorage.getItem('D.3imagepath12');
-						var photo12 = document.getElementById('D.3photo12');
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById('D.3pic12').innerHTML="D.3-12.jpg";
-	                }
+					for(var i=1;i<=12;i++){
+			            if(localStorage.getItem(inspection+'D.3imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'D.3imagepath'+i);
+			              var photo = document.getElementById("D.3photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("D.3pic"+i).innerHTML="D.3-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="D_4"){
-					if(localStorage.getItem('D.4imagepath1')!==null){
-						var ip1 = localStorage.getItem('D.4imagepath1');
-						var photo1 = document.getElementById('D.4photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic1').innerHTML="D.4-1.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath2')!==null){
-						var ip2 = localStorage.getItem('D.4imagepath2');
-						var photo2 = document.getElementById('D.4photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic2').innerHTML="D.4-2.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath3')!==null){
-						var ip3 = localStorage.getItem('D.4imagepath3');
-						var photo3 = document.getElementById('D.4photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic3').innerHTML="D.4-3.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath4')!==null){
-						var ip4 = localStorage.getItem('D.4imagepath4');
-						var photo4 = document.getElementById('D.4photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic4').innerHTML="D.4-4.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath5')!==null){
-						var ip5 = localStorage.getItem('D.4imagepath5');
-						var photo5 = document.getElementById('D.4photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic5').innerHTML="D.4-5.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath6')!==null){
-						var ip6 = localStorage.getItem('D.4imagepath6');
-						var photo6 = document.getElementById('D.4photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic6').innerHTML="D.4-6.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath7')!==null){
-						var ip7 = localStorage.getItem('D.4imagepath7');
-						var photo7 = document.getElementById('D.4photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic7').innerHTML="D.4-7.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath8')!==null){
-						var ip8 = localStorage.getItem('D.4imagepath8');
-						var photo8 = document.getElementById('D.4photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic8').innerHTML="D.4-8.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath9')!==null){
-						var ip9 = localStorage.getItem('D.4imagepath9');
-						var photo9 = document.getElementById('D.4photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic9').innerHTML="D.4-9.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath10')!==null){
-						var ip10 = localStorage.getItem('D.4imagepath10');
-						var photo10 = document.getElementById('D.4photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic10').innerHTML="D.4-10.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath11')!==null){
-						var ip11 = localStorage.getItem('D.4imagepath11');
-						var photo11 = document.getElementById('D.4photo11');
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic11').innerHTML="D.4-11.jpg";
-	                }	
-	                if(localStorage.getItem('D.4imagepath12')!==null){
-						var ip12 = localStorage.getItem('D.4imagepath12');
-						var photo12 = document.getElementById('D.4photo12');
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic12').innerHTML="D.4-12.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath13')!==null){
-						var ip13 = localStorage.getItem('D.4imagepath13');
-						var photo13 = document.getElementById('D.4photo13');
-	                  	photo13.src = ip13; 
-	                  	photo13.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic13').innerHTML="D.4-13.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath14')!==null){
-						var ip14 = localStorage.getItem('D.4imagepath14');
-						var photo14 = document.getElementById('D.4photo14');
-	                  	photo14.src = ip14; 
-	                  	photo14.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic14').innerHTML="D.4-14.jpg";
-	                }
-	                if(localStorage.getItem('D.4imagepath15')!==null){
-						var ip15 = localStorage.getItem('D.4imagepath15');
-						var photo15 = document.getElementById('D.4photo15');
-	                  	photo15.src = ip15; 
-	                  	photo15.style.display = 'inline-block';
-	                  	document.getElementById('D.4pic15').innerHTML="D.4-15.jpg";
-	                }
+					for(var i=1;i<=15;i++){
+			            if(localStorage.getItem(inspection+'D.4imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'D.4imagepath'+i);
+			              var photo = document.getElementById("D.4photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("D.4pic"+i).innerHTML="D.4-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="E_1"){
-					if(localStorage.getItem('E.1imagepath1')!==null){
-						var ip1 = localStorage.getItem('E.1imagepath1');
-						var photo1 = document.getElementById('E.1photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic1').innerHTML="E.1-1.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath2')!==null){
-						var ip2 = localStorage.getItem('E.1imagepath2');
-						var photo2 = document.getElementById('E.1photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic2').innerHTML="E.1-2.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath3')!==null){
-						var ip3 = localStorage.getItem('E.1imagepath3');
-						var photo3 = document.getElementById('E.1photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic3').innerHTML="E.1-3.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath4')!==null){
-						var ip4 = localStorage.getItem('E.1imagepath4');
-						var photo4 = document.getElementById('E.1photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic4').innerHTML="E.1-4.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath5')!==null){
-						var ip5 = localStorage.getItem('E.1imagepath5');
-						var photo5 = document.getElementById('E.1photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic5').innerHTML="E.1-5.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath6')!==null){
-						var ip6 = localStorage.getItem('E.1imagepath6');
-						var photo6 = document.getElementById('E.1photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic6').innerHTML="E.1-6.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath7')!==null){
-						var ip7 = localStorage.getItem('E.1imagepath7');
-						var photo7 = document.getElementById('E.1photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic7').innerHTML="E.1-7.jpg";
-	                }
-	                if(localStorage.getItem('E.1imagepath8')!==null){
-						var ip8 = localStorage.getItem('E.1imagepath8');
-						var photo8 = document.getElementById('E.1photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('E.1pic8').innerHTML="E.1-8.jpg";
-	                }
+					for(var i=1;i<=8;i++){
+			            if(localStorage.getItem(inspection+'E.1imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'E.1imagepath'+i);
+			              var photo = document.getElementById("E.1photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("E.1pic"+i).innerHTML="E.1-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="E_2"){
-					if(localStorage.getItem('E.2imagepath1')!==null){
-						var ip1 = localStorage.getItem('E.2imagepath1');
-						var photo1 = document.getElementById('E.2photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic1').innerHTML="E.2-1.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath2')!==null){
-						var ip2 = localStorage.getItem('E.2imagepath2');
-						var photo2 = document.getElementById('E.2photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic2').innerHTML="E.2-2.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath3')!==null){
-						var ip3 = localStorage.getItem('E.2imagepath3');
-						var photo3 = document.getElementById('E.2photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic3').innerHTML="E.2-3.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath4')!==null){
-						var ip4 = localStorage.getItem('E.2imagepath4');
-						var photo4 = document.getElementById('E.2photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic4').innerHTML="E.2-4.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath5')!==null){
-						var ip5 = localStorage.getItem('E.2imagepath5');
-						var photo5 = document.getElementById('E.2photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic5').innerHTML="E.2-5.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath6')!==null){
-						var ip6 = localStorage.getItem('E.2imagepath6');
-						var photo6 = document.getElementById('E.2photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic6').innerHTML="E.2-6.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath7')!==null){
-						var ip7 = localStorage.getItem('E.2imagepath7');
-						var photo7 = document.getElementById('E.2photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic7').innerHTML="E.2-7.jpg";
-	                }
-	                if(localStorage.getItem('E.2imagepath8')!==null){
-						var ip8 = localStorage.getItem('E.2imagepath8');
-						var photo8 = document.getElementById('E.2photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('E.2pic8').innerHTML="E.2-8.jpg";
-	                }
+					for(var i=1;i<=8;i++){
+			            if(localStorage.getItem(inspection+'E.2imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'E.2imagepath'+i);
+			              var photo = document.getElementById("E.2photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("E.2pic"+i).innerHTML="E.2-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="E_3"){
-					if(localStorage.getItem('E.3imagepath1')!==null){
-						var ip1 = localStorage.getItem('E.3imagepath1');
-						var photo1 = document.getElementById('E.3photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic1').innerHTML="E.3-1.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath2')!==null){
-						var ip2 = localStorage.getItem('E.3imagepath2');
-						var photo2 = document.getElementById('E.3photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic2').innerHTML="E.3-2.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath3')!==null){
-						var ip3 = localStorage.getItem('E.3imagepath3');
-						var photo3 = document.getElementById('E.3photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic3').innerHTML="E.3-3.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath4')!==null){
-						var ip4 = localStorage.getItem('E.3imagepath4');
-						var photo4 = document.getElementById('E.3photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic4').innerHTML="E.3-4.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath5')!==null){
-						var ip5 = localStorage.getItem('E.3imagepath5');
-						var photo5 = document.getElementById('E.3photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic5').innerHTML="E.3-5.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath6')!==null){
-						var ip6 = localStorage.getItem('E.3imagepath6');
-						var photo6 = document.getElementById('E.3photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic6').innerHTML="E.3-6.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath7')!==null){
-						var ip7 = localStorage.getItem('E.3imagepath7');
-						var photo7 = document.getElementById('E.3photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic7').innerHTML="E.3-7.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath8')!==null){
-						var ip8 = localStorage.getItem('E.3imagepath8');
-						var photo8 = document.getElementById('E.3photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic8').innerHTML="E.3-8.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath9')!==null){
-						var ip9 = localStorage.getItem('E.3imagepath9');
-						var photo9 = document.getElementById('E.3photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic9').innerHTML="E.3-9.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath10')!==null){
-						var ip10 = localStorage.getItem('E.3imagepath10');
-						var photo10 = document.getElementById('E.3photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic10').innerHTML="E.3-10.jpg";
-	                }
-	                if(localStorage.getItem('E.3imagepath11')!==null){
-						var ip11 = localStorage.getItem('E.3imagepath11');
-						var photo11 = document.getElementById('E.3photo11');
-	                  	photo11.src = ip11; 
-	                  	photo11.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic11').innerHTML="E.3-11.jpg";
-	                }	
-	                if(localStorage.getItem('E.3imagepath12')!==null){
-						var ip12 = localStorage.getItem('E.3imagepath12');
-						var photo12 = document.getElementById('E.3photo12');
-	                  	photo12.src = ip12; 
-	                  	photo12.style.display = 'inline-block';
-	                  	document.getElementById('E.3pic12').innerHTML="E.3-12.jpg";
-	                }
+					for(var i=1;i<=12;i++){
+			            if(localStorage.getItem(inspection+'E.3imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'E.3imagepath'+i);
+			              var photo = document.getElementById("E.3photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("E.3pic"+i).innerHTML="E.3-"+i+".jpg";
+	                    }
+			         }
 				}
 				else if(page=="E_4"){
-					if(localStorage.getItem('E.4imagepath1')!==null){
-						var ip1 = localStorage.getItem('E.4imagepath1');
-						var photo1 = document.getElementById('E.4photo1');
-	                  	photo1.src = ip1; 
-	                  	photo1.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic1').innerHTML="E.4-1.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath2')!==null){
-						var ip2 = localStorage.getItem('E.4imagepath2');
-						var photo2 = document.getElementById('E.4photo2');
-	                  	photo2.src = ip2; 
-	                  	photo2.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic2').innerHTML="E.4-2.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath3')!==null){
-						var ip3 = localStorage.getItem('E.4imagepath3');
-						var photo3 = document.getElementById('E.4photo3');
-	                  	photo3.src = ip3; 
-	                  	photo3.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic3').innerHTML="E.4-3.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath4')!==null){
-						var ip4 = localStorage.getItem('E.4imagepath4');
-						var photo4 = document.getElementById('E.4photo4');
-	                  	photo4.src = ip4; 
-	                  	photo4.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic4').innerHTML="E.4-4.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath5')!==null){
-						var ip5 = localStorage.getItem('E.4imagepath5');
-						var photo5 = document.getElementById('E.4photo5');
-	                  	photo5.src = ip5; 
-	                  	photo5.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic5').innerHTML="E.4-5.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath6')!==null){
-						var ip6 = localStorage.getItem('E.4imagepath6');
-						var photo6 = document.getElementById('E.4photo6');
-	                  	photo6.src = ip6; 
-	                  	photo6.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic6').innerHTML="E.4-6.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath7')!==null){
-						var ip7 = localStorage.getItem('E.4imagepath7');
-						var photo7 = document.getElementById('E.4photo7');
-	                  	photo7.src = ip7; 
-	                  	photo7.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic7').innerHTML="E.4-7.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath8')!==null){
-						var ip8 = localStorage.getItem('E.4imagepath8');
-						var photo8 = document.getElementById('E.4photo8');
-	                  	photo8.src = ip8; 
-	                  	photo8.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic8').innerHTML="E.4-8.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath9')!==null){
-						var ip9 = localStorage.getItem('E.4imagepath9');
-						var photo9 = document.getElementById('E.4photo9');
-	                  	photo9.src = ip9; 
-	                  	photo9.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic9').innerHTML="E.4-9.jpg";
-	                }
-	                if(localStorage.getItem('E.4imagepath10')!==null){
-						var ip10 = localStorage.getItem('E.4imagepath10');
-						var photo10 = document.getElementById('E.4photo10');
-	                  	photo10.src = ip10; 
-	                  	photo10.style.display = 'inline-block';
-	                  	document.getElementById('E.4pic10').innerHTML="E.4-10.jpg";
-	                }
+					for(var i=1;i<=10;i++){
+			            if(localStorage.getItem(inspection+'E.4imagepath'+i)!==null){
+			              var ip = localStorage.getItem(inspection+'E.4imagepath'+i);
+			              var photo = document.getElementById("E.4photo"+i);
+	                      photo.src = ip; 
+	                      photo.style.display = 'inline-block';
+	                      document.getElementById("E.4pic"+i).innerHTML="E.4-"+i+".jpg";
+	                    }
+			         }
 				}
 				else{
 					console.log('..');
@@ -1796,7 +521,7 @@
       	var newFileName = n +"_E.4-" + x + ".jpg";
       }
       var myFolderApp = "MyAppFolder";
-
+      //var myFolderApp = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
       //The folder is created if doesn't exist
       fileSys.root.getDirectory( myFolderApp,
@@ -1811,7 +536,7 @@
 
   //Callback function when the file has been moved successfully - inserting the complete path
   //var entryReader; 
-  function successMove(entry) {
+ function successMove(entry) {
       //Store imagepath in session for future use
       // like to store it in database
       var picCount=localStorage.getItem('pictureCount');
@@ -1819,174 +544,175 @@
       var photoNum;
       var picNum;
       if(picCount<=12){
-	      pathNum = "imagepath" + picCount;
-	      photoNum = "photo" + picCount; 
-	      picNum = "pic" + picCount; 
+        pathNum = "imagepath" + picCount;
+        photoNum = "photo" + picCount; 
+        picNum = "pic" + picCount; 
           document.getElementById(picNum).innerHTML="A.1-"+picCount+".jpg";
-	  }
-	  else if(picCount>12 && picCount <=22){
-	  	  picCount=picCount-12;
-	  	  pathNum = "A.2imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.2photo" + picCount; 
-	      picNum = "A.2pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.2-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>22 && picCount <=32){
-	  	  picCount=picCount-22;
-	  	  pathNum = "A.3imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.3photo" + picCount; 
-	      picNum = "A.3pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.3-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>32 && picCount <=41){
-	  	  picCount=picCount-32;
-	  	  pathNum = "A.4imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.4photo" + picCount; 
-	      picNum = "A.4pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.4-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>41 && picCount <=50){
-	  	  picCount=picCount-41;
-	  	  pathNum = "A.5imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.5photo" + picCount; 
-	      picNum = "A.5pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.5-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>50 && picCount <=56){
-	  	  picCount=picCount-50;
-	  	  pathNum = "A.6imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.6photo" + picCount; 
-	      picNum = "A.6pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.6-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>56 && picCount <=63){
-	  	  picCount=picCount-56;
-	  	  pathNum = "A.7imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.7photo" + picCount; 
-	      picNum = "A.7pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.7-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>63 && picCount <=68){
-	  	  picCount=picCount-63;
-	  	  pathNum = "A.8imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "A.8photo" + picCount; 
-	      picNum = "A.8pic" + picCount;
-          document.getElementById(picNum).innerHTML="A.8-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>68 && picCount <=78){
-	  	  picCount=picCount-68;
-	  	  pathNum = "B.1imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "B.1photo" + picCount; 
-	      picNum = "B.1pic" + picCount;
-          document.getElementById(picNum).innerHTML="B.1-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>78 && picCount <=88){
-	  	  picCount=picCount-78;
-	  	  pathNum = "B.2imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "B.2photo" + picCount; 
-	      picNum = "B.2pic" + picCount;
-          document.getElementById(picNum).innerHTML="B.2-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>88 && picCount <=97){
-	  	  picCount=picCount-88;
-	  	  pathNum = "B.3imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "B.3photo" + picCount; 
-	      picNum = "B.3pic" + picCount;
-          document.getElementById(picNum).innerHTML="B.3-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>97 && picCount <=109){
-	  	  picCount=picCount-97;
-	  	  pathNum = "C.1imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "C.1photo" + picCount; 
-	      picNum = "C.1pic" + picCount;
-          document.getElementById(picNum).innerHTML="C.1-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>109 && picCount <=118){
-	  	  picCount=picCount-109;
-	  	  pathNum = "C.2imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "C.2photo" + picCount; 
-	      picNum = "C.2pic" + picCount;
-          document.getElementById(picNum).innerHTML="C.2-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>118 && picCount <=131){
-	  	  picCount=picCount-118;
-	  	  pathNum = "D.1imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "D.1photo" + picCount; 
-	      picNum = "D.1pic" + picCount;
-          document.getElementById(picNum).innerHTML="D.1-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>131 && picCount <=144){
-	  	  picCount=picCount-131;
-	  	  pathNum = "D.2imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "D.2photo" + picCount; 
-	      picNum = "D.2pic" + picCount;
-          document.getElementById(picNum).innerHTML="D.2-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>144 && picCount <=156){
-	  	  picCount=picCount-144;
-	  	  pathNum = "D.3imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "D.3photo" + picCount; 
-	      picNum = "D.3pic" + picCount;
-          document.getElementById(picNum).innerHTML="D.3-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>156 && picCount <=171){
-	  	  picCount=picCount-156;
-	  	  pathNum = "D.4imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "D.4photo" + picCount; 
-	      picNum = "D.4pic" + picCount;
-          document.getElementById(picNum).innerHTML="D.4-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>171 && picCount <=179){
-	  	  picCount=picCount-171;
-	  	  pathNum = "E.1imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "E.1photo" + picCount; 
-	      picNum = "E.1pic" + picCount;
-          document.getElementById(picNum).innerHTML="E.1-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>179 && picCount <=187){
-	  	  picCount=picCount-179;
-	  	  pathNum = "E.2imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "E.2photo" + picCount; 
-	      picNum = "E.2pic" + picCount;
-          document.getElementById(picNum).innerHTML="E.2-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>187 && picCount <=199){
-	  	  picCount=picCount-187;
-	  	  pathNum = "E.3imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "E.3photo" + picCount; 
-	      picNum = "E.3pic" + picCount;
-          document.getElementById(picNum).innerHTML="E.3-"+picCount+".jpg"; 	
-	  }
-	  else if(picCount>199 && picCount <=209){
-	  	  picCount=picCount-199;
-	  	  pathNum = "E.4imagepath" + picCount; 
-	  	  console.log(pathNum);
-	      photoNum = "E.4photo" + picCount; 
-	      picNum = "E.4pic" + picCount;
-          document.getElementById(picNum).innerHTML="E.4-"+picCount+".jpg"; 	
-	  }
-	  var image = document.getElementById(photoNum);
-      localStorage.setItem(pathNum, entry.toURL()); 
-      image.src = localStorage.getItem(pathNum);
+    }
+    else if(picCount>12 && picCount <=22){
+        picCount=picCount-12;
+        pathNum = "A.2imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.2photo" + picCount; 
+        picNum = "A.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.2-"+picCount+".jpg";   
+    }
+    else if(picCount>22 && picCount <=32){
+        picCount=picCount-22;
+        pathNum = "A.3imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.3photo" + picCount; 
+        picNum = "A.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.3-"+picCount+".jpg";   
+    }
+    else if(picCount>32 && picCount <=41){
+        picCount=picCount-32;
+        pathNum = "A.4imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.4photo" + picCount; 
+        picNum = "A.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.4-"+picCount+".jpg";   
+    }
+    else if(picCount>41 && picCount <=50){
+        picCount=picCount-41;
+        pathNum = "A.5imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.5photo" + picCount; 
+        picNum = "A.5pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.5-"+picCount+".jpg";   
+    }
+    else if(picCount>50 && picCount <=56){
+        picCount=picCount-50;
+        pathNum = "A.6imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.6photo" + picCount; 
+        picNum = "A.6pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.6-"+picCount+".jpg";   
+    }
+    else if(picCount>56 && picCount <=63){
+        picCount=picCount-56;
+        pathNum = "A.7imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.7photo" + picCount; 
+        picNum = "A.7pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.7-"+picCount+".jpg";   
+    }
+    else if(picCount>63 && picCount <=68){
+        picCount=picCount-63;
+        pathNum = "A.8imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "A.8photo" + picCount; 
+        picNum = "A.8pic" + picCount;
+          document.getElementById(picNum).innerHTML="A.8-"+picCount+".jpg";   
+    }
+    else if(picCount>68 && picCount <=78){
+        picCount=picCount-68;
+        pathNum = "B.1imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "B.1photo" + picCount; 
+        picNum = "B.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="B.1-"+picCount+".jpg";   
+    }
+    else if(picCount>78 && picCount <=88){
+        picCount=picCount-78;
+        pathNum = "B.2imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "B.2photo" + picCount; 
+        picNum = "B.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="B.2-"+picCount+".jpg";   
+    }
+    else if(picCount>88 && picCount <=97){
+        picCount=picCount-88;
+        pathNum = "B.3imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "B.3photo" + picCount; 
+        picNum = "B.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="B.3-"+picCount+".jpg";   
+    }
+    else if(picCount>97 && picCount <=109){
+        picCount=picCount-97;
+        pathNum = "C.1imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "C.1photo" + picCount; 
+        picNum = "C.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="C.1-"+picCount+".jpg";   
+    }
+    else if(picCount>109 && picCount <=118){
+        picCount=picCount-109;
+        pathNum = "C.2imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "C.2photo" + picCount; 
+        picNum = "C.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="C.2-"+picCount+".jpg";   
+    }
+    else if(picCount>118 && picCount <=131){
+        picCount=picCount-118;
+        pathNum = "D.1imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "D.1photo" + picCount; 
+        picNum = "D.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.1-"+picCount+".jpg";   
+    }
+    else if(picCount>131 && picCount <=144){
+        picCount=picCount-131;
+        pathNum = "D.2imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "D.2photo" + picCount; 
+        picNum = "D.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.2-"+picCount+".jpg";   
+    }
+    else if(picCount>144 && picCount <=156){
+        picCount=picCount-144;
+        pathNum = "D.3imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "D.3photo" + picCount; 
+        picNum = "D.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.3-"+picCount+".jpg";   
+    }
+    else if(picCount>156 && picCount <=171){
+        picCount=picCount-156;
+        pathNum = "D.4imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "D.4photo" + picCount; 
+        picNum = "D.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="D.4-"+picCount+".jpg";   
+    }
+    else if(picCount>171 && picCount <=179){
+        picCount=picCount-171;
+        pathNum = "E.1imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "E.1photo" + picCount; 
+        picNum = "E.1pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.1-"+picCount+".jpg";   
+    }
+    else if(picCount>179 && picCount <=187){
+        picCount=picCount-179;
+        pathNum = "E.2imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "E.2photo" + picCount; 
+        picNum = "E.2pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.2-"+picCount+".jpg";   
+    }
+    else if(picCount>187 && picCount <=199){
+        picCount=picCount-187;
+        pathNum = "E.3imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "E.3photo" + picCount; 
+        picNum = "E.3pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.3-"+picCount+".jpg";   
+    }
+    else if(picCount>199 && picCount <=209){
+        picCount=picCount-199;
+        pathNum = "E.4imagepath" + picCount; 
+        console.log(pathNum);
+        photoNum = "E.4photo" + picCount; 
+        picNum = "E.4pic" + picCount;
+          document.getElementById(picNum).innerHTML="E.4-"+picCount+".jpg";   
+    }
+    var image = document.getElementById(photoNum);
+    var inspection = localStorage.getItem('HBRA_InspectionId');
+      localStorage.setItem((inspection+pathNum), entry.toURL()); 
+      image.src = localStorage.getItem(inspection+pathNum);
   }
   // Get a directory reader
   //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
@@ -1997,8 +723,10 @@
           alert("FILE SYSTEM FAILURE" + evt.target.error.code);
       }
       function onFileSystemSuccess(fileSystem) {
+      	//var picFolder = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
+        var picFolder ="MyAppFolder"; 
           fileSystem.root.getDirectory(
-               "MyAppFolder",
+               picFolder,
               {create : true, exclusive : false},
               function(entry) {
               entry.removeRecursively(function() {

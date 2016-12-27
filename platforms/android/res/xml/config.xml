@@ -57,7 +57,6 @@
     <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
     <preference name="permissions" value="none" />
     <preference name="target-device" value="universal" />

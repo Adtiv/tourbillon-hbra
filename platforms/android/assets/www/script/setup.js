@@ -48,6 +48,9 @@ function setupRefresh2(){
     } else {
       //window.alert("No Inspections left")
       document.getElementById('inspectNumber_P1').innerHTML='<font color=green>***Add Inspection***</font>';
+      var option = document.createElement("option");
+      option.text = 'First Set Defaults';
+      selectBox.appendChild(option);
       setupRefreshClear();
     }
    } catch (e) {
@@ -166,7 +169,7 @@ function chooseAddInspection(){
   window.localStorage.setItem('HBRA_jobnext',jstr);
   defmsg = 'Inspection defaults must first be set. First enter them into the form, and then click the "Set These as Defaults" button at the bottom.';
   if (window.localStorage.getItem('default_company') !== null) {
-    navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Cancel'],jstr); 
+    navigator.notification.prompt("Enter new Job Name/Inspection ID", confirmAddCallback, "Add Inspection", ['OK','Skip'],jstr); 
       } else {
         navigator.notification.alert(
           defmsg,
@@ -313,14 +316,14 @@ function storeLocalContent(next){
 		}
     //window.alert("storeLocalContent Step 9");
 		window.location.href = "pageTwo.html";
-	} else {  // this is for next value = "save"
+  } else if (next=="save") {  // this is for next value = "save"
           navigator.notification.alert(
           'Press OK',  // message
           function () {setTimeout(function(){ window.location.href="pageOne.html" }, 100);}, 
             'Saved',  // title
             'OK'      // buttonName
           );
-        }
+  } 
   } catch (e) {window.alert("Setup.js storeLocalContent error: " + e.message);}
 }
 //*******************************************************************************
@@ -412,7 +415,7 @@ function SetDefaults() {
   window.localStorage.setItem('default_company', comp);
   window.localStorage.setItem('default_trade', tradeType);
   window.localStorage.setItem('default_jobName', nameJob);
-  window.localStorage.setItem('jdefault_obNum', numJob);
+  window.localStorage.setItem('default_jobNum', numJob);
   window.localStorage.setItem('default_inspBy', byInsp);
   window.localStorage.setItem('default_email', emailAddress);
   window.localStorage.setItem('default_title', jobTitle);
@@ -424,10 +427,11 @@ function SetDefaults() {
   window.localStorage.setItem('default_weatherCom', comWeather);
   navigator.notification.alert(
             'Press OK',  // message
-            null,   // no callback  
+              chooseAddInspection,   // callback  
               'Defaults Set',  // title
               'OK'    // buttonName  
           );
+
     }
 
 //************************************************************************

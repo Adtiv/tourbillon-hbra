@@ -214,59 +214,65 @@ function fillInE4Headers() {
         }
       }
 
-//Email plugin functions:
 function email(){
-	//window.alert("htmlToPDF - Entered Email");
-	console.log("updateAttachments");
-	var attachmentsArray = new Array();
-	if(localStorage.getItem('imagepath1')!=null){
-   		var picAttach = localStorage.getItem('imagepath1');
-   		attachmentsArray.push(picAttach);
+  //window.alert("htmlToPDF - Entered Email");
+  console.log("updateAttachments");
+  var attachmentsArray = new Array();
+  for(var i=1;i<=12;i++){
+    if(localStorage.getItem(inspection+'imagepath'+i)!==null){
+      var picAttach = localStorage.getItem(inspection+'imagepath12'+i);
+      attachmentsArray.push(picAttach);
+  }
+  /*
+  if(localStorage.getItem('imagepath1')!=null){
+      var picAttach = localStorage.getItem('imagepath1');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath2')!=null){
-   		var picAttach = localStorage.getItem('imagepath2');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath2');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath3')!=null){
-   		var picAttach = localStorage.getItem('imagepath3');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath3');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath4')!=null){
-   		var picAttach = localStorage.getItem('imagepath4');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath4');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath5')!=null){
-   		var picAttach = localStorage.getItem('imagepath5');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath5');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath6')!=null){
-   		var picAttach = localStorage.getItem('imagepath6');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath6');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath7')!=null){
-   		var picAttach = localStorage.getItem('imagepath7');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath7');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath8')!=null){
-   		var picAttach = localStorage.getItem('imagepath8');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath8');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath9')!=null){
-   		var picAttach = localStorage.getItem('imagepath9');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath9');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath10')!=null){
-   		var picAttach = localStorage.getItem('imagepath10');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath10');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath11')!=null){
-   		var picAttach = localStorage.getItem('imagepath11');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath11');
+      attachmentsArray.push(picAttach);
     }
     if(localStorage.getItem('imagepath12')!=null){
-   		var picAttach = localStorage.getItem('imagepath12');
-   		attachmentsArray.push(picAttach);
+      var picAttach = localStorage.getItem('imagepath12');
+      attachmentsArray.push(picAttach);
     }
+    */
     if(localStorage.getItem('A.2imagepath1')!=null){
    		var picAttach = localStorage.getItem('A.2imagepath1');
    		attachmentsArray.push(picAttach);
@@ -1055,25 +1061,25 @@ function email(){
    		var picAttach = localStorage.getItem('E.4imagepath10');
    		attachmentsArray.push(picAttach);
     }
-   	console.log(attachmentsArray);
-   	var pdfAttach = localStorage.getItem("HbraPDF");
-   	//window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
-   	var n = pdfAttach.indexOf(",");
-   	var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
-   	//window.alert("Complete PDF attachment Data64: " + pdfAttach64);
-   	var callback = function(result) { window.alert('Service available setting is: ' + result); };
-   	//window.alert("Just before email available check");
-   	attachmentsArray.push(pdfAttach64);
+    console.log(attachmentsArray);
+    var pdfAttach = localStorage.getItem("HbraPDF");
+    //window.alert("Complete PDF attachment data from localstorage: " + pdfAttach);
+    var n = pdfAttach.indexOf(",");
+    var pdfAttach64 = "base64:Hbra.pdf//" + pdfAttach.substring(n+1);
+    //window.alert("Complete PDF attachment Data64: " + pdfAttach64);
+    var callback = function(result) { window.alert('Service available setting is: ' + result); };
+    //window.alert("Just before email available check");
+    attachmentsArray.push(pdfAttach64);
   var subject = 'Site Safety Evaluation Form - ' + window.localStorage.getItem('HBRA_InspectionId'); 
   //window.alert("Subject: " + subject); 
-	cordova.plugins.email.isAvailable(callback);
-	if(callback){
-		cordova.plugins.email.open({
-		subject: subject,
-   	 	attachments: attachmentsArray
-		});
-	}
-	//window.alert("htmlToPDF - Exiting Email");
+  cordova.plugins.email.isAvailable(callback);
+  if(callback){
+    cordova.plugins.email.open({
+    subject: subject,
+      attachments: attachmentsArray
+    });
+  }
+  //window.alert("htmlToPDF - Exiting Email");
 }
 //Should no longer need this function
 //function createFilePath(){
