@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Local Data Test</title>
+	<link href="style/style.css" rel="stylesheet"/>
+	<script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
+	<link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/>
+    <script type='application/javascript' src='script/fastclick-master/lib/fastclick.js'></script>
+	<script type="text/javascript">
+		function back(){
+			window.history.back();
+		}
+	</script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			font-family: Arial, helvetica, sans-serif;
+			
+		}
+		div{
+			page-break-before: always;
+		}
+		.center{
+			margin:0 auto;
+		}
+	
+		.container{
+			padding-left:5%;
+			padding-right:5%;
+			padding-top:8%;
+			max-width:400px;
+			background:white;
+		}
+		.formText{
+			font-size: 3.5vw;
+		}
+		strong{
+			font-weight: bolder;
+		}
+		#A.1{
+			visibility:hidden;
+			display: none;
+			color: blue;
+		}
+		#statusBar{
+			color:black;
+			float: top;
+			top:0;
+			height:4%;
+			width: 100%;
+			background-color: black;
+			position:fixed;
+			-webkit-transform: translate3d(0, 0, 0);
+		}
+	</style>
+</head>
+<body>
+	<div id="statusBar"></div>
+	<div><img src="images/Previous.png" style="width:5vw;height:5vw;"></div>
+	
+	<div id="pdfComplete" style="font-size:4.5vw; font-weight:bold; text-align:center; visibility:hidden;"><br><div id="sponsorBox"><br><br><p id="sponsor">Please Support our Safety App Sponsors!</p><div id="topAd"><img src="images/NAHB logo.jpg" id="topAdImage"></div><div class="ad" id="bottomAdd"><img src="images/HBRAlogo_01.jpg" class="adImage"></div><div class="ad" id="bottomAd"><img src="images/logo.jpg" class="adImage"></div><br></div><br>Congratulations! Your Site Safety Evaluation Form is Complete.<br> </div>
+	<div id="loading" style="text-align:center;margin-bottom:200%">Loading.....</div>
+	<div id = "testDiv" style="margin-right:3%; margin-left:3%">
+		<header></header>
+		<div id = "testDiv2" class="center pageOne container page"><br>
+				<p id="completeFormTitle" style="font-size:26px; text-align:center;"><strong>Residential Construction-Site Safety Inspection/Evaluation</strong></p><br>
+				<p class="formText"></p>
+					<div>
+					Company Inspected: <span class="formText input" id="company" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					Trade: <span class="formText input" id="trade" style="font-weight: bold; text-decoration: underline;"></span>
+					</div>
+					<div>
+					Job Name: <span class="formText input" id="jobName" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					Job # <span class="formText input" id="jobNum" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					</div>
+					<div>
+					Inspection By: <span class="formText input" id="inspBy" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span> Email Address: <span class="formText input" id="email" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span> 
+					</div>
+					<div>
+					Title: <span class="formText input" id="title" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span> Emp. #: <span class="formText input" id="empNum" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					</div>
+					<div>
+					Insp. Date: <span class="formText input" id="inspDate" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span> Time: <span class="formText input" id="beginTime" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					to <span class="formText input" id="endTime" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					</div>
+					<div>
+					On-Site Safety Representative or Competent Person: <span class="formText input" id="repName" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					Emp. #: <span class="formText input" id="employeeNum" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					</div>
+					<div>
+					Weather or Special Conditions: <span class="formText input" id="weatherCom" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>	
+					</div>	
+				<pre>
+				___________________________________________________________________________
+
+
+				</pre>
+				<div>			
+				<p class="formText"> This workplace safety inspection form will measure your level of compliance with OSHA regulations based on your current work business or activities. Note that the checklist may not be all inclusive of all aspects of safety in your particular work environment but designed to assist in improving compliance; identify areas that need correction or improvement; and assist management in identifying employee training needs. Additional inspection items can be added to the checklist for your trade or business specific safety requirements. Inspections should be weekly and timing random to ensure accurate measurement of compliance.</p>
+				<p class="formText"><strong>Instructions:</strong> Evaluate the level of regulatory compliance with OSHA Regulations with a <strong>1, 3 or 5</strong> (<strong>1</strong> = Non-Compliant, <strong>3</strong> = Partially Compliant, <strong>5</strong> = Fully Compliant) Note <q><strong>0</strong></q> if inspection item is not applicable for this inspection. Activities or items rated <strong>1</strong> and <strong>3</strong> note deficiencies and will appear in NON-COMPLIANT/ ABATEMENT section and recommendations for corrective action must be stated to complete the inspection. Record all corrective action and note the date of abatement or compliance.</p><br>
+				</div>
+				<p class="sectionTitle" style="font-size:18px;"><strong>A. General Inspection</strong></p><br>
+				<div id="A.1" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.1 Jobsite (Trailer or Vehicle)</strong></p><br>
+					<p class="formText"> 1. On-Site Safety Representative: <span class="input" id="scoreA.1-1"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Emergency Info Posted - Phone Numbers /Address: <span class="input" id="scoreA.1-2"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. All required Posters in place (OSHA, etc): <span class="input" id="scoreA.1-3"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. First Aid Supplies accessible and adequately stocked Incl. Band Aids, tourniquet, gloves, eye cup / solution, gauze, first aid tape. (exclude any creams or oral meds): <span class="input" id="scoreA.1-4"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Eye Wash Available and Maintained - clean water with solution (if applicable): <span class="input" id="scoreA.1-5"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Blood borne Pathogen Kit: <span class="input" id="scoreA.1-6"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Fire Extinguisher (inspected -date and initial tag): <span class="input" id="scoreA.1-7"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Haz-Com Program &amp; SDS's on-site and up to date: <span class="input" id="scoreA.1-8"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. On-site Copy of Company Safety &amp; Health Program Or GC's is adopted and followed: <span class="input" id="scoreA.1-9"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Access to Employee Training Records including Tool Box Talk Safety Meetings: <span class="input" id="scoreA.1-10"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance10" style= "font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Contractor conducts New Employee Safety Orientation: <span class="input" id="scoreA.1-11"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Contractor has Site Specific Safety Plan (fall protection and other): <span class="input" id="scoreA.1-12"></span></p>
+					<p class="formText nonCompliance" id="A.1compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.1score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.1notes"></span></p><br>
+				</div>
+				<div class="A_2" id="A.2" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.2 Jobsite (Trailer or Vehicle)</strong></p><br>
+					<p class="formText"> 1. Site Perimeter Fence in place /secure: <span class="input" id="scoreA.2-1"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Warning Signs (hard hats, No Trespassing, etc.): <span class="input" id="scoreA.2-2"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Travel/Access ways (unobstructed and maintained): <span class="input" id="scoreA.2-3"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. All holes and openings (floor, roof, window and other) adequately protected by barriers/barricades and MARKED: <span class="input" id="scoreA.2-4"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Public and Worker Accessibility, Detours Adequate, Detours, Canopies, Sidewalks, etc: <span class="input" id="scoreA.2-5"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Traffic Control Plan / Necessary Traffic Details: <span class="input" id="scoreA.2-6"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Adequate Lighting for Site and Public: <span class="input" id="scoreA.2-7"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 8. Emergency Evacuation / Action Plan in Place: <span class="input" id="scoreA.2-8"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Visitor / Public Safety Controls in Place (Signs, Visitor PPE, etc.): <span class="input" id="scoreA.2-9"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Fall Prevention - Guardrails installed where fall exposures are present to the public: <span class="input" id="scoreA.2-10"></span></p>
+					<p class="formText nonCompliance" id="A.2compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.2score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.2notes"></span></p><br>
+				</div>		
+				<div class="A_3" id="A.3" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.3 Personal Protective Equipment (PPE)</strong></p><br>
+					<p class="formText"> 1. Hard Hats (Worn at all Times): <span class="input" id="scoreA.3-1"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Safety Vests (if Required): <span class="input" id="scoreA.3-2"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Hand Protection (As Required for Task): <span class="input" id="scoreA.3-3"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Foot Protection (As Required for Task): <span class="input" id="scoreA.3-4"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Hearing Protection (As Required for Task): <span class="input" id="scoreA.3-5"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Protective Coveralls/Aprons (Chemical or Flame Resistant) (As Required for Task): <span class="input" id="scoreA.3-6"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Traffic Flagger Vests / Traffic Control Paddles: <span class="input" id="scoreA.3-7"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 8. U.S. Coast Guard Approved Life Jackets (Work over Water): <span class="input" id="scoreA.3-8"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Safety Glasses (goggles for liquids): <span class="input" id="scoreA.3-9"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Proper PPE / Respirators Worn (As required for task): <span class="input" id="scoreA.3-10"></span></p>
+					<p class="formText nonCompliance" id="A.3compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.3score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.3notes"></span></p><br>
+				</div>			
+				<div class="A_4" id="A.4" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.4 Housekeeping</strong></p><br>
+					<p class="formText"> 1. Exits / Access ways: Properly Marked, Maintained (Unobstructed 28&#34; Minimum): <span class="input" id="scoreA.4-1"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Trash Receptacles: Adequate Number &amp; Maintained: <span class="input" id="scoreA.4-2"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Materials Storage &#45; Orderly and Secure: <span class="input" id="scoreA.4-3"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Tools Storage &#45; Orderly and Secure: <span class="input" id="scoreA.4-4"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. No Trash Piles or Un-Kept Work Areas: <span class="input" id="scoreA.4-5"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Enclosed Trash Chutes (When in Excess of 20 Feet High: <span class="input" id="scoreA.4-6"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Toilet Facilities (Adequate Number): <span class="input" id="scoreA.4-7"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 8. No Unprotected Rebar or Projecting Nails or Objects: <span class="input" id="scoreA.4-8"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Air Quality Control-Proper Ventilation: <span class="input" id="scoreA.4-9"></span></p>
+					<p class="formText nonCompliance" id="A.4compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.4score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.4notes"></span></p><br>
+				</div>	
+				<div class="A_5" id="A.5" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.5 Fire Protection / Prevention </strong></p><br>
+					<p class="formText"> 1. Site Fire Prevention Plan / Evacuation Plan (Communicated to All on Site): <span class="input" id="scoreA.5-1"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Fire Extinguishers (Adequate Number, Type &amp; Maintained): <span class="input" id="scoreA.5-2"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Gas Cylinders (Storage/ Proper Separation &amp; Use): <span class="input" id="scoreA.5-3"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Hot Work - Adequate Fire Watch (Torches &amp; Welding): <span class="input" id="scoreA.5-4"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Smoking Policies in Place: <span class="input" id="scoreA.5-5"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance5"></p>
+					<p class="formText"> 6. Fire Hydrants / Standpipes (Accessible to Fire Dept): <span class="input" id="scoreA.5-6"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance6"></p>
+					<p class="formText"> 7. Necessary Permits Obtained from Fire Department: <span class="input" id="scoreA.5-7"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance7"></p>
+					<p class="formText"> 8. Flammable Liquids or Substances Properly Stored: <span class="input" id="scoreA.5-8"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Proper PPE Worn: <span class="input" id="scoreA.5-9"></span></p>
+					<p class="formText nonCompliance" id="A.5compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.5score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.5notes"></span></p><br>
+				</div>			
+				<div class="A_6" id="A.6" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.6 Traffic Control </strong></p><br>
+					<p class="formText"> 1. Traffic Control Manager/Competent Person (Certified): <span class="input" id="scoreA.6-1"></span></p>
+					<p class="formText nonCompliance" id="A.6compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. On-Site Traffic Control Plan (Approved by Jurisdiction): <span class="input" id="scoreA.6-2"></span></p>
+					<p class="formText nonCompliance" id="A.6compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Off-Site Traffic Control Plan (Approved by Jurisdiction): <span class="input" id="scoreA.6-3"></span></p>
+					<p class="formText nonCompliance" id="A.6compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Flaggers (Trained, Reflectorized Vests, Traffic Control Paddles, Boots, Hardhat, Communication): <span class="input" id="scoreA.6-4"></span></p>
+					<p class="formText nonCompliance" id="A.6compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Barricades/Delineators/Signage (Installed Per Plan): <span class="input" id="scoreA.6-5"></span></p>
+					<p class="formText nonCompliance" id="A.6compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Proper / Safe public and Private Property Vehicle Parking (Dumpsters, Trailers, Etc.) (Required Permits): <span class="input" id="scoreA.6-6"></span></p>
+					<p class="formText nonCompliance" id="A.6compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.6score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.6notes"></span></p><br>
+				</div>	
+				<div class="A_7" id="A.7" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.7 Hazardous Substances </strong></p><br>
+					<p class="formText"> 1. Employee Training / Certifications (Records on Site): <span class="input" id="scoreA.7-1"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Haz-Com 30 Hour Competent Person on site: <span class="input" id="scoreA.7-2"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Industrial Hygienist/Air Monitoring/Testing: <span class="input" id="scoreA.7-3"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Containment Systems in Place: <span class="input" id="scoreA.7-4"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Abatement Plan in Place (On File at Site): <span class="input" id="scoreA.7-5"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Proper Storage and Disposal Facilities on Site: <span class="input" id="scoreA.7-6"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Proper PPE Worn: <span class="input" id="scoreA.7-7"></span></p>
+					<p class="formText nonCompliance" id="A.7compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.7score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.7notes"></span></p><br>
+				</div>	
+				<div class="A_8" id="A.8" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>A.8 Licensing / Certifications / Reporting </strong></p><br>
+					<p class="formText"> 1. Call Before You Dig in Place / Renewed Every 30 Days: <span class="input" id="scoreA.8-1"></span></p>
+					<p class="formText nonCompliance" id="A.8compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Employee OSHA 10 Hour Certifications Up to Date: <span class="input" id="scoreA.8-2"></span></p>
+					<p class="formText nonCompliance" id="A.8compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Required OSHA Inspection Certifications on Equipment Up to Date: <span class="input" id="scoreA.8-3"></span></p>
+					<p class="formText nonCompliance" id="A.8compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Fork and Scissor Lift Certifications Up to Date: <span class="input" id="scoreA.8-4"></span></p>
+					<p class="formText nonCompliance" id="A.8compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Scaffold Inspections / Certifications Up to Date: <span class="input" id="scoreA.8-5"></span></p>
+					<p class="formText nonCompliance" id="A.8compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="A.8score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="A.8notes"></span></p><br>
+				</div>
+				<p class="sectionTitle" style="font-size:18px;"><strong>B. Fall Prevention</strong></p><br>
+				<div class="B_1" id="B.1" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>B.1 General Fall Protection </strong></p><br>
+					<p class="formText"> 1. Employee Training/Certification: <span class="input" id="scoreB.1-1"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Holes/Openings Covered or Barricaded (capacity 2x Intended load, secure, marked Hole or Cover): <span class="input" id="scoreB.1-2"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Nets in Place &#45; Inspections Up to Date: <span class="input" id="scoreB.1-3"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Positioning Devices: <span class="input" id="scoreB.1-4"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Personal Fall Arrest Systems (Full Body Harness, Shock Absorbing Lanyard, Double Locking Snap Hooks, 5000# Cap. Anchorage Point): <span class="input" id="scoreB.1-5"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Leading Edge (200# Warning Line, Safety Monitor, Employee Training): <span class="input" id="scoreB.1-6"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Residential Roofing (Fall Protection Plan, Training): <span class="input" id="scoreB.1-7"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 8. Falling Object Protection (Hard Hats, Debris Nets, Overhead Protection, Canopies): <span class="input" id="scoreB.1-8"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Guardrails (42" Top/21" Mid/4" toe; 200# capacity; 3"rail deflection): <span class="input" id="scoreB.1-9"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Contractor Fall Protection Plan (on File at Site) 100% Fall Protection Rule: <span class="input" id="scoreB.1-10"></span></p>
+					<p class="formText nonCompliance" id="B.1compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="B.1score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="B.1notes"></span></p><br>
+				</div>
+				<div class="B_2" id="B.2" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>B.2 Scaffolding </strong></p><br>
+					<p class="formText"> 1. Employee Scaffold Training: <span class="input" id="scoreB.2-1"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Overhead Protection (Access Under Deck Barricaded, Extended Toe Boards, Mesh): <span class="input" id="scoreB.2-2"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Proper Access (NO CLIMBING CROSS BRACING): <span class="input" id="scoreB.2-3"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Cross Bracing AND Level / Plumb: <span class="input" id="scoreB.2-4"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Guardrails (Top &amp; Mid Rails, Toe Boards) Independent Lifeline for Suspended Scaffolds: <span class="input" id="scoreB.2-5"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Erection &amp; Dismantling (Fall Protection and Proper Procedures): <span class="input" id="scoreB.2-6"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Competent Person Designated (Erect, Use, Dismantle): <span class="input" id="scoreB.2-7"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 8. All Pins in Place (Coupling Pins): <span class="input" id="scoreB.2-8"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Anchored to Structure: <span class="input" id="scoreB.2-9"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Base Plates &amp; Mud Sills: <span class="input" id="scoreB.2-10"></span></p>
+					<p class="formText nonCompliance" id="B.2compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="B.2score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="B.2notes"></span></p><br>
+				</div>
+				<div class="B_3" id="B.3" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>B.3 Ladders/Stairways</strong></p><br>
+					<p class="formText"> 1. Inspected Daily (Only Heavy Duty Ladders Used): <span class="input" id="scoreB.3-1"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Damaged Ladders Removed From Service Immediately: <span class="input" id="scoreB.3-2"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Anchored / Tied Off and Extend 3 Feet Above Landing: <span class="input" id="scoreB.3-3"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. 1 : 4 Pitch: <span class="input" id="scoreB.3-4"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Training and Insurance of Proper Use: <span class="input" id="scoreB.3-5"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Stair Rails ( 4 or More Risers, Withstand 200 lb Load ): <span class="input" id="scoreB.3-6"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Proper Pitch ( Between 30 &amp; 50 Degrees from Parallel ): <span class="input" id="scoreB.3-7"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 8. Risers - Uniform Height and Width: <span class="input" id="scoreB.3-8"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Landings (Not Less Than 30" in Travel Direction Every 12 Vertical Ft.): <span class="input" id="scoreB.3-9"></span></p>
+					<p class="formText nonCompliance" id="B.3compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="B.3score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="B.3notes"></span></p><br>
+				</div>
+				<p class="sectionTitle" style="font-size:18px;"><strong>C. Power Tools / Electrical </strong></p><br>
+				<div id="C.1" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>C.1 Hand &amp; Power Tools</strong></p><br>
+					<p class="formText"> 1. Power Tools in Good Operating Condition, (Tagged and Removed From Service if Defective): <span class="input" id="scoreC.1-1"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Tools Inspected Frequently (at Least Before Each Use): <span class="input" id="scoreC.1-2"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Tools Effectively Grounded or Double Insulated: <span class="input" id="scoreC.1-3"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Flexible Cords in Good Condition - No Splices or Taps: <span class="input" id="scoreC.1-4"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Temporary Lighting (Adequate Bulb Guards, Suited for Location, No Empty Sockets, Not Used as Power Drop): <span class="input" id="scoreC.1-5"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Tools Used Properly: <span class="input" id="scoreC.1-6"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Damaged Tools Tagged &amp; Removed from Service: <span class="input" id="scoreC.1-7"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Hoses Inspected Frequently for deterioration or Damage; Whip-checks/Safety Pins in Place: <span class="input" id="scoreC.1-8"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Proper PPE Worn: <span class="input" id="scoreC.1-9"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Tools Equipped with Required Guards: <span class="input" id="scoreC.1-10"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Tools Properly Stored: <span class="input" id="scoreC.1-11"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Cutoffs/Kill Switches/Anti-Restart Functioning: <span class="input" id="scoreC.1-12"></span></p>
+					<p class="formText nonCompliance" id="C.1compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="C.1score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="C.1notes"></span></p><br>
+				</div>
+				<div id="C.2" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>C.2 Electrical</strong></p><br>
+					<p class="formText"> 1. Breakers Labeled, High Voltage Signs Posted and Adequate Access - 36&#34; Clear Around Electrical Panel: Left, Right, Top and Bottom Under Panel and in Front of: <span class="input" id="scoreC.2-1"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. All Electrical Receptacles GFCI Protected: <span class="input" id="scoreC.2-2"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Cords &amp; Plugs (3 Prong, Heavy Duty, Not Damaged): <span class="input" id="scoreC.2-3"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Extension Cords have Grounding Conductor: <span class="input" id="scoreC.2-4"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Lockout/Tag-out Program in Place: <span class="input" id="scoreC.2-5"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Installations are Appropriate for Location (Exposure to Weather, Flammable Fumes, Solids, Liquids, etc.): <span class="input" id="scoreC.2-6"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Location of Power Lines Identified Prior to Digging, Drilling, etc: <span class="input" id="scoreC.2-7"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Exposed Live Parts (ex Knockouts) Covered/Closed: <span class="input" id="scoreC.2-8"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Proper PPE Worn: <span class="input" id="scoreC.2-9"></span></p>
+					<p class="formText nonCompliance" id="C.2compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="C.2score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="C.2notes"></span></p><br>
+				</div>
+				<p class="sectionTitle" style="font-size:18px;"><strong>D. Cranes / Hoists / Elevators</strong></p><br>
+				<div id="D.1" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>D.1 Hand &amp; Power Tools</strong></p><br>
+					<p class="formText"> 1. Licensed/Qualified Operators (On File At Site): <span class="input" id="scoreD.1-1"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Signal Person Training (On File At Site): <span class="input" id="scoreD.1-2"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Annual Inspections (Reports on File &amp; Up to Date): <span class="input" id="scoreD.1-3"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Daily Inspections (Reports on File &amp; Up to Date): <span class="input" id="scoreD.1-4"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Load Charts Available on Crane: <span class="input" id="scoreD.1-5"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Outriggers Fully Deployed or Using Rubber Chart: <span class="input" id="scoreD.1-6"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Floats/Tracks on Mats or Pads: <span class="input" id="scoreD.1-7"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Swing Radius Protection: <span class="input" id="scoreD.1-8"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Minimum 10' Clearance from Overhead Power Lines: <span class="input" id="scoreD.1-9"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Hooks/Rigging: <span class="input" id="scoreD.1-10"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Pick Plan Reviewed for Major Lifts: <span class="input" id="scoreD.1-11"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Hoist Certified and Inspected: <span class="input" id="scoreD.1-12"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 13. Hoist Capacity Clearly Posted: <span class="input" id="scoreD.1-13"></span></p>
+					<p class="formText nonCompliance" id="D.1compliance13" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="D.1score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="D.1notes"></span></p><br>
+				</div>
+				<div id="D.2" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>D.2 Heavy Equipment</strong></p><br>
+					<p class="formText"> 1. Licensed/Qualified Operators (On File At Site): <span class="input" id="scoreD.2-1"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Signal Person Qualified and Trained: <span class="input" id="scoreD.2-2"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Inspections/Service Records/Operators Manual (Filed At Site): <span class="input" id="scoreD.2-3"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Seat Belts (Function Properly, Being Worn): <span class="input" id="scoreD.2-4"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Defective Equipment Removed from Service and Corrected: <span class="input" id="scoreD.2-5"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. All Horns/Back Up Alarms: <span class="input" id="scoreD.2-6"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Roll Over Protective Structures (ROPS): <span class="input" id="scoreD.2-7"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Falling Object Protective Structures (FOPS): <span class="input" id="scoreD.2-8"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Prohibition of Unauthorized Riding on Equipments: <span class="input" id="scoreD.2-9"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Fly Wheel, Belts, Gears, Rollers, Other Pinch Points Guarded: <span class="input" id="scoreD.2-10"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Swing Radius Protection: <span class="input" id="scoreD.2-11"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Proper Clearance From Edges of Drop-Offs / Unstable Surfaces: <span class="input" id="scoreD.2-12"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 13. Proper Clearance From Powered Utility Lines (&gt; 10 feet): <span class="input" id="scoreD.2-13"></span></p>
+					<p class="formText nonCompliance" id="D.2compliance13" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="D.2score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="D.2notes"></span></p><br>
+				</div>
+				<div id="D.3" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>D.3 Trenching &amp; Excavation</strong></p><br>
+					<p class="formText"> 1. Call Before You Dig - Utilities Located &amp; Marked: <span class="input" id="scoreD.3-1"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Competent Person (Assigned &amp; Performing Inspections): <span class="input" id="scoreD.3-2"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Material Stored at Least 2&#34; from Edge: <span class="input" id="scoreD.3-3"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Protection from Vehicular Traffic: <span class="input" id="scoreD.3-4"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Ladders/Proper Egress (&gt; 4' deep, every 25&#34; of travel): <span class="input" id="scoreD.3-5"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Barricades and Warnings (Pedestrians, Stop Logs, etc.): <span class="input" id="scoreD.3-6"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Sloping (per OSHA Tables): <span class="input" id="scoreD.3-7"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Trench Boxes or Shields Properly in Place: <span class="input" id="scoreD.3-8"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Trench Boxes Certification &amp; Data on File at Site: <span class="input" id="scoreD.3-9"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Aluminum Hydraulic Shoring (per OSHA Tables): <span class="input" id="scoreD.3-10"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Wood Shoring (per OSHA Tables): <span class="input" id="scoreD.3-11"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Adjacent Structures Stabilized: <span class="input" id="scoreD.3-12"></span></p>
+					<p class="formText nonCompliance" id="D.3compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="D.3score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="D.3notes"></span></p><br>
+				</div>
+				<div id="D.4" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>D.4 Demolition &amp; Blasting</strong></p><br>
+					<p class="formText"> 1. Call Before You Dig - Utilities Located &amp; Marked: <span class="input" id="scoreD.4-1"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Demolition Plan in Place (On File at Site): <span class="input" id="scoreD.4-2"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Utilities Disconnected, Purged, Etc.: <span class="input" id="scoreD.4-3"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Haz Mat Remediation Activities: <span class="input" id="scoreD.4-4"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Access/Egress: <span class="input" id="scoreD.4-5"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Chutes/Holes (Properly Constructed &amp; Barricaded): <span class="input" id="scoreD.4-6"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Blasting Plan in Place (On File at Site): <span class="input" id="scoreD.4-7"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Licensed Blaster Present at All Times: <span class="input" id="scoreD.4-8"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. All State &amp; Local Permits on File: <span class="input" id="scoreD.4-9"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Storage Facilities/Usage Logs: <span class="input" id="scoreD.4-10"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Use, Handling &amp; Disposal of Blasting Materials: <span class="input" id="scoreD.4-11"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Blast Mats: <span class="input" id="scoreD.4-12"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 13. Post Blast Inspection Procedure/Misfires: <span class="input" id="scoreD.4-13"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance13" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 14. Warning System/ Warning Signs: <span class="input" id="scoreD.4-14"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance14" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 15. Hot Work/Fire Protection: <span class="input" id="scoreD.4-15"></span></p>
+					<p class="formText nonCompliance" id="D.4compliance15" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="D.4score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="D.4notes"></span></p><br>
+				</div>
+				<p class="sectionTitle" style="font-size:18px;"><strong>E. Specialty Trades / Operations</strong></p><br>
+				<div id="E.1" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>E.1 Steel Erection</strong></p><br>
+					<p class="formText"> 1. Fall Protection (including 100% above 6 feet): <span class="input" id="scoreE.1-1"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Access/Egress to Work Locations: <span class="input" id="scoreE.1-2"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Bolt-Up Procedures Being Followed: <span class="input" id="scoreE.1-3"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Welding/Hot Work: <span class="input" id="scoreE.1-4"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Connecting From Ladders / Aerial Lifts Use Where Possible: <span class="input" id="scoreE.1-5"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Rigging/Tag Lines: <span class="input" id="scoreE.1-6"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Decking Operations: <span class="input" id="scoreE.1-7"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Overhead Protection: <span class="input" id="scoreE.1-8"></span></p>
+					<p class="formText nonCompliance" id="E.1compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="E.1score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="E.1notes"></span></p><br>
+				</div>	
+				<div id="E.2" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>E.2 Concrete &amp; Masonry</strong></p><br>
+					<p class="formText"> 1. Formwork Shoring and Bracing: <span class="input" id="scoreE.2-1"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Access to Pour Areas and Proper Access Up Shoring: <span class="input" id="scoreE.2-2"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Curing/Form Stripping Procedures (Set &amp; Followed): <span class="input" id="scoreE.2-3"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Rebar Protected/Covered: <span class="input" id="scoreE.2-4"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Tools/Equipment Inspected Before Use (Concrete Bucket/Rigging, Floats, Vibrators, Electric Cords, Whirly Birds, Masonry Saws, Etc.: <span class="input" id="scoreE.2-5"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Proper PPE Used: <span class="input" id="scoreE.2-6"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Scaffolding: <span class="input" id="scoreE.2-7"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Brick/Block Walls Properly Supported (Where Applicable): <span class="input" id="scoreE.2-8"></span></p>
+					<p class="formText nonCompliance" id="E.2compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="E.2score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="E.2notes"></span></p><br>
+				</div>	
+				<div id="E.3" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" style="font-size:14px;"><strong>E.3 Welding, Cutting, Hot Work</strong></p><br>
+					<p class="formText"> 1. Performed by Qualified Workers: <span class="input" id="scoreE.3-1"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 2. Proper Work Area (All Fire Hazards Removed or Properly Protected): <span class="input" id="scoreE.3-2"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 3. Fire Watch Posted: <span class="input" id="scoreE.3-3"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 4. Proper PPE Used: <span class="input" id="scoreE.3-4"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 5. Equipment Inspected Before Use: <span class="input" id="scoreE.3-5"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 6. Hoses &amp; Welding Leads in Good Repair: <span class="input" id="scoreE.3-6"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 7. Torch Regulators &amp; Gauges in Good Repair: <span class="input" id="scoreE.3-7"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText"> 8. Torches with Flash Arrestors or Check Valves: <span class="input" id="scoreE.3-8"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 9. Fuel Gas Shut Off Key/Wrench Available: <span class="input" id="scoreE.3-9"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 10. Cylinders Upright and Secured: <span class="input" id="scoreE.3-10"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 11. Separation of Stored Oxygen &amp; Fuel Gases/Oils by 20' or 1/2 Hr. Fire-Rated Wall: <span class="input" id="scoreE.3-11"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance11" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> 12. Fully Charged Fire Extinguisher Available: <span class="input" id="scoreE.3-12"></span></p>
+					<p class="formText nonCompliance" id="E.3compliance12" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p><br>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="E.3score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="E.3notes"></span></p><br>
+				</div>
+				<div id="E.4" style="visibility:hidden;display:none;">
+					<p class="subCatTitle" id="E.4Header" style="font-size:14px;"><strong>*</strong></p><br>
+					<p class="formText" id="E.4TitleOne"> 1. * <span class="input" id="scoreE.4-1"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleTwo"> 2. * <span class="input" id="scoreE.4-2"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleThree"> 3. * <span class="input" id="scoreE.4-3"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleFour"> 4. * <span class="input" id="scoreE.4-4"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleFive"> 5. * <span class="input" id="scoreE.4-5"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleSix"> 6. * <span class="input" id="scoreE.4-6"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleSeven"> 7. * <span class="input" id="scoreE.4-7"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
+					<p class="formText" id="E.4TitleEight"> 8. * <span class="input" id="scoreE.4-8"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleNine"> 9. * <span class="input" id="scoreE.4-9"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText" id="E.4TitleTen"> 10. * <span class="input" id="scoreE.4-10"></span></p>
+					<p class="formText nonCompliance" id="E.4compliance10" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
+					<p class="formText"> Total Score: <span style="font-weight:bold;" class="input" id="E.4score"></span></p>
+					<p class="formText"> Notes: <span style="font-weight:bold;" class="input" id="E.4notes"></span></p><br>
+				</div>
+				<div>
+					<br><br>
+					<p class="sectionTitle" id="nonComplianceSummary" style="font-size:18px;"><strong>Complete Inspection Summary:</strong></p><br>
+					<p>Questions Non/Partially Compliant: <span id="listOfNonCompliance"></span></p>
+					<p>Total Non-Compliant: <span id="totalNon" style="font-weight:bold;"></span></p>
+					<p>Total Partially-Compliant: <span id="totalPartial"style="font-weight:bold;"></span></p>
+					<p>Total Compliant: <span id="totalCompliant"style="font-weight:bold;"></span></p>
+					<p>Total N/A: <span id="totalNA"style="font-weight:bold;"></span></p>
+					<p>Total Questions: <span id="totalQuestions"style="font-weight:bold;"></span></p>
+				</div>
+		</div>
+			<!--
+			<footer>
+			    <span class="pageCounter"></span>
+			</footer>
+		-->
+	</div>
+		<br><br><br>
+		<!--div style="text-align:center;"-->
+	<div class="finalButtons">
+		<!--
+    	   	<button id="btnVDoc" onclick="viewDocument()">viewPDF</button>
+       		<button id="btnEmail" onclick="email()">EMAIL</button>
+       		<button id="btnBack" onclick="back()">back</button>
+       	-->
+       		<a onclick="viewDocument()"><div class="bottomButtons"><b>View PDF</b></div></a>
+       		<a onclick="email()"><div class="bottomButtons" id="button2"><b>Email</b></div></a>
+			<a onclick="back()"><div class="bottomButtons" id="button3"><b>Back</b></div></a>
+
+   	</div>
+<script src="vendor/jquery.js"></script>
+<script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
+<script src="vendor/dateTimePicker/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="script/jsPDF-1.0.272/dist/jspdf.debug.js"></script>
+<!--<script type="text/javascript" src="script/jsPDF-master/dist/jspdf.debug.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/dist/jspdf.min.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/jspdf.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/from_html.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/split_text_to_size.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/standard_fonts_metrics.js"></script>
+<script type="text/javascript" src="script/jsPDF-master/plugins/addhtml.js"></script>-->
+<script src="script/htmlToPDF.js" type="text/javascript"></script>
+<script>
+	jQuery('#datetimepicker').datetimepicker();
+	jQuery('#datetimepicker2').datetimepicker();
+</script>
+</body>
+</html>

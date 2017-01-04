@@ -139,11 +139,28 @@ function confirmDelCallback(buttonIndex) {
       window.alert("Error in confirmDelCallback: " + e.message);
     }
 }
-
+function ClearInpsectionPictures() {
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+      function fail(evt) {
+          alert("FILE SYSTEM FAILURE" + evt.target.error.code);
+      }
+      function onFileSystemSuccess(fileSystem) {
+        var myFolderApp = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
+          fileSystem.root.getDirectory(
+               myFolderApp,
+              {create : true, exclusive : false},
+              function(entry) {
+              entry.removeRecursively(function() {
+                  console.log("Remove Recursively Succeeded?"+entry.toURL());
+              }, fail);
+          }, fail);
+      }
+  }
 function confirmDelClear(){
   try {
     window.localStorage.removeItem('HBRA_InspectionId');
     setTimeout(setupRefresh);
+    ClearInpsectionPictures();
    } catch (e) {
     window.alert("Error in confirmDelClear: " + e.message);
    }
@@ -199,7 +216,6 @@ function confirmAddCallback(results) {
       window.alert("Error in confirmAddCallback: " + e.message);
     }
 }
-
 //************************************************************************
 //********************** New Processing **********************************
 //************************************************************************

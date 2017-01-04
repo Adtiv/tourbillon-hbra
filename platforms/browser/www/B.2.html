@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Local Data Test</title>
+	<link href="style/style.css" rel="stylesheet"/>
+	<script type='application/javascript' src='script/fastclick-master/lib/fastclick.js'></script>
+
+</head>
+<body>
+	<div class="englishHeader">
+		<div class="statusBarAfter"></div>
+		<btn class="goBackButton" onclick="homeScreen('B_2')">
+			<div class="goBack">
+				<img src="images/home.png" width="100%" height="100%">
+			</div>
+		</btn>
+		<span id="inspectNumber"style="margin-left:-10%"></span>
+	</div>
+		<form>
+			<div data-role="page" class="center container" id="B.2">
+				<br>
+				<p class="formTitle">B.2 Scaffolding</p>
+				<br/><br/>
+				<div class="complianceInputBox">
+					<h3>1. Employee Scaffold Training</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="nonCompliant" id="A79" onclick="openTextArea('A79', 'questionOne', 'B.2firstDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="partiallyCompliant" id="B79" onclick="openTextArea('B79', 'questionOne', 'B.2firstDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="fullyCompliant" id="C79" onclick="openTextArea('C79', 'questionOne', 'B.2firstDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="N/A" id="D79" onclick="openTextArea('D79', 'questionOne', 'B.2firstDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2firstDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance1"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(79); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 79); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(79); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo1" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic1">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>2. Overhead Protection (Access Under Deck Barricaded, Extended Toe Boards, Mesh)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="nonCompliant" id="A80" onclick="openTextArea('A80', 'questionTwo', 'B.2secondDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="partiallyCompliant" id="B80" onclick="openTextArea('B80', 'questionTwo', 'B.2secondDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="fullyCompliant" id="C80" onclick="openTextArea('C80', 'questionTwo', 'B.2secondDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="N/A" id="D80" onclick="openTextArea('D80', 'questionTwo', 'B.2secondDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2secondDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance2"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(80); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 80); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(80); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo2" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic2">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>3. Proper Access (NO CLIMBING CROSS BRACING)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="nonCompliant" id="A81" onclick="openTextArea('A81', 'questionThree', 'B.2thirdDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="partiallyCompliant" id="B81" onclick="openTextArea('B81', 'questionThree', 'B.2thirdDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="fullyCompliant" id="C81" onclick="openTextArea('C81', 'questionThree', 'B.2thirdDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="N/A" id="D81" onclick="openTextArea('D81', 'questionThree', 'B.2thirdDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2thirdDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance3"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(81); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 81); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(81); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo3" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic3">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>4. Cross Bracing And Level / Plumb</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="nonCompliant" id="A82" onclick="openTextArea('A82', 'questionFour', 'B.2fourthDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="partiallyCompliant" id="B82" onclick="openTextArea('B82', 'questionFour', 'B.2fourthDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="fullyCompliant" id="C82" onclick="openTextArea('C82', 'questionFour', 'B.2fourthDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFour" name="box4" value="N/A" id="D82" onclick="openTextArea('D82', 'questionFour', 'B.2fourthDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2fourthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance4"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(82); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 82); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(82); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo4" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic4">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>5. Guardrails (Top & Mid Rails, Toe Boards) Independent Lifeline for Suspended Scaffolds</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="nonCompliant" id="A83" onclick="openTextArea('A83', 'questionFive', 'B.2fifthDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="partiallyCompliant" id="B83" onclick="openTextArea('B83', 'questionFive', 'B.2fifthDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="fullyCompliant" id="C83" onclick="openTextArea('C83', 'questionFive', 'B.2fifthDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="N/A" id="D83" onclick="openTextArea('D83', 'questionFive', 'B.2fifthDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2fifthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance5"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(83); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 83); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(83); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo5" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic5">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>6. Erection & Dismantling (Fall Protection and Proper Procedures)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionSix" name="box6" value="nonCompliant" id="A84" onclick="openTextArea('A84', 'questionSix', 'B.2sixthDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionSix" name="box6" value="partiallyCompliant" id="B84" onclick="openTextArea('B84', 'questionSix', 'B.2sixthDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionSix" name="box6" value="fullyCompliant" id="C84" onclick="openTextArea('C84', 'questionSix', 'B.2sixthDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionSix" name="box6" value="N/A" id="D84" onclick="openTextArea('D84', 'questionSix', 'B.2sixthDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2sixthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance6"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(84); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 84); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(84); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo6" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic6">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>7. Competent Person Designated (Erect, Use, Dismantle)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionSeven" name="box7" value="nonCompliant" id="A85" onclick="openTextArea('A85', 'questionSeven', 'B.2seventhDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionSeven" name="box7" value="partiallyCompliant" id="B85" onclick="openTextArea('B85', 'questionSeven', 'B.2seventhDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionSeven" name="box7" value="fullyCompliant" id="C85" onclick="openTextArea('C85', 'questionSeven', 'B.2seventhDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionSeven" name="box7" value="N/A" id="D85" onclick="openTextArea('D85', 'questionSeven', 'B.2seventhDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2seventhDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance7"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(85); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 85); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(85); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo7" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic7">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>8. All Pins in Place (Coupling Pins)</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionEight" name="box8" value="nonCompliant" id="A86" onclick="openTextArea('A86', 'questionEight', 'B.2eigthDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionEight" name="box8" value="partiallyCompliant" id="B86" onclick="openTextArea('B86', 'questionEight', 'B.2eigthDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionEight" name="box8" value="fullyCompliant" id="C86" onclick="openTextArea('C86', 'questionEight', 'B.2eigthDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionEight" name="box8" value="N/A" id="D86" onclick="openTextArea('D86', 'questionEight', 'B.2eigthDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2eigthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance8"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(86); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 86); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(86); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo8" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic8">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>9. Anchored to Structure</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionNine" name="box9" value="nonCompliant" id="A87" onclick="openTextArea('A87', 'questionNine', 'B.2ninthDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionNine" name="box9" value="partiallyCompliant" id="B87" onclick="openTextArea('B87', 'questionNine', 'B.2ninthDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionNine" name="box9" value="fullyCompliant" id="C87" onclick="openTextArea('C87', 'questionNine', 'B.2ninthDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionNine" name="box9" value="N/A" id="D87" onclick="openTextArea('D87', 'questionNine', 'B.2ninthDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2ninthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance9"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(87); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 87); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(87); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo9" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic9">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<hr class="division"><br>
+				<div class="complianceInputBox">
+					<h3>10. Base Plates & Mud Sills</h3><br/>
+
+	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionTen" name="box10" value="nonCompliant" id="A88" onclick="openTextArea('A88', 'questionTen', 'B.2tenthDiv', 'B.2');"> <div class="complianceTxt">Non Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTen" name="box10" value="partiallyCompliant" id="B88" onclick="openTextArea('B88', 'questionTen', 'B.2tenthDiv', 'B.2');"> <div class="complianceTxt">Partially Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTen" name="box10" value="fullyCompliant" id="C88" onclick="openTextArea('C88', 'questionTen', 'B.2tenthDiv', 'B.2');"> <div class="complianceTxt">Fully Compliant</div></div>
+
+					<div class="compliance-label"><input type="radio" class="complianceCheck questionTen" name="box10" value="N/A" id="D88" onclick="openTextArea('D88', 'questionTen', 'B.2tenthDiv', 'B.2');"> <div class="complianceTxt">N/A</div></div><br>
+					<div class="hiddenUntilNonCompliant" id="B.2tenthDiv">
+						<h3>Why partially / non compliant?</h3><br>
+						<textarea class="complianceTextArea" id="B.2compliance10"></textarea>
+					</div><br>
+				</div>
+				<div class="photoUploadDiv">
+					<h3>Upload any documentation / photos</h3>
+						<a href="#" onclick="capturePhoto(88); return false;">
+							<img class="cameraIcon" src="images/camera.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="getPhoto(pictureSource.PHOTOLIBRARY, 88); return false;">
+							<img class="cameraLibIcon" src="images/2_folder_images.png" width="12%" height="12%">
+						</a>
+						<a href="#" onclick="openImage(88); return false;">
+				        	<img style="width:6%;height:6%;" class"imgIcon" id="B.2photo10" src="" />
+				        </a>
+					<div class="photoUploadText">
+						<p id="B.2pic10">no file selected</p>
+					</div>
+					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
+				</div>
+				<div class="notesDiv">
+					<h3>Notes:</h3>
+					<textarea class="notes" id="B.2notes">
+					</textarea>
+				</div>
+				<div class="scoreDiv">
+					<h3>Total Not Answered:</h3><br><p class="score" id="TotalNA">0</p><br>
+					<h3>Total Not Compliant:</h3><br><p class="score" id="TotalNC">0</p><br>
+					<h3>Total Partially Compliant:</h3><br><p class="score" id="TotalPC">0</p><br>
+					<h3>Total Compliant:</h3><br><p class="score" id="TotalC">0</p><br>
+					<h3>Average of those Answered:</h3><br><p class="score" id="AVERAGE">0</p><br>
+				</div>
+			<div class="after-form">
+	         		<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatFormsSave('save')"/>
+	         		<div class="leftAfter-form">
+						<btn onclick="processFormOrder('B.2', '0', 'btnBack', 'B_2'); return false;"><img class="prev" src="images/go_next_blue.png"></btn>
+					</div>
+					<div class="rightAfter-form">
+						<input type="button" id="btnSubmit" value="Submit Form" onclick="localStorageSubCatFormsSubmit('B_2')"/>
+						<btn onclick="processFormOrder('B.2', '0', 'btnNext', 'B_2'); return false;"><img id="checkNext" class="next" src="images/go_next_blue.png"></btn>
+					</div>
+				</div>
+				<div class="footerStyled">
+					<br><br><br><br>
+				<div>
+			</div>
+		</form>
+		<style>
+			h3{
+				font-size:4.3vw;
+			}
+		</style>
+
+	
+   
+
+    
+  
+
+</body>
+<link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/ >
+<script src="vendor/jquery.js"></script>
+<script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
+<script src="vendor/dateTimePicker/jquery.datetimepicker.js"></script>
+<script src="script/app.js" type="text/javascript"></script>
+<script src="script/subCategoryForm.js" type="text/javascript"></script>
+<script src="script/inspectionDbHandler.js" type="text/javascript"></script>
+<script src="script/processForm.js" type="text/javascript"></script>
+<script src="script/selectCompliance.js" type="text/javascript"></script>
+<script src="script/processNotes.js" type="text/javascript"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script>
+	jQuery('#datetimepicker').datetimepicker();
+	jQuery('#datetimepicker2').datetimepicker();
+</script>
+</html>

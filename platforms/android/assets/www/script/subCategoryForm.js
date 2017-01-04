@@ -520,8 +520,8 @@
       	x=x-199;
       	var newFileName = n +"_E.4-" + x + ".jpg";
       }
-      var myFolderApp = "MyAppFolder";
-      //var myFolderApp = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
+      //var myFolderApp = "MyAppFolder";
+      var myFolderApp = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
       //The folder is created if doesn't exist
       fileSys.root.getDirectory( myFolderApp,
@@ -712,6 +712,7 @@
     var image = document.getElementById(photoNum);
     var inspection = localStorage.getItem('HBRA_InspectionId');
       localStorage.setItem((inspection+pathNum), entry.toURL()); 
+      console.log(entry.toURL());
       image.src = localStorage.getItem(inspection+pathNum);
   }
   // Get a directory reader
