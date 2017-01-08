@@ -219,6 +219,13 @@ function email(){
   //window.alert("htmlToPDF - Entered Email");
   console.log("updateAttachments");
   var attachmentsArray = new Array();
+  var inspection = localStorage.getItem('HBRA_InspectionId');
+  for(var i=1;i<=12;i++){
+    if(localStorage.getItem(inspection+'imagepath'+i)!==null){
+      var picAttach = localStorage.getItem(inspection+'imagepath12'+i);
+      attachmentsArray.push(picAttach);
+  }
+  /*
   if(localStorage.getItem('imagepath1')!=null){
       var picAttach = localStorage.getItem('imagepath1');
       attachmentsArray.push(picAttach);
@@ -267,6 +274,7 @@ function email(){
       var picAttach = localStorage.getItem('imagepath12');
       attachmentsArray.push(picAttach);
     }
+    */
     if(localStorage.getItem('A.2imagepath1')!=null){
       var picAttach = localStorage.getItem('A.2imagepath1');
       attachmentsArray.push(picAttach);
