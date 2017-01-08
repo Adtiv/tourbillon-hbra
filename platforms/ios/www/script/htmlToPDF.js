@@ -220,11 +220,12 @@ function email(){
   console.log("updateAttachments");
   var attachmentsArray = new Array();
   var inspection = localStorage.getItem('HBRA_InspectionId');
-  for(var i=1;i<=12;i++){
-    if(localStorage.getItem(inspection+'imagepath'+i)!==null){
-      var picAttach = localStorage.getItem(inspection+'imagepath'+i);
-      attachmentsArray.push(picAttach);
-  }
+    for(var i=1;i<=12;i++){
+      if(localStorage.getItem(inspection+'imagepath'+i)!==null){
+        var picAttach = localStorage.getItem(inspection+'imagepath'+i);
+        attachmentsArray.push(picAttach);
+      }
+    }
   /*
   if(localStorage.getItem('imagepath1')!=null){
       var picAttach = localStorage.getItem('imagepath1');
