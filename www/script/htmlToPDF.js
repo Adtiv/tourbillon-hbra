@@ -222,7 +222,7 @@ function email(){
   var inspection = localStorage.getItem('HBRA_InspectionId');
   for(var i=1;i<=12;i++){
     if(localStorage.getItem(inspection+'imagepath'+i)!==null){
-      var picAttach = localStorage.getItem(inspection+'imagepath12'+i);
+      var picAttach = localStorage.getItem(inspection+'imagepath'+i);
       attachmentsArray.push(picAttach);
   }
   /*
