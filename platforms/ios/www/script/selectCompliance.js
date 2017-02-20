@@ -36,6 +36,17 @@
         var showDiv = document.getElementById(divNum);
         var questionIndex = setQuestionIndex(questionNumber);  //set question index
         var isChecked = input.checked;
+        var inputParent = input.parentNode;
+        inputParent = inputParent.parentNode;
+        var mandatory = inputParent.getAttribute("mandatory");
+        if ((mandatory=="Yes") && (input.value!="fullyCompliant")) {
+           navigator.notification.alert(
+            'This item MUST be "\Fully Compliant"\ for job to continue',  // message
+            null,     // no callback    
+            'Press OK',  // title
+            'OK'      // buttonName
+            ); 
+        } 
         isChecked = (isChecked)? true : false;
         if(isChecked==true && (input.value=="nonCompliant"|| input.value=="partiallyCompliant")){
     		showDiv.style.visibility="visible";
@@ -59,7 +70,7 @@
 	        }
         COMPLIANCE_RESPONSE_ARRAY[FORMS_INDEX][questionIndex] = score;
         calcScores();
-	    }
+    }
 	    
     function setQuestionIndex(questionNumberText) {
     	var qNumberText = questionNumberText.substring(8);

@@ -11,11 +11,12 @@
 		<div class="statusBarAfter"></div>
 		<btn class="goBackButton" onclick="homeScreen('D_2')">
 			<div class="goBack">
-				<img src="images/home.png" width="100%" height="100%">
+				<img src="images/home.png" width="35px" height="35px">
 			</div>
 		</btn>
-		English
-		<span id="inspectNumber"style="margin-left:-10%"></span>
+		<div class="inspectNum">
+			<span id="inspectNumber"style="margin-left:-10%"></span>
+		</div>
 	</div>
 		<form>
 			<div data-role="page" class="center container" id="D.2">
@@ -469,7 +470,8 @@
 				font-size:4.3vw;
 			}
 		</style>
-
+		<br><br>
+		<div class="bottom-bar"><btn  onclick="processFormOrder('D.2', '0', 'btnBack', 'D_2'); return false;"><img class="prevBottom" src="images/previous.png"></btn><btn onclick="processFormOrder('D.2', '0', 'btnNext', 'D_2'); return false;"><img id="bottomBarNext" class="next" src="images/next.png"></btn><input type="button" id="submitBottomBar" class="submitBottomRight" value="Submit Form" onclick="localStorageSubCatFormsSubmit('D_2')"/></div>	
 	
    
 

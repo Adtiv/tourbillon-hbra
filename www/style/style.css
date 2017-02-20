@@ -742,3 +742,6 @@ a:hover {
 	background-color:lightgreen;
 	/*background: rgba(240,240,240,1);*/
 }
+.inspectNum{
+	margin-top:10px;
+}

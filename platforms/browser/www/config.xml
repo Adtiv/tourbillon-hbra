@@ -37,5 +37,6 @@
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
 </widget>

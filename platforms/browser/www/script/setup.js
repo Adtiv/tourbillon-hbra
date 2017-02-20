@@ -139,28 +139,11 @@ function confirmDelCallback(buttonIndex) {
       window.alert("Error in confirmDelCallback: " + e.message);
     }
 }
-function ClearInpsectionPictures() {
-      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-      function fail(evt) {
-          alert("FILE SYSTEM FAILURE" + evt.target.error.code);
-      }
-      function onFileSystemSuccess(fileSystem) {
-        var myFolderApp = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
-          fileSystem.root.getDirectory(
-               myFolderApp,
-              {create : true, exclusive : false},
-              function(entry) {
-              entry.removeRecursively(function() {
-                  console.log("Remove Recursively Succeeded?"+entry.toURL());
-              }, fail);
-          }, fail);
-      }
-  }
+
 function confirmDelClear(){
   try {
     window.localStorage.removeItem('HBRA_InspectionId');
     setTimeout(setupRefresh);
-    ClearInpsectionPictures();
    } catch (e) {
     window.alert("Error in confirmDelClear: " + e.message);
    }
@@ -216,6 +199,7 @@ function confirmAddCallback(results) {
       window.alert("Error in confirmAddCallback: " + e.message);
     }
 }
+
 //************************************************************************
 //********************** New Processing **********************************
 //************************************************************************
@@ -263,6 +247,13 @@ function setupNewInspection(inspID) {
   if (window.localStorage.getItem('default_weatherCom') !== null) {
     window.localStorage.setItem('HBRA_weatherCom', window.localStorage.getItem('default_weatherCom'));
   }
+  localStorage.removeItem('HBRA_Checked_Forms');
+  localStorage.removeItem('HBRA_Saved_Scores');
+  localStorage.removeItem('HBRA_Saved_Notes');
+  localStorage.removeItem('HBRA_Saved_Final_Notes');
+  localStorage.removeItem('HBRA_Photos');
+  localStorage.removeItem('HBRA_E.4Header');
+  localStorage.removeItem('HBRA_E.4Titles');
   //window.alert("LS Updated for new Inpection: " + window.localStorage.getItem('HBRA_InspectionId'));
   UpdateInspection();
   setTimeout(setupRefresh,300);
