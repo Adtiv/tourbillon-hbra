@@ -8,7 +8,7 @@
 	var CHECKED_FORMS_ARRAY = [];
 	var COMPLIANCE_RESPONSE_ARRAY = [];
 	var NOTES_ARRAY = [];
-	var FINAL_NOTES_ARRAY = [];  
+	var FINAL_NOTES_ARRAY = []; 
 
 	//window.alert("Process Form Loaded");
 
@@ -60,8 +60,9 @@
 				} 
 			}
 			if (lastFormIndex == FORMS_INDEX) {		
-				document.getElementById('checkNext').style.visibility="hidden";
-				document.getElementById('btnSubmit').style.visibility="visible";
+				document.getElementById('bottomBarNext').style.visibility="hidden";
+				document.getElementById('bottomBarNext').style.display="none";
+				document.getElementById('submitBottomBar').style.visibility="visible";
 			}
 			} catch (e) {
 	   			window.alert("Error in processForm - initializeMainButton: " + e.message);
@@ -200,8 +201,8 @@
 
 		function localStorageSubCatFormsSubmit(page) {
 			try {
-			localStorageSubCatFormsSave(page);
-			window.location.href="formComplete.html";
+				localStorageSubCatFormsSave(page);
+				window.location.href="formComplete.html";
 			} catch (e) {
 	   			window.alert("Error in processForm - localStorageSubCatFormsSubmit: " + e.message);
 	   		}
@@ -221,8 +222,9 @@
     				null,	  // no callback	
     	   	 		'Saved',  // title
     	   	 		'OK'      // buttonName
-					);
+					);	
 				}
+			$('input[type=radio]').each(function() {checkMandatory(this)});
 			} catch (e) {
 	   			window.alert("Error in processForm - localStorageSubCatFormsSave: " + e.message);
 	   		}	
@@ -276,4 +278,18 @@
 				} catch (e) {
 	   			window.alert("Error in processForm - localStorageE4Save: " + e.message);
 	   		}										
+		}
+
+		function checkMandatory(thisOne) {
+			var thisOneParent = thisOne.parentNode;
+        	thisOneParent = thisOneParent.parentNode;
+        	var mandatory = thisOneParent.getAttribute("mandatory");
+			if ((mandatory=="Yes") && (thisOne.checked == true) && (thisOne.value!="fullyCompliant")) {
+				navigator.notification.alert(
+				thisOneParent.getAttribute("description") + ' must be "\Fully Compliant"\ for job to continue',  // message
+            	null,     // no callback  
+            	'Press OK',  // title  
+               	'OK'      // buttonName
+            	); 
+			}				
 		}
