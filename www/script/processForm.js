@@ -60,8 +60,9 @@
 				} 
 			}
 			if (lastFormIndex == FORMS_INDEX) {		
-				document.getElementById('checkNext').style.visibility="hidden";
-				document.getElementById('btnSubmit').style.visibility="visible";
+				document.getElementById('bottomBarNext').style.visibility="hidden";
+				document.getElementById('bottomBarNext').style.display="none";
+				document.getElementById('submitBottomBar').style.visibility="visible";
 			}
 			} catch (e) {
 	   			window.alert("Error in processForm - initializeMainButton: " + e.message);

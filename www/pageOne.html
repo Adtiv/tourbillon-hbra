@@ -19,7 +19,7 @@
 				<img src="images/home.png" width="100%" height="100%">
 			</div>
 		</btn>
-		<span id="inspectNumber_P1"style="margin-left:-10%"></span>		
+		<span id="inspectNumber_P1" ></span>		
 		<btn onclick="popup()">
 			<div id="refresh">
 				<img id="refreshBtn" src="images/trash_full.png" width="100%" height="100%">	
@@ -58,26 +58,11 @@
 			<button id="btnSetdefaults" onclick="SetDefaults()">&#8613; Set The Above as Defaults &#8613;</button>
 			<br/><br/>
 			<br/><br/>
-			<div class="after-form">
-				<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent('save')"/>
-				<div class="leftAfter-form">
-				<br/>
-				<input type="button" id="btnSubmitfirst" value="Submit Form" onclick="{storeLocalContent();generatePDF();}"/>
-				</div>
-				<div class="leftAfter-form">
-				<btn onclick="storeLocalContent('next')"><img class="next" src="images/go_next_blue.png"></btn>
-				</div>
-			</div>	
-		<!--<button style="background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
-		<!--<button id="btnSubmit" style="visibility:visible;background-color:lightgreen;width:300px" onclick="generatePDF()">Submit Form</button>-->
-		<!--button id="btnSubmitfirst" onclick="{storeLocalContent();generatePDF();}">Submit Form</button-->
-		<!--button style="width:300px" onclick="View()">View Current PDF</button>
-		<button style="width:150px" onclick="SelectInspection('msg')">Select Inspection</button>
-		<button style="width:150px" onclick="UpdateInspection('msg')">Update Inspection</button>
-		<button style="width:150px" onclick="DeleteInspection('msg')">Delete Inspection</button-->
-		<!--button style="width:150px" onclick="DeleteInspectionsDB('msg');setupRefresh()">Delete Whole Table</button-->
-		<!--button style="width:150px" onclick="ListInspections('msg');setupRefresh()">List All Inspections</button-->
-    </div>
+			<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent('save')"/>
+
+    </div><br><br>
+	<div class="bottom-bar"><input type="button" class="submitBottom" value="Submit Form" onclick="{storeLocalContent();generatePDF();}"/><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
+</body>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css">
 <script type="text/javascript" src="vendor/jquery.js"></script>
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
@@ -90,5 +75,4 @@
 	jQuery('#datetimepicker').datetimepicker({ampm: true});
 	jQuery('#datetimepicker2').datetimepicker({ampm: true});
 </script>
-</body>
 </html>

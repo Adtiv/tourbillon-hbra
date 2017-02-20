@@ -209,7 +209,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', end
 #btnSaveLater {
 width: 100%;
 margin-top: -2em;
-font-size: 3.5vw;
+font-size: 16px;
 background-color: #A4A4A4;
 text-decoration: underline;
 padding-top: 3%;
@@ -430,9 +430,8 @@ margin-bottom: 4%;
 	color:white;
 	background-image: url("ipad-retina-wallpaper-abstract-white-background-85.jpg");
 	background-size: 130vw;
-	font-size: 6.5vw;
-	padding-top:6%;
-	padding-bottom: 1%;
+	font-size: 30px;
+	height:8%;
 	-webkit-transform: translate3d(0, 0, 0);
 }
 .inspectId{
@@ -443,17 +442,18 @@ margin-bottom: 4%;
 	display:inline-block;
 }
 #refresh{
-	width:8vw;
-	height: 6.5vw;
+	width:35px;
+	height: 35px;
 	float:right;
 	display:inline-block;
 	padding-right:5%;
-	margin-top: 1%;
+	margin-top: 10px;
 }
 .goBack{
-	width:7.8vw;
-	height: 6vw;
-	padding-left:5%;
+	margin-top: 8px;
+	width:35px;
+	height: 35px;
+	margin-left:5%;
 	float: left;
 }
 .formTitle{
@@ -578,9 +578,11 @@ margin-bottom: 4%;
 	margin-top:7%;
 }
 .next{
+	margin-top: 10px;
+	width:35px;
+	height:35px;
 	margin-right: 5vw;
 	float:right;
-	width: 16vw;
 	position: relative;
 }
 .pageOne .next{
@@ -693,4 +695,50 @@ margin-bottom: 4%;
 }
 a:hover {
     text-decoration: underline;
+}
+.bottom-bar{
+	position: fixed;
+	width:100%;
+	height:8%;
+	background-color:black;
+	bottom:0;
+	left:0;
+}	
+.prevBottom{
+	margin-top: 10px;
+	margin-left: 5vw;
+	float:left;
+	width: 16vw;
+	position: relative;
+	width:35px;
+	height:35px;
+}
+.submitBottom {
+	margin-top: 10px;
+	width: 100px;
+	height: 30px;
+	padding: 0px;
+	font-size: 12px;
+	margin-left: 5%;
+	position: absolute;
+	border: 2px solid #000000 !important;
+	border-radius: 10px;
+	z-index: 0;
+	background-color:lightgreen;
+	/*background: rgba(240,240,240,1);*/
+}
+.submitBottomRight {
+	float:right;
+	visibility: hidden;
+	width: 100px;
+	height: 30px;
+	padding: 0px;
+	margin-right:5%;
+	font-size: 12px;
+	margin-top:10px;
+	border: 2px solid #000000 !important;
+	border-radius: 10px;
+	z-index: 0;
+	background-color:lightgreen;
+	/*background: rgba(240,240,240,1);*/
 }
