@@ -745,3 +745,6 @@ a:hover {
 .inspectNum{
 	margin-top:10px;
 }
+.mandatory {
+	color: red;
+}
