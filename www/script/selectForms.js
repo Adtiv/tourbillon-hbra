@@ -195,7 +195,7 @@ function initComplianceResponseArray() {
 	for (i=0; i<RESPONSE_COUNTS.length; i++) {
 		COMPLIANCE_RESPONSE_ARRAY.push([]);
 		for (j=0; j<RESPONSE_COUNTS[i]; j++) {
-			COMPLIANCE_RESPONSE_ARRAY[i].push(0);
+			COMPLIANCE_RESPONSE_ARRAY[i].push("N");
 		}
 	}
 	} catch (e) {
