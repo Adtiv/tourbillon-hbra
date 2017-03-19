@@ -55,8 +55,8 @@
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
 				<hr class="division"><br>
-				<div class="complianceInputBox">
-					<h3>2. Holes/Openings Covered or Barricaded (Capacity 2x Intended load, Secure, Marked Hole or Cover)</h3><br/>
+				<div class="complianceInputBox" mandatory="Yes" description="B.1 #2 - Holes/Openings Covered or Barricaded">
+					<h3 class="mandatory">2. Holes/Openings Covered or Barricaded (Capacity 2x Intended load, Secure, Marked Hole or Cover)</h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionTwo" name="box2" value="nonCompliant" id="A70" onclick="openTextArea('A70', 'questionTwo', 'B.1secondDiv', 'B.1');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -87,8 +87,8 @@
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
 				<hr class="division"><br>
-				<div class="complianceInputBox">
-					<h3>3. Nets in Place – Inspections Up to Date</h3><br/>
+				<div class="complianceInputBox" mandatory="Yes" description="B.1 # 3 - Nets in Place">
+					<h3 class="mandatory">3. Nets in Place &#8208 Inspections Up to Date</h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionThree" name="box3" value="nonCompliant" id="A71" onclick="openTextArea('A71', 'questionThree', 'B.1thirdDiv', 'B.1');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -247,8 +247,8 @@
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
 				<hr class="division"><br>
-				<div class="complianceInputBox" mandatory="Yes" description="B.1 #8 - Falling Object Protection">
-					<h3 class="mandatory"> 8. Falling Object Protection (Hard Hats, Debris Nets, Overhead Protection, Canopies)</h3><br/>
+				<div class="complianceInputBox">
+					<h3> 8. Falling Object Protection (Hard Hats, Debris Nets, Overhead Protection, Canopies)</h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionEight" name="box8" value="nonCompliant" id="A76" onclick="openTextArea('A76', 'questionEight', 'B.1eigthDiv', 'B.1');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -348,7 +348,8 @@
 					</textarea>
 				</div>
 				<div class="scoreDiv">
-					<h3>Total Not Answered:</h3><br><p class="score" id="TotalNA">0</p><br>
+					<h3>Total Unanswered:</h3><br><p class="score" id="TotalUN">0</p><br>
+					<h3>Total N/A Selected:</h3><br><p class="score" id="TotalN/A">0</p><br>
 					<h3>Total Not Compliant:</h3><br><p class="score" id="TotalNC">0</p><br>
 					<h3>Total Partially Compliant:</h3><br><p class="score" id="TotalPC">0</p><br>
 					<h3>Total Compliant:</h3><br><p class="score" id="TotalC">0</p><br>

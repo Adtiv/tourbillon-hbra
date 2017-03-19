@@ -40,6 +40,7 @@ function homeScreen(){
 		}
 
 function isChecked(id) {
+		document.getElementById(id).checked=!document.getElementById(id).checked;
 		//windows.alert("Forms array: " + CHECKED_FORMS_ARRAY + " id: " + id);
 		try {
 		var bn = document.getElementById(id).name;
@@ -52,6 +53,7 @@ function isChecked(id) {
 		} catch (e) {
 			window.alert("Error in selectForms.js function: isChecked: " + e.message);
 		}
+
 	}
 
 

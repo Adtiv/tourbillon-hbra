@@ -40,6 +40,7 @@ function homeScreen(){
 		}
 
 function isChecked(id) {
+		document.getElementById(id).checked=!document.getElementById(id).checked;
 		//windows.alert("Forms array: " + CHECKED_FORMS_ARRAY + " id: " + id);
 		try {
 		var bn = document.getElementById(id).name;
@@ -52,6 +53,7 @@ function isChecked(id) {
 		} catch (e) {
 			window.alert("Error in selectForms.js function: isChecked: " + e.message);
 		}
+
 	}
 
 
@@ -195,7 +197,7 @@ function initComplianceResponseArray() {
 	for (i=0; i<RESPONSE_COUNTS.length; i++) {
 		COMPLIANCE_RESPONSE_ARRAY.push([]);
 		for (j=0; j<RESPONSE_COUNTS[i]; j++) {
-			COMPLIANCE_RESPONSE_ARRAY[i].push(0);
+			COMPLIANCE_RESPONSE_ARRAY[i].push("N");
 		}
 	}
 	} catch (e) {

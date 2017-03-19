@@ -50,7 +50,6 @@
         Anthony Ditocco 
     </author>
     <content src="index.html" />
-    <icon src="icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -58,15 +57,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon height="57" platform="ios" src="www/res/icon/ios/icon-57.png" width="57" />
-    <icon height="72" platform="ios" src="www/res/icon/ios/icon-72.png" width="72" />
-    <icon height="114" platform="ios" src="www/res/icon/ios/icon-57-2x.png" width="114" />
-    <icon height="144" platform="ios" src="www/res/icon/ios/icon-72-2x.png" width="144" />
-    <splash height="480" platform="ios" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
-    <splash height="768" platform="ios" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
-    <splash height="960" platform="ios" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
-    <splash height="1024" platform="ios" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
-    <splash height="1136" platform="ios" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
+    <icon src="icon.png" />
+    <splash src="splash.png" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />

@@ -224,7 +224,7 @@
     	   	 		'OK'      // buttonName
 					);	
 				}
-			$('input[type=radio]').each(function() {checkMandatory(this)});
+			$('input[type=radio][value=fullyCompliant]').each(function() {checkMandatory(this)});
 			} catch (e) {
 	   			window.alert("Error in processForm - localStorageSubCatFormsSave: " + e.message);
 	   		}	
@@ -284,7 +284,8 @@
 			var thisOneParent = thisOne.parentNode;
         	thisOneParent = thisOneParent.parentNode;
         	var mandatory = thisOneParent.getAttribute("mandatory");
-			if ((mandatory=="Yes") && (thisOne.checked == true) && (thisOne.value!="fullyCompliant")) {
+			if ((mandatory=="Yes") && (thisOne.checked != true)) 
+			 {
 				navigator.notification.alert(
 				thisOneParent.getAttribute("description") + ' must be "\Fully Compliant"\ for job to continue',  // message
             	null,     // no callback  

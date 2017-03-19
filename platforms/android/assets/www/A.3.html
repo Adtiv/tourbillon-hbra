@@ -24,8 +24,8 @@
 				<br>
 				<p class="formTitle">A.3 Personal Protective Equipment(PPE)</p>
 				<br/><br/>
-				<div class="complianceInputBox">
-					<h3>1. Hard Hats(worn at all times)</h3><br/>
+				<div class="complianceInputBox" mandatory="Yes" description="A.3 #1 - Hard Hats(worn at all times)">
+					<h3 class="mandatory">1. Hard Hats(worn at all times)</h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="nonCompliant" id="A23" onclick="openTextArea('A23', 'questionOne', 'A.3firstDiv', 'A.3');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -349,7 +349,8 @@
 					</textarea>
 				</div>
 				<div class="scoreDiv">
-					<h3>Total Not Answered:</h3><br><p class="score" id="TotalNA">0</p><br>
+					<h3>Total Unanswered:</h3><br><p class="score" id="TotalUN">0</p><br>
+					<h3>Total N/A Selected:</h3><br><p class="score" id="TotalN/A">0</p><br>
 					<h3>Total Not Compliant:</h3><br><p class="score" id="TotalNC">0</p><br>
 					<h3>Total Partially Compliant:</h3><br><p class="score" id="TotalPC">0</p><br>
 					<h3>Total Compliant:</h3><br><p class="score" id="TotalC">0</p><br>

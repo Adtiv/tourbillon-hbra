@@ -107,8 +107,11 @@ function loadFormData() {
     var partial=0;
     var compliant=0;
     var totalNA=0;
+    var totalUnanswered=0;
     var totalQ=0;
     var formScoreTotal=0;
+    var subScoreCount=0;
+    var summaryScore=0;
     for (i=0; i<CHECKED_FORMS_ARRAY.length; i++) {
        if (CHECKED_FORMS_ARRAY[i] != "0") {
         //window.alert("Index: " + i + "FormID: " + CHECKED_FORMS_ARRAY[i] + " Compliance Entry Length: " + COMPLIANCE_RESPONSE_ARRAY[i].length);
@@ -116,34 +119,50 @@ function loadFormData() {
         showDiv.style.visibility="visible";
         showDiv.style.display="inline";
         formScoreTotal = 0;
+        subScoreCount = 0;
         for (j=0; j<COMPLIANCE_RESPONSE_ARRAY[i].length; j++){
            var score = COMPLIANCE_RESPONSE_ARRAY[i][j];
-           formScoreTotal += score;
-           totalQ++;
-           if(score==5){
-              compliant++;
-           }
-           if(score==0){
-              totalNA++;
-           }
-           var scoreID = "score" + CHECKED_FORMS_ARRAY[i] + "-" + (j+1);    //example: scoreA.1-3
-           document.getElementById(scoreID).innerHTML = "(" + score + ") " + scoretoText(score);
-           var noteID = CHECKED_FORMS_ARRAY[i] + "compliance" + (j+1);    //example: A.1compliance3
-           if (score==1 || score==3) {
+           if (score != 'N') {
+              formScoreTotal += score;
+              summaryScore += score;
+              if(score==5){
+                  compliant++;
+                  totalQ++;
+                  subScoreCount++;
+              }
+               if(score==0){
+                totalNA++;
+              }
+             var scoreID = "score" + CHECKED_FORMS_ARRAY[i] + "-" + (j+1);    //example: scoreA.1-3
+             document.getElementById(scoreID).innerHTML = "(" + score + ") " + scoretoText(score);
+             var noteID = CHECKED_FORMS_ARRAY[i] + "compliance" + (j+1);    //example: A.1compliance3
+             if (score==1 || score==3) {
                 if(score==1){
                   non++;
+                  totalQ++;
+                  subScoreCount++;
                 }
                 if(score==3){
                   partial++;
+                  totalQ++;
+                  subScoreCount++;
                 }
                 document.getElementById(noteID).innerHTML = NOTES_ARRAY[i][j];
                 var nonCompliantQuestion = CHECKED_FORMS_ARRAY[i] + "-" + (j+1) + ",   ";
                 nonCompliantQuestions+=nonCompliantQuestion;
                 complianceSummaryArray.push(nonCompliantQuestion);
-            }
+               }
+             } else {
+              totalUnanswered++;
+              totalQ++;
+              subScoreCount++;
+             }
          } 
         var formScore =  CHECKED_FORMS_ARRAY[i] + "score"; // example: A.1score
-        document.getElementById(formScore).innerHTML = formScoreTotal;
+        var maxSubScore = subScoreCount * 5;
+        var subScorePercent = ((formScoreTotal/maxSubScore) * 100).toFixed(0) + '%';
+        var subScore = formScoreTotal + ' out of ' + (maxSubScore) + ': ' + subScorePercent; 
+        document.getElementById(formScore).innerHTML = subScore;
         var finalNotesID = CHECKED_FORMS_ARRAY[i] + "notes";  // example: A.1notes 
         document.getElementById(finalNotesID).innerHTML = FINAL_NOTES_ARRAY[i];
        }
@@ -153,8 +172,14 @@ function loadFormData() {
    document.getElementById('totalNon').innerHTML= non.toString();
    document.getElementById('totalPartial').innerHTML=partial.toString();
    document.getElementById('totalCompliant').innerHTML=compliant.toString();
-   document.getElementById('totalNA').innerHTML=totalNA.toString();
+   document.getElementById('totalN/A').innerHTML=totalNA.toString();
+   document.getElementById('totalUN').innerHTML=totalUnanswered.toString();
    document.getElementById('totalQuestions').innerHTML=totalQ.toString();
+   var maxScore = totalQ * 5;
+   document.getElementById('scoreBest').innerHTML=maxScore.toString();
+   document.getElementById('scoreThis').innerHTML=summaryScore.toString();
+   var scorePercent = ((summaryScore/maxScore) * 100).toFixed(0) + '%';
+   document.getElementById('scorePercent').innerHTML=scorePercent;
  } 
 
 function scoretoText(num){

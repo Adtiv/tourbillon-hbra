@@ -32,6 +32,7 @@
 		//opens the text area if non/partially compiant
 		//specifies an index to put the score for that question 
 	function openTextArea(id, questionNumber, divNum, page){
+        //window.alert('openTextArea: ' + id + ' ' + questionNumber + ' ' + divNum + ' ' + page);
 		var input = document.getElementById(id);
         var showDiv = document.getElementById(divNum);
         var questionIndex = setQuestionIndex(questionNumber);  //set question index
@@ -69,6 +70,7 @@
         	score=0;
 	        }
         COMPLIANCE_RESPONSE_ARRAY[FORMS_INDEX][questionIndex] = score;
+        //window.alert('Score: ' + score);
         calcScores();
     }
 	    
@@ -92,6 +94,7 @@
 	    }	
 
     function calcScores() {
+       try {
     	var unansweredCount = 0;
     	var naCount = 0;
     	var noncompliantCount = 0;
@@ -117,18 +120,25 @@
     			compliantSum += 5;
     			countOf135++;
 	    		}
-    		else {
+    		else if (COMPLIANCE_RESPONSE_ARRAY[FORMS_INDEX][i] == 0) {
+                naCount++;
+                }
+            else {
     			unansweredCount++;
     		} 
-	    	}
+	   	}
     	var averageScore = ((noncompliantSum + partiallycompliantSum + compliantSum)/countOf135);
     	averageScore = Math.round(averageScore*10)/10;
     	if (isNaN(averageScore)) {
     		averageScore = 0;
     	}
-    	document.getElementById('TotalNA').innerHTML = unansweredCount;
+    	document.getElementById('TotalUN').innerHTML = unansweredCount;
+        document.getElementById('TotalN/A').innerHTML = naCount;
     	document.getElementById('TotalNC').innerHTML = noncompliantCount;
     	document.getElementById('TotalPC').innerHTML = partiallycompliantCount;
     	document.getElementById('TotalC').innerHTML = compliantCount;
     	document.getElementById('AVERAGE').innerHTML = averageScore;
-	    }   
+	   } catch (ex)  {
+        window.alert('Error in calcScores ' + ex.message);
+       }
+   }

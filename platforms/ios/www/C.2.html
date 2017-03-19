@@ -24,8 +24,8 @@
 				<br>
 				<p class="formTitle">C.2 Electrical</p>
 				<br/><br/>
-				<div class="complianceInputBox">
-					<h3>1. Breakers Labeled, High Voltage Signs Posted and Adequate Access - 36” Clear Around Electrical Panel: Left, Right, Top and Bottom Under Panel and in Front of. </h3><br/>
+				<div class="complianceInputBox" mandatory="Yes" description="C.2 #1 - Breakers Labeled, High Voltage Signs">
+					<h3 class="mandatory">1. Breakers Labeled, High Voltage Signs Posted and Adequate Access - 36” Clear Around Electrical Panel: Left, Right, Top and Bottom Under Panel and in Front of. </h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionOne" name="box1" value="nonCompliant" id="A110" onclick="openTextArea('A110', 'questionOne', 'C.2firstDiv', 'C.2');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -152,8 +152,8 @@
 					<p class="fileUploadtxt">File uploads may not work on some mobile devices.</p> 
 				</div>
 				<hr class="division"><br>
-				<div class="complianceInputBox">
-					<h3>5. Lockout/Tag-Out Program in Place</h3><br/>
+				<div class="complianceInputBox" mandatory="Yes" description="C.2 #5 - Lockout/Tag-Out Program">
+					<h3 class="mandatory">5. Lockout/Tag-Out Program in Place</h3><br/>
 
 	 				<div class="compliance-label"><input type="radio" class="complianceCheck questionFive" name="box5" value="nonCompliant" id="A114" onclick="openTextArea('A114', 'questionFive', 'C.2fifthDiv', 'C.2');"> <div class="complianceTxt">Non Compliant</div></div>
 
@@ -317,7 +317,8 @@
 					</textarea>
 				</div>
 				<div class="scoreDiv">
-					<h3>Total Not Answered:</h3><br><p class="score" id="TotalNA">0</p><br>
+					<h3>Total Unanswered:</h3><br><p class="score" id="TotalUN">0</p><br>
+					<h3>Total N/A Selected:</h3><br><p class="score" id="TotalN/A">0</p><br>
 					<h3>Total Not Compliant:</h3><br><p class="score" id="TotalNC">0</p><br>
 					<h3>Total Partially Compliant:</h3><br><p class="score" id="TotalPC">0</p><br>
 					<h3>Total Compliant:</h3><br><p class="score" id="TotalC">0</p><br>
