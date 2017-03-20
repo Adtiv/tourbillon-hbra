@@ -54,12 +54,13 @@
 				<a class="clickableOption" onclick="isChecked('E.3')"><div class="form-label"><input type="checkbox" class="check" name="option20" id="E.3" value="welding" >E.3) Welding / Cutting / Hot Work</div></a>
 				<a class="clickableOption" onclick="isChecked('E.4')"><div class="form-label"><input type="checkbox" class="check" name="option21" id="E.4" value="custom">E.4) Custom Inspection</div></a><br><br>
 				<br><br>
-			</form>
-         	<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageCheckFormsSave('save')"/><br><br><br>
-			<div class="bottom-bar"><btn  onclick="goBack()"><img class="prevBottom" src="images/previous.png"></btn><btn onclick="localStorageCheckFormsSubmit('submit', '0', 'btnNext', 'checks'); return false;"><img class="next" src="images/next.png"></btn></div></div>
+			</form></div>
 		</div>
+ 	<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageCheckFormsSave('save')"/><br><br><br>
+	<div class="bottom-bar"><btn  onclick="goBack()"><img class="prevBottom" src="images/previous.png"></btn><btn onclick="localStorageCheckFormsSubmit('submit', '0', 'btnNext', 'checks'); return false;"><img class="next" src="images/next.png"></btn></div>
+</body>
+
 <script src="script/app.js" type="text/javascript"></script>
 <script src="script/inspectionDbHandler.js" type="text/javascript"></script>
 <script src="script/selectForms.js" type="text/javascript"></script>
-</body>
 </html>
