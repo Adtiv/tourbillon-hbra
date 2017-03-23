@@ -36,6 +36,7 @@
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~4.0.0" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.3" />
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
     <platform name="android">
         <icon src="icon.png" />
         <splash src="splash.png" />
