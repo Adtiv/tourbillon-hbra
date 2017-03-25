@@ -58,7 +58,6 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <icon src="icon.png" />
-    <splash src="splash.png" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
@@ -89,6 +88,8 @@
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="FadeSplashScreenDuration" value="0" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-installLocation" value="auto" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
