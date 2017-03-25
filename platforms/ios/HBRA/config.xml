@@ -93,4 +93,5 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
 </widget>
