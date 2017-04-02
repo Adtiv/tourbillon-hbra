@@ -419,7 +419,6 @@
 					<h3>Total Compliant:</h3><br><p class="score" id="TotalC">0</p><br>
 					<h3>Average of those Answered:</h3><br><p class="score" id="AVERAGE">0</p><br>
 				</div>
-	         	<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="localStorageSubCatFormsSave('save')"/>
 			</div>
 		</form>
 		<style>
@@ -427,7 +426,7 @@
 				font-size:4.3vw;
 			}
 		</style>
-		<br><br>
+ 		<a onclick="localStorageSubCatFormsSave('save')"/><div class="btnSaveLater">Save Answers and Resume Later</div></a>
 		<div class="bottom-bar"><btn  onclick="processFormOrder('D.3', '0', 'btnBack', 'D_3'); return false;"><img class="prevBottom" src="images/previous.png"></btn><btn onclick="processFormOrder('D.3', '0', 'btnNext', 'D_3'); return false;"><img id="bottomBarNext" class="next" src="images/next.png"></btn><input type="button" id="submitBottomBar" class="submitBottomRight" value="Submit Form" onclick="localStorageSubCatFormsSubmit('D_3')"/></div>	
 	
    

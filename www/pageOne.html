@@ -60,10 +60,10 @@
 			<button id="btnSetdefaults" onclick="SetDefaults()">&#8613; Set The Above as Defaults &#8613;</button>
 			<br/><br/>
 			<br/><br/>
-			<input type="button" id="btnSaveLater" value="Save Answers and Resume Later" onclick="storeLocalContent('save')"/>
 
-    </div><br><br>
-	<div class="bottom-bar"><input type="button" class="submitBottom" value="Submit Form" onclick="{storeLocalContent();generatePDF();}"/><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
+    </div>
+ 	<a onclick="storeLocalContent('save')"/><div class="btnSaveLater">Save Answers and Resume Later</div></a>
+	<div class="bottom-bar"><!--<input type="button" class="submitBottom" value="Submit Form" onclick="{storeLocalContent();generatePDF();}"/>--><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
 </body>
 <link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css">
 <script type="text/javascript" src="vendor/jquery.js"></script>
