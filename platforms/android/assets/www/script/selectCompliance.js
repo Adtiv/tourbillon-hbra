@@ -16,14 +16,18 @@
 			thisOne.checked = true;
 			divRef.style.visibility="visible";
 	        divRef.style.display="inline";
+            thisOne.parentNode.style.backgroundColor="lightgreen";   
 		} else if ((COMPLIANCE_RESPONSE_ARRAY[FORMS_INDEX][boxIndex] == 3) && (radioChoice == "B")) {
 			thisOne.checked = true;
 			divRef.style.visibility="visible";
 	        divRef.style.display="inline";
+            thisOne.parentNode.style.backgroundColor="lightgreen";   
 		} else if ((COMPLIANCE_RESPONSE_ARRAY[FORMS_INDEX][boxIndex] == 5) && (radioChoice == "C")) {
 			thisOne.checked = true;
+            thisOne.parentNode.style.backgroundColor="lightgreen";   
 		} else if ((COMPLIANCE_RESPONSE_ARRAY[FORMS_INDEX][boxIndex] == 0) && (radioChoice == "D")) {
 			thisOne.checked = true;
+            thisOne.parentNode.style.backgroundColor="lightgreen";   
 		}
 	}
 
@@ -31,15 +35,25 @@
 	   	//localStorage.setItem("HBRA_Saved_Scores",JSON.stringify(COMPLIANCE_RESPONSE_ARRAY)); //for save later on
 		//opens the text area if non/partially compiant
 		//specifies an index to put the score for that question 
+    function recolorRadioBoxes(className){
+        var x = document.getElementsByClassName(className);
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.backgroundColor = "#F0F0F0";
+        }
+    }
 	function openTextArea(id, questionNumber, divNum, page){
         //window.alert('openTextArea: ' + id + ' ' + questionNumber + ' ' + divNum + ' ' + page);
-		var input = document.getElementById(id);
+        var input = document.getElementById(id);
         var showDiv = document.getElementById(divNum);
         var questionIndex = setQuestionIndex(questionNumber);  //set question index
-        var isChecked = input.checked;
+        input.checked=true;
         var inputParent = input.parentNode;
-        inputParent = inputParent.parentNode;
+        var inputLink = inputParent;
+        inputParent = inputParent.parentNode.parentNode;
         var mandatory = inputParent.getAttribute("mandatory");
+        recolorRadioBoxes(inputLink.className);
+        document.getElementById(inputLink.id).style.backgroundColor="lightgreen";   
         if ((mandatory=="Yes") && (input.value!="fullyCompliant")) {
            navigator.notification.alert(
             'This item MUST be "\Fully Compliant"\ for job to continue',  // message
@@ -48,8 +62,7 @@
             'OK'      // buttonName
             ); 
         } 
-        isChecked = (isChecked)? true : false;
-        if(isChecked==true && (input.value=="nonCompliant"|| input.value=="partiallyCompliant")){
+        if(input.checked==true && (input.value=="nonCompliant"|| input.value=="partiallyCompliant")){
     		showDiv.style.visibility="visible";
         	showDiv.style.display="inline";
 	        }

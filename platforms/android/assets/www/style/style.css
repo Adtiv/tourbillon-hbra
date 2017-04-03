@@ -465,25 +465,27 @@ margin-bottom: 4%;
 	font-weight: bolder;
 }
 .complianceCheck{
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: -20px;
+	float:left;
 	background-color:#F0F8FF;
 }
 .complianceCheck:checked{
 	background-color: #3366FF;
 }
 .compliance-label{
-	padding-left: 5%;
+	padding: 10px;
+	text-align: center;
 	border: 1px solid;
 	border-radius: 5px;
 	border-color: #D0D0D0;
-	margin:1% auto;
+	margin:5px;
 	background-color: #F0F0F0;
-	width: 90%;
+	font-size: 16px;
 }
-.complianceTxt{
-	display: inline-block;
-	margin-left: 10%;
- 	font-size: 4vw;
- 	
+.complianceBtn:hover{
+	text-decoration: none;
 }
 .complianceInputBox{
 	padding:2%;

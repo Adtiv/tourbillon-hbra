@@ -282,7 +282,7 @@
 
 		function checkMandatory(thisOne) {
 			var thisOneParent = thisOne.parentNode;
-        	thisOneParent = thisOneParent.parentNode;
+        	thisOneParent = thisOneParent.parentNode.parentNode;
         	var mandatory = thisOneParent.getAttribute("mandatory");
 			if ((mandatory=="Yes") && (thisOne.checked != true)) 
 			 {
