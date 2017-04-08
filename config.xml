@@ -40,8 +40,8 @@
     </platform>
     <platform name="ios">
         <icon src="icon.png" />
-        <icon src="icons/ios/icon-58.png" width="58" height="58" />
-        <icon src="icons/ios/icon-87.png" width="87" height="87" />
+        <icon src="icon-58.png" width="58" height="58" />
+        <icon src="icon-87.png" width="87" height="87" />
     </platform>
     <access origin="*" />
     <allow-intent href="http://*/*" />
