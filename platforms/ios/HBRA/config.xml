@@ -58,8 +58,8 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <icon src="icon.png" />
-    <icon height="58" platform="ios" src="icon-58.png" width="58" />
-    <icon height="87" platform="ios" src="icon-87.png" width="87" />
+    <icon height="58" src="icon-58.png" width="58" />
+    <icon height="87" src="icon-87.png" width="87" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
