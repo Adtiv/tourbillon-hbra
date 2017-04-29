@@ -434,10 +434,14 @@ function generatePDF(){
         //window.alert("Complete HTML Source going into jsPDF: " + sourcehtml);
         var pdf = new jsPDF('p', 'pt', 'letter');
         pdf.fromHTML(sourcehtml,15,15,{'width': 550});
-        var pdftext = pdf.output("datauristring");
-        //window.alert("Complete HTML Source coming out of jsPDF: " + pdftext);
+        var pdftext = pdf.output("datauristring");  //encoded and formatted for ios
+        //console.log("Encoded Data: " + pdftext.substring(0,100));
+        //var pdftext2 = pdf.output();  // NOT encoded for android - but calling output twice messed up pdf
+        var idx = pdftext.indexOf("base64,");  // so have to decode it manually
+        var pdftext2 = atob(pdftext.substring(idx+7));
         try{
-        localStorage.setItem("HbraPDF", pdftext);
+        localStorage.setItem("HbraPDF", pdftext);   //For ios
+        localStorage.setItem("HbraPDF2", pdftext2); //For android
         //window.alert("htmlToPDF.js - generatePDF - PDF Save in Local Storage is Successful");
     } catch(err) {
         window.alert("htmlToPDF.js - PDF Save in Local Storage Failed, Error: " + err.message);
@@ -448,13 +452,53 @@ function generatePDF(){
     if (device.platform == "iOS") {
         window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
     } else {
-      navigator.notification.alert(
-            'Press OK',  // message
-            null,   // no callback  
-              'PDF View feature only supported on iOS',  // title
-              'OK'      // buttonName
-          );
-      //window.alert("PDF View feature only supported on iOS");
+        var fdata = localStorage.getItem("HbraPDF2");
+        androidViewer(fdata);
     }
   } 
-  //window.onload=generatePDF; 
+  //window.onload=generatePDF;
+  function androidViewer(data) {
+  /* Four things have to be right for this pdf viewer to work on Android:
+        1) A directory has to be chosen that can be shared (i.e. external) with other apps
+        2) the file data has to be NOT be encoded
+        3) the url of the file has to be constructed properly "fileEntry.toURL()")
+        4) the user has to have system defined pdf viewing software installed
+        */
+      //console.log("Entering androidViewer");
+    try {
+      var fileName = "hbra.pdf";
+      window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function (directoryEntry) {
+          directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+              fileEntry.createWriter(function (fileWriter) {
+                  fileWriter.onwriteend = function (e) {
+                      // for real-world usage, you might consider passing a success callback
+                      //console.log('Write of file ' + fileName + ' completed.');
+                      var pathfn = fileEntry.toURL();
+                      //console.log("File Path is: " + pathfn);
+                      //window.alert("About to Open PDF: " + pathfn);
+                      window.open(pathfn, '_system', 'location=no');
+                    };
+
+                  fileWriter.onerror = function (e) {
+                     // you could hook this up with our global error handler, or pass in an error callback
+                      console.log('Write failed: ' + e.toString());
+                    };
+
+                  fileWriter.write(data);
+                  //console.log("Data Written: " + data.substring(0,100));
+               }, function(error) {
+                console.log("CreateWriterError: " + error);
+                window.alert("CreateWriterError: " + error);
+                });
+          }, function(error) {
+            console.log("GetFileError: " + error);
+            window.alert("GetFileError: " + error);
+          });
+      }, function(error) {
+        console.log("ResolveLocalFileSystemURL: " + error);
+        window.alert("ResolveLocalFileSystemURL: " + error);
+      });
+     } catch (ex) {
+        window.alert("Got error: " + ex.message);
+      }
+    } 
