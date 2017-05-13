@@ -10,18 +10,18 @@
 		function onDeviceReady()
 		{
 		    FastClick.attach(document.body);
-		    console.log("worked");
+		    console.log("FastClick Attached");
 			var btn = document.querySelector("btn");
 	        var delay;
 
 		    btn.addEventListener( "touchend", function() {
-		    	console.log("here?");
+		    	console.log("Added Event Listener1");
 		        delay = Date.now();
-		        console.log(delay);
+		        console.log("Delay is: " + delay);
 		    });
 		    btn.addEventListener( "click", function() {
-		    	console.log("here?");
-		        console.log("time in ms: " + (Date.now()-delay));
+		    	console.log("Added Event Listener2");
+		        console.log("Time in ms: " + (Date.now()-delay));
 		    });
 		    window.open = cordova.InAppBrowser.open;
 		}
@@ -30,19 +30,30 @@
 		function chooseLanguage(id){
 			if(id=='English'){
 				window.location.href="pageOne.html";
-				console.log("test");
 			}
 			else if(id=='Spanish'){
-				//window.location.href="pageOne.html";
-				console.log("test2");
+				languageResponse(id);
 			}
 			else if(id=='Portuguese'){
-				window.location.href="";
+				//window.location.href="";
+				languageResponse(id);
 			}
 			else{
-				window.location.href="";
+				//window.location.href="";
+				languageResponse(id);
 			}
+			console.log(id + " Selected");
 		}
+
+		function languageResponse(language) {
+			navigator.notification.alert(
+            	language,  // message 
+              	null, // callback
+             	 'Coming Soon',  // title
+              	'OK'    // buttonName  
+         		 );
+		}
+
 	</script>
 </head>
 <body>
@@ -61,6 +72,6 @@
 
     </div>
 </body>
-
+<script type="text/javascript" src="cordova.js"></script>
 </html>
-<script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
+
