@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', listenInit(), false);
 function listenInit(){
   //window.alert("htmlToPDF.js - listenInit - Entered listenInit");
-  console.log("deviceReady");
+  console.log("deviceReady for PDF processing");
   //window.alert("htmlToPDF.js - listenInit - Just before FastClick");  
   FastClick.attach(document.body);
   //window.alert("htmlToPDF.js - listenInit - Just after Fastclick and before generatePDF");  
@@ -36,11 +36,16 @@ function compileStoredVariables(){
       document.getElementById('jobNum').innerHTML = localStorage.getItem('HBRA_jobNum');
     }
     if(localStorage.getItem('HBRA_beginTime')!=null){
-      document.getElementById('beginTime').innerHTML = localStorage.getItem('HBRA_beginTime');
+      var dt = new Date(window.localStorage.getItem('HBRA_beginTime'));
+      var deviceType = localStorage.getItem("Hbra_device");
+      console.log("Deveice Type is: " + deviceType);
+      if (deviceType == "iOS") {
+          dt.setHours(dt.getHours()+(dt.getTimezoneOffset()/60));
+          dt.setSeconds(0);
+        }
+      dt = dt.toLocaleString('en-US');
+      document.getElementById('beginTime').innerHTML = dt;
     }
-    //if(localStorage.getItem('endTime')!=null){
-    //  document.getElementById('endTime').innerHTML = localStorage.getItem('endTime');
-    //}
     if(localStorage.getItem('HBRA_inspBy')!=null){
       document.getElementById('inspBy').innerHTML = localStorage.getItem('HBRA_inspBy');
     }
@@ -449,6 +454,7 @@ function generatePDF(){
   }
   function viewDocument()
   { 
+    console.log("View about to reference device: " + device.platform);
     if (device.platform == "iOS") {
         window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
     } else {

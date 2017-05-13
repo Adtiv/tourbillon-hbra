@@ -24,6 +24,8 @@
 		        console.log("Time in ms: " + (Date.now()-delay));
 		    });
 		    window.open = cordova.InAppBrowser.open;
+		    console.log("About to reference device: " + device.platform);
+		    localStorage.setItem("Hbra_device", device.platform);
 		}
 		//var button = document.querySelector(".fastClick");
 		//new FastClick(button);
