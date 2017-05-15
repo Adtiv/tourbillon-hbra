@@ -1,252 +1,252 @@
 		//Initializes the localstorage based on the page
 
-		    function subCatInitialize(page){
-		      //window.alert("Entered subCatInitialize for page: " + page);
-		      var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
-		      if(!bSupportsLocal){
-		        document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
-		        return;
-		      }
-		      var pNum = localStorage.getItem("pageCount");     
-		      console.log("pNum" + pNum);
-		      var inspection = localStorage.getItem('HBRA_InspectionId');
-		      if(window.localStorage.length !== 0){
-		        if(page=="A_1"){
-		          for(var i=1;i<=12;i++){
-		            if(localStorage.getItem(inspection+'imagepath'+i)!==null){
-		                var ip = localStorage.getItem(inspection+'imagepath'+i);
-		                var photo = document.getElementById("photo"+i);
-	                    photo.src = ip; 
-	                    photo.style.display = 'inline-block';
-	                    document.getElementById("pic"+i).innerHTML="A.1-"+i+".jpg";
-	                }
-		          }
+	function subCatInitialize(page){
+	      //window.alert("Entered subCatInitialize for page: " + page);
+	      var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
+	      if(!bSupportsLocal){
+	        document.getElementById('dataForm').innerHTML = "<p>Sorry, local storage is not supported</p>";
+	        return;
+	      }
+	      var pNum = localStorage.getItem("pageCount");     
+	      console.log("pNum" + pNum);
+	      var inspection = localStorage.getItem('HBRA_InspectionId');
+	      if(window.localStorage.length !== 0){
+	        if(page=="A_1"){
+	          for(var i=1;i<=12;i++){
+	            if(localStorage.getItem(inspection+'imagepath'+i)!==null){
+	                var ip = localStorage.getItem(inspection+'imagepath'+i);
+	                var photo = document.getElementById("photo"+i);
+                    photo.src = ip; 
+                    photo.style.display = 'inline-block';
+                    document.getElementById("pic"+i).innerHTML="A.1-"+i+".jpg";
+                }
+	          }
+	        }
+			else if(page=="A_2"){		
+				for(var i=1;i<=10;i++){
+		            if(localStorage.getItem(inspection+'A.2imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.2imagepath'+i);
+		              var photo = document.getElementById("A.2photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.2pic"+i).innerHTML="A.2-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="A_3"){	
+				for(var i=1;i<=10;i++){
+		            if(localStorage.getItem(inspection+'A.3imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.3imagepath'+i);
+		              var photo = document.getElementById("A.3photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.3pic"+i).innerHTML="A.3-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="A_4"){
+				for(var i=1;i<=9;i++){
+		            if(localStorage.getItem(inspection+'A.4imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.4imagepath'+i);
+		              var photo = document.getElementById("A.4photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.4pic"+i).innerHTML="A.4-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="A_5"){
+				for(var i=1;i<=9;i++){
+		            if(localStorage.getItem(inspection+'A.5imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.5imagepath'+i);
+		              var photo = document.getElementById("A.5photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.5pic"+i).innerHTML="A.5-"+i+".jpg";
+                    }
 		        }
-				else if(page=="A_2"){		
-					for(var i=1;i<=10;i++){
-			            if(localStorage.getItem(inspection+'A.2imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.2imagepath'+i);
-			              var photo = document.getElementById("A.2photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.2pic"+i).innerHTML="A.2-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="A_3"){	
-					for(var i=1;i<=10;i++){
-			            if(localStorage.getItem(inspection+'A.3imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.3imagepath'+i);
-			              var photo = document.getElementById("A.3photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.3pic"+i).innerHTML="A.3-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="A_4"){
-					for(var i=1;i<=9;i++){
-			            if(localStorage.getItem(inspection+'A.4imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.4imagepath'+i);
-			              var photo = document.getElementById("A.4photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.4pic"+i).innerHTML="A.4-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="A_5"){
-					for(var i=1;i<=9;i++){
-			            if(localStorage.getItem(inspection+'A.5imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.5imagepath'+i);
-			              var photo = document.getElementById("A.5photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.5pic"+i).innerHTML="A.5-"+i+".jpg";
-	                    }
-			        }
-				}
-				else if(page=="A_6"){
-					for(var i=1;i<=6;i++){
-			            if(localStorage.getItem(inspection+'A.6imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.6imagepath'+i);
-			              var photo = document.getElementById("A.6photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.6pic"+i).innerHTML="A.6-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="A_7"){
-					for(var i=1;i<=7;i++){
-			            if(localStorage.getItem(inspection+'A.7imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.7imagepath'+i);
-			              var photo = document.getElementById("A.7photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.7pic"+i).innerHTML="A.7-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="A_8"){
-					for(var i=1;i<=5;i++){
-			            if(localStorage.getItem(inspection+'A.8imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'A.8imagepath'+i);
-			              var photo = document.getElementById("A.8photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("A.8pic"+i).innerHTML="A.8-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="B_1"){
-					for(var i=1;i<=10;i++){
-			            if(localStorage.getItem(inspection+'B.1imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'B.1imagepath'+i);
-			              var photo = document.getElementById("B.1photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("B.1pic"+i).innerHTML="B.1-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="B_2"){
-					for(var i=1;i<=10;i++){
-			            if(localStorage.getItem(inspection+'B.2imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'B.2imagepath'+i);
-			              var photo = document.getElementById("B.2photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("B.2pic"+i).innerHTML="B.2-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="B_3"){
-					for(var i=1;i<=9;i++){
-			            if(localStorage.getItem(inspection+'B.3imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'B.3imagepath'+i);
-			              var photo = document.getElementById("B.3photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("B.3pic"+i).innerHTML="B.3-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="C_1"){
-					for(var i=1;i<=12;i++){
-			            if(localStorage.getItem(inspection+'C.1imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'C.1imagepath'+i);
-			              var photo = document.getElementById("C.1photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("C.1pic"+i).innerHTML="C.1-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="C_2"){
-					for(var i=1;i<=9;i++){
-			            if(localStorage.getItem(inspection+'C.2imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'C.2imagepath'+i);
-			              var photo = document.getElementById("C.2photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("C.2pic"+i).innerHTML="C.2-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="D_1"){
-					for(var i=1;i<=13;i++){
-			            if(localStorage.getItem(inspection+'D.1imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'D.1imagepath'+i);
-			              var photo = document.getElementById("D.1photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("D.1pic"+i).innerHTML="D.1-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="D_2"){
-					for(var i=1;i<=13;i++){
-			            if(localStorage.getItem(inspection+'D.2imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'D.2imagepath'+i);
-			              var photo = document.getElementById("D.2photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("D.2pic"+i).innerHTML="D.2-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="D_3"){
-					for(var i=1;i<=12;i++){
-			            if(localStorage.getItem(inspection+'D.3imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'D.3imagepath'+i);
-			              var photo = document.getElementById("D.3photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("D.3pic"+i).innerHTML="D.3-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="D_4"){
-					for(var i=1;i<=15;i++){
-			            if(localStorage.getItem(inspection+'D.4imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'D.4imagepath'+i);
-			              var photo = document.getElementById("D.4photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("D.4pic"+i).innerHTML="D.4-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="E_1"){
-					for(var i=1;i<=8;i++){
-			            if(localStorage.getItem(inspection+'E.1imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'E.1imagepath'+i);
-			              var photo = document.getElementById("E.1photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("E.1pic"+i).innerHTML="E.1-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="E_2"){
-					for(var i=1;i<=8;i++){
-			            if(localStorage.getItem(inspection+'E.2imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'E.2imagepath'+i);
-			              var photo = document.getElementById("E.2photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("E.2pic"+i).innerHTML="E.2-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="E_3"){
-					for(var i=1;i<=12;i++){
-			            if(localStorage.getItem(inspection+'E.3imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'E.3imagepath'+i);
-			              var photo = document.getElementById("E.3photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("E.3pic"+i).innerHTML="E.3-"+i+".jpg";
-	                    }
-			         }
-				}
-				else if(page=="E_4"){
-					for(var i=1;i<=10;i++){
-			            if(localStorage.getItem(inspection+'E.4imagepath'+i)!==null){
-			              var ip = localStorage.getItem(inspection+'E.4imagepath'+i);
-			              var photo = document.getElementById("E.4photo"+i);
-	                      photo.src = ip; 
-	                      photo.style.display = 'inline-block';
-	                      document.getElementById("E.4pic"+i).innerHTML="E.4-"+i+".jpg";
-	                    }
-			         }
-				}
-				else{
-					console.log('..');
-				}
+			}
+			else if(page=="A_6"){
+				for(var i=1;i<=6;i++){
+		            if(localStorage.getItem(inspection+'A.6imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.6imagepath'+i);
+		              var photo = document.getElementById("A.6photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.6pic"+i).innerHTML="A.6-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="A_7"){
+				for(var i=1;i<=7;i++){
+		            if(localStorage.getItem(inspection+'A.7imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.7imagepath'+i);
+		              var photo = document.getElementById("A.7photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.7pic"+i).innerHTML="A.7-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="A_8"){
+				for(var i=1;i<=5;i++){
+		            if(localStorage.getItem(inspection+'A.8imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'A.8imagepath'+i);
+		              var photo = document.getElementById("A.8photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("A.8pic"+i).innerHTML="A.8-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="B_1"){
+				for(var i=1;i<=10;i++){
+		            if(localStorage.getItem(inspection+'B.1imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'B.1imagepath'+i);
+		              var photo = document.getElementById("B.1photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("B.1pic"+i).innerHTML="B.1-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="B_2"){
+				for(var i=1;i<=10;i++){
+		            if(localStorage.getItem(inspection+'B.2imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'B.2imagepath'+i);
+		              var photo = document.getElementById("B.2photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("B.2pic"+i).innerHTML="B.2-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="B_3"){
+				for(var i=1;i<=9;i++){
+		            if(localStorage.getItem(inspection+'B.3imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'B.3imagepath'+i);
+		              var photo = document.getElementById("B.3photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("B.3pic"+i).innerHTML="B.3-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="C_1"){
+				for(var i=1;i<=12;i++){
+		            if(localStorage.getItem(inspection+'C.1imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'C.1imagepath'+i);
+		              var photo = document.getElementById("C.1photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("C.1pic"+i).innerHTML="C.1-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="C_2"){
+				for(var i=1;i<=9;i++){
+		            if(localStorage.getItem(inspection+'C.2imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'C.2imagepath'+i);
+		              var photo = document.getElementById("C.2photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("C.2pic"+i).innerHTML="C.2-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="D_1"){
+				for(var i=1;i<=13;i++){
+		            if(localStorage.getItem(inspection+'D.1imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'D.1imagepath'+i);
+		              var photo = document.getElementById("D.1photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("D.1pic"+i).innerHTML="D.1-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="D_2"){
+				for(var i=1;i<=13;i++){
+		            if(localStorage.getItem(inspection+'D.2imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'D.2imagepath'+i);
+		              var photo = document.getElementById("D.2photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("D.2pic"+i).innerHTML="D.2-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="D_3"){
+				for(var i=1;i<=12;i++){
+		            if(localStorage.getItem(inspection+'D.3imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'D.3imagepath'+i);
+		              var photo = document.getElementById("D.3photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("D.3pic"+i).innerHTML="D.3-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="D_4"){
+				for(var i=1;i<=15;i++){
+		            if(localStorage.getItem(inspection+'D.4imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'D.4imagepath'+i);
+		              var photo = document.getElementById("D.4photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("D.4pic"+i).innerHTML="D.4-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="E_1"){
+				for(var i=1;i<=8;i++){
+		            if(localStorage.getItem(inspection+'E.1imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'E.1imagepath'+i);
+		              var photo = document.getElementById("E.1photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("E.1pic"+i).innerHTML="E.1-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="E_2"){
+				for(var i=1;i<=8;i++){
+		            if(localStorage.getItem(inspection+'E.2imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'E.2imagepath'+i);
+		              var photo = document.getElementById("E.2photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("E.2pic"+i).innerHTML="E.2-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="E_3"){
+				for(var i=1;i<=12;i++){
+		            if(localStorage.getItem(inspection+'E.3imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'E.3imagepath'+i);
+		              var photo = document.getElementById("E.3photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("E.3pic"+i).innerHTML="E.3-"+i+".jpg";
+                    }
+		         }
+			}
+			else if(page=="E_4"){
+				for(var i=1;i<=10;i++){
+		            if(localStorage.getItem(inspection+'E.4imagepath'+i)!==null){
+		              var ip = localStorage.getItem(inspection+'E.4imagepath'+i);
+		              var photo = document.getElementById("E.4photo"+i);
+                      photo.src = ip; 
+                      photo.style.display = 'inline-block';
+                      document.getElementById("E.4pic"+i).innerHTML="E.4-"+i+".jpg";
+                    }
+		         }
+			}
+			else{
+				console.log('..');
 			}
 		}
+	}
 		
 	function goSubmit() {
 		window.alert("Got to goSubmit");
@@ -420,11 +420,11 @@
         sourceType: source });
       console.log("HERE?");
     }
-    function clearStorage(){
-      localStorage.clear();
-      ClearDirectory();
+    function DeleteInspectionPictures(){
+      //localStorage.clear();
+      ClearInspectionDirectory();
       //check this?
-      navigator.camera.cleanup(onSuccess, onFail);
+      //navigator.camera.cleanup(onSuccess, onFail);
     } 
     function onSuccess() {
 	    console.log("Camera cleanup success.");
@@ -521,7 +521,7 @@
       	var newFileName = n +"_E.4-" + x + ".jpg";
       }
       //var myFolderApp = "MyAppFolder";
-      var myFolderApp = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
+      var myFolderApp = 'MyAppFolder/'+localStorage.getItem('HBRA_InspectionId');
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
       //The folder is created if doesn't exist
       fileSys.root.getDirectory( myFolderApp,
@@ -533,6 +533,9 @@
                       },
       resOnError);
   }
+
+
+
 
   //Callback function when the file has been moved successfully - inserting the complete path
   //var entryReader; 
@@ -712,29 +715,10 @@
     var image = document.getElementById(photoNum);
     var inspection = localStorage.getItem('HBRA_InspectionId');
       localStorage.setItem((inspection+pathNum), entry.toURL()); 
-      console.log(entry.toURL());
+      console.log("key:   " + (inspection+pathNum));
+      console.log("val:   " + entry.toURL());
       image.src = localStorage.getItem(inspection+pathNum);
-  }
-  // Get a directory reader
-  //var dirEntry = new DirectoryEntry(MyAppFolder, 'file:///var/mobile/Containers/Data/Application/E6BF8F6A-405D-4BEF-B556-CA1D46E4436A/Documents/MyAppFolder');
-  // Get a list of all the entries in the directory
-    function ClearDirectory() {
-      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-      function fail(evt) {
-          alert("FILE SYSTEM FAILURE" + evt.target.error.code);
-      }
-      function onFileSystemSuccess(fileSystem) {
-      	//var picFolder = localStorage.getItem('HBRA_InspectionId') + "pictureFolder";
-        var picFolder ="MyAppFolder"; 
-          fileSystem.root.getDirectory(
-               picFolder,
-              {create : true, exclusive : false},
-              function(entry) {
-              entry.removeRecursively(function() {
-                  console.log("Remove Recursively Succeeded");
-              }, fail);
-          }, fail);
-      }
+      //listDir(cordova.file.applicationDirectory);
   }
   function resOnError(error) {
       alert(error.code);
@@ -859,18 +843,18 @@
     console.log('here');
   }
 
-	//something to do
-	window.onbeforeunload = exit();
+//something to do
+window.onbeforeunload = exit();
 
-	function exit(){
-		console.log('wait!!');
-	}
-	function setReset(){
-		console.log("SET REset");
-		if(document.getElementById('customHeaderInput').innerHTML!==null){
-				if(document.getElementById('setReset').innerHTML="set"){
-					document.getElementById('headingCustom').innerHTML= document.getElementById('customHeaderInput').innerHTML;
-					document.getElementById('customHeaderInput').style.visibility=hidden;
-			}
+function exit(){
+	console.log('wait!!');
+}
+function setReset(){
+	console.log("SET REset");
+	if(document.getElementById('customHeaderInput').innerHTML!==null){
+			if(document.getElementById('setReset').innerHTML="set"){
+				document.getElementById('headingCustom').innerHTML= document.getElementById('customHeaderInput').innerHTML;
+				document.getElementById('customHeaderInput').style.visibility=hidden;
 		}
 	}
+}

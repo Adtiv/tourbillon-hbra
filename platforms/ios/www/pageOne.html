@@ -42,6 +42,9 @@
 				&nbsp;&nbsp;
 				<a onclick="chooseAddInspection();"></font><font color=green size="+3"><strong>+</strong></font></a>
 			</div><br/>
+			<div class="label" style="text-align:center;font-size: 12px;">
+				<i>- Fill in the following fields and select 'Set Defaults' to create/change your default form header for all inspections.</i> 
+			</div> 
 			<div class="label">Company Inspected:</div> <input type="text" name="company" id="company" class="input"/><br/><br/>
 			<div class="label">Trade:</div> <input type="text" name="trade" id="trade" class="input"/><br/><br/>
 			<div class="label" hidden>Job Name:</div> <input type="text" name="jobName" id="jobName" class="input" hidden/>
@@ -56,13 +59,10 @@
 			<div class="label">Employee #:</div><input type="text" name="employeeNum" id="employeeNum" class="input"/><br/><br/>
 			<div class="label">Weather or Special Conditions:</div><textarea name="weatherCom" id="weatherCom" class="textArea"></textarea>
 			</form>
-			<button id="btnSetdefaults" onclick="SetDefaults()">&#8613; Set The Above as Defaults &#8613;</button>
 			<br/><br/>
-			<br/><br/>
-
     </div>
  	<a onclick="storeLocalContent('save')"/><div class="btnSaveLater">Save Answers and Resume Later</div></a>
-	<div class="bottom-bar"><!--<input type="button" class="submitBottom" value="Submit Form" onclick="{storeLocalContent();generatePDF();}"/>--><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
+	<div class="bottom-bar"><input type="button" class="submitBottom" value="Set Defaults" onclick="SetDefaults()"/><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
 </body>
 <script type="text/javascript" src="vendor/jquery.js"></script>
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>

@@ -1,4 +1,3 @@
-
 //************************************************************************
 //********************** Setup Processing **********************************
 //************************************************************************
@@ -133,12 +132,93 @@ function confirmDelCallback(buttonIndex) {
     try {
     if (buttonIndex == 1) {
       DeleteInspection();
+      DeleteInspectionPictures();
       setTimeout(confirmDelClear,300);
     }
     } catch (e) {
       window.alert("Error in confirmDelCallback: " + e.message);
     }
 }
+
+
+
+function DeleteInspectionPictures(){
+  //listDir();
+  clearInspectionDirectory();
+  clearInspectionStorage();
+  //listDir();
+  //navigator.camera.cleanup(onSuccess, onFail);
+} 
+
+function clearInspectionDirectory() {
+  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+  function fail(evt) {
+      alert("FILE SYSTEM FAILURE" + evt.target.error.code);
+  }
+  function onFileSystemSuccess(fileSystem) {
+    var picFolder = "MyAppFolder/"+localStorage.getItem('HBRA_InspectionId');
+    //var picFolder ="MyAppFolder"; 
+      fileSystem.root.getDirectory(
+           picFolder,
+          {create : true, exclusive : false},
+          function(entry) {
+          entry.removeRecursively(function() {
+              console.log(entry.toURL());
+              console.log("Remove Recursively Succeeded");
+          }, fail);
+      }, fail);
+  }
+}
+function clearInspectionStorage(){
+  for (var key in localStorage){
+     console.log(key)
+     if(key.includes(localStorage.getItem('HBRA_InspectionId'))){
+      localStorage.removeItem(key);
+     }
+  }
+}
+
+/* //to list file directory contents
+function listDir(){
+  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFileSystemFail);
+  function onFileSystemSuccess(fileSystem) {
+      var directoryEntry = fileSystem.root;
+      directoryEntry.getDirectory("Job_00001", {create: true, exclusive: false}, onDirectorySuccess, onDirectoryFail);
+  }
+
+  function onDirectorySuccess(parent) {
+      var directoryReader = parent.createReader();
+      directoryReader.readEntries(success, fail);
+  }
+
+  function fail(error) {
+      alert("Failed to list directory contents: " + error.code);
+  }
+
+  function success(entries) {
+      if (entries.length == 0)
+          console.log("No Records");
+      else
+      {
+        console.log(entries);
+          for (var i = 0; i < entries.length; i++) {
+              entries[i].file(function (file) {
+                  console.log("file.name " + file.name);
+              })
+          }
+          console.log('file list created');
+      }
+  }
+
+  function onDirectoryFail(error) {
+      alert("Unable to create new directory: " + error.code);
+  }
+
+  function onFileSystemFail(evt) {
+      console.log(evt.target.error.code);
+  }
+}
+*/
 
 function confirmDelClear(){
   try {
@@ -267,30 +347,30 @@ function setupNewInspection(inspID) {
 //************************************************************************
 function storeLocalContent(next){
   try {
-	//window.alert("storeLocalContent: " + next);
-	//if (next == "save") {
-	//	navigator.notification.alert(
-  //  			'Press OK',  // message
-  //  			null,	  // no callback	
-  //  	   	 	'Saved',  // title
-  //  	   	 	'OK'      // buttonName
-	//			);
-	//		}
+  //window.alert("storeLocalContent: " + next);
+  //if (next == "save") {
+  //  navigator.notification.alert(
+  //        'Press OK',  // message
+  //        null,   // no callback  
+  //          'Saved',  // title
+  //          'OK'      // buttonName
+  //      );
+  //    }
 
   //window.alert("storeLocalContent Step 2");
-	var comp = document.getElementById('company').value;
-	var tradeType = document.getElementById('trade').value;
-	var nameJob = document.getElementById('jobName').value;
-	var numJob = document.getElementById('jobNum').value;
-	var byInsp = document.getElementById('inspBy').value;
-	var emailAddress = document.getElementById('email').value
-	var jobTitle = document.getElementById('title').value;
-	var numEmp = document.getElementById('empNum').value;
-	var timeBegin = document.getElementById('datetimepicker').value;
-	//var timeEnd = document.getElementById('datetimepicker2').value;
-	var nameRep = document.getElementById('repName').value;
-	var employeeNum = document.getElementById('employeeNum').value;
-	var comWeather = document.getElementById('weatherCom').value;
+  var comp = document.getElementById('company').value;
+  var tradeType = document.getElementById('trade').value;
+  var nameJob = document.getElementById('jobName').value;
+  var numJob = document.getElementById('jobNum').value;
+  var byInsp = document.getElementById('inspBy').value;
+  var emailAddress = document.getElementById('email').value
+  var jobTitle = document.getElementById('title').value;
+  var numEmp = document.getElementById('empNum').value;
+  var timeBegin = document.getElementById('datetimepicker').value;
+  //var timeEnd = document.getElementById('datetimepicker2').value;
+  var nameRep = document.getElementById('repName').value;
+  var employeeNum = document.getElementById('employeeNum').value;
+  var comWeather = document.getElementById('weatherCom').value;
 
   // For Database Updates
   //window.alert("storeLocalContent Step 4");
@@ -313,16 +393,16 @@ function storeLocalContent(next){
   UpdateInspection(); //  save to the database
 
   //window.alert("storeLocalContent Step 6");
-	if(next=="next"){
+  if(next=="next"){
     //window.alert("storeLocalContent Step 7");
-		if(localStorage.getItem("s")!=null){
-			var x = "checks";
-			localStorage.setItem("s", x);
-			localStorage.setItem("pageCount", 0);
+    if(localStorage.getItem("s")!=null){
+      var x = "checks";
+      localStorage.setItem("s", x);
+      localStorage.setItem("pageCount", 0);
       //window.alert("storeLocalContent Step 8");
-		}
+    }
     //window.alert("storeLocalContent Step 9");
-		window.location.href = "pageTwo.html";
+    window.location.href = "pageTwo.html";
   } else if (next=="save") {  // this is for next value = "save"
           navigator.notification.alert(
           'Press OK',  // message
@@ -335,31 +415,35 @@ function storeLocalContent(next){
 }
 //*******************************************************************************
 
-	function popup(){
-		document.getElementById('popup').style.visibility='visible';
-		document.getElementById('popup').style.position='fixed';
-		document.getElementById('popup').style.top='1';
-	}
-	function no(){
-		document.getElementById('popup').style.visibility='hidden';
-	}
-	function clearStorage(){
-		localStorage.clear();
-		ClearDirectory();
+  function popup(){
+    document.getElementById('popup').style.visibility='visible';
+    document.getElementById('popup').style.position='fixed';
+    document.getElementById('popup').style.top='1';
+  }
+  function no(){
+    document.getElementById('popup').style.visibility='hidden';
+  }
+  function clearStorage(){
+    console.log("GETTING TO THE RIGHT PLACE?");
+    ClearDirectory();
     DeleteInspectionsDB();  // delete the whole database as well
-		window.location.href="index.html"
-	}
-	function ClearDirectory() {
+    localStorage.clear();
+    window.location.href="index.html"
+  }
+  function ClearDirectory() {
+    console.log("GETS TO CLEAR DIR");
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
       function fail(evt) {
           alert("FILE SYSTEM FAILURE" + evt.target.error.code);
       }
       function onFileSystemSuccess(fileSystem) {
+          console.log("GETS TO SUCCESS");
           fileSystem.root.getDirectory(
-               "MyAppFolder",
+              "MyAppFolder",
               {create : true, exclusive : false},
               function(entry) {
               entry.removeRecursively(function() {
+                  console.log(entry.toURL());
                   console.log("Remove Recursively Succeeded");
               }, fail);
           }, fail);
@@ -373,32 +457,32 @@ function storeLocalContent(next){
           }, fail);
       }
   }
-  	function generatePDF(){
-  		//window.alert("generatePDF");
-  		//window.alert('App.js - Brians Updated Change - Entering generatePDF');
-  		window.location.href = "formComplete.html"; 		
-	}
-// Should be obsolete function	
-//	function viewDocument()
-//	{
-//		window.alert('App.js - Bad-Entered viewDocument');
-//		var pdfPath = localStorage.getItem('pdfURL');
-//		window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-//	}
-	function View()
-	{
-		//window.alert("View");
-		if (device.platform == "iOS") {
-				window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
-		} else {
-			navigator.notification.alert(
+    function generatePDF(){
+      //window.alert("generatePDF");
+      //window.alert('App.js - Brians Updated Change - Entering generatePDF');
+      window.location.href = "formComplete.html";     
+  }
+// Should be obsolete function  
+//  function viewDocument()
+//  {
+//    window.alert('App.js - Bad-Entered viewDocument');
+//    var pdfPath = localStorage.getItem('pdfURL');
+//    window.open(pdfPath, '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
+//  }
+  function View()
+  {
+    //window.alert("View");
+    if (device.platform == "iOS") {
+        window.open(localStorage.getItem("HbraPDF"), '_blank', 'location=no');
+    } else {
+      navigator.notification.alert(
             'Press OK',  // message
             null,   // no callback  
               'PDF View feature only supported on iOS',  // title
               'OK'      // buttonName
           );
-		}
-	}
+    }
+  }
 
 //************************************************************************
 //********************** Set Default Processing **********************************

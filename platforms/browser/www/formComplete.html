@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Local Data Test</title>
 	<link href="style/style.css" rel="stylesheet"/>
-	<script type="text/javascript" charset="utf-8" src="script/cordova.js"></script>
+	<!--script type="text/javascript" charset="utf-8" src="script/cordova.js"></script-->
 	<link rel="stylesheet" type="text/css" href="vendor/dateTimePicker/jquery.datetimepicker.css"/>
     <script type='application/javascript' src='script/fastclick-master/lib/fastclick.js'></script>
 	<script type="text/javascript">
@@ -83,7 +83,7 @@
 					</div>
 					<div>
 					Insp. Date: <span class="formText input" id="inspDate" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span> Time: <span class="formText input" id="beginTime" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
-					to <span class="formText input" id="endTime" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
+					<span class="formText input" id="endTime" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
 					</div>
 					<div>
 					On-Site Safety Representative or Competent Person: <span class="formText input" id="repName" style="font-weight: bold; text-decoration: underline; margin-right:20px;"></span>
@@ -139,7 +139,7 @@
 					<p class="formText nonCompliance" id="A.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 3. Travel/Access ways (unobstructed and maintained): <span class="input" id="scoreA.2-3"></span></p>
 					<p class="formText nonCompliance" id="A.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
-					<p class="formText"> 4. All holes and openings (floor, roof, window and other) adequately protected by barriers/barricades and MARKED: <span class="input" id="scoreA.2-4"></span></p>
+					<p class="formText"> 4. <strong>MANDATORY:</strong> All holes and openings (floor, roof, window and other) adequately protected by barriers/barricades and MARKED: <span class="input" id="scoreA.2-4"></span></p>
 					<p class="formText nonCompliance" id="A.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 5. Public and Worker Accessibility, Detours Adequate, Detours, Canopies, Sidewalks, etc: <span class="input" id="scoreA.2-5"></span></p>
 					<p class="formText nonCompliance" id="A.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -158,7 +158,7 @@
 				</div>		
 				<div class="A_3" id="A.3" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style="font-size:14px;"><strong>A.3 Personal Protective Equipment (PPE)</strong></p><br>
-					<p class="formText"> 1. Hard Hats (Worn at all Times): <span class="input" id="scoreA.3-1"></span></p>
+					<p class="formText"> 1. <strong>MANDATORY:</strong> Hard Hats (Worn at all Times): <span class="input" id="scoreA.3-1"></span></p>
 					<p class="formText nonCompliance" id="A.3compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 2. Safety Vests (if Required): <span class="input" id="scoreA.3-2"></span></p>
 					<p class="formText nonCompliance" id="A.3compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -283,9 +283,9 @@
 					<p class="subCatTitle" style="font-size:14px;"><strong>B.1 General Fall Protection </strong></p><br>
 					<p class="formText"> 1. Employee Training/Certification: <span class="input" id="scoreB.1-1"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
-					<p class="formText"> 2. Holes/Openings Covered or Barricaded (capacity 2x Intended load, secure, marked Hole or Cover): <span class="input" id="scoreB.1-2"></span></p>
+					<p class="formText"> 2. <strong>MANDATORY:</strong> Holes/Openings Covered or Barricaded (capacity 2x Intended load, secure, marked Hole or Cover): <span class="input" id="scoreB.1-2"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
-					<p class="formText"> 3. Nets in Place &#45; Inspections Up to Date: <span class="input" id="scoreB.1-3"></span></p>
+					<p class="formText"> 3. <strong>MANDATORY:</strong> Nets in Place &#45; Inspections Up to Date: <span class="input" id="scoreB.1-3"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 4. Positioning Devices: <span class="input" id="scoreB.1-4"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -295,7 +295,7 @@
 					<p class="formText nonCompliance" id="B.1compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 7. Residential Roofing (Fall Protection Plan, Training): <span class="input" id="scoreB.1-7"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
-					<p class="formText"> 8. <strong>MANDATORY:</strong> Falling Object Protection (Hard Hats, Debris Nets, Overhead Protection, Canopies): <span class="input" id="scoreB.1-8"></span></p>
+					<p class="formText"> 8. Falling Object Protection (Hard Hats, Debris Nets, Overhead Protection, Canopies): <span class="input" id="scoreB.1-8"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 9. Guardrails (42" Top/21" Mid/4" toe; 200# capacity; 3"rail deflection): <span class="input" id="scoreB.1-9"></span></p>
 					<p class="formText nonCompliance" id="B.1compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -335,7 +335,7 @@
 					<p class="formText nonCompliance" id="B.3compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 2. Damaged Ladders Removed From Service Immediately: <span class="input" id="scoreB.3-2"></span></p>
 					<p class="formText nonCompliance" id="B.3compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
-					<p class="formText"> 3. <strong>MANDATORY:</strong> Anchored / Tied Off and Extend 3 Feet Above Landing: <span class="input" id="scoreB.3-3"></span></p>
+					<p class="formText"> 3. Anchored / Tied Off and Extend 3 Feet Above Landing: <span class="input" id="scoreB.3-3"></span></p>
 					<p class="formText nonCompliance" id="B.3compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 4. 1 : 4 Pitch: <span class="input" id="scoreB.3-4"></span></p>
 					<p class="formText nonCompliance" id="B.3compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -384,7 +384,7 @@
 				</div>
 				<div id="C.2" style="visibility:hidden;display:none;">
 					<p class="subCatTitle" style="font-size:14px;"><strong>C.2 Electrical</strong></p><br>
-					<p class="formText"> 1. Breakers Labeled, High Voltage Signs Posted and Adequate Access - 36&#34; Clear Around Electrical Panel: Left, Right, Top and Bottom Under Panel and in Front of: <span class="input" id="scoreC.2-1"></span></p>
+					<p class="formText"> 1. <strong>MANDATORY:</strong> Breakers Labeled, High Voltage Signs Posted and Adequate Access - 36&#34; Clear Around Electrical Panel: Left, Right, Top and Bottom Under Panel and in Front of: <span class="input" id="scoreC.2-1"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance1" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 2. All Electrical Receptacles GFCI Protected: <span class="input" id="scoreC.2-2"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance2" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -392,7 +392,7 @@
 					<p class="formText nonCompliance" id="C.2compliance3" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 4. Extension Cords have Grounding Conductor: <span class="input" id="scoreC.2-4"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance4" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
-					<p class="formText"> 5. Lockout/Tag-out Program in Place: <span class="input" id="scoreC.2-5"></span></p>
+					<p class="formText"> 5. <strong>MANDATORY:</strong> Lockout/Tag-out Program in Place: <span class="input" id="scoreC.2-5"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance5" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 6. Installations are Appropriate for Location (Exposure to Weather, Flammable Fumes, Solids, Liquids, etc.): <span class="input" id="scoreC.2-6"></span></p>
 					<p class="formText nonCompliance" id="C.2compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
@@ -484,7 +484,7 @@
 					<p class="formText nonCompliance" id="D.3compliance6" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 7. Sloping (per OSHA Tables): <span class="input" id="scoreD.3-7"></span></p>
 					<p class="formText nonCompliance" id="D.3compliance7" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>	
-					<p class="formText"> 8. Trench Boxes or Shields Properly in Place: <span class="input" id="scoreD.3-8"></span></p>
+					<p class="formText"> 8. <strong>MANDATORY:</strong> Trench Boxes or Shields Properly in Place: <span class="input" id="scoreD.3-8"></span></p>
 					<p class="formText nonCompliance" id="D.3compliance8" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
 					<p class="formText"> 9. Trench Boxes Certification &amp; Data on File at Site: <span class="input" id="scoreD.3-9"></span></p>
 					<p class="formText nonCompliance" id="D.3compliance9" style="font-style: italic;margin-left: 10%;word-break: break-all;"></p>
