@@ -521,7 +521,9 @@
       	var newFileName = n +"_E.4-" + x + ".jpg";
       }
       //var myFolderApp = "MyAppFolder";
-      var myFolderApp = 'MyAppFolder/'+localStorage.getItem('HBRA_InspectionId');
+      //var myFolderApp = 'MyAppFolder/'+localStorage.getItem('HBRA_InspectionId');
+      // Below (no slash) is temp until problem diagnosed with above
+      var myFolderApp = 'MyAppFolder'+localStorage.getItem('HBRA_InspectionId');  
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
       //The folder is created if doesn't exist
       fileSys.root.getDirectory( myFolderApp,
