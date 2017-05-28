@@ -40,7 +40,7 @@
 				&nbsp;&nbsp;
 				<select id="selectInspection" onchange="chooseSelection();"></select>
 				&nbsp;&nbsp;
-				<a onclick="chooseAddInspection();"></font><font color=green size="+3"><strong>+</strong></font></a>
+				<a onclick="chooseAddInspection();"><font color=green size="+3"><strong>+</strong></font></a>
 			</div><br/>
 			<div class="label" style="text-align:center;font-size: 12px;">
 				<i>- Fill in the following fields and select 'Set Defaults' to create/change your default form header for all inspections.</i> 
@@ -61,13 +61,13 @@
 			</form>
 			<br/><br/>
     </div>
- 	<a onclick="storeLocalContent('save')"/><div class="btnSaveLater">Save Answers and Resume Later</div></a>
+ 	<a onclick="storeLocalContent('save')"><div class="btnSaveLater">Save Answers and Resume Later</div></a>
 	<div class="bottom-bar"><input type="button" class="submitBottom" value="Set Defaults" onclick="SetDefaults()"/><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
-</body>
 <script type="text/javascript" src="vendor/jquery.js"></script>
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
 <script src="script/app.js" type="text/javascript"></script>
 <script src="script/inspectionDbHandler.js" type="text/javascript"></script>
 <script src="script/setup.js" type="text/javascript"></script>
 <script type="text/javascript" src="script/jsPDF-1.0.272/dist/jspdf.debug.js"></script>
+</body>
 </html>
