@@ -1,5 +1,4 @@
-		//Initializes the localstorage based on the page
-
+	//Initializes the localstorage based on the page
 	function subCatInitialize(page){
 	      //window.alert("Entered subCatInitialize for page: " + page);
 	      var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
@@ -432,7 +431,7 @@
     function movePic(file){ 
         window.resolveLocalFileSystemURL(file, resolveOnSuccess, resOnError); 
     } 
-    function resolveOnSuccess(entry){ 
+    function resolveOnSuccess(entry) { 
       var d = new Date();
       var n = d.getTime();
       //new file name
@@ -520,24 +519,40 @@
       	x=x-199;
       	var newFileName = n +"_E.4-" + x + ".jpg";
       }
-      //var myFolderApp = "MyAppFolder";
-      //var myFolderApp = 'MyAppFolder/'+localStorage.getItem('HBRA_InspectionId');
-      // Below (no slash) is temp until problem diagnosed with above
-      var myFolderApp = 'MyAppFolder'+localStorage.getItem('HBRA_InspectionId');  
+
+      var myFolderApp = 'MyAppFolder';  
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
       //The folder is created if doesn't exist
       fileSys.root.getDirectory( myFolderApp,
-                      {create:true, exclusive: false},
-                      function(directory) {
-                          entry.moveTo(directory, newFileName,  successMove, resOnError);
-                      },
+                      {create:true, exclusive: false}, gotFS,
                       resOnError);
                       },
       resOnError);
+
+    var gotFS = function(fileSystem) {
+      console.log("GotFS Directory: " + fileSystem.fullPath);
+      var subDir = localStorage.getItem('HBRA_InspectionId');
+      console.log("GotFS Subdirectory: " + subDir);
+      try {
+        fileSystem.getDirectory(subDir, {
+          create : true,
+          exclusive : false
+        }, successCB, failCB);
+        console.log("GotFS completed");
+      }  catch (e) {
+        console.log("GotFS Error" + e.message);
+      }
+    };
+
+    var successCB = function(directory) {
+      entry.moveTo(directory, newFileName,  successMove, resOnError);
+      console.log("SuccessCB - file moved: " + directory.fullPath);
+    };
+    
+    var failCB = function(){
+      console.log("FailedCB - failed to create dir ");
+    };
   }
-
-
-
 
   //Callback function when the file has been moved successfully - inserting the complete path
   //var entryReader; 
