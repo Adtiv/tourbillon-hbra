@@ -58,11 +58,12 @@
 				<div class="underling"><input type="text" name="repName" id="repName" class="input"/><div class="on-site-label">First and Last Name:</div></div><br/><br/>
 			<div class="label">Employee #:</div><input type="text" name="employeeNum" id="employeeNum" class="input"/><br/><br/>
 			<div class="label">Weather or Special Conditions:</div><textarea name="weatherCom" id="weatherCom" class="textArea"></textarea>
+			<br/><br/>
 			</form>
 			<br/><br/>
     </div>
- 	<a onclick="storeLocalContent('save')"><div class="btnSaveLater">Save Answers and Resume Later</div></a>
-	<div class="bottom-bar"><input type="button" class="submitBottom" value="Set Defaults" onclick="SetDefaults()"/><btn onclick="storeLocalContent('next')"><img class="next" src="images/next.png"></btn></div>
+ 	<a onclick="storeLocalContent('save')" id="btnSaveOpt"><div class="btnSaveLater">Save Answers and Resume Later</div></a>
+	<div class="bottom-bar"><input type="button" class="submitBottom" value="Set Defaults" onclick="SetDefaults()"/><btn onclick="storeLocalContent('next')" id="btnStoreOpt"><img class="next" src="images/next.png"></btn></div>
 <script type="text/javascript" src="vendor/jquery.js"></script>
 <script type="text/javascript" src="vendor/transit/jquery.transit.min.js"></script>
 <script src="script/app.js" type="text/javascript"></script>

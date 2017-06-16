@@ -2,6 +2,7 @@
 //********************** Setup Processing **********************************
 //************************************************************************
 function setupRefresh(){
+  console.log("Entered SetupRefresh");
   try {
     var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
     if(!bSupportsLocal){
@@ -43,14 +44,22 @@ function setupRefresh2(){
         //window.alert("Inspection ID Inited is: " + window.localStorage.getItem('HBRA_InspectionId') + window.localStorage.getItem('HBRA_jobName') + " index: " + i);
         } 
       } 
+      document.getElementById("btnSaveOpt").style.display = "inline"; 
+      document.getElementById("btnStoreOpt").style.display = "inline";
       setTimeout(setupRefresh3);
     } else {
       //window.alert("No Inspections left")
       document.getElementById('inspectNumber_P1').innerHTML='<font color=green>***Add Inspection</font>';
       var option = document.createElement("option");
-      option.text = 'First Set Defaults';
+      if (localStorage.HBRA_DefaultsSet) {
+        option.text = 'Now Add Inspection';
+      } else {
+        option.text = 'First Set Defaults';
+        setupRefreshClear();
+      }
       selectBox.appendChild(option);
-      setupRefreshClear();
+      document.getElementById("btnSaveOpt").style.display = "none"; 
+      document.getElementById("btnStoreOpt").style.display = "none";
     }
    } catch (e) {
     window.alert("Setup.js Refresh2 error: " + e.message);
@@ -347,70 +356,62 @@ function setupNewInspection(inspID) {
 //************************************************************************
 function storeLocalContent(next){
   try {
-  //window.alert("storeLocalContent: " + next);
-  //if (next == "save") {
-  //  navigator.notification.alert(
-  //        'Press OK',  // message
-  //        null,   // no callback  
-  //          'Saved',  // title
-  //          'OK'      // buttonName
-  //      );
-  //    }
+    if (localStorage.HBRA_InspectionId) { 
+      var comp = document.getElementById('company').value;
+      var tradeType = document.getElementById('trade').value;
+      var nameJob = document.getElementById('jobName').value;
+      var numJob = document.getElementById('jobNum').value;
+      var byInsp = document.getElementById('inspBy').value;
+      var emailAddress = document.getElementById('email').value
+      var jobTitle = document.getElementById('title').value;
+      var numEmp = document.getElementById('empNum').value;
+      var timeBegin = document.getElementById('datetimepicker').value;
+      //var timeEnd = document.getElementById('datetimepicker2').value;
+      var nameRep = document.getElementById('repName').value;
+      var employeeNum = document.getElementById('employeeNum').value;
+      var comWeather = document.getElementById('weatherCom').value;
 
-  //window.alert("storeLocalContent Step 2");
-  var comp = document.getElementById('company').value;
-  var tradeType = document.getElementById('trade').value;
-  var nameJob = document.getElementById('jobName').value;
-  var numJob = document.getElementById('jobNum').value;
-  var byInsp = document.getElementById('inspBy').value;
-  var emailAddress = document.getElementById('email').value
-  var jobTitle = document.getElementById('title').value;
-  var numEmp = document.getElementById('empNum').value;
-  var timeBegin = document.getElementById('datetimepicker').value;
-  //var timeEnd = document.getElementById('datetimepicker2').value;
-  var nameRep = document.getElementById('repName').value;
-  var employeeNum = document.getElementById('employeeNum').value;
-  var comWeather = document.getElementById('weatherCom').value;
+      // For Database Updates
+      window.localStorage.setItem('HBRA_company', comp);
+      window.localStorage.setItem('HBRA_trade', tradeType);
+      window.localStorage.setItem('HBRA_jobName', nameJob);
+      window.localStorage.setItem('HBRA_jobNum', numJob);
+      window.localStorage.setItem('HBRA_inspBy', byInsp);
+      window.localStorage.setItem('HBRA_email', emailAddress);
+      window.localStorage.setItem('HBRA_title', jobTitle);
+      window.localStorage.setItem('HBRA_empNum', numEmp);
+      window.localStorage.setItem('HBRA_beginTime', timeBegin);
+      //window.localStorage.setItem('HBRA_endTime', timeEnd);
+      window.localStorage.setItem('HBRA_repName', nameRep);
+      window.localStorage.setItem('HBRA_employeeNum', employeeNum);
+      window.localStorage.setItem('HBRA_weatherCom', comWeather);
+      
+      UpdateInspection(); //  save to the database
 
-  // For Database Updates
-  //window.alert("storeLocalContent Step 4");
-  window.localStorage.setItem('HBRA_company', comp);
-  window.localStorage.setItem('HBRA_trade', tradeType);
-  window.localStorage.setItem('HBRA_jobName', nameJob);
-  window.localStorage.setItem('HBRA_jobNum', numJob);
-  window.localStorage.setItem('HBRA_inspBy', byInsp);
-  window.localStorage.setItem('HBRA_email', emailAddress);
-  window.localStorage.setItem('HBRA_title', jobTitle);
-  window.localStorage.setItem('HBRA_empNum', numEmp);
-  window.localStorage.setItem('HBRA_beginTime', timeBegin);
-  //window.localStorage.setItem('HBRA_endTime', timeEnd);
-  window.localStorage.setItem('HBRA_repName', nameRep);
-  window.localStorage.setItem('HBRA_employeeNum', employeeNum);
-  window.localStorage.setItem('HBRA_weatherCom', comWeather);
-  //window.alert("Inspection Being Saved is ID: " + window.localStorage.getItem('HBRA_InspectionId') + " JobName: " + window.localStorage.getItem('HBRA_jobName'));
-  
-  //window.alert("storeLocalContent Step 5");
-  UpdateInspection(); //  save to the database
-
-  //window.alert("storeLocalContent Step 6");
-  if(next=="next"){
-    //window.alert("storeLocalContent Step 7");
-    if(localStorage.getItem("s")!=null){
-      var x = "checks";
-      localStorage.setItem("s", x);
-      localStorage.setItem("pageCount", 0);
-      //window.alert("storeLocalContent Step 8");
-    }
-    //window.alert("storeLocalContent Step 9");
-    window.location.href = "pageTwo.html";
-  } else if (next=="save") {  // this is for next value = "save"
+      if(next=="next"){
+        if(localStorage.getItem("s")!=null){
+          var x = "checks";
+          localStorage.setItem("s", x);
+          localStorage.setItem("pageCount", 0);
+        }
+        window.location.href = "pageTwo.html";
+        } else if (next=="save") {  // this is for next value = "save"
           navigator.notification.alert(
           'Press OK',  // message
           function () {setTimeout(function(){ window.location.href="pageOne.html" }, 100);}, 
             'Saved',  // title
             'OK'      // buttonName
           );
-  } 
+          } 
+  
+    } else {
+          navigator.notification.alert(
+          'Must first create or select a job id',  // message
+          null,   // no callback  
+            'No Job Selected',  // title
+            'OK'      // buttonName
+          );
+        }
   } catch (e) {window.alert("Setup.js storeLocalContent error: " + e.message);}
 }
 //*******************************************************************************
@@ -516,13 +517,14 @@ function SetDefaults() {
   window.localStorage.setItem('default_repName', nameRep);
   window.localStorage.setItem('default_employeeNum', employeeNum);
   window.localStorage.setItem('default_weatherCom', comWeather);
+  localStorage.HBRA_DefaultsSet = "TRUE";    //Indicate that Defaults have been set
   navigator.notification.alert(
-            'Press OK',  // message
-              chooseAddInspection,   // callback  
-              'Defaults Set',  // title
-              'OK'    // buttonName  
+          "Defaults Have Been Set",
+          null,   // no callback  
+          'Defaults',  // title
+          'OK'  // buttonName    
           );
-
+  setupRefresh();
     }
 
 //************************************************************************
