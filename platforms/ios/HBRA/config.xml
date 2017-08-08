@@ -59,7 +59,9 @@
     <allow-intent href="geo:*" />
     <icon src="icon.png" />
     <icon height="58" src="icon-58.png" width="58" />
+    <icon height="76" src="icon-76.png" width="76" />
     <icon height="87" src="icon-87.png" width="87" />
+    <icon height="152" src="icon-152.png" width="152" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
