@@ -8,8 +8,8 @@
     },
     "installed_plugins": {
         "cordova-plugin-camera": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "CAMERA_USAGE_DESCRIPTION": "We are using the Camera for capturing site photos",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "We are using the Photo Library for saving site photo images",
             "PACKAGE_NAME": "com.phonegap.hbra"
         },
         "cordova-plugin-device": {
