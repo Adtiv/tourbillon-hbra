@@ -3,15 +3,6 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <description>
-        App for HBRA Inspections
-    </description>
-    <gap:config-file parent="NSPhotoLibraryUsageDescription" platform="ios">
-        <string>For saving site photo images</string>
-    </gap:config-file>
-    <gap:config-file parent="NSCameraUsageDescription" platform="ios">
-        <string>For capturing site photos</string>
-    </gap:config-file>
     <feature name="Camera">
         <param name="browser-package" value="Camera" />
     </feature>
