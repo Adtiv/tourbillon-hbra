@@ -47,7 +47,7 @@
     <icon height="120" src="SafetyLogo-60@2x.png" width="120" />
     <icon height="180" src="SafetyLogo-60@3x.png" width="180" />
     <icon height="167" src="SafetyLogo-83.5@2x.png" width="167" />
-    <icon height="1024" src="App Store iOS 1024pt.png" width="1024" />
+    <icon height="1024" src="SafetyLogo-512@2x.png" width="1024" />
     <splash height="480" src="res/screen/ios/Default~iphone.png" width="320" />
     <splash height="960" src="res/screen/ios/Default@2x~iphone.png" width="640" />
     <splash height="1024" src="res/screen/ios/Default-Portrait~ipad.png" width="768" />
