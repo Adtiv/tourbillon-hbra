@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.hbra" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.hbra" version="1.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>JOB SITE SAFETY</name>
     <description>
         App for HBRA Inspections
@@ -55,7 +55,7 @@
         <icon height="120" src="SafetyLogo-60@2x.png" width="120" />
         <icon height="180" src="SafetyLogo-60@3x.png" width="180" />
         <icon height="167" src="SafetyLogo-83.5@2x.png" width="167" />
-        <icon height="1024" src="SafetyLogo-512@2x.png" width="1024" />
+        <icon height="1024" src="SafetyLogo-512@2x.jpg" width="1024" />
         <splash height="480" src="res/screen/ios/Default~iphone.png" width="320" />
         <splash height="960" src="res/screen/ios/Default@2x~iphone.png" width="640" />
         <splash height="1024" src="res/screen/ios/Default-Portrait~ipad.png" width="768" />
